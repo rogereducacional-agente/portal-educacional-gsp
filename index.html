@@ -7,6 +7,7 @@
   <title>Portal Educacional GSP</title>
   <style>
     :root {
+      /* Identidade visual provisoria GSP. Trocar estes tokens quando Cleide enviar a paleta final. */
       --ink: #14213d;
       --ink-soft: #40516f;
       --paper: #f7f9fc;
@@ -17,6 +18,9 @@
       --green: #2e7d55;
       --amber: #b66a00;
       --coral: #c94836;
+      --purple: #6c3bc4;
+      --yellow: #f5b82e;
+      --orange: #e8752f;
       --shadow: 0 18px 46px rgba(20, 33, 61, .12);
       --radius: 8px;
       --max: 1180px;
@@ -79,7 +83,7 @@
       place-items: center;
       border-radius: 8px;
       color: #fff;
-      background: linear-gradient(135deg, var(--blue), var(--teal));
+      background: linear-gradient(135deg, var(--green), var(--purple));
       font-size: 13px;
       font-weight: 900;
     }
@@ -118,7 +122,7 @@
       inset: 0;
       background:
         linear-gradient(90deg, rgba(15, 36, 77, .96), rgba(15, 36, 77, .68), rgba(15, 36, 77, .24)),
-        url("../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png") center right / contain no-repeat;
+        url("assets/rematricula-2027/template-menu-principal-rematricula-2027-final.png") center right / contain no-repeat;
       opacity: .98;
     }
 
@@ -199,6 +203,13 @@
       background: #fff3d8;
       color: #633700;
       border-color: #f0d49a;
+    }
+
+    .btn.disabled {
+      background: #f1f4f8;
+      color: #6b778c;
+      border-color: var(--line);
+      cursor: default;
     }
 
     .status-strip {
@@ -496,6 +507,59 @@
       align-self: flex-start;
     }
 
+    .guide-hub {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .guide-intro, .guide-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .guide-intro {
+      border-left: 6px solid var(--purple);
+    }
+
+    .guide-intro h3, .guide-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .guide-intro p, .guide-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .guide-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .guide-card {
+      min-height: 154px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 5px solid var(--green);
+    }
+
+    .guide-card:nth-child(2) { border-top-color: var(--orange); }
+    .guide-card:nth-child(3) { border-top-color: var(--yellow); }
+    .guide-card:nth-child(4) { border-top-color: var(--blue); }
+    .guide-card:nth-child(5) { border-top-color: var(--purple); }
+
+    .guide-card .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
     .faq-list {
       display: grid;
       gap: 10px;
@@ -596,7 +660,7 @@
       .hero::before {
         background:
           linear-gradient(180deg, rgba(15, 36, 77, .96), rgba(15, 36, 77, .82), rgba(15, 36, 77, .58)),
-          url("../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png") bottom center / 92% auto no-repeat;
+          url("assets/rematricula-2027/template-menu-principal-rematricula-2027-final.png") bottom center / 92% auto no-repeat;
       }
 
       .status-strip,
@@ -604,6 +668,8 @@
       .grid-3,
       .grid-2,
       .spotlight,
+      .guide-hub,
+      .guide-actions,
       .support-band {
         grid-template-columns: 1fr;
       }
@@ -647,6 +713,7 @@
         <a href="#busca">Busca</a>
         <a href="#processos">Processos</a>
         <a href="#rematricula">Rematrícula</a>
+        <a href="#guia-amanda">Guia Amanda</a>
         <a href="#materiais">Materiais</a>
         <a href="#faq">FAQ</a>
         <a href="#roger">Roger</a>
@@ -661,6 +728,7 @@
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#rematricula">Abrir Rematrícula 2027</a>
+        <a class="btn secondary" href="#guia-amanda">Preparar guia da Amanda</a>
         <a class="btn secondary" href="#materiais">Ver biblioteca</a>
         <a class="btn secondary" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com Roger</a>
       </div>
@@ -744,15 +812,15 @@
           <p>Área de consulta para apoiar secretaria, atendimento, comercial, gestão e equipes que orientam responsáveis.</p>
         </div>
         <div class="inline-actions">
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir guia</a>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
+          <a class="btn ghost" href="assets/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir guia</a>
+          <a class="btn ghost" href="assets/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
         </div>
       </div>
 
       <div class="spotlight">
         <div class="video-frame">
-          <video controls poster="../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png">
-            <source src="../content/trilhas/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4" type="video/mp4">
+          <video controls poster="assets/rematricula-2027/template-menu-principal-rematricula-2027-final.png">
+            <source src="assets/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4" type="video/mp4">
           </video>
         </div>
         <div class="timeline">
@@ -784,6 +852,53 @@
               <p>Contrato, assinatura, formas de pagamento, primeira parcela e status final.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guia-amanda">
+      <div class="section-head">
+        <div>
+          <h2>Guia de Atendimento da Amanda</h2>
+          <p>Área preparada para receber o arquivo final e transformar cada botão em acesso direto a informações, documentos, vídeos e materiais essenciais.</p>
+        </div>
+        <div class="inline-actions">
+          <span class="btn disabled" aria-disabled="true">Aguardando arquivo</span>
+        </div>
+      </div>
+
+      <div class="guide-hub">
+        <article class="guide-intro">
+          <span class="tag amber">Preparado</span>
+          <h3>Estrutura pronta para receber o guia</h3>
+          <p>Quando Amanda liberar o arquivo, esta área será conectada ao material oficial. A paleta visual ficará centralizada no portal para manter identidade única em todos os botões, cards e materiais.</p>
+        </article>
+
+        <div class="guide-actions">
+          <article class="guide-card">
+            <span class="tag green">Botão 1</span>
+            <h3>Acesso ao Portal</h3>
+            <p>Espaço reservado para arquivos de login, senha, responsável financeiro, aluno não exibido e liberação de Rematrícula.</p>
+            <span class="btn disabled" aria-disabled="true">Receber arquivo</span>
+          </article>
+          <article class="guide-card">
+            <span class="tag amber">Botão 2</span>
+            <h3>Identificação</h3>
+            <p>Espaço reservado para dados cadastrais, responsáveis, pessoas autorizadas, campos bloqueados e validações internas.</p>
+            <span class="btn disabled" aria-disabled="true">Receber arquivo</span>
+          </article>
+          <article class="guide-card">
+            <span class="tag">Botão 3</span>
+            <h3>Serviços e Contrato</h3>
+            <p>Espaço reservado para serviços, descontos, pré-contrato, regras por unidade e pontos de validação.</p>
+            <span class="btn disabled" aria-disabled="true">Receber arquivo</span>
+          </article>
+          <article class="guide-card">
+            <span class="tag red">Botão 4</span>
+            <h3>Pagamento e Finalização</h3>
+            <p>Espaço reservado para formas de pagamento, assinatura, primeira parcela, status final e divergências financeiras.</p>
+            <span class="btn disabled" aria-disabled="true">Receber arquivo</span>
+          </article>
         </div>
       </div>
     </section>
@@ -857,37 +972,37 @@
           <span class="tag amber">Guia</span>
           <strong>Guia de Atendimento do Colaborador</strong>
           <p>Documento base revisado para atendimento das dúvidas recorrentes de Rematrícula 2027.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir material</a>
+          <a class="btn ghost" href="assets/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir material</a>
         </article>
         <article class="material-card">
           <span class="tag">Apresentação</span>
           <strong>Guia clicável editável</strong>
           <p>PowerPoint com menu e respostas para uso em treinamentos, reuniões e consulta rápida.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
+          <a class="btn ghost" href="assets/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
         </article>
         <article class="material-card">
           <span class="tag">Vídeo</span>
           <strong>Parte 1: Acesso e Identificação</strong>
           <p>Vídeo sincronizado da primeira etapa, com apoio visual para treinamento.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4">Abrir vídeo</a>
+          <a class="btn ghost" href="assets/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4">Abrir vídeo</a>
         </article>
         <article class="material-card">
           <span class="tag">PDF</span>
           <strong>Transcrição Parte 1</strong>
           <p>PDF de apoio recebido para análise da etapa inicial do processo.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/pdf-parte-1/PARTE_1.pdf">Abrir PDF</a>
+          <a class="btn ghost" href="assets/rematricula-2027/pdf-parte-1/PARTE_1.pdf">Abrir PDF</a>
         </article>
         <article class="material-card">
           <span class="tag">Checklist</span>
           <strong>Checklist N1</strong>
           <p>Lista de verificação para orientar atendimento e decidir quando escalar.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/04-checklist-n1-rematricula-2027.md">Abrir checklist</a>
+          <a class="btn ghost" href="assets/rematricula-2027/04-checklist-n1-rematricula-2027.md">Abrir checklist</a>
         </article>
         <article class="material-card">
           <span class="tag">Templates</span>
           <strong>Cards de respostas</strong>
           <p>Imagens de templates por dúvida para criar consultas visuais e treinamentos rápidos.</p>
-          <a class="btn ghost" href="../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png">Abrir menu</a>
+          <a class="btn ghost" href="assets/rematricula-2027/template-menu-principal-rematricula-2027-final.png">Abrir menu</a>
         </article>
       </div>
     </section>
