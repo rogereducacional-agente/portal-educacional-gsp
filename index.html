@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Portal Educacional GSP</title>
+  <style>
+    :root {
+      --ink: #14213d;
+      --ink-soft: #40516f;
+      --paper: #f7f9fc;
+      --surface: #ffffff;
+      --line: #d9e2ee;
+      --blue: #2457c5;
+      --teal: #007c89;
+      --green: #2e7d55;
+      --amber: #b66a00;
+      --coral: #c94836;
+      --shadow: 0 18px 46px rgba(20, 33, 61, .12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 210px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links a {
+      white-space: nowrap;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .nav-links a:hover {
+      background: #edf3fb;
+      color: var(--ink);
+    }
+
+    .hero {
+      background: #0f244d;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15, 36, 77, .96), rgba(15, 36, 77, .68), rgba(15, 36, 77, .24)),
+        url("../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png") center right / contain no-repeat;
+      opacity: .98;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 520px;
+      padding: 76px 20px 44px;
+      display: grid;
+      align-content: center;
+      gap: 24px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: #a9f0e2;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 0;
+      color: #e9f0ff;
+      font-size: 19px;
+    }
+
+    .hero-actions, .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .btn.primary {
+      background: #18b6a5;
+      color: #062d34;
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .28);
+    }
+
+    .btn.ghost {
+      background: #eef5ff;
+      color: var(--ink);
+      border-color: #d6e3f7;
+    }
+
+    .btn.warn {
+      background: #fff3d8;
+      color: #633700;
+      border-color: #f0d49a;
+    }
+
+    .status-strip {
+      position: relative;
+      max-width: var(--max);
+      margin: -34px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 92px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 44px 20px 80px;
+    }
+
+    section {
+      margin-top: 52px;
+      scroll-margin-top: 86px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 660px;
+      margin: 6px 0 0;
+      color: var(--ink-soft);
+    }
+
+    .search-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .08);
+    }
+
+    .search-panel input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #fbfdff;
+    }
+
+    .search-results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .result-card, .process-card, .material-card, .faq-item, .quick-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .result-card {
+      border-left: 5px solid var(--teal);
+    }
+
+    .result-card strong, .material-card strong, .process-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .result-card p, .process-card p, .material-card p, .faq-item p, .quick-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .process-card {
+      min-height: 188px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 5px solid var(--blue);
+    }
+
+    .process-card[data-status="draft"] {
+      border-top-color: var(--amber);
+    }
+
+    .process-card[data-status="triage"] {
+      border-top-color: var(--coral);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #edf3fb;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag.green {
+      background: #e7f4ed;
+      color: var(--green);
+    }
+
+    .tag.amber {
+      background: #fff4dc;
+      color: var(--amber);
+    }
+
+    .tag.red {
+      background: #fdecea;
+      color: var(--coral);
+    }
+
+    .spotlight {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .video-frame {
+      background: #0d1c3b;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #1d376c;
+      box-shadow: var(--shadow);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0d1c3b;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #e7f4ed;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .step p {
+      margin: 4px 0 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .tab {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink-soft);
+      padding: 7px 12px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .tab[aria-selected="true"] {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .tab-panel {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .tab-panel h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .tab-panel ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--ink-soft);
+    }
+
+    .material-card {
+      min-height: 176px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .material-card .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .faq-item button {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 0;
+      background: var(--surface);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .faq-item div {
+      display: none;
+      padding: 0 16px 16px;
+    }
+
+    .faq-item.open div {
+      display: block;
+    }
+
+    .support-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #132a57;
+      color: #fff;
+    }
+
+    .support-band h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .support-band p {
+      color: #dfe8ff;
+      margin: 0;
+    }
+
+    .agent-card {
+      background: #fff;
+      color: var(--ink);
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    .agent-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .hero-inner {
+        min-height: 560px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(15, 36, 77, .96), rgba(15, 36, 77, .82), rgba(15, 36, 77, .58)),
+          url("../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png") bottom center / 92% auto no-repeat;
+      }
+
+      .status-strip,
+      .search-results,
+      .grid-3,
+      .grid-2,
+      .spotlight,
+      .support-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .status-strip {
+        margin-top: 14px;
+      }
+
+      main {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">GSP</span>
+        <span>Portal Educacional</span>
+      </a>
+      <div class="nav-links">
+        <a href="#busca">Busca</a>
+        <a href="#processos">Processos</a>
+        <a href="#rematricula">Rematrícula</a>
+        <a href="#materiais">Materiais</a>
+        <a href="#faq">FAQ</a>
+        <a href="#roger">Roger</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Ambiente interno Great Schools Platform</p>
+      <h1>Educacional GSP</h1>
+      <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#rematricula">Abrir Rematrícula 2027</a>
+        <a class="btn secondary" href="#materiais">Ver biblioteca</a>
+        <a class="btn secondary" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com Roger</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="status-strip" aria-label="Resumo do portal">
+    <div class="stat">
+      <span>Prioridade atual</span>
+      <strong>Rematrícula 2027</strong>
+    </div>
+    <div class="stat">
+      <span>Processo documentado</span>
+      <strong>Reserva de Vaga</strong>
+    </div>
+    <div class="stat">
+      <span>Materiais iniciais</span>
+      <strong>Vídeos, PDFs e PPTs</strong>
+    </div>
+    <div class="stat">
+      <span>Suporte assistido</span>
+      <strong>@RogerGSP_bot</strong>
+    </div>
+  </div>
+
+  <main>
+    <section id="busca">
+      <div class="section-head">
+        <div>
+          <h2>Busca rápida</h2>
+          <p>Consulta inicial para localizar respostas de Rematrícula, materiais e pontos de escalação.</p>
+        </div>
+      </div>
+      <div class="search-panel">
+        <input id="searchInput" type="search" placeholder="Digite uma dúvida: senha, aluno não aparece, desconto, contrato, pagamento...">
+        <button class="btn primary" id="searchButton">Buscar</button>
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+    </section>
+
+    <section id="processos">
+      <div class="section-head">
+        <div>
+          <h2>Processos Educacionais</h2>
+          <p>Mapa inicial dos temas que farão parte do ambiente. Os conteúdos entram como oficiais somente após validação da equipe responsável.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="process-card" data-status="draft">
+          <strong>Rematrícula 2027</strong>
+          <p>Trilha prioritária com guia de atendimento, templates, vídeos, FAQ, PPTs e materiais de apoio para equipes.</p>
+          <div class="tag-row">
+            <span class="tag amber">Em validação</span>
+            <span class="tag">Portal dos Pais</span>
+            <span class="tag">Atendimento</span>
+          </div>
+        </article>
+        <article class="process-card">
+          <strong>Reserva de Vaga</strong>
+          <p>Processo documentado para orientação completa sobre pré-matrícula, status, aprovação e liberação de link.</p>
+          <div class="tag-row">
+            <span class="tag green">Documentado</span>
+            <span class="tag">N1</span>
+          </div>
+        </article>
+        <article class="process-card" data-status="triage">
+          <strong>Contratos, Portal e Financeiro Educacional</strong>
+          <p>Temas para triagem inicial até receberem guia operacional próprio e validação de regra.</p>
+          <div class="tag-row">
+            <span class="tag red">Triagem</span>
+            <span class="tag">Validação humana</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="rematricula">
+      <div class="section-head">
+        <div>
+          <h2>Rematrícula 2027</h2>
+          <p>Área de consulta para apoiar secretaria, atendimento, comercial, gestão e equipes que orientam responsáveis.</p>
+        </div>
+        <div class="inline-actions">
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir guia</a>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
+        </div>
+      </div>
+
+      <div class="spotlight">
+        <div class="video-frame">
+          <video controls poster="../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png">
+            <source src="../content/trilhas/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Acesso ao Portal</h3>
+              <p>E-mail, senha, responsável financeiro, aluno não aparece e botão Rematrícula.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Identificação</h3>
+              <p>Dados cadastrais, responsáveis, pessoas autorizadas e campos bloqueados.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Pré-contrato e Serviços</h3>
+              <p>Serviços disponíveis, turno, descontos, bolsas e regras por unidade.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>Pagamento e Finalização</h3>
+              <p>Contrato, assinatura, formas de pagamento, primeira parcela e status final.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atendimento">
+      <div class="section-head">
+        <div>
+          <h2>Modo Atendimento</h2>
+          <p>Respostas de apoio para quem está conversando com famílias por telefone, balcão, WhatsApp ou Telegram.</p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Temas de atendimento">
+        <button class="tab" role="tab" aria-selected="true" data-tab="acesso">Acesso</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="identificacao">Identificação</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="servicos">Serviços</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="pagamento">Pagamento</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-acesso" role="tabpanel">
+        <h3>Acesso ao Portal</h3>
+        <p>O acesso ao Portal dos Pais utiliza o e-mail cadastrado para o responsável financeiro no sistema do Colégio.</p>
+        <ul>
+          <li>Conferir e-mail cadastrado no responsável financeiro.</li>
+          <li>Confirmar se o responsável tem acesso ao e-mail.</li>
+          <li>Quando RF e RA forem pessoas diferentes, não manter o mesmo e-mail para ambos.</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="tab-identificacao" role="tabpanel">
+        <h3>Identificação</h3>
+        <p>Campos em branco ou desbloqueados podem ser atualizados no Portal. Campos cinza ou sensíveis dependem de validação interna.</p>
+        <ul>
+          <li>Conferir se todas as abas foram confirmadas.</li>
+          <li>Observar dados documentais, responsável financeiro e pessoas autorizadas.</li>
+          <li>Escalar divergências de nome, documento, filiação ou responsável financeiro.</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="tab-servicos" role="tabpanel">
+        <h3>Pré-contrato e Serviços</h3>
+        <p>As opções aparecem conforme unidade, segmento e parametrização vigente. Regras comerciais precisam estar validadas antes de resposta final.</p>
+        <ul>
+          <li>Confirmar unidade, série e serviço exibido no Portal.</li>
+          <li>Não usar regra 2026 como resposta oficial para 2027.</li>
+          <li>Escalar divergência entre Portal e regra da unidade.</li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="tab-pagamento" role="tabpanel">
+        <h3>Contrato, Pagamento e Finalização</h3>
+        <p>Validar serviços contratados, forma de pagamento, assinatura, primeira parcela e status no painel.</p>
+        <ul>
+          <li>Conferir se todos os serviços foram confirmados.</li>
+          <li>Verificar erro de PIX, cartão, boleto ou botão Finalizar.</li>
+          <li>Escalar contrato incorreto, cobrança divergente ou falha sistêmica.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="materiais">
+      <div class="section-head">
+        <div>
+          <h2>Biblioteca de Materiais</h2>
+          <p>Arquivos iniciais já organizados no workspace para revisão, treinamento e consulta.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="material-card">
+          <span class="tag amber">Guia</span>
+          <strong>Guia de Atendimento do Colaborador</strong>
+          <p>Documento base revisado para atendimento das dúvidas recorrentes de Rematrícula 2027.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir material</a>
+        </article>
+        <article class="material-card">
+          <span class="tag">Apresentação</span>
+          <strong>Guia clicável editável</strong>
+          <p>PowerPoint com menu e respostas para uso em treinamentos, reuniões e consulta rápida.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
+        </article>
+        <article class="material-card">
+          <span class="tag">Vídeo</span>
+          <strong>Parte 1: Acesso e Identificação</strong>
+          <p>Vídeo sincronizado da primeira etapa, com apoio visual para treinamento.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4">Abrir vídeo</a>
+        </article>
+        <article class="material-card">
+          <span class="tag">PDF</span>
+          <strong>Transcrição Parte 1</strong>
+          <p>PDF de apoio recebido para análise da etapa inicial do processo.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/pdf-parte-1/PARTE_1.pdf">Abrir PDF</a>
+        </article>
+        <article class="material-card">
+          <span class="tag">Checklist</span>
+          <strong>Checklist N1</strong>
+          <p>Lista de verificação para orientar atendimento e decidir quando escalar.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/04-checklist-n1-rematricula-2027.md">Abrir checklist</a>
+        </article>
+        <article class="material-card">
+          <span class="tag">Templates</span>
+          <strong>Cards de respostas</strong>
+          <p>Imagens de templates por dúvida para criar consultas visuais e treinamentos rápidos.</p>
+          <a class="btn ghost" href="../content/trilhas/rematricula-2027/template-menu-principal-rematricula-2027-final.png">Abrir menu</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <div>
+          <h2>FAQ rápido</h2>
+          <p>Perguntas iniciais para apoiar atendimento. Respostas finais dependem de validação quando envolver regra comercial, jurídica, financeira ou parametrização.</p>
+        </div>
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <article class="faq-item open">
+          <button type="button">O responsável não consegue acessar o Portal. O que verificar?<span>+</span></button>
+          <div><p>Verificar se o acesso está sendo feito com o e-mail do responsável financeiro cadastrado no sistema. Se esqueceu a senha, orientar recuperação pelo Portal.</p></div>
+        </article>
+        <article class="faq-item">
+          <button type="button">O aluno não aparece para rematrícula. O que pode ser?<span>+</span></button>
+          <div><p>Pode ser acesso pelo responsável errado, cadastro divergente, e-mail compartilhado entre RF e RA, bloqueio ou regra de liberação do Portal.</p></div>
+        </article>
+        <article class="faq-item">
+          <button type="button">O responsável pode alterar o responsável financeiro pelo Portal?<span>+</span></button>
+          <div><p>Não tratar como orientação conclusiva sem validação. Alteração de responsável financeiro deve seguir processo próprio e validação interna.</p></div>
+        </article>
+        <article class="faq-item">
+          <button type="button">Quais descontos valem para 2027?<span>+</span></button>
+          <div><p>Consultar a regra comercial vigente por unidade. Não usar tabela 2026 como resposta oficial para 2027.</p></div>
+        </article>
+        <article class="faq-item">
+          <button type="button">Quando escalar o atendimento?<span>+</span></button>
+          <div><p>Escalar valor, bolsa, cobrança divergente, contrato incorreto, alteração de RF, falha sistêmica, questão jurídica ou dado sensível.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="roger">
+      <div class="support-band">
+        <div>
+          <h2>Roger no apoio ao Educacional</h2>
+          <p>O Roger atua como consultor virtual para orientação sobre processos documentados e triagem dos demais temas. A página e o agente devem trabalhar juntos: o portal organiza materiais, o Roger ajuda a localizar e classificar dúvidas.</p>
+        </div>
+        <div class="agent-card">
+          <strong>@RogerGSP_bot</strong>
+          <p>Atendimento assistido pelo Telegram, com escopo público restrito e escalonamento para Cleide, Amanda ou Jonathan quando necessário.</p>
+          <a class="btn warn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Abrir Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Portal interno GSP · Educacional · noindex/nofollow</span>
+      <span>Rascunho inicial para validação de Cleide, Amanda e Jonathan</span>
+    </footer>
+  </main>
+
+  <script>
+    const records = [
+      {
+        title: "Não lembro o e-mail de acesso",
+        area: "Acesso ao Portal",
+        text: "Conferir o e-mail cadastrado no responsável financeiro. Se houver alteração de e-mail, atualizar no cadastro e orientar novo acesso após a sincronização.",
+        link: "#atendimento"
+      },
+      {
+        title: "Esqueci minha senha",
+        area: "Acesso ao Portal",
+        text: "Confirmar e-mail cadastrado e orientar a opção Esqueceu senha no Portal dos Pais.",
+        link: "#atendimento"
+      },
+      {
+        title: "Aluno não aparece",
+        area: "Acesso ao Portal",
+        text: "Validar se o acesso é do responsável financeiro e se RF/RA usam e-mails distintos quando forem pessoas diferentes.",
+        link: "#faq"
+      },
+      {
+        title: "Botão Rematrícula não aparece",
+        area: "Acesso ao Portal",
+        text: "A funcionalidade fica disponível para o responsável financeiro. Se o RF correto não visualizar, escalar.",
+        link: "#faq"
+      },
+      {
+        title: "Alterar dados cadastrais",
+        area: "Identificação",
+        text: "Campos desbloqueados podem ser atualizados no Portal. Campos cinza, documentais ou sensíveis precisam de validação.",
+        link: "#atendimento"
+      },
+      {
+        title: "Serviço ou desconto divergente",
+        area: "Pré-contrato e Serviços",
+        text: "Confirmar unidade, série, serviço e regra comercial validada. Divergência deve ser escalada.",
+        link: "#atendimento"
+      },
+      {
+        title: "Pagamento, PIX, cartão ou finalizar bloqueado",
+        area: "Pagamento",
+        text: "Conferir serviços contratados, forma de pagamento e status. Falha sistêmica ou cobrança divergente deve ser escalada.",
+        link: "#atendimento"
+      },
+      {
+        title: "Material completo de Rematrícula",
+        area: "Biblioteca",
+        text: "Abrir guia de atendimento, PPT clicável, vídeos, PDFs e checklist N1 na biblioteca.",
+        link: "#materiais"
+      }
+    ];
+
+    const searchInput = document.querySelector("#searchInput");
+    const searchButton = document.querySelector("#searchButton");
+    const searchResults = document.querySelector("#searchResults");
+
+    function renderResults(query = "") {
+      const normalized = query.trim().toLowerCase();
+      const matches = normalized
+        ? records.filter(item => `${item.title} ${item.area} ${item.text}`.toLowerCase().includes(normalized))
+        : records.slice(0, 3);
+
+      searchResults.innerHTML = matches.length
+        ? matches.map(item => `
+          <a class="result-card" href="${item.link}">
+            <strong>${item.title}</strong>
+            <p><b>${item.area}</b> · ${item.text}</p>
+          </a>
+        `).join("")
+        : `<div class="result-card"><strong>Nenhum resultado direto</strong><p>Classifique a dúvida e consulte Roger ou a equipe responsável para validação.</p></div>`;
+    }
+
+    searchButton.addEventListener("click", () => renderResults(searchInput.value));
+    searchInput.addEventListener("input", () => renderResults(searchInput.value));
+    renderResults();
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        const name = tab.dataset.tab;
+        document.querySelectorAll(".tab").forEach(item => item.setAttribute("aria-selected", String(item === tab)));
+        document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${name}`));
+      });
+    });
+
+    document.querySelectorAll(".faq-item button").forEach(button => {
+      button.addEventListener("click", () => {
+        button.closest(".faq-item").classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>
