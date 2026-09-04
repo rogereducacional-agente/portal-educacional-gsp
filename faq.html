@@ -194,14 +194,14 @@
 
     .faq-body {
       display: none;
-      grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1fr) minmax(0, .9fr);
       gap: 14px;
       padding: 0 16px 16px;
     }
 
     .faq-item.open .faq-body { display: grid; }
 
-    .answer, .escalate {
+    .check, .answer, .escalate {
       padding: 14px;
       border-radius: var(--radius);
       background: #f7fafc;
@@ -209,7 +209,27 @@
       font-size: 14px;
     }
 
-    .answer strong, .escalate strong {
+    .check {
+      background: #f5efff;
+      border: 1px solid #dfcff8;
+    }
+
+    .answer {
+      background: #eefaf7;
+      border: 1px solid #c9e9df;
+    }
+
+    .escalate {
+      background: #fff8ec;
+      border: 1px solid #ead9b7;
+    }
+
+    .check ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .check strong, .answer strong, .escalate strong {
       display: block;
       margin-bottom: 6px;
       color: var(--ink);
@@ -266,7 +286,7 @@
       stageLinks.innerHTML = window.guideData.map(stage => `<a href="#${slug(stage.title)}">${stage.number} · ${stage.title}</a>`).join("");
 
       faqGroups.innerHTML = window.guideData.map(stage => {
-        const questions = stage.questions.filter(question => `${stage.title} ${question.title} ${question.answer} ${question.escalate}`.toLowerCase().includes(normalized));
+        const questions = stage.questions.filter(question => `${stage.title} ${question.title} ${question.check.join(" ")} ${question.answer} ${question.escalate}`.toLowerCase().includes(normalized));
         if (!questions.length) return "";
         return `
           <section class="faq-group" id="${slug(stage.title)}">
@@ -278,6 +298,7 @@
                   <span>+</span>
                 </button>
                 <div class="faq-body">
+                  <div class="check"><strong>O que conferir</strong><ul>${question.check.map(item => `<li>${item}</li>`).join("")}</ul></div>
                   <div class="answer"><strong>Resposta segura</strong>${question.answer}</div>
                   <div class="escalate"><strong>Quando escalar</strong>${question.escalate}</div>
                 </div>

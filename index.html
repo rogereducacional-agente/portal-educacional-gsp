@@ -627,7 +627,7 @@
       align-items: start;
     }
 
-    .stage-nav, .guide-workspace, .answer-panel, .quick-links {
+    .stage-nav, .guide-workspace, .quick-links {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -693,7 +693,7 @@
       border-top: 6px solid var(--active-stage, var(--green));
     }
 
-    .guide-workspace h3, .answer-panel h3 {
+    .guide-workspace h3 {
       margin: 0;
       font-size: 24px;
     }
@@ -705,54 +705,123 @@
 
     .question-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
     }
 
-    .question-button {
-      min-height: 64px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fbfdff;
+    .question-card {
+      overflow: hidden;
+      border: 1px solid var(--active-stage, var(--green));
+      border-radius: 12px;
+      background: #fbfeff;
+      box-shadow: 0 14px 28px rgba(20, 33, 61, .07);
+    }
+
+    .question-toggle {
+      width: 100%;
+      min-height: 66px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 34px;
+      gap: 12px;
+      align-items: center;
+      border: 0;
+      padding: 14px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .98), rgba(236, 250, 253, .7));
       color: var(--ink);
-      padding: 12px;
       text-align: left;
       cursor: pointer;
-      font-weight: 800;
     }
 
-    .question-button[aria-selected="true"] {
-      border-color: var(--active-stage, var(--green));
-      background: #eefbf7;
-    }
-
-    .answer-grid {
+    .question-number {
+      width: 38px;
+      height: 38px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      place-items: center;
+      border-radius: 999px;
+      background: var(--active-stage, var(--green));
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .question-title {
+      font-weight: 900;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .question-chevron {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #0d2b5c;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .question-card:not(.open) .question-body {
+      display: none;
+    }
+
+    .question-body {
+      display: grid;
       gap: 12px;
+      padding: 0 14px 14px;
     }
 
     .answer-panel {
-      min-height: 220px;
-      padding: 16px;
-      border-top: 5px solid var(--panel-color, var(--blue));
+      padding: 14px;
+      border: 1px solid var(--panel-border, var(--line));
+      border-radius: 8px;
+      background: var(--panel-bg, #f7fafc);
+      color: var(--ink-soft);
+      font-size: 14px;
     }
 
     .answer-panel strong {
       display: block;
       margin-bottom: 8px;
       color: var(--ink);
-      font-size: 15px;
-    }
-
-    .answer-panel p, .answer-panel li {
-      color: var(--ink-soft);
-      font-size: 14px;
+      font-size: 13px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
     }
 
     .answer-panel ul {
       margin: 0;
       padding-left: 18px;
+    }
+
+    .answer-panel p {
+      margin: 0;
+    }
+
+    .answer-panel .btn {
+      margin-top: 12px;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: #e9f0ff;
+      color: #0d2b5c;
+      font-size: 13px;
+    }
+
+    .answer-panel.check {
+      --panel-bg: #f5efff;
+      --panel-border: #dfcff8;
+    }
+
+    .answer-panel.safe {
+      --panel-bg: #eefaf7;
+      --panel-border: #c9e9df;
+    }
+
+    .answer-panel.escalate {
+      --panel-bg: #fff8ec;
+      --panel-border: #ead9b7;
     }
 
     .quick-links {
@@ -986,7 +1055,6 @@
       .guide-actions,
       .guide-shell,
       .question-grid,
-      .answer-grid,
       .quick-links,
       .support-card {
         grid-template-columns: 1fr;
@@ -1046,10 +1114,6 @@
         <a href="#guia-amanda">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h5"/><path d="M8 11h6"/></svg></span>
           <span>Guia de Atendimento</span>
-        </a>
-        <a href="guia-detalhado.html">
-          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h10a4 4 0 0 1 4 4v12H7a2 2 0 0 1-2-2V4Z"/><path d="M8 8h7"/><path d="M8 12h8"/><path d="M8 16h5"/></svg></span>
-          <span>Guia Detalhado</span>
         </a>
         <a href="#materiais">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>
@@ -1136,7 +1200,6 @@
         </div>
         <div class="inline-actions">
           <a class="btn ghost" href="assets/rematricula-2027/guia-de-atendimento-ok.ppsx">Baixar Guia</a>
-          <a class="btn ghost" href="guia-detalhado.html">Guia detalhado</a>
         </div>
       </div>
 
@@ -1150,7 +1213,6 @@
               <p id="stageSummary">Selecione uma etapa para abrir as dúvidas de atendimento.</p>
             </div>
             <div class="question-grid" id="questionGrid"></div>
-            <div class="answer-grid" id="answerGrid" aria-live="polite"></div>
           </div>
         </div>
 
@@ -1640,11 +1702,10 @@
     const stageTitle = document.querySelector("#stageTitle");
     const stageSummary = document.querySelector("#stageSummary");
     const questionGrid = document.querySelector("#questionGrid");
-    const answerGrid = document.querySelector("#answerGrid");
 
-    function renderGuide(stageId = "acesso", questionIndex = 0) {
+    function renderGuide(stageId = "acesso", openQuestion = 0) {
       const stage = guideData.find(item => item.id === stageId) || guideData[0];
-      const selected = stage.questions[questionIndex] || stage.questions[0];
+      const activeQuestion = Number.isInteger(openQuestion) ? openQuestion : 0;
       guideWorkspace.style.setProperty("--active-stage", stage.color);
       stageNav.innerHTML = guideData.map(item => `
         <button class="stage-button" type="button" role="tab" aria-selected="${item.id === stage.id}" data-stage="${item.id}" style="--stage-color: ${item.color}">
@@ -1655,30 +1716,48 @@
       stageTitle.textContent = `${stage.number} · ${stage.title}`;
       stageSummary.textContent = stage.summary;
       questionGrid.innerHTML = stage.questions.map((question, index) => `
-        <button class="question-button" type="button" aria-selected="${index === questionIndex}" data-stage="${stage.id}" data-question="${index}">
-          ${String(index + 1).padStart(2, "0")} · ${question.title}
-        </button>
+        <article class="question-card ${index === activeQuestion ? "open" : ""}">
+          <button class="question-toggle" type="button" aria-expanded="${index === activeQuestion}" data-stage="${stage.id}" data-question="${index}">
+            <span class="question-number">${String(index + 1).padStart(2, "0")}</span>
+            <span class="question-title">${question.title}</span>
+            <span class="question-chevron" aria-hidden="true">${index === activeQuestion ? "-" : "+"}</span>
+          </button>
+          <div class="question-body">
+            <article class="answer-panel check">
+              <strong>O que conferir</strong>
+              <ul>${question.check.map(item => `<li>${item}</li>`).join("")}</ul>
+            </article>
+            <article class="answer-panel safe">
+              <strong>Resposta segura</strong>
+              <p>${question.answer}</p>
+            </article>
+            <article class="answer-panel escalate">
+              <strong>Quando escalar</strong>
+              <p>${question.escalate}</p>
+              <a class="btn ghost" href="faq.html#${question.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}">Abrir no FAQ</a>
+            </article>
+          </div>
+        </article>
       `).join("");
-      answerGrid.innerHTML = `
-        <article class="answer-panel" style="--panel-color: ${stage.color}">
-          <strong>O que conferir</strong>
-          <ul>${selected.check.map(item => `<li>${item}</li>`).join("")}</ul>
-        </article>
-        <article class="answer-panel" style="--panel-color: ${stage.color}">
-          <strong>Resposta segura</strong>
-          <p>${selected.answer}</p>
-        </article>
-        <article class="answer-panel" style="--panel-color: ${stage.color}">
-          <strong>Quando escalar</strong>
-          <p>${selected.escalate}</p>
-        </article>
-      `;
 
       stageNav.querySelectorAll(".stage-button").forEach(button => {
         button.addEventListener("click", () => renderGuide(button.dataset.stage, 0));
       });
-      questionGrid.querySelectorAll(".question-button").forEach(button => {
-        button.addEventListener("click", () => renderGuide(button.dataset.stage, Number(button.dataset.question)));
+      questionGrid.querySelectorAll(".question-toggle").forEach(button => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".question-card");
+          const isOpen = card.classList.contains("open");
+          questionGrid.querySelectorAll(".question-card").forEach(item => {
+            item.classList.remove("open");
+            item.querySelector(".question-toggle").setAttribute("aria-expanded", "false");
+            item.querySelector(".question-chevron").textContent = "+";
+          });
+          if (!isOpen) {
+            card.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+            card.querySelector(".question-chevron").textContent = "-";
+          }
+        });
       });
     }
 
