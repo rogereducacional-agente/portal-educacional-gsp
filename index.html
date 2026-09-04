@@ -75,24 +75,19 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       width: 100%;
       min-width: 0;
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      color: #fff;
-      background: linear-gradient(135deg, #00a889, #2457c5);
-      font-size: 13px;
-      font-weight: 900;
+    .brand-logo {
+      width: 100%;
+      max-height: 58px;
+      object-fit: contain;
+      display: block;
     }
 
     .nav-links {
@@ -1028,8 +1023,7 @@
   <header class="topbar">
     <nav class="nav" aria-label="Navegação principal">
       <a class="brand" href="#inicio">
-        <span class="brand-mark">GSP</span>
-        <span>Portal GSP</span>
+        <img class="brand-logo" src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
       </a>
       <div class="nav-links">
         <a href="#busca">
