@@ -51,11 +51,11 @@
     }
 
     .topbar {
-      position: fixed;
-      top: 392px;
+      position: absolute;
+      top: 520px;
       left: 0;
-      bottom: 0;
       width: var(--sidebar);
+      min-height: calc(100vh - 520px);
       z-index: 20;
       background: linear-gradient(180deg, #eef3f8, #dfe8f2);
       color: var(--ink);
@@ -99,7 +99,7 @@
       place-items: center;
       border-radius: 8px;
       background: #ffffff;
-      color: #007c89;
+      color: #0f244d;
       box-shadow: inset 0 0 0 1px #d7e4f1;
     }
 
@@ -120,8 +120,8 @@
     }
 
     .nav-links a:hover .nav-icon {
-      background: #18b6a5;
-      color: #06383d;
+      background: #d8e8ff;
+      color: #0f244d;
       box-shadow: none;
     }
 
@@ -918,6 +918,7 @@
         right: 0;
         bottom: auto;
         width: 100%;
+        min-height: 0;
         background: rgba(255, 255, 255, .94);
         color: var(--ink);
         border-bottom: 1px solid var(--line);
