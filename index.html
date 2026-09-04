@@ -1013,10 +1013,11 @@
       </a>
       <div class="nav-links">
         <a href="#busca">Busca</a>
-        <a href="#guia-amanda">Guia Interativo</a>
-        <a href="#materiais">Materiais</a>
+        <a href="#guia-amanda">Guia de Atendimento</a>
+        <a href="#materiais">Biblioteca</a>
         <a href="#faq">FAQ</a>
-        <a href="#roger">Atendimento</a>
+        <a href="#comunicados">Comunicados</a>
+        <a href="#roger">Fale com o Roger</a>
       </div>
     </nav>
   </header>
@@ -1078,7 +1079,7 @@
     <section id="guia-amanda">
       <div class="section-head">
         <div>
-          <h2>Guia de Atendimento Interativo</h2>
+          <h2>Guia de Atendimento</h2>
           <p>Menu web baseado no guia atualizado da Amanda, com etapas, dúvidas recorrentes, resposta segura, conferência e escalação.</p>
         </div>
         <div class="inline-actions">
@@ -1205,6 +1206,28 @@
       </div>
 
       <div class="faq-list" id="faqList"></div>
+    </section>
+
+    <section id="comunicados">
+      <div class="section-head">
+        <div>
+          <h2>Comunicados</h2>
+          <p>Avisos importantes para acompanhamento dos processos educacionais da GSP.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="quick-card">
+          <span class="tag green">Atualizações</span>
+          <strong>Nenhum comunicado publicado no momento</strong>
+          <p>Os próximos avisos sobre rematrícula, calendário, materiais e orientações oficiais serão organizados aqui.</p>
+        </article>
+        <article class="quick-card">
+          <span class="tag amber">Canal oficial</span>
+          <strong>Comunicados validados pela equipe</strong>
+          <p>Somente comunicados revisados pela equipe responsável devem ser publicados nesta área.</p>
+        </article>
+      </div>
     </section>
 
     <section id="roger">
@@ -1498,10 +1521,16 @@
         link: "#guia-amanda"
       },
       {
-        title: "Material completo de Rematrícula",
+        title: "Biblioteca de Materiais",
         area: "Biblioteca",
-        text: "Abrir guia de atendimento, PPT clicável, vídeos, PDFs e checklist N1 na biblioteca.",
+        text: "Abrir os arquivos disponíveis, materiais de apoio e documentos do Drive organizados em cards.",
         link: "#materiais"
+      },
+      {
+        title: "Comunicados",
+        area: "Comunicados",
+        text: "Consultar avisos importantes publicados para acompanhamento dos processos educacionais.",
+        link: "#comunicados"
       }
     ].concat(guideData.flatMap(stage => stage.questions.map(question => ({
       title: question.title,
