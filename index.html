@@ -24,6 +24,7 @@
       --shadow: 0 18px 46px rgba(20, 33, 61, .12);
       --radius: 8px;
       --max: 1180px;
+      --sidebar: 236px;
     }
 
     * { box-sizing: border-box; }
@@ -34,6 +35,7 @@
 
     body {
       margin: 0;
+      padding-left: var(--sidebar);
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       background: var(--paper);
@@ -50,29 +52,34 @@
     }
 
     .topbar {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar);
       z-index: 20;
-      background: rgba(255, 255, 255, .94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, #14184a, #08133b);
+      color: #fff;
+      box-shadow: 14px 0 34px rgba(20, 33, 61, .12);
     }
 
     .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 20px;
+      height: 100%;
+      padding: 28px 18px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 18px;
+      gap: 26px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      min-width: 210px;
+      width: 100%;
+      min-width: 0;
       font-weight: 800;
+      font-size: 22px;
       letter-spacing: 0;
     }
 
@@ -83,30 +90,42 @@
       place-items: center;
       border-radius: 8px;
       color: #fff;
-      background: linear-gradient(135deg, var(--green), var(--purple));
+      background: linear-gradient(135deg, #00a889, #2457c5);
       font-size: 13px;
       font-weight: 900;
     }
 
     .nav-links {
       display: flex;
-      gap: 4px;
-      margin-left: auto;
-      overflow-x: auto;
-      scrollbar-width: none;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+      margin-left: 0;
     }
 
     .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       white-space: nowrap;
-      padding: 8px 10px;
+      padding: 11px 12px;
       border-radius: 8px;
       font-size: 14px;
-      color: var(--ink-soft);
+      color: #e7ecff;
+    }
+
+    .nav-links a::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, .54);
+      border-radius: 5px;
     }
 
     .nav-links a:hover {
-      background: #edf3fb;
-      color: var(--ink);
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
     }
 
     .hero {
@@ -875,14 +894,51 @@
     }
 
     @media (max-width: 920px) {
+      body {
+        padding-left: 0;
+      }
+
+      .topbar {
+        position: sticky;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        background: rgba(255, 255, 255, .94);
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        box-shadow: none;
+        backdrop-filter: blur(16px);
+      }
+
       .nav {
+        height: auto;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 12px 20px;
         align-items: start;
         flex-direction: column;
+        gap: 12px;
       }
 
       .nav-links {
+        flex-direction: row;
         margin-left: 0;
         width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-links a {
+        color: var(--ink-soft);
+      }
+
+      .nav-links a::before {
+        display: none;
+      }
+
+      .nav-links a:hover {
+        background: #edf3fb;
+        color: var(--ink);
       }
 
       .hero-inner {
@@ -952,7 +1008,7 @@
     <nav class="nav" aria-label="Navegação principal">
       <a class="brand" href="#inicio">
         <span class="brand-mark">GSP</span>
-        <span>Portal Educacional</span>
+        <span>Portal GSP</span>
       </a>
       <div class="nav-links">
         <a href="#busca">Busca</a>
