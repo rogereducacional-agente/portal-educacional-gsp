@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Guia Detalhado | Portal Educacional GSP</title>
+  <style>
+    :root {
+      --ink: #14213d;
+      --ink-soft: #40516f;
+      --paper: #f4f7fb;
+      --surface: #ffffff;
+      --line: #d9e2ee;
+      --blue: #0f244d;
+      --teal: #007c89;
+      --orange: #e8752f;
+      --shadow: 0 18px 46px rgba(20, 33, 61, .12);
+      --radius: 8px;
+      --sidebar: 238px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--sidebar) minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px 16px;
+      background: linear-gradient(180deg, #eef3f8, #dfe8f2);
+      border-right: 1px solid #c8d5e4;
+      box-shadow: 12px 0 30px rgba(20, 33, 61, .08);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .nav-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav-list a {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      color: #2e3d58;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-list a:hover {
+      background: #fff;
+      color: var(--blue);
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+    }
+
+    .nav-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--blue);
+      box-shadow: inset 0 0 0 1px #d7e4f1;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .page {
+      min-width: 0;
+    }
+
+    .hero {
+      min-height: 250px;
+      padding: 34px clamp(22px, 5vw, 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 28px;
+      align-items: center;
+      background: linear-gradient(90deg, #0f244d, #173869);
+      color: #fff;
+    }
+
+    .hero img {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, .18);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #a9f0e2;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 14px 0 0;
+      color: #e9f0ff;
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1120px;
+      padding: 34px clamp(22px, 5vw, 64px) 70px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .info-card, .guide-page {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .08);
+    }
+
+    .info-card {
+      padding: 16px;
+      border-top: 5px solid var(--teal);
+    }
+
+    .info-card:nth-child(2) { border-top-color: var(--orange); }
+    .info-card:nth-child(3) { border-top-color: var(--blue); }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 17px;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .guide-page {
+      overflow: hidden;
+    }
+
+    .guide-page header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guide-page h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .guide-page p {
+      margin: 4px 0 0;
+      color: var(--ink-soft);
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dff4f1;
+      color: #064b55;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .slide {
+      display: block;
+      width: 100%;
+      background: #eef4fb;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        display: block;
+      }
+
+      .sidebar {
+        position: sticky;
+        height: auto;
+        z-index: 10;
+      }
+
+      .nav-list {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .nav-list a {
+        min-width: max-content;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero img {
+        max-width: 220px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navegação do guia detalhado">
+      <a class="back-link" href="index.html#guia-amanda">Voltar ao portal</a>
+      <nav class="nav-list">
+        <a href="#menu"><span class="nav-icon">01</span><span>Menu principal</span></a>
+        <a href="#acesso"><span class="nav-icon">02</span><span>Acesso ao Portal</span></a>
+        <a href="#identificacao"><span class="nav-icon">03</span><span>Identificação</span></a>
+        <a href="#pre-contrato"><span class="nav-icon">04</span><span>Pré-contrato</span></a>
+        <a href="#aulas-extras"><span class="nav-icon">05</span><span>Aulas Extras</span></a>
+        <a href="#servicos"><span class="nav-icon">06</span><span>Serviços Contratados</span></a>
+        <a href="#pagamento"><span class="nav-icon">07</span><span>Formas de Pagamento</span></a>
+        <a href="#painel"><span class="nav-icon">08</span><span>Painel de Controle</span></a>
+        <a href="#canais"><span class="nav-icon">09</span><span>Canais Rápidos</span></a>
+        <a href="#apoio"><span class="nav-icon">10</span><span>Material de Apoio</span></a>
+      </nav>
+    </aside>
+
+    <div class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Rematrícula 2027</p>
+          <h1>Guia Detalhado</h1>
+          <p class="lead">Navegação interna pelas páginas principais do guia de atendimento da Amanda. As perguntas frequentes permanecem separadas no FAQ do portal.</p>
+        </div>
+        <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+      </section>
+
+      <main>
+        <div class="intro">
+          <article class="info-card">
+            <strong>Consulta por etapa</strong>
+            <p>Use o menu lateral para acessar rapidamente a página do guia que corresponde ao ponto de atendimento.</p>
+          </article>
+          <article class="info-card">
+            <strong>Mesmo site</strong>
+            <p>O guia abre como página interna do portal, sem nova aba, para o usuário sentir continuidade na navegação.</p>
+          </article>
+          <article class="info-card">
+            <strong>FAQ separado</strong>
+            <p>As páginas de perguntas e respostas ficam organizadas no ambiente próprio de FAQ do portal.</p>
+          </article>
+        </div>
+
+        <div class="guide-list">
+          <article class="guide-page" id="menu">
+            <header><div><h2>01 · Menu principal</h2><p>Visão geral da jornada de Rematrícula 2027.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/01-menu-principal.png" alt="Menu principal da Rematrícula 2027">
+          </article>
+          <article class="guide-page" id="acesso">
+            <header><div><h2>02 · Acesso ao Portal GSP</h2><p>Login, senha, seleção do aluno e acesso inicial.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/02-acesso-portal.png" alt="Acesso ao Portal GSP">
+          </article>
+          <article class="guide-page" id="identificacao">
+            <header><div><h2>03 · Identificação</h2><p>Validação de dados cadastrais, responsáveis e pessoas autorizadas.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/03-identificacao.png" alt="Identificação">
+          </article>
+          <article class="guide-page" id="pre-contrato">
+            <header><div><h2>04 · Pré-contrato</h2><p>Serviços por escola, turma, bolsas por serviço e descontos exibidos no portal.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/04-pre-contrato.png" alt="Pré-contrato">
+          </article>
+          <article class="guide-page" id="aulas-extras">
+            <header><div><h2>05 · Aulas Extras</h2><p>Contratação de aulas extras, planos, valores e ofertas por série.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/05-aulas-extras.png" alt="Aulas Extras">
+          </article>
+          <article class="guide-page" id="servicos">
+            <header><div><h2>06 · Serviços Contratados</h2><p>Serviços selecionados, contrato, anexos e conferência de descontos.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/06-servicos-contratados.png" alt="Serviços Contratados">
+          </article>
+          <article class="guide-page" id="pagamento">
+            <header><div><h2>07 · Formas de Pagamento</h2><p>Pix, cartão de crédito, mensal e finalização do processo.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/07-formas-de-pagamento.png" alt="Formas de Pagamento">
+          </article>
+          <article class="guide-page" id="painel">
+            <header><div><h2>08 · Painel de Controle</h2><p>Consulta interna de matrícula, rematrícula, status, sincronizador e pagamento.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/08-painel-controle.png" alt="Painel de Controle">
+          </article>
+          <article class="guide-page" id="canais">
+            <header><div><h2>09 · Canais Rápidos</h2><p>Acesso aos principais canais de apoio durante o atendimento.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/09-canais-rapidos.png" alt="Canais Rápidos">
+          </article>
+          <article class="guide-page" id="apoio">
+            <header><div><h2>10 · Material de Apoio</h2><p>Materiais de consulta para atendimento e conferência por unidade.</p></div><span class="badge">Guia</span></header>
+            <img class="slide" src="assets/rematricula-2027/guia-detalhado/10-material-apoio.png" alt="Material de Apoio">
+          </article>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
