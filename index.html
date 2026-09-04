@@ -1114,8 +1114,6 @@
         </article>
       </div>
 
-      <h3 class="material-group-title">Cards de Resposta por Dúvida</h3>
-      <div class="grid-3" id="templateCards"></div>
     </section>
 
     <section id="faq">
@@ -1454,56 +1452,6 @@
       text: `${question.answer} Escalar: ${question.escalate}`,
       link: "#guia-amanda"
     }))));
-
-    const templateFiles = [
-      ["Acesso: não lembro o e-mail", "Acesso ao Portal", "template-02-nao-lembro-email-validacao.png"],
-      ["Acesso: esqueci minha senha", "Acesso ao Portal", "template-02-resposta-02-esqueci-minha-senha-validacao.png"],
-      ["Acesso: aluno não aparece", "Acesso ao Portal", "template-02-resposta-03-nao-aparece-o-aluno-validacao.png"],
-      ["Acesso: botão Rematrícula não aparece", "Acesso ao Portal", "template-02-resposta-04-nao-aparece-botao-rematricula-validacao.png"],
-      ["Acesso: mais de um filho", "Acesso ao Portal", "template-02-resposta-05-mais-de-um-filho-validacao.png"],
-      ["Acesso: bloqueio ao iniciar", "Acesso ao Portal", "template-02-resposta-06-bloqueios-iniciar-matricula-validacao.png"],
-      ["Identificação: visão geral", "Identificação", "template-03-identificacao-validacao.png"],
-      ["Identificação: alterar dados cadastrais", "Identificação", "template-03-resposta-01-alterar-dados-cadastrais-validacao.png"],
-      ["Identificação: não consigo avançar", "Identificação", "template-03-resposta-02-nao-avancar-identificacao-validacao.png"],
-      ["Identificação: responsável financeiro", "Identificação", "template-03-resposta-03-alteracao-responsavel-financeiro-validacao.png"],
-      ["Identificação: responsável acadêmico", "Identificação", "template-03-resposta-04-alteracao-responsavel-academico-pessoas-autorizadas-validacao.png"],
-      ["Pré-contrato: visão geral", "Pré-contrato", "template-04-pre-contrato-servicos-validacao.png"],
-      ["Pré-contrato: serviços disponíveis", "Pré-contrato", "template-04-resposta-01-servicos-contratar-validacao.png"],
-      ["Pré-contrato: alteração de turno", "Pré-contrato", "template-04-resposta-02-alterar-turno-proximo-ano-validacao.png"],
-      ["Pré-contrato: desconto por serviço", "Pré-contrato", "template-04-resposta-03-desconto-servico-validacao.png"],
-      ["Aulas extras: visão geral", "Aulas Extras", "template-05-aulas-extras-validacao.png"],
-      ["Aulas extras: aula não aparece", "Aulas Extras", "template-05-resposta-01-aula-extra-nao-aparece-validacao.png"],
-      ["Aulas extras: valor não apareceu", "Aulas Extras", "template-05-resposta-02-marquei-contratar-valor-nao-apareceu-validacao.png"],
-      ["Aulas extras: valores diferentes", "Aulas Extras", "template-05-resposta-03-mesma-aula-valores-diferentes-validacao.png"],
-      ["Serviços contratados: visão geral", "Serviços Contratados", "template-06-servicos-contratados-validacao.png"],
-      ["Serviços contratados: renegociar desconto", "Serviços Contratados", "template-06-resposta-01-renegociar-desconto-validacao.png"],
-      ["Serviços contratados: desconto em parcelas", "Serviços Contratados", "template-06-resposta-02-desconto-aba-anexo-parcelas-validacao.png"],
-      ["Serviços contratados: contrato assinado", "Serviços Contratados", "template-06-resposta-03-minuta-contrato-assinado-validacao.png"],
-      ["Pagamento: visão geral", "Formas de Pagamento", "template-07-formas-de-pagamento-validacao.png"],
-      ["Pagamento: forma não aparece", "Formas de Pagamento", "template-07-resposta-01-nao-aparece-forma-pagamento-validacao.png"],
-      ["Pagamento: crédito ou PIX", "Formas de Pagamento", "template-07-resposta-02-pagamento-credito-pix-validacao.png"],
-      ["Pagamento: finalizar bloqueado", "Formas de Pagamento", "template-07-resposta-03-botao-finalizar-bloqueado-validacao.png"],
-      ["Pagamento: mensal e finalizar", "Formas de Pagamento", "template-07-resposta-04-pagamento-mensal-finalizar-validacao.png"],
-      ["Pagamento: à vista e descontos", "Formas de Pagamento", "template-07-resposta-05-pagar-vista-descontos-validacao.png"],
-      ["Pagamento: Família Fundadora", "Formas de Pagamento", "template-07-resposta-06-familia-fundadora-acumula-descontos-validacao.png"],
-      ["Painel: visão geral", "Painel Administrativo", "template-08-painel-de-controle-validacao.png"],
-      ["Painel: rematrícula finalizada", "Painel Administrativo", "template-08-resposta-01-nao-sei-se-finalizei-validacao.png"],
-      ["Canais rápidos", "Apoio", "template-09-canais-rapidos-validacao.png"],
-      ["Materiais de apoio e consultas", "Apoio", "template-10-material-apoio-consultas-validacao.png"],
-      ["Menu principal", "Templates", "template-menu-principal-rematricula-2027-final.png"],
-      ["Menu: materiais de apoio", "Templates", "template-menu-principal-rematricula-2027-item-10-material-apoio-consultas.png"]
-    ];
-
-    const templateCards = document.querySelector("#templateCards");
-    templateCards.innerHTML = templateFiles.map(([title, area, file]) => `
-      <article class="material-card">
-        <span class="tag">${area}</span>
-        <img class="material-preview" src="assets/rematricula-2027/templates/${file}" alt="${title}">
-        <strong>${title}</strong>
-        <p>Card visual para consulta rápida e apoio ao atendimento.</p>
-        <a class="btn ghost" href="assets/rematricula-2027/templates/${file}">Abrir</a>
-      </article>
-    `).join("");
 
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton");
