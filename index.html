@@ -143,7 +143,7 @@
       font-weight: 800;
       text-transform: uppercase;
       font-size: 12px;
-      letter-spacing: .08em;
+      letter-spacing: 0;
     }
 
     h1 {
@@ -267,7 +267,7 @@
       font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      letter-spacing: 0;
     }
 
     main {
@@ -742,39 +742,82 @@
       display: block;
     }
 
-    .support-band {
+    .support-card {
+      position: relative;
+      overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 290px;
-      gap: 20px;
+      grid-template-columns: 96px minmax(0, 1fr) auto;
+      gap: 22px;
       align-items: center;
-      padding: 24px;
-      border-radius: var(--radius);
-      background: #132a57;
-      color: #fff;
+      padding: 28px;
+      border: 1px solid #d6eadf;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 92% 50%, rgba(114, 204, 161, .28), transparent 28%),
+        radial-gradient(circle at 8% 18%, rgba(242, 248, 214, .72), transparent 22%),
+        #f8fffb;
+      box-shadow: 0 24px 55px rgba(36, 67, 59, .12);
     }
 
-    .support-band h2 {
+    .support-card::after {
+      content: "";
+      position: absolute;
+      right: 72px;
+      bottom: -54px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(224, 243, 226, .72);
+      pointer-events: none;
+    }
+
+    .support-avatar {
+      position: relative;
+      z-index: 1;
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 12px 24px rgba(15, 36, 77, .16);
+    }
+
+    .support-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .support-card h2 {
       margin: 0 0 8px;
+      color: var(--blue);
       font-size: 28px;
     }
 
-    .support-band p {
-      color: #dfe8ff;
+    .support-card p {
+      max-width: 640px;
       margin: 0;
+      color: var(--ink-soft);
     }
 
-    .agent-card {
-      background: #fff;
-      color: var(--ink);
-      border-radius: var(--radius);
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    .agent-card strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 6px;
+    .support-card .btn {
+      position: relative;
+      z-index: 1;
+      min-width: 250px;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #ff7a1a;
+      color: #fff;
+      box-shadow: 0 18px 26px rgba(255, 122, 26, .28);
     }
 
     .footer {
@@ -821,8 +864,13 @@
       .question-grid,
       .answer-grid,
       .quick-links,
-      .support-band {
+      .support-card {
         grid-template-columns: 1fr;
+      }
+
+      .support-card .btn {
+        width: 100%;
+        min-width: 0;
       }
 
       .stage-nav {
@@ -867,7 +915,6 @@
       <div class="nav-links">
         <a href="#busca">Busca</a>
         <a href="#processos">Processos</a>
-        <a href="#rematricula">Rematrícula</a>
         <a href="#guia-amanda">Guia Interativo</a>
         <a href="#materiais">Materiais</a>
         <a href="#faq">FAQ</a>
@@ -885,7 +932,7 @@
   </section>
 
   <div class="status-strip" aria-label="Resumo do portal">
-    <a class="stat" href="#rematricula">
+    <a class="stat" href="#guia-amanda">
       <span>Prioridade atual</span>
       <strong>Rematrícula 2027</strong>
     </a>
@@ -951,57 +998,6 @@
             <span class="tag">Validação humana</span>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section id="rematricula">
-      <div class="section-head">
-        <div>
-          <h2>Rematrícula 2027</h2>
-          <p>Área de consulta para apoiar secretaria, atendimento, comercial, gestão e equipes que orientam responsáveis.</p>
-        </div>
-        <div class="inline-actions">
-          <a class="btn ghost" href="assets/rematricula-2027/24-guia-atendimento-colaborador-rematricula-2027-revisado-ok.md">Abrir guia</a>
-          <a class="btn ghost" href="assets/rematricula-2027/42-rematricula-2027-guia-atendimento-completo-editavel-padrao-aprovado.pptx">Abrir PPT</a>
-        </div>
-      </div>
-
-      <div class="spotlight">
-        <div class="video-frame">
-          <video controls poster="assets/rematricula-2027/template-menu-principal-rematricula-2027-final.png">
-            <source src="assets/rematricula-2027/video-etapas/rematricula-2027-parte-1-acesso-identificacao-sincronizado.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="timeline">
-          <div class="step">
-            <span class="step-number">1</span>
-            <div>
-              <h3>Acesso ao Portal</h3>
-              <p>E-mail, senha, responsável financeiro, aluno não aparece e botão Rematrícula.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-number">2</span>
-            <div>
-              <h3>Identificação</h3>
-              <p>Dados cadastrais, responsáveis, pessoas autorizadas e campos bloqueados.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-number">3</span>
-            <div>
-              <h3>Pré-contrato e Serviços</h3>
-              <p>Serviços disponíveis, turno, descontos, bolsas e regras por unidade.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-number">4</span>
-            <div>
-              <h3>Pagamento e Finalização</h3>
-              <p>Contrato, assinatura, formas de pagamento, primeira parcela e status final.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1150,16 +1146,14 @@
     </section>
 
     <section id="roger">
-      <div class="support-band">
-        <div>
-          <h2>Atendimento Educacional</h2>
-          <p>Use este canal para localizar orientações, classificar dúvidas e receber apoio sobre os processos disponíveis no portal.</p>
+      <div class="support-card">
+        <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
+        <div class="support-content">
+          <span class="support-kicker">Agente de suporte educacional</span>
+          <h2>Fale com o Roger</h2>
+          <p>Se você consultou o portal e ainda tem alguma dúvida que não aparece aqui, entre em contato com o Roger para apoio nos processos educacionais da GSP.</p>
         </div>
-        <div class="agent-card">
-          <strong>@RogerGSP_bot</strong>
-          <p>Atendimento pelo Telegram para dúvidas sobre os materiais e processos publicados.</p>
-          <a class="btn warn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Abrir Telegram</a>
-        </div>
+        <a class="btn warn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Acessar suporte do Roger</a>
       </div>
     </section>
 
