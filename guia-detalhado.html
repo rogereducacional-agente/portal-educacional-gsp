@@ -309,6 +309,141 @@
       background: #eef4fb;
     }
 
+    .inline-answers {
+      padding: 18px 20px 20px;
+      background: #fbfdff;
+      border-top: 1px solid var(--line);
+    }
+
+    .inline-answers h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .inline-answers > p {
+      margin: 0 0 14px;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .inline-answer-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .inline-answer-item {
+      border: 1px solid #c9d8e8;
+      border-radius: var(--radius);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .inline-answer-item.is-open {
+      border-color: var(--teal);
+      box-shadow: 0 14px 30px rgba(0, 124, 137, .12);
+    }
+
+    .inline-answer-button {
+      width: 100%;
+      min-height: 58px;
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 0;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .inline-answer-number {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .inline-answer-title {
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .inline-answer-toggle {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #e8f4f8;
+      color: var(--blue);
+      font-size: 20px;
+      font-weight: 900;
+      transition: transform .2s ease;
+    }
+
+    .inline-answer-item.is-open .inline-answer-toggle {
+      transform: rotate(90deg);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .inline-answer-body {
+      display: none;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+      gap: 12px;
+      padding: 0 14px 14px 64px;
+    }
+
+    .inline-answer-item.is-open .inline-answer-body {
+      display: grid;
+    }
+
+    .answer-box {
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #f2fbfa;
+      border: 1px solid #cce9e5;
+    }
+
+    .answer-box.escalate {
+      background: #fff8ee;
+      border-color: #f5d4a5;
+    }
+
+    .answer-box strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--blue);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .answer-box p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .faq-shortcut {
+      display: inline-flex;
+      width: max-content;
+      margin-top: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #e6eef8;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
     @media (max-width: 900px) {
       .layout {
         display: block;
@@ -344,6 +479,15 @@
 
       .stage-grid {
         grid-template-columns: 1fr;
+      }
+
+      .inline-answer-button {
+        grid-template-columns: 34px 1fr auto;
+      }
+
+      .inline-answer-body {
+        grid-template-columns: 1fr;
+        padding-left: 14px;
       }
     }
   </style>
@@ -395,7 +539,7 @@
         <section class="dynamic-board" aria-labelledby="dynamicTitle">
           <div>
             <h2 id="dynamicTitle">Navegação dinâmica do guia</h2>
-            <p>Clique em uma etapa para ir até a página correspondente. As perguntas abrem no FAQ, que agora fica em página própria.</p>
+            <p>Clique em uma etapa para ir até a página correspondente. As perguntas também podem ser abertas dentro de cada página do guia.</p>
           </div>
           <div class="stage-grid" id="dynamicStages"></div>
           <div class="question-links" id="dynamicQuestions"></div>
@@ -474,6 +618,55 @@
     dynamicQuestions.innerHTML = window.guideData.flatMap(stage => stage.questions.map(question => `
       <a href="faq.html#${slug(question.title)}">${question.title}</a>
     `)).join("");
+
+    window.guideData.forEach(stage => {
+      const article = document.querySelector(`#${stageAnchors[stage.title] || slug(stage.title)}`);
+      if (!article || !stage.questions.length) return;
+
+      const answers = document.createElement("section");
+      answers.className = "inline-answers";
+      answers.innerHTML = `
+        <h3>Perguntas desta etapa</h3>
+        <p>Clique na dúvida para visualizar a resposta sem sair do Guia Detalhado.</p>
+        <div class="inline-answer-list"></div>
+      `;
+
+      const list = answers.querySelector(".inline-answer-list");
+      stage.questions.forEach((question, index) => {
+        const item = document.createElement("article");
+        item.className = "inline-answer-item";
+
+        const button = document.createElement("button");
+        button.className = "inline-answer-button";
+        button.type = "button";
+        button.setAttribute("aria-expanded", "false");
+        button.innerHTML = `
+          <span class="inline-answer-number">${String(index + 1).padStart(2, "0")}</span>
+          <span class="inline-answer-title"></span>
+          <span class="inline-answer-toggle" aria-hidden="true">›</span>
+        `;
+        button.querySelector(".inline-answer-title").textContent = question.title;
+
+        const body = document.createElement("div");
+        body.className = "inline-answer-body";
+        body.innerHTML = `
+          <div class="answer-box"><strong>Resposta segura</strong><p></p></div>
+          <div class="answer-box escalate"><strong>Quando escalar</strong><p></p><a class="faq-shortcut" href="faq.html#${slug(question.title)}">Abrir no FAQ</a></div>
+        `;
+        body.querySelector(".answer-box p").textContent = question.answer;
+        body.querySelector(".answer-box.escalate p").textContent = question.escalate;
+
+        button.addEventListener("click", () => {
+          const isOpen = item.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        item.append(button, body);
+        list.append(item);
+      });
+
+      article.append(answers);
+    });
   </script>
 </body>
 </html>
