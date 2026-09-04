@@ -178,6 +178,89 @@
       font-size: 14px;
     }
 
+    .dynamic-board {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .dynamic-board h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .dynamic-board p {
+      margin: 4px 0 0;
+      color: var(--ink-soft);
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stage-link {
+      min-height: 70px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8fbff;
+    }
+
+    .stage-link:hover {
+      border-color: var(--teal);
+      background: #eefbf7;
+    }
+
+    .stage-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .stage-link strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .stage-link span:last-child {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .question-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .question-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #e6f7f5;
+      color: #064b55;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .guide-list {
       display: grid;
       gap: 22px;
@@ -258,6 +341,10 @@
       .intro {
         grid-template-columns: 1fr;
       }
+
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -305,6 +392,15 @@
           </article>
         </div>
 
+        <section class="dynamic-board" aria-labelledby="dynamicTitle">
+          <div>
+            <h2 id="dynamicTitle">Navegação dinâmica do guia</h2>
+            <p>Clique em uma etapa para ir até a página correspondente. As perguntas abrem no FAQ, que agora fica em página própria.</p>
+          </div>
+          <div class="stage-grid" id="dynamicStages"></div>
+          <div class="question-links" id="dynamicQuestions"></div>
+        </section>
+
         <div class="guide-list">
           <article class="guide-page" id="menu">
             <header><div><h2>01 · Menu principal</h2><p>Visão geral da jornada de Rematrícula 2027.</p></div><span class="badge">Guia</span></header>
@@ -350,5 +446,34 @@
       </main>
     </div>
   </div>
+  <script src="assets/rematricula-2027/guide-data.js"></script>
+  <script>
+    const slug = text => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const stageAnchors = {
+      "Acesso ao Portal GSP": "acesso",
+      "Identificação": "identificacao",
+      "Pré-contrato": "pre-contrato",
+      "Aulas Extras": "aulas-extras",
+      "Serviços Contratados": "servicos",
+      "Formas de Pagamento": "pagamento",
+      "Painel Administrativo": "painel"
+    };
+    const dynamicStages = document.querySelector("#dynamicStages");
+    const dynamicQuestions = document.querySelector("#dynamicQuestions");
+
+    dynamicStages.innerHTML = window.guideData.map(stage => `
+      <a class="stage-link" href="#${stageAnchors[stage.title] || slug(stage.title)}">
+        <span class="stage-number">${stage.number}</span>
+        <span><strong>${stage.title}</strong><span>${stage.summary}</span></span>
+      </a>
+    `).join("") + `
+      <a class="stage-link" href="#canais"><span class="stage-number">09</span><span><strong>Canais Rápidos</strong><span>Salas e canais de apoio do atendimento.</span></span></a>
+      <a class="stage-link" href="#apoio"><span class="stage-number">10</span><span><strong>Material de Apoio</strong><span>Links e materiais de consulta do processo.</span></span></a>
+    `;
+
+    dynamicQuestions.innerHTML = window.guideData.flatMap(stage => stage.questions.map(question => `
+      <a href="faq.html#${slug(question.title)}">${question.title}</a>
+    `)).join("");
+  </script>
 </body>
 </html>

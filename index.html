@@ -35,6 +35,7 @@
 
     body {
       margin: 0;
+      position: relative;
       font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
       background: var(--paper);
@@ -54,6 +55,7 @@
       position: absolute;
       top: 360px;
       left: 0;
+      bottom: 0;
       width: var(--sidebar);
       min-height: calc(100vh - 360px);
       z-index: 20;
@@ -155,22 +157,21 @@
     }
 
     .hero-brand {
-      position: absolute;
-      top: 30px;
-      right: clamp(24px, 5vw, 68px);
+      position: relative;
       z-index: 2;
-      width: min(238px, 24vw);
-      min-width: 170px;
-      padding: 10px 14px;
+      width: min(230px, 34vw);
+      min-width: 168px;
+      margin-bottom: 8px;
+      padding: 8px 12px;
       border-radius: 8px;
       background: rgba(255, 255, 255, .96);
-      box-shadow: 0 18px 42px rgba(8, 19, 59, .18);
+      box-shadow: 0 14px 30px rgba(8, 19, 59, .16);
     }
 
     .hero-brand img {
       display: block;
       width: 100%;
-      max-height: 62px;
+      max-height: 56px;
       object-fit: contain;
     }
 
@@ -949,11 +950,8 @@
       }
 
       .hero-brand {
-        top: 18px;
-        right: 18px;
-        width: 190px;
+        width: 176px;
         min-width: 0;
-        padding: 10px 12px;
       }
 
       .nav-icon {
@@ -1053,7 +1051,7 @@
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>
           <span>Biblioteca</span>
         </a>
-        <a href="#faq">
+        <a href="faq.html">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.7 9a2.5 2.5 0 1 1 4.2 1.8c-.8.6-1.4 1.1-1.4 2.2"/><path d="M12.5 16h.01"/></svg></span>
           <span>FAQ</span>
         </a>
@@ -1070,10 +1068,10 @@
   </header>
 
   <section id="inicio" class="hero">
-    <a class="hero-brand" href="#inicio" aria-label="Great Schools Platform">
-      <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
-    </a>
     <div class="hero-inner">
+      <a class="hero-brand" href="#inicio" aria-label="Great Schools Platform">
+        <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+      </a>
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
       <h1>Educacional GSP</h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
@@ -1095,7 +1093,7 @@
       </div>
       <strong>Ver Biblioteca</strong>
     </a>
-    <a class="stat" href="#faq">
+    <a class="stat" href="faq.html">
       <div class="stat-head">
         <span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7h4a3 3 0 1 1 3 3 2 2 0 0 0-2 2v1h4v-.4A7 7 0 0 0 12 3Zm-2 15v3h4v-3h-4Z" fill="currentColor"/></svg></span>
         <span>Perguntas</span>
@@ -1245,17 +1243,6 @@
         </article>
       </div>
 
-    </section>
-
-    <section id="faq">
-      <div class="section-head">
-        <div>
-          <h2>FAQ rápido</h2>
-          <p>Perguntas iniciais para apoiar atendimento. Respostas finais dependem de validação quando envolver regra comercial, jurídica, financeira ou parametrização.</p>
-        </div>
-      </div>
-
-      <div class="faq-list" id="faqList"></div>
     </section>
 
     <section id="comunicados">
@@ -1544,13 +1531,13 @@
         title: "Aluno não aparece",
         area: "Acesso ao Portal",
         text: "Validar se o acesso é do responsável financeiro e se RF/RA usam e-mails distintos quando forem pessoas diferentes.",
-        link: "#faq"
+        link: "faq.html"
       },
       {
         title: "Botão Rematrícula não aparece",
         area: "Acesso ao Portal",
         text: "A funcionalidade fica disponível para o responsável financeiro. Se o RF correto não visualizar, escalar.",
-        link: "#faq"
+        link: "faq.html"
       },
       {
         title: "Alterar dados cadastrais",
@@ -1586,7 +1573,7 @@
       title: question.title,
       area: stage.title,
       text: `${question.answer} Escalar: ${question.escalate}`,
-      link: "#guia-amanda"
+      link: "faq.html"
     }))));
 
     const searchInput = document.querySelector("#searchInput");
@@ -1640,7 +1627,9 @@
       });
     }
 
-    renderFaq();
+    if (faqList) {
+      renderFaq();
+    }
 
     const stageNav = document.querySelector("#stageNav");
     const guideWorkspace = document.querySelector("#guideWorkspace");
