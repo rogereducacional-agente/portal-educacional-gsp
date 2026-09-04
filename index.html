@@ -473,53 +473,6 @@
       font-size: 14px;
     }
 
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .tab {
-      min-height: 38px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--ink-soft);
-      padding: 7px 12px;
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    .tab[aria-selected="true"] {
-      color: #fff;
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-
-    .tab-panel {
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    .tab-panel h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .tab-panel ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
-      color: var(--ink-soft);
-    }
-
     .material-card {
       min-height: 176px;
       display: flex;
@@ -1086,63 +1039,6 @@
       </div>
     </section>
 
-    <section id="atendimento">
-      <div class="section-head">
-        <div>
-          <h2>Modo Atendimento</h2>
-          <p>Roteiros rápidos para classificar o caso antes de responder ou escalar. Reserva de Vaga continua sendo o único processo com orientação N1 completa validada.</p>
-        </div>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="Temas de atendimento">
-        <button class="tab" role="tab" aria-selected="true" data-tab="triagem">Triagem</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="reserva">Reserva de Vaga</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="rematricula">Rematrícula 2027</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="escalacao">Escalação</button>
-      </div>
-
-      <div class="tab-panel active" id="tab-triagem" role="tabpanel">
-        <h3>Triagem inicial</h3>
-        <p>Antes de orientar qualquer procedimento, identificar objetivo, etapa atual, sistema/tela e evidência disponível, sem solicitar dados sensíveis no chat.</p>
-        <ul>
-          <li>Para Rematrícula, usar o guia como apoio de classificação e resposta segura, mantendo pontos financeiros, jurídicos e parametrização em validação humana.</li>
-          <li>Para processo sem guia oficial, fazer triagem leve e direcionar para Cleide, Amanda ou Jonathan.</li>
-          <li>Para Reserva de Vaga, aplicar a árvore validada antes de responder.</li>
-        </ul>
-      </div>
-
-      <div class="tab-panel" id="tab-reserva" role="tabpanel">
-        <h3>Reserva de Vaga</h3>
-        <p>Classificar se é início imediato, ano atual com início futuro ou ano seguinte antes/depois da abertura do ciclo.</p>
-        <ul>
-          <li>Início imediato: aprovar como Aprovado e enviar o link ao responsável financeiro.</li>
-          <li>Ano atual com início futuro: manter Reserva de Vaga Aprovada e liberar o link no dia 25 do mês anterior ao início.</li>
-          <li>Ano seguinte antes do ciclo abrir: manter Reserva de Vaga Aprovada e liberar quando o ciclo abrir.</li>
-          <li>Ao virar matrícula, vincular manualmente o crédito da reserva ao contrato/parcela correspondente.</li>
-        </ul>
-      </div>
-
-      <div class="tab-panel" id="tab-rematricula" role="tabpanel">
-        <h3>Rematrícula 2027</h3>
-        <p>O atendimento deve navegar pelo guia interativo por etapa: acesso, identificação, pré-contrato, aulas extras, serviços, pagamento e painel.</p>
-        <ul>
-          <li>Usar a resposta segura quando a dúvida estiver mapeada no guia.</li>
-          <li>Conferir unidade, aluno, responsável financeiro e tela/etapa onde ocorreu a dúvida.</li>
-          <li>Escalar regra comercial divergente, contrato incorreto, alteração de RF, falha sistêmica, pagamento e dado sensível.</li>
-        </ul>
-      </div>
-
-      <div class="tab-panel" id="tab-escalacao" role="tabpanel">
-        <h3>Escalação</h3>
-        <p>Quando não houver segurança operacional, encaminhar com resumo objetivo para validação da equipe responsável.</p>
-        <ul>
-          <li>Registrar tema, etapa, contexto, evidência disponível e ponto de validação.</li>
-          <li>Não expor CPF, documentos, credenciais, endereço ou dados financeiros completos.</li>
-          <li>Não prometer prazo ou decisão em nome da equipe.</li>
-        </ul>
-      </div>
-    </section>
-
     <section id="materiais">
       <div class="section-head">
         <div>
@@ -1508,13 +1404,13 @@
         title: "Não lembro o e-mail de acesso",
         area: "Acesso ao Portal",
         text: "Conferir o e-mail cadastrado no responsável financeiro. Se houver alteração de e-mail, atualizar no cadastro e orientar novo acesso após a sincronização.",
-        link: "#atendimento"
+        link: "#guia-amanda"
       },
       {
         title: "Esqueci minha senha",
         area: "Acesso ao Portal",
         text: "Confirmar e-mail cadastrado e orientar a opção Esqueceu senha no Portal dos Pais.",
-        link: "#atendimento"
+        link: "#guia-amanda"
       },
       {
         title: "Aluno não aparece",
@@ -1532,19 +1428,19 @@
         title: "Alterar dados cadastrais",
         area: "Identificação",
         text: "Campos desbloqueados podem ser atualizados no Portal. Campos cinza, documentais ou sensíveis precisam de validação.",
-        link: "#atendimento"
+        link: "#guia-amanda"
       },
       {
         title: "Serviço ou desconto divergente",
         area: "Pré-contrato e Serviços",
         text: "Confirmar unidade, série, serviço e regra comercial validada. Divergência deve ser escalada.",
-        link: "#atendimento"
+        link: "#guia-amanda"
       },
       {
         title: "Pagamento, PIX, cartão ou finalizar bloqueado",
         area: "Pagamento",
         text: "Conferir serviços contratados, forma de pagamento e status. Falha sistêmica ou cobrança divergente deve ser escalada.",
-        link: "#atendimento"
+        link: "#guia-amanda"
       },
       {
         title: "Material completo de Rematrícula",
@@ -1632,14 +1528,6 @@
     searchButton.addEventListener("click", () => renderResults(searchInput.value));
     searchInput.addEventListener("input", () => renderResults(searchInput.value));
     renderResults();
-
-    document.querySelectorAll(".tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        const name = tab.dataset.tab;
-        document.querySelectorAll(".tab").forEach(item => item.setAttribute("aria-selected", String(item === tab)));
-        document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${name}`));
-      });
-    });
 
     document.querySelectorAll(".faq-item button").forEach(button => {
       button.addEventListener("click", () => {
