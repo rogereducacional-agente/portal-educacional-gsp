@@ -59,19 +59,19 @@
       width: var(--sidebar);
       min-height: calc(100vh - 360px);
       z-index: 20;
-      background: linear-gradient(180deg, #eef3f8, #dfe8f2);
-      color: var(--ink);
-      border-right: 1px solid #c8d5e4;
-      box-shadow: 12px 0 30px rgba(20, 33, 61, .08);
+      background: linear-gradient(180deg, #0f244d, #153468);
+      color: #fff;
+      border-right: 1px solid rgba(255, 255, 255, .14);
+      box-shadow: 12px 0 30px rgba(8, 19, 59, .18);
     }
 
     .nav {
       height: 100%;
-      padding: 30px 16px;
+      padding: 22px 16px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      gap: 18px;
+      gap: 12px;
     }
 
     .nav-links {
@@ -86,10 +86,10 @@
       align-items: center;
       gap: 10px;
       white-space: nowrap;
-      padding: 12px 13px;
+      padding: 10px 13px;
       border-radius: 8px;
       font-size: 14px;
-      color: #2e3d58;
+      color: #fff;
       font-weight: 700;
     }
 
@@ -100,9 +100,9 @@
       display: grid;
       place-items: center;
       border-radius: 8px;
-      background: #ffffff;
-      color: #0f244d;
-      box-shadow: inset 0 0 0 1px #d7e4f1;
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
     }
 
     .nav-icon svg {
@@ -116,14 +116,14 @@
     }
 
     .nav-links a:hover {
-      background: #ffffff;
-      color: #0f244d;
-      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(8, 19, 59, .16);
     }
 
     .nav-links a:hover .nav-icon {
-      background: #d8e8ff;
-      color: #0f244d;
+      background: #18b6a5;
+      color: #062d34;
       box-shadow: none;
     }
 
@@ -253,7 +253,7 @@
     .status-strip {
       position: relative;
       max-width: calc(var(--max) + var(--sidebar));
-      margin: -58px auto 0;
+      margin: -18px auto 0;
       padding: 0 20px 0 calc(var(--sidebar) + 20px);
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -265,6 +265,7 @@
       min-height: 126px;
       background: linear-gradient(180deg, #ffffff, #eef7ff);
       border: 1px solid #c7d8ee;
+      border-top: 6px solid var(--stat-color, var(--teal));
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: 0 20px 46px rgba(20, 33, 61, .16);
@@ -282,10 +283,15 @@
 
     .stat span {
       display: block;
-      color: var(--teal);
+      color: var(--stat-color, var(--teal));
       font-size: 13px;
       font-weight: 700;
     }
+
+    .stat:nth-child(1) { --stat-color: var(--green); }
+    .stat:nth-child(2) { --stat-color: var(--blue); }
+    .stat:nth-child(3) { --stat-color: var(--purple); }
+    .stat:nth-child(4) { --stat-color: var(--orange); }
 
     .stat-head {
       display: flex;
@@ -299,8 +305,8 @@
       display: grid;
       place-items: center;
       border-radius: 8px;
-      background: #e0f7f1;
-      color: #007c66;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 14%, #fff);
+      color: var(--stat-color, var(--teal));
     }
 
     .stat-icon svg {
@@ -321,8 +327,8 @@
       margin-top: 14px;
       padding: 7px 10px;
       border-radius: 8px;
-      background: #dff4f1;
-      color: #064b55;
+      background: var(--stat-color, var(--teal));
+      color: #fff;
       font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
@@ -332,12 +338,16 @@
     main {
       max-width: calc(var(--max) + var(--sidebar));
       margin: 0 auto;
-      padding: 44px 20px 80px calc(var(--sidebar) + 20px);
+      padding: 20px 20px 80px calc(var(--sidebar) + 20px);
     }
 
     section {
       margin-top: 52px;
       scroll-margin-top: 86px;
+    }
+
+    main > section:first-child {
+      margin-top: 30px;
     }
 
     .section-head {
@@ -989,9 +999,9 @@
         bottom: auto;
         width: 100%;
         min-height: 0;
-        background: rgba(255, 255, 255, .94);
-        color: var(--ink);
-        border-bottom: 1px solid var(--line);
+        background: rgba(15, 36, 77, .96);
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, .14);
         box-shadow: none;
         backdrop-filter: blur(16px);
       }
@@ -1015,7 +1025,7 @@
       }
 
       .nav-links a {
-        color: var(--ink-soft);
+        color: #fff;
       }
 
       .hero-brand {
@@ -1026,13 +1036,13 @@
       .nav-icon {
         width: 24px;
         height: 24px;
-        background: #e6f7f5;
-        color: var(--teal);
+        background: rgba(255, 255, 255, .14);
+        color: #fff;
       }
 
       .nav-links a:hover {
-        background: #edf3fb;
-        color: var(--ink);
+        background: rgba(255, 255, 255, .14);
+        color: #fff;
       }
 
       .hero-inner {
@@ -1094,11 +1104,11 @@
       }
 
       .status-strip {
-        margin-top: 14px;
+        margin-top: 12px;
       }
 
       main {
-        padding-top: 24px;
+        padding-top: 14px;
       }
     }
   </style>
@@ -1126,6 +1136,10 @@
         <a href="#comunicados">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
           <span>Comunicados</span>
+        </a>
+        <a href="#sala-apoio">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z"/></svg></span>
+          <span>Salas de Apoio</span>
         </a>
         <a href="#roger">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3a7 7 0 0 0 14 0v-3a7 7 0 0 0-7-7Z"/><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M9 14c1.6 1.2 4.4 1.2 6 0"/></svg></span>
