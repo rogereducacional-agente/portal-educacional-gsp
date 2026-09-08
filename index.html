@@ -1115,9 +1115,477 @@
         padding-top: 14px;
       }
     }
+    /* Visual oficial inspirado na referencia enviada pela Cleide. */
+    :root {
+      --sidebar: 166px;
+      --max: 1020px;
+    }
+
+    body {
+      padding-top: 54px;
+      background: #f6f9fd;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 70;
+      height: 54px;
+      display: grid;
+      grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
+      align-items: center;
+      gap: 18px;
+      padding: 0 28px;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid #e6edf6;
+      box-shadow: 0 8px 22px rgba(20, 33, 61, .06);
+      backdrop-filter: blur(12px);
+    }
+
+    .site-logo {
+      display: inline-flex;
+      width: 128px;
+      align-items: center;
+    }
+
+    .site-logo img {
+      width: 100%;
+      display: block;
+    }
+
+    .site-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #1c3152;
+    }
+
+    .site-menu a {
+      position: relative;
+      padding: 20px 0 17px;
+    }
+
+    .site-menu a:first-child {
+      color: #2457c5;
+    }
+
+    .site-menu a:first-child::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 13px;
+      height: 3px;
+      border-radius: 99px;
+      background: #2457c5;
+    }
+
+    .site-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-button {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #dbe6f3;
+      border-radius: 8px;
+      background: #fff;
+      color: #163764;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .08);
+    }
+
+    .login-button {
+      min-height: 34px;
+      padding: 0 18px;
+      border-radius: 6px;
+      border: 0;
+      background: #0c63d8;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(12, 99, 216, .24);
+    }
+
+    .hero {
+      min-height: 206px;
+      background:
+        radial-gradient(circle at 42% 55%, rgba(36, 87, 197, .09), transparent 22%),
+        linear-gradient(90deg, #f8fbff 0%, #f8fbff 48%, #eef6ff 100%);
+      color: #12223d;
+      border-bottom: 1px solid #e2eaf5;
+    }
+
+    .hero::before {
+      inset: 0 34px 0 auto;
+      width: min(48vw, 610px);
+      background:
+        linear-gradient(90deg, rgba(248, 251, 255, .22), rgba(248, 251, 255, 0) 28%),
+        url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
+      clip-path: ellipse(64% 78% at 62% 46%);
+      opacity: 1;
+      filter: saturate(1.06) contrast(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -22px;
+      right: 28px;
+      width: min(49vw, 628px);
+      height: 245px;
+      border: 4px solid rgba(36, 87, 197, .28);
+      border-left-color: rgba(36, 87, 197, .45);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 56px));
+      margin: 0 auto;
+      min-height: 206px;
+      padding: 28px 45% 30px 0;
+      gap: 8px;
+      align-content: center;
+    }
+
+    .hero-brand {
+      display: none;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 5px 9px;
+      border-radius: 5px;
+      color: #2457c5;
+      background: #eaf2ff;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 430px;
+      color: #121f35;
+      font-size: clamp(30px, 3.9vw, 44px);
+      line-height: 1;
+    }
+
+    .lead {
+      max-width: 430px;
+      color: #40516f;
+      font-size: 13px;
+      line-height: 1.38;
+    }
+
+    .inline-actions.hero-actions {
+      margin-top: 8px;
+    }
+
+    .hero-actions .btn.primary {
+      background: #0c63d8;
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(12, 99, 216, .22);
+    }
+
+    .hero-actions .btn.ghost {
+      background: #fff;
+      color: #23405f;
+      border-color: #d8e4f2;
+    }
+
+    .status-strip {
+      max-width: calc(var(--max) + var(--sidebar) + 20px);
+      margin: -10px auto 0;
+      padding: 0 20px 0 calc(var(--sidebar) + 30px);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 104px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #e1e8f2;
+      border-top: 4px solid var(--stat-color, var(--teal));
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .12);
+    }
+
+    .stat::before {
+      display: none;
+    }
+
+    .stat span {
+      font-size: 10px;
+    }
+
+    .stat strong {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    .stat-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+
+    .stat-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .stat::after {
+      margin-top: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 10px;
+      content: "Abrir  ->";
+    }
+
+    .topbar {
+      top: 258px;
+      width: var(--sidebar);
+      min-height: calc(100vh - 258px);
+      background: #fff;
+      color: #1d3154;
+      border-right: 1px solid #e0e9f4;
+      box-shadow: 10px 0 28px rgba(20, 33, 61, .08);
+    }
+
+    .nav {
+      padding: 12px;
+    }
+
+    .nav-links {
+      gap: 7px;
+    }
+
+    .nav-links a {
+      min-height: 34px;
+      padding: 8px 9px;
+      border-radius: 8px;
+      color: #263b59;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .nav-links a:first-child {
+      background: #eef5ff;
+      color: #0c63d8;
+    }
+
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #f4f7fb;
+      color: #254b73;
+      box-shadow: inset 0 0 0 1px #e1e9f4;
+    }
+
+    .nav-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .nav-links a:hover {
+      transform: translateX(2px);
+      color: #0c63d8;
+      background: #eef5ff;
+      box-shadow: none;
+    }
+
+    .nav-links a:hover .nav-icon {
+      background: #dcecff;
+      color: #0c63d8;
+    }
+
+    main {
+      max-width: calc(var(--max) + var(--sidebar) + 20px);
+      padding: 14px 20px 72px calc(var(--sidebar) + 30px);
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    main > section:first-child {
+      margin-top: 12px;
+    }
+
+    .section-head {
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: 20px;
+    }
+
+    .section-head p {
+      font-size: 12px;
+    }
+
+    .search-panel {
+      grid-template-columns: minmax(0, 1fr) 82px;
+      padding: 11px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .09);
+    }
+
+    .search-panel input {
+      min-height: 38px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .btn {
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .btn.primary {
+      background: #0c63d8;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(12, 99, 216, .2);
+    }
+
+    .btn.ghost {
+      background: #fff;
+      color: #153468;
+      border-color: #dbe6f3;
+    }
+
+    .quick-links,
+    .guide-workspace,
+    .search-panel,
+    .material-card,
+    .quick-card,
+    .support-card,
+    .result-card {
+      border-radius: 8px;
+    }
+
+    @media (max-width: 920px) {
+      body {
+        padding-top: 0;
+      }
+
+      .site-header {
+        position: static;
+        height: auto;
+        grid-template-columns: 1fr auto;
+        padding: 10px 16px;
+      }
+
+      .site-menu {
+        grid-column: 1 / -1;
+        order: 3;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        width: 100%;
+      }
+
+      .site-actions {
+        align-self: center;
+      }
+
+      .topbar {
+        top: 0;
+        width: 100%;
+        min-height: 0;
+        background: #fff;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .nav-links a {
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        min-height: 390px;
+      }
+
+      .hero::before {
+        inset: auto 0 0;
+        width: 100%;
+        height: 190px;
+        clip-path: none;
+        background:
+          linear-gradient(180deg, rgba(248, 251, 255, .96), rgba(248, 251, 255, .08)),
+          url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .hero-inner {
+        width: min(100% - 32px, var(--max));
+        min-height: 390px;
+        padding: 26px 0 210px;
+      }
+
+      .status-strip {
+        padding: 0 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      main {
+        padding: 16px 16px 72px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-header {
+        grid-template-columns: 1fr;
+      }
+
+      .site-actions {
+        justify-content: flex-start;
+      }
+
+      .status-strip {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <a class="site-logo" href="#inicio" aria-label="Great Schools Platform">
+      <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+    </a>
+    <nav class="site-menu" aria-label="Navegação superior">
+      <a href="#inicio">Início</a>
+      <a href="#materiais">Biblioteca</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#roger">Suporte</a>
+      <a href="#comunicados">Comunicados</a>
+    </nav>
+    <div class="site-actions" aria-label="Ações rápidas">
+      <a class="icon-button" href="#busca" aria-label="Abrir busca">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+      <a class="login-button" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Entrar</a>
+    </div>
+  </header>
+
   <header class="topbar">
     <nav class="nav" aria-label="Navegação principal">
       <div class="nav-links">
@@ -1161,6 +1629,10 @@
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
       <h1>Educacional GSP</h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
+      <div class="inline-actions hero-actions">
+        <a class="btn primary" href="#busca">Acessar agora</a>
+        <a class="btn ghost" href="#guia-amanda">Sobre menu</a>
+      </div>
     </div>
   </section>
 
