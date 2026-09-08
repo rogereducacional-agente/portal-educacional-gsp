@@ -1258,7 +1258,7 @@
     }
 
     .hero {
-      min-height: 290px;
+      min-height: 270px;
       background: url("assets/gsp/hero-banner-realistic.jpg") center 46% / cover no-repeat;
       color: #102047;
       border-bottom: 1px solid #e2eaf5;
@@ -1286,7 +1286,7 @@
       z-index: 1;
       width: 100%;
       margin: 0;
-      min-height: 290px;
+      min-height: 270px;
       padding: 32px min(58vw, 720px) 32px clamp(72px, 8vw, 104px);
       display: grid;
       align-content: center;
@@ -1409,7 +1409,7 @@
 
     .status-strip {
       max-width: calc(var(--max) + var(--sidebar) + 20px);
-      margin: 16px auto 0;
+      margin: 14px auto 0;
       padding: 0 22px 0 calc(var(--sidebar) + 34px);
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
@@ -1417,8 +1417,8 @@
 
     .stat {
       position: relative;
-      min-height: 174px;
-      padding: 18px 22px 16px;
+      min-height: 168px;
+      padding: 16px 22px 14px;
       border-radius: 8px;
       border: 1px solid #dfe8f4;
       border-top: 0;
@@ -1450,15 +1450,15 @@
     }
 
     .stat p {
-      margin: 10px 0 14px;
+      margin: 8px 0 14px;
       color: #5a6b83;
       font-size: 13px;
-      line-height: 1.32;
+      line-height: 1.34;
     }
 
     .stat strong {
-      margin-top: 14px;
-      font-size: 22px;
+      margin-top: 10px;
+      font-size: 21px;
       color: #101f46;
     }
 
@@ -1489,8 +1489,8 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      min-width: 98px;
-      min-height: 32px;
+      min-width: 110px;
+      min-height: 34px;
       margin-top: auto;
       padding: 6px 14px;
       border-radius: 8px;
@@ -1510,9 +1510,9 @@
     }
 
     .topbar {
-      top: 374px;
+      top: 352px;
       width: var(--sidebar);
-      min-height: calc(100vh - 374px);
+      min-height: calc(100vh - 352px);
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
@@ -1641,11 +1641,16 @@
       background: linear-gradient(90deg, #e9f8f6, #edf9fb);
       border: 1px solid #d7eceb;
       box-shadow: 0 14px 30px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 8px 22px;
+      align-items: center;
     }
 
     #busca .section-head {
       align-items: center;
       margin-bottom: 10px;
+      grid-column: 1;
     }
 
     #busca .section-head > div {
@@ -1682,6 +1687,7 @@
       border-radius: 0;
       background: transparent;
       box-shadow: none;
+      grid-column: 1;
     }
 
     .search-panel input {
@@ -1690,6 +1696,10 @@
       border-color: #dbe5ef;
       font-size: 12px;
       box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+    }
+
+    #busca .search-results {
+      grid-column: 1 / -1;
     }
 
     .btn {
@@ -1703,6 +1713,45 @@
       background: #007c69;
       color: #fff;
       box-shadow: 0 10px 20px rgba(0, 124, 105, .2);
+    }
+
+    .find-note {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      justify-self: center;
+      align-self: center;
+      position: relative;
+      color: #16365d;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-8deg);
+    }
+
+    .find-note::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 18px;
+      width: 18px;
+      height: 26px;
+      border-left: 4px solid #ffd21c;
+      border-top: 4px solid #ffd21c;
+      transform: rotate(-18deg);
+      border-radius: 14px 0 0 0;
+    }
+
+    .find-note::after {
+      content: "";
+      display: block;
+      width: 74px;
+      height: 5px;
+      margin: 2px auto 0;
+      border-radius: 999px;
+      background: #ffd21c;
+      transform: rotate(-3deg);
     }
 
     .btn.ghost {
@@ -1829,6 +1878,23 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      #busca {
+        grid-template-columns: 1fr;
+      }
+
+      #busca .section-head,
+      .search-panel,
+      .find-note {
+        grid-column: 1;
+      }
+
+      .find-note {
+        grid-row: auto;
+        justify-self: end;
+        margin-top: 4px;
+        font-size: 18px;
+      }
+
       main {
         padding: 16px 16px 72px;
       }
@@ -1876,6 +1942,10 @@
 
       .search-panel {
         grid-template-columns: 1fr;
+      }
+
+      .find-note {
+        display: none;
       }
     }
   </style>
@@ -1996,6 +2066,7 @@
         <input id="searchInput" type="search" placeholder="Digite uma dúvida: senha, aluno não aparece, desconto, contrato, pagamento...">
         <button class="btn primary" id="searchButton">Buscar</button>
       </div>
+      <div class="find-note" aria-hidden="true">Aqui você<br>encontra!</div>
       <div class="search-results" id="searchResults" aria-live="polite"></div>
     </section>
 
