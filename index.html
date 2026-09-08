@@ -1259,14 +1259,22 @@
 
     .hero {
       min-height: 290px;
-      background: url("assets/gsp/hero-layout-full-clean.jpg") center / cover no-repeat;
+      background: url("assets/gsp/hero-banner-realistic.jpg") center 46% / cover no-repeat;
       color: #102047;
       border-bottom: 1px solid #e2eaf5;
       overflow: hidden;
     }
 
     .hero::before {
-      content: none;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, #fff 0%, #fff 46%, rgba(255, 255, 255, .9) 56%, rgba(255, 255, 255, .24) 70%, rgba(255, 255, 255, 0) 100%),
+        radial-gradient(circle at -3% 2%, #ffd21c 0 58px, transparent 59px),
+        radial-gradient(circle at 0 86%, #1fa987 0 96px, transparent 97px),
+        radial-gradient(circle at 0 100%, #087d71 0 66px, transparent 67px);
+      pointer-events: none;
     }
 
     .hero::after {
@@ -1274,13 +1282,34 @@
     }
 
     .hero-inner {
+      position: relative;
+      z-index: 1;
       width: 100%;
       margin: 0;
       min-height: 290px;
-      padding: 0;
+      padding: 32px min(58vw, 720px) 32px clamp(72px, 8vw, 104px);
+      display: grid;
+      align-content: center;
+      gap: 10px;
+    }
+
+    .hero-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      z-index: -1;
+      width: min(48vw, 600px);
+      background: linear-gradient(90deg, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
     }
 
     .hero-inner > * {
+      display: initial;
+    }
+
+    .hero-inner .hero-brand,
+    .hero-inner .hero-actions,
+    .floating-hero-icon {
       display: none;
     }
 
@@ -1759,7 +1788,11 @@
       }
 
       .hero::before {
-        content: none;
+        content: "";
+        background:
+          linear-gradient(90deg, #fff 0%, #fff 68%, rgba(255, 255, 255, .48) 86%, rgba(255, 255, 255, .08) 100%),
+          radial-gradient(circle at -5% 0, #ffd21c 0 46px, transparent 47px),
+          radial-gradient(circle at -7% 88%, #1fa987 0 70px, transparent 71px);
       }
 
       .hero::after {
@@ -1774,7 +1807,12 @@
         width: min(100% - 32px, var(--max));
         margin: 0 auto;
         min-height: 250px;
-        padding: 0;
+        padding: 22px 0;
+      }
+
+      .hero-inner::before {
+        width: min(86vw, 520px);
+        left: -16px;
       }
 
       h1 {
@@ -1819,13 +1857,13 @@
       }
 
       .hero {
-        min-height: 210px;
+        min-height: 250px;
         background-position: left center;
       }
 
       .hero-inner {
-        min-height: 210px;
-        padding-bottom: 0;
+        min-height: 250px;
+        padding: 20px 0;
       }
 
       .lead {
@@ -1904,14 +1942,6 @@
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
       <h1><span class="hero-mainline">Tudo o que você precisa,</span><span class="hero-script">em um só lugar!</span></h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
-      <div class="inline-actions hero-actions">
-        <a class="btn primary" href="#busca">Acessar agora <span aria-hidden="true">→</span></a>
-        <a class="btn ghost" href="#guia-amanda">Saiba mais <span aria-hidden="true">ⓘ</span></a>
-      </div>
-      <span class="floating-hero-icon book" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg></span>
-      <span class="floating-hero-icon megaphone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
-      <span class="floating-hero-icon headset" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg></span>
-      <span class="floating-hero-icon file" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
     </div>
   </section>
 
