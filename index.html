@@ -40,6 +40,7 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
+      overflow-x: hidden;
     }
 
     a {
@@ -1122,7 +1123,7 @@
     }
 
     body {
-      padding-top: 54px;
+      padding-top: 68px;
       background: #f6f9fd;
     }
 
@@ -1130,21 +1131,21 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 70;
-      height: 54px;
+      height: 68px;
       display: grid;
-      grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
+      grid-template-columns: 240px minmax(0, 1fr) 210px;
       align-items: center;
-      gap: 18px;
-      padding: 0 28px;
-      background: rgba(255, 255, 255, .96);
+      gap: 24px;
+      padding: 0 42px 0 48px;
+      background: rgba(255, 255, 255, .98);
       border-bottom: 1px solid #e6edf6;
-      box-shadow: 0 8px 22px rgba(20, 33, 61, .06);
+      box-shadow: 0 8px 24px rgba(20, 33, 61, .06);
       backdrop-filter: blur(12px);
     }
 
     .site-logo {
       display: inline-flex;
-      width: 128px;
+      width: 166px;
       align-items: center;
     }
 
@@ -1157,19 +1158,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 26px;
-      font-size: 12px;
-      font-weight: 800;
-      color: #1c3152;
+      gap: clamp(18px, 2.3vw, 34px);
+      font-size: 13px;
+      font-weight: 850;
+      color: #102047;
     }
 
     .site-menu a {
       position: relative;
-      padding: 20px 0 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 68px;
+      padding: 0 2px;
+    }
+
+    .site-menu svg {
+      width: 21px;
+      height: 21px;
+      stroke: currentColor;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
     }
 
     .site-menu a:first-child {
-      color: #2457c5;
+      color: #008a73;
     }
 
     .site-menu a:first-child::after {
@@ -1177,82 +1192,116 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 13px;
-      height: 3px;
+      bottom: 10px;
+      height: 4px;
       border-radius: 99px;
-      background: #2457c5;
+      background: #008a73;
     }
 
     .site-actions {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      color: #102047;
     }
 
     .icon-button {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 999px;
+      background: #f3f7fb;
+      color: #102047;
+      box-shadow: inset 0 0 0 1px #e2eaf5;
+    }
+
+    .icon-button::after {
+      content: "3";
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #008a73;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 10px 0 4px;
+      color: #102047;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .user-avatar {
       width: 34px;
       height: 34px;
       display: grid;
       place-items: center;
-      border: 1px solid #dbe6f3;
-      border-radius: 8px;
-      background: #fff;
-      color: #163764;
-      box-shadow: 0 8px 18px rgba(20, 33, 61, .08);
-    }
-
-    .login-button {
-      min-height: 34px;
-      padding: 0 18px;
-      border-radius: 6px;
-      border: 0;
-      background: #0c63d8;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 900;
-      box-shadow: 0 10px 22px rgba(12, 99, 216, .24);
+      border-radius: 999px;
+      background: #eef5ff;
+      color: #102047;
+      box-shadow: inset 0 0 0 1px #dce8f6;
     }
 
     .hero {
-      min-height: 206px;
+      min-height: 290px;
       background:
-        radial-gradient(circle at 42% 55%, rgba(36, 87, 197, .09), transparent 22%),
-        linear-gradient(90deg, #f8fbff 0%, #f8fbff 48%, #eef6ff 100%);
-      color: #12223d;
+        radial-gradient(circle at -3% 1%, #ffd21c 0 58px, transparent 59px),
+        radial-gradient(circle at 1% 89%, #20aa88 0 94px, transparent 95px),
+        radial-gradient(circle at 0 100%, #087d71 0 62px, transparent 63px),
+        linear-gradient(90deg, #ffffff 0%, #fbfdfb 42%, #eef7f2 100%);
+      color: #102047;
       border-bottom: 1px solid #e2eaf5;
+      overflow: hidden;
     }
 
     .hero::before {
-      inset: 0 34px 0 auto;
-      width: min(48vw, 610px);
+      inset: 0 0 0 auto;
+      width: min(54vw, 720px);
       background:
-        linear-gradient(90deg, rgba(248, 251, 255, .22), rgba(248, 251, 255, 0) 28%),
-        url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
-      clip-path: ellipse(64% 78% at 62% 46%);
+        linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.58) 10%, rgba(255,255,255,0) 24%),
+        url("assets/gsp/hero-layout-reference-people.jpg") center right / cover no-repeat;
+      clip-path: none;
       opacity: 1;
-      filter: saturate(1.06) contrast(1.02);
+      filter: saturate(1.04) contrast(1.01);
     }
 
     .hero::after {
-      content: "";
+      content: "Pessoas\A Processos\A Tecnologia\A Educação\A Resultados";
+      white-space: pre;
       position: absolute;
-      top: -22px;
-      right: 28px;
-      width: min(49vw, 628px);
-      height: 245px;
-      border: 4px solid rgba(36, 87, 197, .28);
-      border-left-color: rgba(36, 87, 197, .45);
-      border-radius: 50%;
+      top: 22px;
+      right: 36px;
+      width: 118px;
+      color: rgba(255, 255, 255, .88);
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 16px;
+      line-height: 1.08;
+      transform: rotate(-6deg);
+      text-shadow: 0 2px 8px rgba(16, 32, 71, .34);
       pointer-events: none;
     }
 
     .hero-inner {
-      width: min(var(--max), calc(100% - 56px));
-      margin: 0 auto;
-      min-height: 206px;
-      padding: 28px 45% 30px 0;
-      gap: 8px;
+      width: 100%;
+      margin: 0;
+      min-height: 290px;
+      padding: 30px min(49vw, 620px) 28px clamp(78px, 8vw, 104px);
+      gap: 10px;
       align-content: center;
     }
 
@@ -1262,98 +1311,200 @@
 
     .eyebrow {
       width: fit-content;
-      padding: 5px 9px;
-      border-radius: 5px;
-      color: #2457c5;
-      background: #eaf2ff;
-      font-size: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: #007c69;
+      background: #dff2ea;
+      font-size: 11px;
       font-weight: 900;
     }
 
     h1 {
-      max-width: 430px;
-      color: #121f35;
-      font-size: clamp(30px, 3.9vw, 44px);
-      line-height: 1;
+      max-width: 560px;
+      color: #081a3d;
+      font-size: clamp(33px, 3.5vw, 39px);
+      line-height: .96;
+      font-weight: 950;
+    }
+
+    .hero-mainline {
+      white-space: nowrap;
+    }
+
+    .hero-script {
+      display: block;
+      width: fit-content;
+      color: #008a73;
+      font-family: "Segoe Print", "Brush Script MT", cursive;
+      font-size: .95em;
+      font-weight: 900;
+      line-height: .9;
+      text-decoration: underline;
+      text-decoration-color: #ffd21c;
+      text-decoration-thickness: 5px;
+      text-underline-offset: 7px;
+      transform: rotate(-2deg);
     }
 
     .lead {
-      max-width: 430px;
+      max-width: 535px;
       color: #40516f;
-      font-size: 13px;
-      line-height: 1.38;
+      font-size: 14px;
+      line-height: 1.35;
     }
 
     .inline-actions.hero-actions {
       margin-top: 8px;
+      gap: 12px;
     }
 
     .hero-actions .btn.primary {
-      background: #0c63d8;
+      background: #007c69;
       color: #fff;
-      box-shadow: 0 12px 24px rgba(12, 99, 216, .22);
+      min-width: 160px;
+      box-shadow: 0 14px 26px rgba(0, 124, 105, .24);
     }
 
     .hero-actions .btn.ghost {
       background: #fff;
-      color: #23405f;
-      border-color: #d8e4f2;
+      color: #007c69;
+      border-color: #008a73;
+      min-width: 130px;
     }
+
+    .floating-hero-icon {
+      position: absolute;
+      z-index: 2;
+      display: none;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(20, 33, 61, .2);
+    }
+
+    .floating-hero-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .floating-hero-icon.book { top: 58px; right: min(46vw, 570px); background: #22b887; }
+    .floating-hero-icon.megaphone { top: 166px; right: min(51vw, 650px); background: #ff6b2c; }
+    .floating-hero-icon.headset { top: 42px; right: min(23vw, 300px); background: #ffd21c; }
+    .floating-hero-icon.file { top: 142px; right: 72px; background: #1378ff; }
 
     .status-strip {
       max-width: calc(var(--max) + var(--sidebar) + 20px);
-      margin: -10px auto 0;
-      padding: 0 20px 0 calc(var(--sidebar) + 30px);
+      margin: 16px auto 0;
+      padding: 0 22px 0 calc(var(--sidebar) + 34px);
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
     }
 
     .stat {
-      min-height: 104px;
-      padding: 12px;
+      position: relative;
+      min-height: 174px;
+      padding: 18px 22px 16px;
       border-radius: 8px;
-      border: 1px solid #e1e8f2;
-      border-top: 4px solid var(--stat-color, var(--teal));
-      background: #fff;
-      box-shadow: 0 12px 28px rgba(20, 33, 61, .12);
+      border: 1px solid #dfe8f4;
+      border-top: 0;
+      background:
+        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--stat-color, var(--teal)) 16%, transparent) 0 62px, transparent 64px),
+        #fff;
+      box-shadow: 0 14px 32px rgba(20, 33, 61, .1);
+      overflow: hidden;
     }
 
     .stat::before {
-      display: none;
-    }
-
-    .stat span {
-      font-size: 10px;
-    }
-
-    .stat strong {
-      margin-top: 6px;
-      font-size: 15px;
-    }
-
-    .stat-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-    }
-
-    .stat-icon svg {
-      width: 13px;
-      height: 13px;
+      content: "";
+      display: block;
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,.8), transparent 55%);
     }
 
     .stat::after {
-      margin-top: 8px;
-      padding: 6px 9px;
-      border-radius: 6px;
-      font-size: 10px;
-      content: "Abrir  ->";
+      content: none;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: var(--stat-color, var(--teal));
+      font-weight: 900;
+    }
+
+    .stat p {
+      margin: 10px 0 14px;
+      color: #5a6b83;
+      font-size: 13px;
+      line-height: 1.32;
+    }
+
+    .stat strong {
+      margin-top: 14px;
+      font-size: 22px;
+      color: #101f46;
+    }
+
+    .stat-head {
+      position: relative;
+      z-index: 1;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 14%, #fff);
+      color: var(--stat-color, var(--teal));
+    }
+
+    .stat-icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .stat-button {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 98px;
+      min-height: 32px;
+      margin-top: auto;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: var(--stat-color, var(--teal));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 12px 22px color-mix(in srgb, var(--stat-color, var(--teal)) 30%, transparent);
+    }
+
+    .stat .stat-button,
+    .stat .stat-button span {
+      display: inline-flex;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
     }
 
     .topbar {
-      top: 258px;
+      top: 374px;
       width: var(--sidebar);
-      min-height: calc(100vh - 258px);
+      min-height: calc(100vh - 374px);
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
@@ -1361,7 +1512,26 @@
     }
 
     .nav {
-      padding: 12px;
+      padding: 16px 12px;
+      gap: 12px;
+    }
+
+    .side-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: #f3f7fb;
+      color: #718198;
+      font-size: 12px;
+    }
+
+    .side-search svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
     }
 
     .nav-links {
@@ -1369,48 +1539,71 @@
     }
 
     .nav-links a {
-      min-height: 34px;
-      padding: 8px 9px;
+      min-height: 36px;
+      padding: 8px 10px;
       border-radius: 8px;
       color: #263b59;
-      font-size: 11px;
-      font-weight: 800;
+      font-size: 12px;
+      font-weight: 850;
     }
 
     .nav-links a:first-child {
-      background: #eef5ff;
-      color: #0c63d8;
+      background: #e9f5f1;
+      color: #007c69;
+      box-shadow: inset 3px 0 0 #008a73;
     }
 
     .nav-icon {
       width: 22px;
       height: 22px;
       border-radius: 6px;
-      background: #f4f7fb;
+      background: transparent;
       color: #254b73;
-      box-shadow: inset 0 0 0 1px #e1e9f4;
+      box-shadow: none;
     }
 
     .nav-icon svg {
-      width: 13px;
-      height: 13px;
+      width: 18px;
+      height: 18px;
     }
 
     .nav-links a:hover {
       transform: translateX(2px);
-      color: #0c63d8;
-      background: #eef5ff;
+      color: #007c69;
+      background: #e9f5f1;
       box-shadow: none;
     }
 
     .nav-links a:hover .nav-icon {
-      background: #dcecff;
-      color: #0c63d8;
+      background: transparent;
+      color: #007c69;
+    }
+
+    .side-note {
+      margin: 22px auto 0;
+      width: 150px;
+      color: #183153;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-5deg);
+    }
+
+    .side-note::after {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 5px;
+      margin: 2px auto 0;
+      border-radius: 99px;
+      background: #ffd21c;
     }
 
     main {
       max-width: calc(var(--max) + var(--sidebar) + 20px);
-      padding: 14px 20px 72px calc(var(--sidebar) + 30px);
+      padding: 14px 22px 72px calc(var(--sidebar) + 34px);
     }
 
     section {
@@ -1418,7 +1611,7 @@
     }
 
     main > section:first-child {
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .section-head {
@@ -1433,31 +1626,75 @@
       font-size: 12px;
     }
 
-    .search-panel {
-      grid-template-columns: minmax(0, 1fr) 82px;
-      padding: 11px;
+    #busca {
+      margin-top: 14px;
+      padding: 18px 20px;
       border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 12px 28px rgba(20, 33, 61, .09);
+      background: linear-gradient(90deg, #e9f8f6, #edf9fb);
+      border: 1px solid #d7eceb;
+      box-shadow: 0 14px 30px rgba(20, 33, 61, .08);
+    }
+
+    #busca .section-head {
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    #busca .section-head > div {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    #busca .section-head > div::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: #008a73;
+      box-shadow: 0 12px 22px rgba(0, 124, 105, .22);
+    }
+
+    #busca .section-head > div::after {
+      content: "⌕";
+      position: absolute;
+      left: 9px;
+      top: 2px;
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .search-panel {
+      grid-template-columns: minmax(0, 1fr) 94px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .search-panel input {
       min-height: 38px;
-      border-radius: 6px;
+      border-radius: 8px;
+      border-color: #dbe5ef;
       font-size: 12px;
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
     }
 
     .btn {
       min-height: 36px;
       padding: 8px 12px;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 12px;
     }
 
     .btn.primary {
-      background: #0c63d8;
+      background: #007c69;
       color: #fff;
-      box-shadow: 0 10px 20px rgba(12, 99, 216, .2);
+      box-shadow: 0 10px 20px rgba(0, 124, 105, .2);
     }
 
     .btn.ghost {
@@ -1488,13 +1725,23 @@
         padding: 10px 16px;
       }
 
+      .site-logo {
+        width: 142px;
+      }
+
       .site-menu {
         grid-column: 1 / -1;
         order: 3;
         justify-content: flex-start;
         gap: 18px;
         overflow-x: auto;
+        scrollbar-width: none;
         width: 100%;
+      }
+
+      .site-menu::-webkit-scrollbar,
+      .nav-links::-webkit-scrollbar {
+        display: none;
       }
 
       .site-actions {
@@ -1506,6 +1753,16 @@
         width: 100%;
         min-height: 0;
         background: #fff;
+        overflow: hidden;
+      }
+
+      .nav {
+        padding: 10px 16px;
+      }
+
+      .side-search,
+      .side-note {
+        display: none;
       }
 
       .nav-links {
@@ -1518,27 +1775,41 @@
       }
 
       .hero {
-        min-height: 390px;
+        min-height: 430px;
       }
 
       .hero::before {
         inset: auto 0 0;
         width: 100%;
-        height: 190px;
+        height: 206px;
         clip-path: none;
         background:
-          linear-gradient(180deg, rgba(248, 251, 255, .96), rgba(248, 251, 255, .08)),
-          url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
+          linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .08)),
+          url("assets/gsp/hero-layout-reference-people.jpg") center / cover no-repeat;
       }
 
       .hero::after {
         display: none;
       }
 
+      .floating-hero-icon {
+        display: none;
+      }
+
       .hero-inner {
         width: min(100% - 32px, var(--max));
-        min-height: 390px;
-        padding: 26px 0 210px;
+        margin: 0 auto;
+        min-height: 430px;
+        padding: 28px 0 226px;
+      }
+
+      h1 {
+        max-width: 520px;
+        font-size: clamp(32px, 9vw, 40px);
+      }
+
+      .hero-mainline {
+        white-space: normal;
       }
 
       .status-strip {
@@ -1557,10 +1828,40 @@
       }
 
       .site-actions {
-        justify-content: flex-start;
+        display: none;
+      }
+
+      .site-menu {
+        gap: 16px;
+        font-size: 12px;
+      }
+
+      .site-menu a {
+        min-height: 40px;
+      }
+
+      .site-menu a:first-child::after {
+        bottom: 0;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero-inner {
+        min-height: 470px;
+        padding-bottom: 236px;
+      }
+
+      .lead {
+        font-size: 13px;
       }
 
       .status-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .search-panel {
         grid-template-columns: 1fr;
       }
     }
@@ -1572,26 +1873,34 @@
       <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
     </a>
     <nav class="site-menu" aria-label="Navegação superior">
-      <a href="#inicio">Início</a>
-      <a href="#materiais">Biblioteca</a>
-      <a href="faq.html">FAQ</a>
-      <a href="#roger">Suporte</a>
-      <a href="#comunicados">Comunicados</a>
+      <a href="#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>Início</a>
+      <a href="#materiais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg>Biblioteca</a>
+      <a href="faq.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.8 9a2.4 2.4 0 1 1 4 1.8c-.8.6-1.3 1.1-1.3 2.1"/><path d="M12.5 16h.01"/></svg>FAQ</a>
+      <a href="#roger"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M17 15v1a4 4 0 0 1-4 4h-2"/></svg>Suporte</a>
+      <a href="#comunicados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg>Comunicados</a>
     </nav>
     <div class="site-actions" aria-label="Ações rápidas">
-      <a class="icon-button" href="#busca" aria-label="Abrir busca">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <a class="icon-button" href="#comunicados" aria-label="Abrir notificações">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </a>
-      <a class="login-button" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Entrar</a>
+      <a class="user-chip" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">
+        <span class="user-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 21a8 8 0 1 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" fill="currentColor"/></svg></span>
+        <span>Olá, Amanda</span>
+        <span aria-hidden="true">⌄</span>
+      </a>
     </div>
   </header>
 
   <header class="topbar">
     <nav class="nav" aria-label="Navegação principal">
+      <a class="side-search" href="#busca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Buscar no portal...</span>
+      </a>
       <div class="nav-links">
-        <a href="#busca">
-          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="7"/></svg></span>
-          <span>Busca</span>
+        <a href="#inicio">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
+          <span>Início</span>
         </a>
         <a href="#guia-amanda">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h5"/><path d="M8 11h6"/></svg></span>
@@ -1618,6 +1927,7 @@
           <span>Fale com o Roger</span>
         </a>
       </div>
+      <div class="side-note">Juntos<br>vamos mais longe!</div>
     </nav>
   </header>
 
@@ -1627,12 +1937,16 @@
         <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
       </a>
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
-      <h1>Educacional GSP</h1>
+      <h1><span class="hero-mainline">Tudo o que você precisa,</span><span class="hero-script">em um só lugar!</span></h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
       <div class="inline-actions hero-actions">
-        <a class="btn primary" href="#busca">Acessar agora</a>
-        <a class="btn ghost" href="#guia-amanda">Sobre menu</a>
+        <a class="btn primary" href="#busca">Acessar agora <span aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#guia-amanda">Saiba mais <span aria-hidden="true">ⓘ</span></a>
       </div>
+      <span class="floating-hero-icon book" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg></span>
+      <span class="floating-hero-icon megaphone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+      <span class="floating-hero-icon headset" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/></svg></span>
+      <span class="floating-hero-icon file" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
     </div>
   </section>
 
@@ -1643,6 +1957,8 @@
         <span>Prioridade atual</span>
       </div>
       <strong>Rematrícula 2027</strong>
+      <p>Acesse todos os materiais, orientações e prazos.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
     <a class="stat" href="#materiais">
       <div class="stat-head">
@@ -1650,6 +1966,8 @@
         <span>Consulta rápida</span>
       </div>
       <strong>Ver Biblioteca</strong>
+      <p>Encontre materiais, vídeos e apresentações.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
     <a class="stat" href="faq.html">
       <div class="stat-head">
@@ -1657,6 +1975,8 @@
         <span>Perguntas</span>
       </div>
       <strong>FAQ</strong>
+      <p>Respostas para as principais dúvidas do dia a dia.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
     <a class="stat" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">
       <div class="stat-head">
@@ -1664,6 +1984,8 @@
         <span>Suporte</span>
       </div>
       <strong>Falar com Roger</strong>
+      <p>Precisa de ajuda? Entre em contato com nossa equipe.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
   </div>
 
