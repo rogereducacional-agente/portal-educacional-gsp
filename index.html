@@ -1259,7 +1259,7 @@
 
     .hero {
       min-height: 290px;
-      background: url("assets/gsp/hero-layout-full-clean.jpg") center center / 100% 100% no-repeat;
+      background: url("assets/gsp/hero-layout-clean-text-html.jpg") center center / 100% 100% no-repeat;
       color: #102047;
       border-bottom: 1px solid #e2eaf5;
       overflow: hidden;
@@ -1284,10 +1284,10 @@
       width: 100%;
       margin: 0;
       min-height: 290px;
-      padding: 0;
+      padding: 31px 0 0 clamp(92px, 8vw, 104px);
       display: grid;
-      align-content: center;
-      gap: 12px;
+      align-content: start;
+      gap: 7px;
     }
 
     .hero-inner::before {
@@ -1301,7 +1301,7 @@
     }
 
     .hero-inner > * {
-      display: none;
+      display: block;
     }
 
     .hero-inner .hero-brand,
@@ -1316,20 +1316,22 @@
 
     .eyebrow {
       width: fit-content;
-      padding: 6px 14px;
+      padding: 5px 13px;
       border-radius: 999px;
       color: #007c69;
       background: #dff2ea;
       font-size: 11px;
       font-weight: 900;
+      box-shadow: 0 1px 0 rgba(0, 124, 105, .08);
     }
 
     h1 {
       max-width: 560px;
       color: #081a3d;
-      font-size: clamp(33px, 3.5vw, 39px);
+      font-size: clamp(34px, 3.55vw, 42px);
       line-height: .96;
       font-weight: 950;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .42);
     }
 
     .hero-mainline {
@@ -1356,7 +1358,29 @@
       color: #40516f;
       font-size: 14px;
       line-height: 1.44;
-      margin-top: 8px;
+      margin-top: 18px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    .hero-board-words {
+      position: absolute;
+      top: 12px;
+      right: auto;
+      left: min(81vw, 1104px);
+      width: 168px;
+      color: #fff9df;
+      font-family: "Segoe Print", "Bradley Hand", cursive;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.15;
+      transform: rotate(4deg);
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .26);
+      letter-spacing: 0;
+    }
+
+    .hero-board-words span {
+      display: block;
     }
 
     .inline-actions.hero-actions {
@@ -1831,17 +1855,13 @@
 
       .hero {
         min-height: 250px;
-        background-image: url("assets/gsp/hero-banner-realistic.jpg");
+        background-image: url("assets/gsp/hero-layout-clean-text-html.jpg");
         background-position: left center;
         background-size: cover;
       }
 
       .hero::before {
-        content: "";
-        background:
-          linear-gradient(90deg, #fff 0%, #fff 68%, rgba(255, 255, 255, .48) 86%, rgba(255, 255, 255, .08) 100%),
-          radial-gradient(circle at -5% 0, #ffd21c 0 46px, transparent 47px),
-          radial-gradient(circle at -7% 88%, #1fa987 0 70px, transparent 71px);
+        content: none;
       }
 
       .hero::after {
@@ -1856,7 +1876,7 @@
         width: min(100% - 32px, var(--max));
         margin: 0 auto;
         min-height: 250px;
-        padding: 22px 0;
+        padding: 24px 0 0 0;
       }
 
       .hero-inner::before {
@@ -1866,7 +1886,7 @@
       }
 
       .hero-inner > * {
-        display: initial;
+        display: block;
       }
 
       .hero-inner .hero-brand,
@@ -1882,6 +1902,10 @@
 
       .hero-mainline {
         white-space: normal;
+      }
+
+      .hero-board-words {
+        display: none;
       }
 
       .status-strip {
@@ -2023,6 +2047,13 @@
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
       <h1><span class="hero-mainline">Tudo o que você precisa,</span><span class="hero-script">em um só lugar!</span></h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
+      <div class="hero-board-words" aria-label="Pessoas, Processos, Tecnologia, Educação, Resultados">
+        <span>Pessoas</span>
+        <span>Processos</span>
+        <span>Tecnologia</span>
+        <span>Educação</span>
+        <span>Resultados</span>
+      </div>
     </div>
   </section>
 
