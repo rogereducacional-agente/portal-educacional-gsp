@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Portal Educacional GSP</title>
+  <title>Apresentação | Portal Educacional GSP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Identidade visual provisoria GSP. Trocar estes tokens quando Cleide enviar a paleta final. */
@@ -40,7 +43,6 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
-      overflow-x: hidden;
     }
 
     a {
@@ -1091,6 +1093,307 @@
       }
     }
 
+    /* Versao de apresentacao: camada visual para avaliacao antes da publicacao. */
+    .presentation-ribbon {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .92);
+      color: #153468;
+      border: 1px solid rgba(198, 218, 241, .8);
+      box-shadow: 0 14px 32px rgba(8, 19, 59, .16);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, #f3f8ff 0%, #f7fafc 38%, #eef6f2 100%);
+    }
+
+    .topbar {
+      top: 336px;
+      min-height: calc(100vh - 336px);
+      background: linear-gradient(180deg, #112b5c 0%, #0f3e76 48%, #126b78 100%);
+      border-right: 1px solid rgba(255, 255, 255, .18);
+      box-shadow: 16px 0 42px rgba(8, 19, 59, .2);
+    }
+
+    .nav {
+      padding: 18px 14px;
+    }
+
+    .nav-links a {
+      min-height: 46px;
+      padding: 9px 11px;
+      border: 1px solid transparent;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateX(3px);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    .nav-icon {
+      background: rgba(255, 255, 255, .16);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .24);
+    }
+
+    .hero {
+      min-height: 336px;
+      background: #0d2b5c;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(90deg, rgba(13, 43, 92, .98) 0%, rgba(13, 43, 92, .86) 38%, rgba(16, 78, 126, .38) 66%, rgba(13, 43, 92, .04) 100%),
+        url("assets/gsp/hero-educacional-preview.jpg") center right / 54% 100% no-repeat;
+      filter: saturate(1.08) contrast(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 100px;
+      background: linear-gradient(180deg, transparent, rgba(243, 248, 255, .96));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      min-height: 336px;
+      gap: 14px;
+      z-index: 2;
+    }
+
+    .hero-brand {
+      border-radius: 14px;
+      box-shadow: 0 18px 38px rgba(8, 19, 59, .18);
+    }
+
+    .eyebrow {
+      color: #9df0df;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 680px;
+      font-size: clamp(42px, 5vw, 62px);
+      line-height: 1;
+    }
+
+    .lead {
+      max-width: 660px;
+      color: #eff6ff;
+      font-size: 18px;
+    }
+
+    .status-strip {
+      margin-top: -22px;
+      gap: 14px;
+    }
+
+    .stat {
+      min-height: 138px;
+      border: 1px solid rgba(180, 205, 234, .78);
+      border-top: 0;
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .98), rgba(239, 248, 255, .88));
+      box-shadow: 0 22px 48px rgba(15, 36, 77, .14);
+    }
+
+    .stat:hover {
+      box-shadow: 0 28px 58px rgba(15, 36, 77, .2);
+    }
+
+    .stat-icon,
+    .stat::after,
+    .tag,
+    .btn,
+    .stage-button,
+    .stage-index,
+    .answer-panel,
+    .support-avatar {
+      border-radius: 10px;
+    }
+
+    .stat::before {
+      content: "";
+      height: 5px;
+      margin: -18px -18px 12px;
+      border-radius: 16px 16px 0 0;
+      background: var(--stat-color, var(--teal));
+    }
+
+    main {
+      padding-top: 26px;
+    }
+
+    .section-head {
+      align-items: center;
+      padding-bottom: 4px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(25px, 3vw, 34px);
+    }
+
+    .section-head p {
+      font-size: 15px;
+    }
+
+    .search-panel,
+    .stage-nav,
+    .guide-workspace,
+    .quick-links,
+    .result-card,
+    .material-card,
+    .quick-card,
+    .support-card {
+      border-color: rgba(199, 216, 238, .9);
+      border-radius: 16px;
+      box-shadow: 0 18px 42px rgba(15, 36, 77, .08);
+    }
+
+    .search-panel {
+      grid-template-columns: minmax(0, 1fr) 132px;
+      padding: 12px;
+      background: rgba(255, 255, 255, .94);
+    }
+
+    .search-panel input {
+      min-height: 50px;
+      border-radius: 12px;
+      background: #f8fbff;
+    }
+
+    .btn {
+      min-height: 44px;
+      border-radius: 12px;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary,
+    .quick-links .btn:first-child {
+      background: linear-gradient(135deg, #0bb39f, #087f89);
+      color: #fff;
+      box-shadow: 0 16px 26px rgba(8, 127, 137, .22);
+    }
+
+    .btn.ghost {
+      background: #ffffff;
+      color: #153468;
+      border-color: #cbdcf0;
+      box-shadow: 0 10px 20px rgba(15, 36, 77, .08);
+    }
+
+    .stage-button {
+      background: #f7fbff;
+    }
+
+    .stage-button[aria-selected="true"] {
+      background: linear-gradient(145deg, #ffffff, #f0f8ff);
+      box-shadow: 0 14px 26px rgba(15, 36, 77, .1);
+    }
+
+    .guide-workspace {
+      background: rgba(255, 255, 255, .96);
+    }
+
+    .question-card {
+      border-radius: 14px;
+      box-shadow: 0 16px 34px rgba(15, 36, 77, .08);
+    }
+
+    .question-toggle {
+      background: linear-gradient(90deg, #ffffff, #f3fbfc);
+    }
+
+    .material-card,
+    .quick-card {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 251, 255, .92));
+    }
+
+    .material-card .btn {
+      background: #153468;
+      color: #fff;
+      border: 0;
+      box-shadow: 0 14px 24px rgba(21, 52, 104, .18);
+    }
+
+    .quick-card {
+      border-left: 6px solid var(--green);
+    }
+
+    .support-card {
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .98), rgba(235, 249, 245, .92)),
+        radial-gradient(circle at 94% 18%, rgba(24, 182, 165, .18), transparent 30%);
+    }
+
+    .support-card::after {
+      display: none;
+    }
+
+    .support-card .btn {
+      background: linear-gradient(135deg, #ff7a1a, #c94d24);
+      border-radius: 12px;
+    }
+
+    @media (max-width: 920px) {
+      .presentation-ribbon {
+        top: auto;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        min-height: 0;
+        background: rgba(17, 43, 92, .96);
+      }
+
+      .nav {
+        height: auto;
+        padding: 12px 20px;
+      }
+
+      .hero {
+        min-height: 460px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(13, 43, 92, .96), rgba(13, 43, 92, .84), rgba(13, 43, 92, .62)),
+          url("assets/gsp/hero-educacional-preview.jpg") bottom center / 100% auto no-repeat;
+      }
+
+      .hero-inner {
+        min-height: 460px;
+      }
+    }
+
     @media (max-width: 620px) {
       h1 {
         font-size: 40px;
@@ -1116,14 +1419,15 @@
         padding-top: 14px;
       }
     }
-    /* Visual oficial inspirado na referencia enviada pela Cleide. */
+
+    /* Ajuste de apresentacao inspirado na referencia enviada pela Cleide. */
     :root {
-      --sidebar: 236px;
+      --sidebar: 166px;
       --max: 1020px;
     }
 
     body {
-      padding-top: 68px;
+      padding-top: 54px;
       background: #f6f9fd;
     }
 
@@ -1131,21 +1435,21 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 70;
-      height: 68px;
+      height: 54px;
       display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
+      grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
       align-items: center;
-      gap: 24px;
-      padding: 0 42px 0 48px;
-      background: rgba(255, 255, 255, .98);
+      gap: 18px;
+      padding: 0 28px;
+      background: rgba(255, 255, 255, .96);
       border-bottom: 1px solid #e6edf6;
-      box-shadow: 0 8px 24px rgba(20, 33, 61, .06);
+      box-shadow: 0 8px 22px rgba(20, 33, 61, .06);
       backdrop-filter: blur(12px);
     }
 
     .site-logo {
       display: inline-flex;
-      width: 166px;
+      width: 128px;
       align-items: center;
     }
 
@@ -1158,33 +1462,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(18px, 2.4vw, 36px);
-      font-size: 13px;
-      font-weight: 850;
-      color: #102047;
+      gap: 26px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #1c3152;
     }
 
     .site-menu a {
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 68px;
-      padding: 0 2px;
-    }
-
-    .site-menu svg {
-      width: 21px;
-      height: 21px;
-      stroke: currentColor;
-      stroke-width: 2.3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
+      padding: 20px 0 17px;
     }
 
     .site-menu a:first-child {
-      color: #008a73;
+      color: #2457c5;
     }
 
     .site-menu a:first-child::after {
@@ -1192,128 +1482,84 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 10px;
-      height: 4px;
+      bottom: 13px;
+      height: 3px;
       border-radius: 99px;
-      background: #008a73;
+      background: #2457c5;
     }
 
     .site-actions {
-      display: none;
+      display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 14px;
-      color: #102047;
+      gap: 12px;
     }
 
     .icon-button {
-      position: relative;
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border: 0;
-      border-radius: 999px;
-      background: #f3f7fb;
-      color: #102047;
-      box-shadow: inset 0 0 0 1px #e2eaf5;
-    }
-
-    .icon-button::after {
-      content: "3";
-      position: absolute;
-      top: -3px;
-      right: -3px;
-      width: 16px;
-      height: 16px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #008a73;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .user-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 36px;
-      padding: 0 10px 0 4px;
-      color: #102047;
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    .user-avatar {
       width: 34px;
       height: 34px;
       display: grid;
       place-items: center;
-      border-radius: 999px;
-      background: #eef5ff;
-      color: #102047;
-      box-shadow: inset 0 0 0 1px #dce8f6;
+      border: 1px solid #dbe6f3;
+      border-radius: 8px;
+      background: #fff;
+      color: #163764;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .08);
+    }
+
+    .login-button {
+      min-height: 34px;
+      padding: 0 18px;
+      border-radius: 6px;
+      border: 0;
+      background: #0c63d8;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(12, 99, 216, .24);
+    }
+
+    .presentation-ribbon {
+      top: 64px;
+      right: 18px;
+      bottom: auto;
+      background: #fff7df;
+      color: #8a5300;
+      border-color: #f3d38a;
+      box-shadow: 0 12px 24px rgba(20, 33, 61, .12);
     }
 
     .hero {
-      min-height: 0;
-      background: #fff;
-      color: #102047;
+      min-height: 206px;
+      background:
+        radial-gradient(circle at 42% 55%, rgba(36, 87, 197, .09), transparent 22%),
+        linear-gradient(90deg, #f8fbff 0%, #f8fbff 48%, #eef6ff 100%);
+      color: #12223d;
       border-bottom: 1px solid #e2eaf5;
-      overflow: hidden;
-    }
-
-    .hero-banner-img {
-      display: block;
-      width: 100%;
-      height: auto;
     }
 
     .hero::before {
-      content: none;
-      position: absolute;
-      inset: 0;
+      inset: 0 34px 0 auto;
+      width: min(48vw, 610px);
       background:
-        linear-gradient(90deg, #fff 0%, #fff 43%, rgba(255, 255, 255, .88) 51%, rgba(255, 255, 255, .2) 64%, rgba(255, 255, 255, 0) 100%);
-      pointer-events: none;
+        linear-gradient(90deg, rgba(248, 251, 255, .22), rgba(248, 251, 255, 0) 28%),
+        url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
+      clip-path: ellipse(64% 78% at 62% 46%);
+      opacity: 1;
+      filter: saturate(1.06) contrast(1.02);
     }
 
     .hero::after {
-      content: none;
+      display: none;
     }
 
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      margin: 0;
-      min-height: 290px;
-      padding: 31px 0 0 clamp(92px, 8vw, 104px);
-      display: none;
-      align-content: start;
-      gap: 7px;
-    }
-
-    .hero-inner::before {
-      content: none;
-      position: absolute;
-      inset: 0 auto 0 0;
-      z-index: -1;
-      width: min(45vw, 570px);
-      background: linear-gradient(90deg, #fff 0%, #fff 74%, rgba(255, 255, 255, 0) 100%);
-      pointer-events: none;
-    }
-
-    .hero-inner > * {
-      display: block;
-    }
-
-    .hero-inner .hero-brand,
-    .hero-inner .hero-actions,
-    .floating-hero-icon {
-      display: none;
+      width: min(var(--max), calc(100% - 56px));
+      margin: 0 auto;
+      min-height: 206px;
+      padding: 28px 45% 30px 0;
+      gap: 8px;
+      align-content: center;
     }
 
     .hero-brand {
@@ -1322,225 +1568,97 @@
 
     .eyebrow {
       width: fit-content;
-      padding: 5px 13px;
-      border-radius: 999px;
-      color: #007c69;
-      background: #dff2ea;
-      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 5px;
+      color: #2457c5;
+      background: #eaf2ff;
+      font-size: 10px;
       font-weight: 900;
-      box-shadow: 0 1px 0 rgba(0, 124, 105, .08);
     }
 
     h1 {
-      max-width: 560px;
-      color: #081a3d;
-      font-size: clamp(34px, 3.55vw, 42px);
-      line-height: .96;
-      font-weight: 950;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, .42);
-    }
-
-    .hero-mainline {
-      white-space: nowrap;
-    }
-
-    .hero-script {
-      display: block;
-      width: fit-content;
-      color: #008a73;
-      font-family: "Segoe Print", "Brush Script MT", cursive;
-      font-size: .95em;
-      font-weight: 900;
-      line-height: .9;
-      text-decoration: underline;
-      text-decoration-color: #ffd21c;
-      text-decoration-thickness: 5px;
-      text-underline-offset: 7px;
-      transform: rotate(-2deg);
+      max-width: 460px;
+      color: #121f35;
+      font-size: clamp(34px, 4.4vw, 52px);
+      line-height: 1.02;
     }
 
     .lead {
-      max-width: 440px;
+      max-width: 560px;
       color: #40516f;
       font-size: 14px;
-      line-height: 1.44;
-      margin-top: 18px;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-    }
-
-    .hero-board-words {
-      position: absolute;
-      top: 12px;
-      right: auto;
-      left: min(81vw, 1104px);
-      width: 168px;
-      color: #fff9df;
-      font-family: "Segoe Print", "Bradley Hand", cursive;
-      font-size: 16px;
-      font-weight: 900;
-      line-height: 1.15;
-      transform: rotate(4deg);
-      text-align: left;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, .26);
-      letter-spacing: 0;
-    }
-
-    .hero-board-words span {
-      display: block;
+      line-height: 1.45;
     }
 
     .inline-actions.hero-actions {
       margin-top: 8px;
-      gap: 12px;
     }
 
     .hero-actions .btn.primary {
-      background: #007c69;
-      color: #fff;
-      min-width: 160px;
-      box-shadow: 0 14px 26px rgba(0, 124, 105, .24);
+      background: #0c63d8;
+      box-shadow: 0 12px 24px rgba(12, 99, 216, .22);
     }
 
     .hero-actions .btn.ghost {
       background: #fff;
-      color: #007c69;
-      border-color: #008a73;
-      min-width: 130px;
+      color: #23405f;
+      border-color: #d8e4f2;
     }
-
-    .floating-hero-icon {
-      position: absolute;
-      z-index: 2;
-      display: none;
-      place-items: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      color: #fff;
-      box-shadow: 0 16px 34px rgba(20, 33, 61, .2);
-    }
-
-    .floating-hero-icon svg {
-      width: 28px;
-      height: 28px;
-      stroke: currentColor;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-    }
-
-    .floating-hero-icon.book { top: 58px; right: min(46vw, 570px); background: #22b887; }
-    .floating-hero-icon.megaphone { top: 166px; right: min(51vw, 650px); background: #ff6b2c; }
-    .floating-hero-icon.headset { top: 42px; right: min(23vw, 300px); background: #ffd21c; }
-    .floating-hero-icon.file { top: 142px; right: 72px; background: #1378ff; }
 
     .status-strip {
       max-width: calc(var(--max) + var(--sidebar) + 20px);
-      margin: 14px auto 0;
-      padding: 0 22px 0 calc(var(--sidebar) + 34px);
+      margin: -10px auto 0;
+      padding: 0 20px 0 calc(var(--sidebar) + 30px);
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
     }
 
     .stat {
-      position: relative;
-      min-height: 168px;
-      padding: 16px 22px 14px;
+      min-height: 104px;
+      padding: 12px;
       border-radius: 8px;
-      border: 1px solid #dfe8f4;
-      border-top: 0;
-      background:
-        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--stat-color, var(--teal)) 16%, transparent) 0 62px, transparent 64px),
-        #fff;
-      box-shadow: 0 14px 32px rgba(20, 33, 61, .1);
-      overflow: hidden;
+      border: 1px solid #e1e8f2;
+      border-top: 4px solid var(--stat-color, var(--teal));
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .12);
     }
 
     .stat::before {
-      content: "";
-      display: block;
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      background: linear-gradient(135deg, rgba(255,255,255,.8), transparent 55%);
-    }
-
-    .stat::after {
-      content: none;
+      display: none;
     }
 
     .stat span {
-      font-size: 13px;
-      color: var(--stat-color, var(--teal));
-      font-weight: 900;
-    }
-
-    .stat p {
-      margin: 8px 0 14px;
-      color: #5a6b83;
-      font-size: 13px;
-      line-height: 1.34;
+      font-size: 10px;
     }
 
     .stat strong {
-      margin-top: 10px;
-      font-size: 21px;
-      color: #101f46;
-    }
-
-    .stat-head {
-      position: relative;
-      z-index: 1;
-      align-items: flex-start;
-      gap: 12px;
+      margin-top: 6px;
+      font-size: 15px;
     }
 
     .stat-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 15px;
-      background: color-mix(in srgb, var(--stat-color, var(--teal)) 14%, #fff);
-      color: var(--stat-color, var(--teal));
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
     }
 
     .stat-icon svg {
-      width: 25px;
-      height: 25px;
+      width: 13px;
+      height: 13px;
     }
 
-    .stat-button {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      min-width: 110px;
-      min-height: 34px;
-      margin-top: auto;
-      padding: 6px 14px;
-      border-radius: 8px;
-      background: var(--stat-color, var(--teal));
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      box-shadow: 0 12px 22px color-mix(in srgb, var(--stat-color, var(--teal)) 30%, transparent);
-    }
-
-    .stat .stat-button,
-    .stat .stat-button span {
-      display: inline-flex;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
+    .stat::after {
+      margin-top: 8px;
+      padding: 6px 9px;
+      border-radius: 6px;
+      font-size: 10px;
+      content: "Abrir  ->";
     }
 
     .topbar {
-      top: calc(68px + 33.333vw);
+      top: 258px;
       width: var(--sidebar);
-      min-height: calc(100vh - (68px + 33.333vw));
+      min-height: calc(100vh - 258px);
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
@@ -1548,26 +1666,7 @@
     }
 
     .nav {
-      padding: 16px 12px;
-      gap: 12px;
-    }
-
-    .side-search {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 36px;
-      padding: 0 10px;
-      border-radius: 8px;
-      background: #f3f7fb;
-      color: #718198;
-      font-size: 12px;
-    }
-
-    .side-search svg {
-      width: 15px;
-      height: 15px;
-      flex: 0 0 auto;
+      padding: 12px 12px;
     }
 
     .nav-links {
@@ -1575,71 +1674,48 @@
     }
 
     .nav-links a {
-      min-height: 36px;
-      padding: 8px 10px;
+      min-height: 34px;
+      padding: 8px 9px;
       border-radius: 8px;
       color: #263b59;
-      font-size: 12px;
-      font-weight: 850;
+      font-size: 11px;
+      font-weight: 800;
     }
 
     .nav-links a:first-child {
-      background: #e9f5f1;
-      color: #007c69;
-      box-shadow: inset 3px 0 0 #008a73;
+      background: #eef5ff;
+      color: #0c63d8;
     }
 
     .nav-icon {
       width: 22px;
       height: 22px;
       border-radius: 6px;
-      background: transparent;
+      background: #f4f7fb;
       color: #254b73;
-      box-shadow: none;
+      box-shadow: inset 0 0 0 1px #e1e9f4;
     }
 
     .nav-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 13px;
+      height: 13px;
     }
 
     .nav-links a:hover {
       transform: translateX(2px);
-      color: #007c69;
-      background: #e9f5f1;
+      color: #0c63d8;
+      background: #eef5ff;
       box-shadow: none;
     }
 
     .nav-links a:hover .nav-icon {
-      background: transparent;
-      color: #007c69;
-    }
-
-    .side-note {
-      margin: 22px auto 0;
-      width: 150px;
-      color: #183153;
-      font-family: "Segoe Print", "Comic Sans MS", cursive;
-      font-size: 17px;
-      font-weight: 900;
-      line-height: 1.05;
-      text-align: center;
-      transform: rotate(-5deg);
-    }
-
-    .side-note::after {
-      content: "";
-      display: block;
-      width: 76px;
-      height: 5px;
-      margin: 2px auto 0;
-      border-radius: 99px;
-      background: #ffd21c;
+      background: #dcecff;
+      color: #0c63d8;
     }
 
     main {
       max-width: calc(var(--max) + var(--sidebar) + 20px);
-      padding: 14px 22px 72px calc(var(--sidebar) + 34px);
+      padding: 14px 20px 72px calc(var(--sidebar) + 30px);
     }
 
     section {
@@ -1647,7 +1723,7 @@
     }
 
     main > section:first-child {
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
     .section-head {
@@ -1662,124 +1738,31 @@
       font-size: 12px;
     }
 
-    #busca {
-      margin-top: 14px;
-      padding: 18px 20px;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #e9f8f6, #edf9fb);
-      border: 1px solid #d7eceb;
-      box-shadow: 0 14px 30px rgba(20, 33, 61, .08);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 150px;
-      gap: 8px 22px;
-      align-items: center;
-    }
-
-    #busca .section-head {
-      align-items: center;
-      margin-bottom: 10px;
-      grid-column: 1;
-    }
-
-    #busca .section-head > div {
-      position: relative;
-      padding-left: 48px;
-    }
-
-    #busca .section-head > div::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: #008a73;
-      box-shadow: 0 12px 22px rgba(0, 124, 105, .22);
-    }
-
-    #busca .section-head > div::after {
-      content: "⌕";
-      position: absolute;
-      left: 9px;
-      top: 2px;
-      color: #fff;
-      font-size: 27px;
-      line-height: 1;
-    }
-
     .search-panel {
-      grid-template-columns: minmax(0, 1fr) 94px;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      grid-column: 1;
+      grid-template-columns: minmax(0, 1fr) 82px;
+      padding: 11px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .09);
     }
 
     .search-panel input {
       min-height: 38px;
-      border-radius: 8px;
-      border-color: #dbe5ef;
+      border-radius: 6px;
       font-size: 12px;
-      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
-    }
-
-    #busca .search-results {
-      grid-column: 1 / -1;
     }
 
     .btn {
       min-height: 36px;
       padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 12px;
     }
 
     .btn.primary {
-      background: #007c69;
+      background: #0c63d8;
       color: #fff;
-      box-shadow: 0 10px 20px rgba(0, 124, 105, .2);
-    }
-
-    .find-note {
-      grid-column: 2;
-      grid-row: 1 / 3;
-      justify-self: center;
-      align-self: center;
-      position: relative;
-      color: #16365d;
-      font-family: "Segoe Print", "Comic Sans MS", cursive;
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1.05;
-      text-align: center;
-      transform: rotate(-8deg);
-    }
-
-    .find-note::before {
-      content: "";
-      position: absolute;
-      left: -28px;
-      top: 18px;
-      width: 18px;
-      height: 26px;
-      border-left: 4px solid #ffd21c;
-      border-top: 4px solid #ffd21c;
-      transform: rotate(-18deg);
-      border-radius: 14px 0 0 0;
-    }
-
-    .find-note::after {
-      content: "";
-      display: block;
-      width: 74px;
-      height: 5px;
-      margin: 2px auto 0;
-      border-radius: 999px;
-      background: #ffd21c;
-      transform: rotate(-3deg);
+      box-shadow: 0 10px 20px rgba(12, 99, 216, .2);
     }
 
     .btn.ghost {
@@ -1810,27 +1793,23 @@
         padding: 10px 16px;
       }
 
-      .site-logo {
-        width: 142px;
-      }
-
       .site-menu {
         grid-column: 1 / -1;
         order: 3;
         justify-content: flex-start;
         gap: 18px;
         overflow-x: auto;
-        scrollbar-width: none;
         width: 100%;
-      }
-
-      .site-menu::-webkit-scrollbar,
-      .nav-links::-webkit-scrollbar {
-        display: none;
       }
 
       .site-actions {
         align-self: center;
+      }
+
+      .presentation-ribbon {
+        top: auto;
+        right: 12px;
+        bottom: 12px;
       }
 
       .topbar {
@@ -1838,16 +1817,6 @@
         width: 100%;
         min-height: 0;
         background: #fff;
-        overflow: hidden;
-      }
-
-      .nav {
-        padding: 10px 16px;
-      }
-
-      .side-search,
-      .side-note {
-        display: none;
       }
 
       .nav-links {
@@ -1860,78 +1829,28 @@
       }
 
       .hero {
-        min-height: 0;
+        min-height: 390px;
       }
 
       .hero::before {
-        content: none;
-      }
-
-      .hero::after {
-        display: none;
-      }
-
-      .floating-hero-icon {
-        display: none;
+        inset: auto 0 0;
+        width: 100%;
+        height: 190px;
+        clip-path: none;
+        background:
+          linear-gradient(180deg, rgba(248, 251, 255, .96), rgba(248, 251, 255, .08)),
+          url("assets/gsp/hero-educacional-preview.jpg") center / cover no-repeat;
       }
 
       .hero-inner {
         width: min(100% - 32px, var(--max));
-        margin: 0 auto;
-        min-height: 250px;
-        padding: 24px 0 0 0;
-        display: none;
-      }
-
-      .hero-inner::before {
-        content: "";
-        width: min(86vw, 520px);
-        left: -16px;
-      }
-
-      .hero-inner > * {
-        display: block;
-      }
-
-      .hero-inner .hero-brand,
-      .hero-inner .hero-actions,
-      .floating-hero-icon {
-        display: none;
-      }
-
-      h1 {
-        max-width: 520px;
-        font-size: clamp(32px, 9vw, 40px);
-      }
-
-      .hero-mainline {
-        white-space: normal;
-      }
-
-      .hero-board-words {
-        display: none;
+        min-height: 390px;
+        padding: 26px 0 210px;
       }
 
       .status-strip {
         padding: 0 16px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      #busca {
-        grid-template-columns: 1fr;
-      }
-
-      #busca .section-head,
-      .search-panel,
-      .find-note {
-        grid-column: 1;
-      }
-
-      .find-note {
-        grid-row: auto;
-        justify-self: end;
-        margin-top: 4px;
-        font-size: 18px;
       }
 
       main {
@@ -1945,73 +1864,43 @@
       }
 
       .site-actions {
-        display: none;
-      }
-
-      .site-menu {
-        gap: 16px;
-        font-size: 12px;
-      }
-
-      .site-menu a {
-        min-height: 40px;
-      }
-
-      .site-menu a:first-child::after {
-        bottom: 0;
-      }
-
-      .hero {
-        min-height: 0;
-      }
-
-      .hero-inner {
-        min-height: 250px;
-        padding: 20px 0;
-      }
-
-      .lead {
-        font-size: 13px;
+        justify-content: flex-start;
       }
 
       .status-strip {
         grid-template-columns: 1fr;
       }
-
-      .search-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .find-note {
-        display: none;
-      }
     }
   </style>
 </head>
 <body>
+  <div class="presentation-ribbon">Versão de apresentação</div>
+
   <header class="site-header">
     <a class="site-logo" href="#inicio" aria-label="Great Schools Platform">
       <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
     </a>
     <nav class="site-menu" aria-label="Navegação superior">
-      <a href="#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>Início</a>
-      <a href="#materiais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg>Central de Materiais</a>
-      <a href="faq.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.8 9a2.4 2.4 0 1 1 4 1.8c-.8.6-1.3 1.1-1.3 2.1"/><path d="M12.5 16h.01"/></svg>FAQ</a>
-      <a href="#roger"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M17 15v1a4 4 0 0 1-4 4h-2"/></svg>Suporte</a>
-      <a href="#comunicados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg>Comunicados</a>
+      <a href="#inicio">Início</a>
+      <a href="#materiais">Biblioteca</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#roger">Suporte</a>
+      <a href="#comunicados">Comunicados</a>
     </nav>
+    <div class="site-actions" aria-label="Ações rápidas">
+      <a class="icon-button" href="#busca" aria-label="Abrir busca">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+      <a class="login-button" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Entrar</a>
+    </div>
   </header>
 
   <header class="topbar">
     <nav class="nav" aria-label="Navegação principal">
-      <a class="side-search" href="#busca">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        <span>Buscar no portal...</span>
-      </a>
       <div class="nav-links">
-        <a href="#inicio">
-          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
-          <span>Início</span>
+        <a href="#busca">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="7"/></svg></span>
+          <span>Busca</span>
         </a>
         <a href="#guia-amanda">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h5"/><path d="M8 11h6"/></svg></span>
@@ -2019,7 +1908,7 @@
         </a>
         <a href="#materiais">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>
-          <span>Central de Materiais</span>
+          <span>Biblioteca</span>
         </a>
         <a href="faq.html">
           <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.7 9a2.5 2.5 0 1 1 4.2 1.8c-.8.6-1.4 1.1-1.4 2.2"/><path d="M12.5 16h.01"/></svg></span>
@@ -2038,25 +1927,20 @@
           <span>Fale com o Roger</span>
         </a>
       </div>
-      <div class="side-note">Juntos<br>vamos mais longe!</div>
     </nav>
   </header>
 
   <section id="inicio" class="hero">
-    <img class="hero-banner-img" src="assets/gsp/hero-banner-sem-icones.png" alt="Ambiente interno Great Schools Platform. Tudo o que você precisa, em um só lugar!">
     <div class="hero-inner">
       <a class="hero-brand" href="#inicio" aria-label="Great Schools Platform">
         <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
       </a>
       <p class="eyebrow">Ambiente interno Great Schools Platform</p>
-      <h1><span class="hero-mainline">Tudo o que você precisa,</span><span class="hero-script">em um só lugar!</span></h1>
+      <h1>Educacional GSP</h1>
       <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
-      <div class="hero-board-words" aria-label="Pessoas, Processos, Tecnologia, Educação, Resultados">
-        <span>Pessoas</span>
-        <span>Processos</span>
-        <span>Tecnologia</span>
-        <span>Educação</span>
-        <span>Resultados</span>
+      <div class="inline-actions hero-actions">
+        <a class="btn primary" href="#busca">Acessar agora</a>
+        <a class="btn ghost" href="#guia-amanda">Sobre menu</a>
       </div>
     </div>
   </section>
@@ -2068,17 +1952,13 @@
         <span>Prioridade atual</span>
       </div>
       <strong>Rematrícula 2027</strong>
-      <p>Acesse todos os materiais, orientações e prazos.</p>
-      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
     <a class="stat" href="#materiais">
       <div class="stat-head">
         <span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4a2 2 0 0 0-2 2v12.5A1.5 1.5 0 0 0 4.5 20H20a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-8.2L10 4H5Zm0 4h14v10H5V8Z" fill="currentColor"/></svg></span>
         <span>Consulta rápida</span>
       </div>
-      <strong>Central de Materiais</strong>
-      <p>Encontre materiais, vídeos e apresentações.</p>
-      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
+      <strong>Ver Biblioteca</strong>
     </a>
     <a class="stat" href="faq.html">
       <div class="stat-head">
@@ -2086,8 +1966,6 @@
         <span>Perguntas</span>
       </div>
       <strong>FAQ</strong>
-      <p>Respostas para as principais dúvidas do dia a dia.</p>
-      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
     <a class="stat" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">
       <div class="stat-head">
@@ -2095,8 +1973,6 @@
         <span>Suporte</span>
       </div>
       <strong>Falar com Roger</strong>
-      <p>Precisa de ajuda? Entre em contato com nossa equipe.</p>
-      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
     </a>
   </div>
 
@@ -2112,7 +1988,6 @@
         <input id="searchInput" type="search" placeholder="Digite uma dúvida: senha, aluno não aparece, desconto, contrato, pagamento...">
         <button class="btn primary" id="searchButton">Buscar</button>
       </div>
-      <div class="find-note" aria-hidden="true">Aqui você<br>encontra!</div>
       <div class="search-results" id="searchResults" aria-live="polite"></div>
     </section>
 
@@ -2120,7 +1995,7 @@
       <div class="section-head">
         <div>
           <h2>Guia de Atendimento</h2>
-          <p>Menu web baseado no guia atualizado, com etapas, dúvidas recorrentes, resposta segura, conferência e escalação.</p>
+          <p>Menu web baseado no guia atualizado da Amanda, com etapas, dúvidas recorrentes, resposta segura, conferência e escalação.</p>
         </div>
         <div class="inline-actions">
           <a class="btn ghost" href="assets/rematricula-2027/guia-de-atendimento-ok.ppsx">Baixar Guia</a>
@@ -2160,7 +2035,7 @@
     <section id="materiais">
       <div class="section-head">
         <div>
-          <h2>Central de Materiais</h2>
+          <h2>Biblioteca de Materiais</h2>
           <p>Arquivos disponíveis para consulta, treinamento e atendimento. Cada card representa um documento da biblioteca.</p>
         </div>
       </div>
@@ -2543,8 +2418,8 @@
         link: "#guia-amanda"
       },
       {
-        title: "Central de Materiais",
-        area: "Central de Materiais",
+        title: "Biblioteca de Materiais",
+        area: "Biblioteca",
         text: "Abrir os arquivos disponíveis, materiais de apoio e documentos do Drive organizados em cards.",
         link: "#materiais"
       },
