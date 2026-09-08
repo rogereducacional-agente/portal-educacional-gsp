@@ -1258,8 +1258,8 @@
     }
 
     .hero {
-      min-height: 270px;
-      background: url("assets/gsp/hero-banner-realistic.jpg") center 46% / cover no-repeat;
+      min-height: 290px;
+      background: url("assets/gsp/hero-layout-full-clean.jpg") center center / 100% 100% no-repeat;
       color: #102047;
       border-bottom: 1px solid #e2eaf5;
       overflow: hidden;
@@ -1270,10 +1270,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, #fff 0%, #fff 46%, rgba(255, 255, 255, .9) 56%, rgba(255, 255, 255, .24) 70%, rgba(255, 255, 255, 0) 100%),
-        radial-gradient(circle at -3% 2%, #ffd21c 0 58px, transparent 59px),
-        radial-gradient(circle at 0 86%, #1fa987 0 96px, transparent 97px),
-        radial-gradient(circle at 0 100%, #087d71 0 66px, transparent 67px);
+        linear-gradient(90deg, #fff 0%, #fff 43%, rgba(255, 255, 255, .88) 51%, rgba(255, 255, 255, .2) 64%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
     }
 
@@ -1286,11 +1283,11 @@
       z-index: 1;
       width: 100%;
       margin: 0;
-      min-height: 270px;
+      min-height: 290px;
       padding: 32px min(58vw, 720px) 32px clamp(72px, 8vw, 104px);
       display: grid;
       align-content: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .hero-inner::before {
@@ -1298,8 +1295,8 @@
       position: absolute;
       inset: 0 auto 0 0;
       z-index: -1;
-      width: min(48vw, 600px);
-      background: linear-gradient(90deg, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
+      width: min(45vw, 570px);
+      background: linear-gradient(90deg, #fff 0%, #fff 74%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
     }
 
@@ -1355,10 +1352,11 @@
     }
 
     .lead {
-      max-width: 535px;
+      max-width: 440px;
       color: #40516f;
       font-size: 14px;
-      line-height: 1.35;
+      line-height: 1.44;
+      margin-top: 8px;
     }
 
     .inline-actions.hero-actions {
@@ -1510,9 +1508,9 @@
     }
 
     .topbar {
-      top: 352px;
+      top: 372px;
       width: var(--sidebar);
-      min-height: calc(100vh - 352px);
+      min-height: calc(100vh - 372px);
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
