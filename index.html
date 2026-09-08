@@ -1436,17 +1436,17 @@
     .floating-hero-icon.file { top: 142px; right: 72px; background: #1378ff; }
 
     .status-strip {
-      max-width: none;
-      margin: 10px auto 0;
-      padding: 0 12px;
+      max-width: calc(var(--max) + var(--sidebar) + 20px);
+      margin: 12px auto 0;
+      padding: 0 22px 0 calc(var(--sidebar) + 34px);
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
     }
 
     .stat {
       position: relative;
-      min-height: 214px;
-      padding: 22px 24px 20px;
+      height: 176px;
+      padding: 14px 18px;
       border-radius: 8px;
       border: 1px solid #dfe8f4;
       border-top: 0;
@@ -1459,10 +1459,10 @@
       content: "";
       display: block;
       position: absolute;
-      right: -64px;
-      bottom: -76px;
-      width: 190px;
-      height: 190px;
+      right: -52px;
+      bottom: -66px;
+      width: 154px;
+      height: 154px;
       border-radius: 999px;
       pointer-events: none;
       background:
@@ -1474,17 +1474,17 @@
     .stat::after {
       content: "";
       position: absolute;
-      right: -16px;
-      bottom: -18px;
-      width: 104px;
-      height: 104px;
+      right: -20px;
+      bottom: -24px;
+      width: 88px;
+      height: 88px;
       border-radius: 999px;
       background: color-mix(in srgb, var(--stat-color, var(--teal)) 22%, transparent);
       pointer-events: none;
     }
 
     .stat span {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--stat-color, var(--teal));
       font-weight: 900;
     }
@@ -1492,17 +1492,21 @@
     .stat p {
       position: relative;
       z-index: 1;
-      margin: 10px 0 16px;
+      margin: 7px 0 12px;
       color: #5a6b83;
-      font-size: 15px;
+      font-size: 12px;
       line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .stat strong {
       position: relative;
       z-index: 1;
-      margin-top: 16px;
-      font-size: 26px;
+      margin-top: 10px;
+      font-size: 21px;
       color: #101f46;
     }
 
@@ -1510,24 +1514,24 @@
       position: relative;
       z-index: 1;
       align-items: center;
-      gap: 18px;
+      gap: 13px;
     }
 
     .stat-icon {
       position: relative;
-      flex: 0 0 66px;
-      width: 66px;
-      height: 66px;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
       border-radius: 999px;
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 34% 32%, rgba(255,255,255,.7) 0 11px, transparent 12px),
+        radial-gradient(circle at 34% 32%, rgba(255,255,255,.7) 0 8px, transparent 9px),
         color-mix(in srgb, var(--stat-color, var(--teal)) 21%, #fff);
       color: var(--stat-color, var(--teal));
       box-shadow:
-        0 0 0 8px color-mix(in srgb, var(--stat-color, var(--teal)) 10%, transparent),
-        0 12px 22px color-mix(in srgb, var(--stat-color, var(--teal)) 18%, transparent);
+        0 0 0 7px color-mix(in srgb, var(--stat-color, var(--teal)) 10%, transparent),
+        0 10px 18px color-mix(in srgb, var(--stat-color, var(--teal)) 18%, transparent);
       overflow: visible;
       isolation: isolate;
     }
@@ -1555,8 +1559,8 @@
       z-index: 1;
       left: 50%;
       top: 50%;
-      width: 31px;
-      height: 31px;
+      width: 23px;
+      height: 23px;
       display: block;
       transform: translate(-50%, -50%);
       stroke: currentColor;
@@ -1573,14 +1577,14 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      min-width: 120px;
-      min-height: 36px;
+      min-width: 104px;
+      min-height: 30px;
       margin-top: auto;
-      padding: 7px 16px;
+      padding: 5px 12px;
       border-radius: 8px;
       background: var(--stat-color, var(--teal));
       color: #fff;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
       box-shadow: 0 12px 22px color-mix(in srgb, var(--stat-color, var(--teal)) 30%, transparent);
     }
@@ -1589,14 +1593,14 @@
     .stat .stat-button span {
       display: inline-flex;
       color: #fff;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
     }
 
     .topbar {
-      top: calc(68px + 33.333vw + 236px);
+      top: calc(68px + 33.333vw + 206px);
       width: var(--sidebar);
-      min-height: calc(100vh - (68px + 33.333vw + 236px));
+      min-height: calc(100vh - (68px + 33.333vw + 206px));
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
