@@ -1436,9 +1436,9 @@
     .floating-hero-icon.file { top: 142px; right: 72px; background: #1378ff; }
 
     .status-strip {
-      max-width: calc(var(--max) + var(--sidebar) + 20px);
+      max-width: none;
       margin: 12px auto 0;
-      padding: 0 22px 0 calc(var(--sidebar) + 34px);
+      padding: 0 12px;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
     }
@@ -2268,17 +2268,17 @@
       position: relative;
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 22px 0 16px;
+      gap: 10px;
+      margin: 20px 0 14px;
       color: #082c63;
-      font-size: 27px;
+      font-size: 23px;
       font-weight: 950;
     }
 
     .material-group-title::before {
       content: "";
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: var(--group-accent, #2457c5);
       box-shadow: 0 12px 22px color-mix(in srgb, var(--group-accent, #2457c5) 24%, transparent);
@@ -2286,8 +2286,8 @@
 
     .material-group-title::after {
       content: "";
-      width: 32px;
-      height: 18px;
+      width: 27px;
+      height: 15px;
       border-top: 3px solid #ffd21c;
       border-left: 3px solid #ffd21c;
       transform: rotate(-18deg);
@@ -2347,7 +2347,7 @@
     .material-card strong {
       max-width: 84%;
       color: #082c63;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.1;
       letter-spacing: 0;
     }
@@ -2355,7 +2355,7 @@
     .material-card p {
       max-width: 82%;
       color: #2e5489;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.28;
     }
 
