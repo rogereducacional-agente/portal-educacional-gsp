@@ -2287,16 +2287,6 @@
         grid-template-columns: 1fr;
         align-items: start;
       }
-
-
-      .complement-search-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .complement-result {
-        align-items: flex-start;
-        flex-direction: column;
-      }
     }
 
     #sala-apoio.quick-links {
@@ -2337,6 +2327,129 @@
     .material-group-title.files {
       --group-accent: #ff6b1a;
     }
+
+    .complement-search {
+      margin-top: 16px;
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #fff4ed, #fffaf0);
+      border: 1px solid #f1d8c8;
+      box-shadow: 0 14px 30px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 8px 22px;
+      align-items: center;
+    }
+
+    .complement-search .section-head {
+      align-items: center;
+      margin-bottom: 10px;
+      grid-column: 1;
+    }
+
+    .complement-search .section-head > div {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .complement-search .section-head > div::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: #ff6b1a;
+      box-shadow: 0 12px 22px rgba(255, 107, 26, .22);
+    }
+
+    .complement-search .section-head > div::after {
+      content: "⌕";
+      position: absolute;
+      left: 9px;
+      top: 2px;
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .complement-search .section-head h3 {
+      margin: 0;
+      color: #ff6b1a;
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .complement-search .section-head p {
+      margin: 4px 0 0;
+      color: #52627a;
+      font-size: 12px;
+    }
+
+    .complement-search-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 94px;
+      gap: 10px;
+      grid-column: 1;
+    }
+
+    .complement-search-panel input {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid #efd8c8;
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 12px;
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+    }
+
+    .complement-open-btn {
+      min-height: 38px;
+      border: 0;
+      background: #ffd21c;
+      color: #082c63;
+      box-shadow: 0 10px 20px rgba(255, 210, 28, .24);
+    }
+
+    .complement-open-btn::after {
+      content: "→";
+      margin-left: 10px;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .complement-find-note {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      justify-self: center;
+      align-self: center;
+      color: #16365d;
+    }
+
+    @media (max-width: 620px) {
+      .complement-search {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .complement-search .section-head,
+      .complement-search-panel {
+        grid-column: 1;
+      }
+
+      .complement-search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .complement-find-note {
+        display: none;
+      }
+    }
+
 
     .material-card {
       position: relative;
@@ -2677,22 +2790,18 @@
         </article>
       </div>
 
-      <h3 class="material-group-title files" id="arquivos-disponiveis">Busca Rápida de Processos Complementares - Educacional</h3>
-      <div class="complement-search">
-        <div class="complement-search-head">
-          <span class="complement-search-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M10.8 18.6a7.8 7.8 0 1 1 0-15.6 7.8 7.8 0 0 1 0 15.6Zm0-2.2a5.6 5.6 0 1 0 0-11.2 5.6 5.6 0 0 0 0 11.2Zm5.8.6 4.2 4.2-1.6 1.6-4.2-4.2 1.6-1.6Z" fill="currentColor"/></svg>
-          </span>
+      <div class="complement-search" id="arquivos-disponiveis">
+        <div class="section-head">
           <div>
-            <span class="complement-search-kicker">Busca Rápida</span>
-            <strong class="complement-search-title">Processos Complementares - Educacional</strong>
+            <h3>Busca Rápida de Processos Complementares - Educacional</h3>
+            <p>Digite uma palavra ou parte do processo.</p>
           </div>
         </div>
         <div class="complement-search-panel">
           <input id="complementSearchInput" type="search" placeholder="Digite uma palavra ou parte do processo.">
-          <a class="btn complement-open-btn" id="complementSearchButton" href="https://drive.google.com/drive/folders/1i9QormBPrHCA-eniUmAySWa9wLjZwFmm" target="_blank" rel="noreferrer">Abrir</a>
+          <a class="btn complement-open-btn" id="complementSearchButton" href="https://drive.google.com/drive/folders/15OQMwkstMOkuQKuBDfdjo8gz3tPEaEVr" target="_blank" rel="noreferrer">Abrir</a>
         </div>
-        <div class="complement-search-results" id="complementSearchResults" aria-live="polite"></div>
+        <div class="find-note complement-find-note" aria-hidden="true">Aqui você<br>encontra!</div>
       </div>
 
     </section>
@@ -3091,33 +3200,18 @@
     renderResults();
 
 
-    const complementDriveLink = "https://drive.google.com/drive/folders/1i9QormBPrHCA-eniUmAySWa9wLjZwFmm";
-    const complementRecords = [
-      { title: "2027 - Novo código da turma", text: "Documento de apoio para conferência do novo código da turma no processo 2027." },
-      { title: "Alteração do Responsável Financeiro - Rematrícula", text: "Material de consulta sobre alteração do responsável financeiro durante a Rematrícula." },
-      { title: "Transferência interna - Parte Educação", text: "Orientação complementar para consulta sobre transferência interna na parte educacional." },
-      { title: "MARU - Infantil data de corte 2027", text: "Arquivo de apoio para consulta da data de corte 2027 da unidade MARU no Infantil." },
-      { title: "OBJ - Infantil data de corte 2027", text: "Arquivo de apoio para consulta da data de corte 2027 da unidade OBJ no Infantil." }
-    ];
-
+    const complementDriveLink = "https://drive.google.com/drive/folders/15OQMwkstMOkuQKuBDfdjo8gz3tPEaEVr";
     const complementSearchInput = document.querySelector("#complementSearchInput");
-    const complementSearchResults = document.querySelector("#complementSearchResults");
+    const complementSearchButton = document.querySelector("#complementSearchButton");
 
-    function renderComplementSearch(query = "") {
-      if (!complementSearchResults) return;
-      const normalized = query.trim().toLowerCase();
-      const matches = normalized
-        ? complementRecords.filter(item => (item.title + " " + item.text).toLowerCase().includes(normalized))
-        : complementRecords.slice(0, 3);
-
-      complementSearchResults.innerHTML = matches.length
-        ? matches.map(item => "<a class=\"complement-result\" href=\"" + complementDriveLink + "\" target=\"_blank\" rel=\"noreferrer\"><span><strong>" + item.title + "</strong><p>" + item.text + "</p></span><span class=\"complement-result-action\">Abrir</span></a>").join("")
-        : "<a class=\"complement-result\" href=\"" + complementDriveLink + "\" target=\"_blank\" rel=\"noreferrer\"><span><strong>Processos Complementares - Educacional</strong><p>Acesse a pasta oficial para localizar o processo complementar desejado.</p></span><span class=\"complement-result-action\">Abrir</span></a>";
-    }
-
-    if (complementSearchInput) {
-      complementSearchInput.addEventListener("input", () => renderComplementSearch(complementSearchInput.value));
-      renderComplementSearch();
+    if (complementSearchInput && complementSearchButton) {
+      complementSearchButton.href = complementDriveLink;
+      complementSearchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          complementSearchButton.click();
+        }
+      });
     }
 
     const faqList = document.querySelector("#faqList");
