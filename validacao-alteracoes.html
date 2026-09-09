@@ -1133,7 +1133,9 @@
       }
 
       main {
-        padding-top: 14px;
+        width: 100%;
+        margin: 0;
+        padding: 14px 16px 72px;
       }
     }
     /* Visual oficial inspirado na referencia enviada pela Cleide. */
@@ -1620,9 +1622,12 @@
     }
 
     .topbar {
-      top: calc(68px + 33.333vw + 206px);
+      position: sticky;
+      top: 78px;
+      float: left;
       width: var(--sidebar);
-      min-height: calc(100vh - (68px + 33.333vw + 206px));
+      min-height: calc(100vh - 78px);
+      margin: 18px 0 0 12px;
       background: #fff;
       color: #1d3154;
       border-right: 1px solid #e0e9f4;
@@ -1720,10 +1725,10 @@
     }
 
     main {
-      width: 100%;
+      width: calc(100% - var(--sidebar) - 34px);
       max-width: none;
-      margin: 0;
-      padding: 14px 22px 72px calc(var(--sidebar) + 34px);
+      margin: 0 0 0 calc(var(--sidebar) + 34px);
+      padding: 14px 22px 72px 0;
     }
 
     section {
@@ -2087,9 +2092,12 @@
       }
 
       .topbar {
-        top: 0;
+        position: static;
+        float: none;
+        top: auto;
         width: 100%;
         min-height: 0;
+        margin: 0;
         background: #fff;
         overflow: hidden;
       }
