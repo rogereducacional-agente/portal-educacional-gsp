@@ -2287,6 +2287,16 @@
         grid-template-columns: 1fr;
         align-items: start;
       }
+
+
+      .complement-search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .complement-result {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
 
     #sala-apoio.quick-links {
@@ -2623,7 +2633,7 @@
       <div class="section-head">
         <div>
           <h2>Central de Materiais</h2>
-          <p>Arquivos disponíveis para consulta, treinamento e atendimento. Cada card representa um documento da biblioteca.</p>
+          <p>Materiais disponíveis para consulta, treinamento e atendimento. Use a busca para localizar processos complementares e documentos de apoio.</p>
         </div>
       </div>
 
@@ -2667,38 +2677,22 @@
         </article>
       </div>
 
-      <h3 class="material-group-title files">Arquivos disponíveis</h3>
-      <div class="grid-3">
-        <article class="material-card available-file">
-          <span class="tag amber">PDF</span>
-          <strong>2027 - Novo código da turma</strong>
-          <p>Documento de apoio para conferência do novo código da turma no processo 2027.</p>
-          <a class="btn ghost" href="https://drive.google.com/file/d/1urHk6IgGtNcyz5AeAxVrIgnOzUUnp4o4/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
-        </article>
-        <article class="material-card available-file">
-          <span class="tag amber">PDF</span>
-          <strong>Alteração do R. Financeiro - Rematrícula pág. 01 e 07</strong>
-          <p>Material de consulta sobre alteração do responsável financeiro durante a Rematrícula.</p>
-          <a class="btn ghost" href="https://drive.google.com/file/d/1_w3f_iQqpWNuKlTtkYra7b3YWLPClz3e/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
-        </article>
-        <article class="material-card available-file">
-          <span class="tag amber">PDF</span>
-          <strong>Como fazer - Transferência interna - Parte Educação</strong>
-          <p>Orientação complementar para consulta sobre transferência interna na parte educacional.</p>
-          <a class="btn ghost" href="https://drive.google.com/file/d/1oZmLrJmN6il-gLF2a7VCdebg5-cQ_YF9/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
-        </article>
-        <article class="material-card available-file">
-          <span class="tag amber">PDF</span>
-          <strong>MARU - Infantil data de corte 2027</strong>
-          <p>Arquivo de apoio para consulta da data de corte 2027 da unidade MARU no Infantil.</p>
-          <a class="btn ghost" href="https://drive.google.com/file/d/1idOqUm7rVxWrEqm8XbgKI0V3eY0kXV8D/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
-        </article>
-        <article class="material-card available-file">
-          <span class="tag amber">PDF</span>
-          <strong>OBJ - Infantil data de corte 2027</strong>
-          <p>Arquivo de apoio para consulta da data de corte 2027 da unidade OBJ no Infantil.</p>
-          <a class="btn ghost" href="https://drive.google.com/file/d/1Y10yFjIw5vp0LZ87-59gqEy-toPovWXS/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
-        </article>
+      <h3 class="material-group-title files" id="arquivos-disponiveis">Busca Rápida de Processos Complementares - Educacional</h3>
+      <div class="complement-search">
+        <div class="complement-search-head">
+          <span class="complement-search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10.8 18.6a7.8 7.8 0 1 1 0-15.6 7.8 7.8 0 0 1 0 15.6Zm0-2.2a5.6 5.6 0 1 0 0-11.2 5.6 5.6 0 0 0 0 11.2Zm5.8.6 4.2 4.2-1.6 1.6-4.2-4.2 1.6-1.6Z" fill="currentColor"/></svg>
+          </span>
+          <div>
+            <span class="complement-search-kicker">Busca Rápida</span>
+            <strong class="complement-search-title">Processos Complementares - Educacional</strong>
+          </div>
+        </div>
+        <div class="complement-search-panel">
+          <input id="complementSearchInput" type="search" placeholder="Digite uma palavra ou parte do processo.">
+          <a class="btn complement-open-btn" id="complementSearchButton" href="https://drive.google.com/drive/folders/1i9QormBPrHCA-eniUmAySWa9wLjZwFmm" target="_blank" rel="noreferrer">Abrir</a>
+        </div>
+        <div class="complement-search-results" id="complementSearchResults" aria-live="polite"></div>
       </div>
 
     </section>
@@ -3095,6 +3089,36 @@
     searchButton.addEventListener("click", () => renderResults(searchInput.value));
     searchInput.addEventListener("input", () => renderResults(searchInput.value));
     renderResults();
+
+
+    const complementDriveLink = "https://drive.google.com/drive/folders/1i9QormBPrHCA-eniUmAySWa9wLjZwFmm";
+    const complementRecords = [
+      { title: "2027 - Novo código da turma", text: "Documento de apoio para conferência do novo código da turma no processo 2027." },
+      { title: "Alteração do Responsável Financeiro - Rematrícula", text: "Material de consulta sobre alteração do responsável financeiro durante a Rematrícula." },
+      { title: "Transferência interna - Parte Educação", text: "Orientação complementar para consulta sobre transferência interna na parte educacional." },
+      { title: "MARU - Infantil data de corte 2027", text: "Arquivo de apoio para consulta da data de corte 2027 da unidade MARU no Infantil." },
+      { title: "OBJ - Infantil data de corte 2027", text: "Arquivo de apoio para consulta da data de corte 2027 da unidade OBJ no Infantil." }
+    ];
+
+    const complementSearchInput = document.querySelector("#complementSearchInput");
+    const complementSearchResults = document.querySelector("#complementSearchResults");
+
+    function renderComplementSearch(query = "") {
+      if (!complementSearchResults) return;
+      const normalized = query.trim().toLowerCase();
+      const matches = normalized
+        ? complementRecords.filter(item => (item.title + " " + item.text).toLowerCase().includes(normalized))
+        : complementRecords.slice(0, 3);
+
+      complementSearchResults.innerHTML = matches.length
+        ? matches.map(item => "<a class=\"complement-result\" href=\"" + complementDriveLink + "\" target=\"_blank\" rel=\"noreferrer\"><span><strong>" + item.title + "</strong><p>" + item.text + "</p></span><span class=\"complement-result-action\">Abrir</span></a>").join("")
+        : "<a class=\"complement-result\" href=\"" + complementDriveLink + "\" target=\"_blank\" rel=\"noreferrer\"><span><strong>Processos Complementares - Educacional</strong><p>Acesse a pasta oficial para localizar o processo complementar desejado.</p></span><span class=\"complement-result-action\">Abrir</span></a>";
+    }
+
+    if (complementSearchInput) {
+      complementSearchInput.addEventListener("input", () => renderComplementSearch(complementSearchInput.value));
+      renderComplementSearch();
+    }
 
     const faqList = document.querySelector("#faqList");
 
