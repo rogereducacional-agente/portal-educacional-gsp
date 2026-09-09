@@ -2430,6 +2430,68 @@
       color: #16365d;
     }
 
+    .complement-search-results {
+      display: none;
+      grid-column: 1 / -1;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .complement-search-results.has-results,
+    .complement-search-results.has-empty {
+      display: grid;
+    }
+
+    .complement-result {
+      display: grid;
+      grid-template-columns: 1fr minmax(96px, 118px);
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid #f0d6c4;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .06);
+    }
+
+    .complement-result strong {
+      display: block;
+      color: #082c63;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .complement-result p {
+      margin: 3px 0 0;
+      color: #52627a;
+      font-size: 12px;
+    }
+
+    .complement-result .tag {
+      width: fit-content;
+      margin-bottom: 6px;
+      background: #fff0e5;
+      color: #ff6b1a;
+    }
+
+    .complement-result .btn {
+      min-height: 36px;
+      border: 0;
+      background: #ffd21c;
+      color: #082c63;
+      box-shadow: 0 10px 18px rgba(255, 210, 28, .20);
+    }
+
+    .complement-empty {
+      padding: 12px 14px;
+      border: 1px dashed #efc9b2;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .72);
+      color: #52627a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     @media (max-width: 620px) {
       .complement-search {
         grid-template-columns: 1fr;
@@ -2437,11 +2499,13 @@
       }
 
       .complement-search .section-head,
-      .complement-search-panel {
+      .complement-search-panel,
+      .complement-search-results {
         grid-column: 1;
       }
 
-      .complement-search-panel {
+      .complement-search-panel,
+      .complement-result {
         grid-template-columns: 1fr;
       }
 
@@ -2799,9 +2863,10 @@
         </div>
         <div class="complement-search-panel">
           <input id="complementSearchInput" type="search" placeholder="Digite uma palavra ou parte do processo.">
-          <a class="btn complement-open-btn" id="complementSearchButton" href="https://drive.google.com/drive/folders/15OQMwkstMOkuQKuBDfdjo8gz3tPEaEVr" target="_blank" rel="noreferrer">Abrir</a>
+          <a class="btn complement-open-btn" id="complementSearchButton" href="#" aria-disabled="true">Abrir</a>
         </div>
         <div class="find-note complement-find-note" aria-hidden="true">Aqui você<br>encontra!</div>
+        <div class="complement-search-results" id="complementSearchResults" aria-live="polite"></div>
       </div>
 
     </section>
@@ -3200,18 +3265,55 @@
     renderResults();
 
 
-    const complementDriveLink = "https://drive.google.com/drive/folders/15OQMwkstMOkuQKuBDfdjo8gz3tPEaEVr";
+    const complementRecords = [
+      {
+        title: "Cópia de COMO FAZER - TRANSFERÊNCIA INTERNA - PARTE EDUCAÇÃO",
+        type: "PDF",
+        text: "Orientação complementar sobre transferência interna na parte educacional.",
+        link: "https://drive.google.com/file/d/1jzE8rqfyidbXw3S2r6cenXVvk5WS8xN-/view?usp=drivesdk"
+      },
+      {
+        title: "EDUCACIONAL INFORMA - ALTERAÇÃO DE SÉRIE (2)",
+        type: "Imagem",
+        text: "Comunicado visual sobre alteração de série no Educacional.",
+        link: "https://drive.google.com/file/d/1LlLvl2Fq6FVDfpOYMlAVLP6BI4ohfiEx/view?usp=drivesdk"
+      }
+    ];
+
     const complementSearchInput = document.querySelector("#complementSearchInput");
     const complementSearchButton = document.querySelector("#complementSearchButton");
+    const complementSearchResults = document.querySelector("#complementSearchResults");
+
+    function renderComplementDocuments(query = "") {
+      if (!complementSearchButton || !complementSearchResults) return;
+      const normalized = query.trim().toLowerCase();
+      const matches = normalized
+        ? complementRecords.filter(item => (item.title + " " + item.type + " " + item.text).toLowerCase().includes(normalized))
+        : [];
+      const firstMatch = matches[0];
+
+      complementSearchButton.href = firstMatch ? firstMatch.link : "#";
+      complementSearchButton.toggleAttribute("aria-disabled", !firstMatch);
+
+      complementSearchResults.classList.toggle("has-results", matches.length > 0);
+      complementSearchResults.classList.toggle("has-empty", normalized.length > 0 && matches.length === 0);
+      complementSearchResults.innerHTML = matches.length
+        ? matches.map(item => "<article class="complement-result"><div><span class="tag amber">" + item.type + "</span><strong>" + item.title + "</strong><p>" + item.text + "</p></div><a class="btn" href="" + item.link + "" target="_blank" rel="noreferrer">Abrir</a></article>").join("")
+        : normalized ? "<div class="complement-empty">Nenhum documento encontrado com essa palavra-chave.</div>" : "";
+    }
 
     if (complementSearchInput && complementSearchButton) {
-      complementSearchButton.href = complementDriveLink;
+      complementSearchInput.addEventListener("input", () => renderComplementDocuments(complementSearchInput.value));
       complementSearchInput.addEventListener("keydown", event => {
         if (event.key === "Enter") {
           event.preventDefault();
-          complementSearchButton.click();
+          if (complementSearchButton.getAttribute("aria-disabled") !== "true") complementSearchButton.click();
         }
       });
+      complementSearchButton.addEventListener("click", event => {
+        if (complementSearchButton.getAttribute("aria-disabled") === "true") event.preventDefault();
+      });
+      renderComplementDocuments();
     }
 
     const faqList = document.querySelector("#faqList");
