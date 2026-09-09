@@ -1,0 +1,3231 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Portal Educacional GSP</title>
+  <style>
+    :root {
+      /* Identidade visual provisoria GSP. Trocar estes tokens quando Cleide enviar a paleta final. */
+      --ink: #14213d;
+      --ink-soft: #40516f;
+      --paper: #f7f9fc;
+      --surface: #ffffff;
+      --line: #d9e2ee;
+      --blue: #2457c5;
+      --teal: #007c89;
+      --green: #2e7d55;
+      --amber: #b66a00;
+      --coral: #c94836;
+      --purple: #6c3bc4;
+      --yellow: #f5b82e;
+      --orange: #e8752f;
+      --shadow: 0 18px 46px rgba(20, 33, 61, .12);
+      --radius: 8px;
+      --max: 1180px;
+      --sidebar: 236px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      position: relative;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 360px;
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar);
+      min-height: calc(100vh - 360px);
+      z-index: 20;
+      background: linear-gradient(180deg, #0f244d, #153468);
+      color: #fff;
+      border-right: 1px solid rgba(255, 255, 255, .14);
+      box-shadow: 12px 0 30px rgba(8, 19, 59, .18);
+    }
+
+    .nav {
+      height: 100%;
+      padding: 22px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 10px 13px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .nav-icon {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+    }
+
+    .nav-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(8, 19, 59, .16);
+    }
+
+    .nav-links a:hover .nav-icon {
+      background: #18b6a5;
+      color: #062d34;
+      box-shadow: none;
+    }
+
+    .hero {
+      margin-top: 0;
+      background: #0f244d;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15, 36, 77, .98) 0%, rgba(15, 36, 77, .86) 42%, rgba(15, 36, 77, .32) 68%, rgba(15, 36, 77, .05) 100%),
+        url("assets/gsp/hero-educacional-preview.jpg") center right / 52% 100% no-repeat;
+      opacity: .98;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--max);
+      margin: 0;
+      min-height: 360px;
+      padding: 54px 20px 48px clamp(56px, 7vw, 96px);
+      display: grid;
+      align-content: center;
+      gap: 18px;
+    }
+
+    .hero-brand {
+      position: relative;
+      z-index: 2;
+      width: min(230px, 34vw);
+      min-width: 168px;
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 14px 30px rgba(8, 19, 59, .16);
+    }
+
+    .hero-brand img {
+      display: block;
+      width: 100%;
+      max-height: 56px;
+      object-fit: contain;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: #a9f0e2;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 600px;
+      margin: 0;
+      color: #e9f0ff;
+      font-size: 17px;
+    }
+
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .btn.primary {
+      background: #18b6a5;
+      color: #062d34;
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .28);
+    }
+
+    .btn.ghost {
+      background: #eef5ff;
+      color: var(--ink);
+      border-color: #d6e3f7;
+    }
+
+    .btn.warn {
+      background: #fff3d8;
+      color: #633700;
+      border-color: #f0d49a;
+    }
+
+    .btn.disabled {
+      background: #f1f4f8;
+      color: #6b778c;
+      border-color: var(--line);
+      cursor: default;
+    }
+
+    .status-strip {
+      position: relative;
+      max-width: calc(var(--max) + var(--sidebar));
+      margin: -18px auto 0;
+      padding: 0 20px 0 calc(var(--sidebar) + 20px);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      z-index: 3;
+    }
+
+    .stat {
+      min-height: 126px;
+      background: linear-gradient(180deg, #ffffff, #eef7ff);
+      border: 1px solid #c7d8ee;
+      border-top: 6px solid var(--stat-color, var(--teal));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 20px 46px rgba(20, 33, 61, .16);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-3px);
+      border-color: #83b6ea;
+      box-shadow: 0 24px 54px rgba(20, 33, 61, .22);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--stat-color, var(--teal));
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat:nth-child(1) { --stat-color: var(--green); }
+    .stat:nth-child(2) { --stat-color: var(--blue); }
+    .stat:nth-child(3) { --stat-color: var(--purple); }
+    .stat:nth-child(4) { --stat-color: var(--orange); }
+
+    .stat-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 14%, #fff);
+      color: var(--stat-color, var(--teal));
+    }
+
+    .stat-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .stat::after {
+      content: "Abrir";
+      align-self: flex-start;
+      margin-top: 14px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: var(--stat-color, var(--teal));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    main {
+      max-width: calc(var(--max) + var(--sidebar));
+      margin: 0 auto;
+      padding: 20px 20px 80px calc(var(--sidebar) + 20px);
+    }
+
+    section {
+      margin-top: 52px;
+      scroll-margin-top: 86px;
+    }
+
+    main > section:first-child {
+      margin-top: 30px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 660px;
+      margin: 6px 0 0;
+      color: var(--ink-soft);
+    }
+
+    .search-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .08);
+    }
+
+    .search-panel input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #fbfdff;
+    }
+
+    .search-results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .result-card, .process-card, .material-card, .faq-item, .quick-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .result-card {
+      border-left: 5px solid var(--teal);
+    }
+
+    .result-card strong, .material-card strong, .process-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .result-card p, .process-card p, .material-card p, .faq-item p, .quick-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 > :only-child {
+      grid-column: 1 / -1;
+    }
+
+    .process-card {
+      min-height: 188px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 5px solid var(--blue);
+    }
+
+    .process-card[data-status="draft"] {
+      border-top-color: var(--amber);
+    }
+
+    .process-card[data-status="triage"] {
+      border-top-color: var(--coral);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #edf3fb;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag.green {
+      background: #e7f4ed;
+      color: var(--green);
+    }
+
+    .tag.amber {
+      background: #fff4dc;
+      color: var(--amber);
+    }
+
+    .tag.red {
+      background: #fdecea;
+      color: var(--coral);
+    }
+
+    .spotlight {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .video-frame {
+      background: #0d1c3b;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #1d376c;
+      box-shadow: var(--shadow);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0d1c3b;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #e7f4ed;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .step p {
+      margin: 4px 0 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .material-card {
+      min-height: 176px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .material-card.compact {
+      min-height: 148px;
+    }
+
+    .material-card .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .material-preview {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #eef4fb;
+    }
+
+    .material-group-title {
+      margin: 26px 0 12px;
+      font-size: 20px;
+    }
+
+    .guide-hub {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.35fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .guide-intro, .guide-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .guide-intro {
+      border-left: 6px solid var(--purple);
+    }
+
+    .guide-intro h3, .guide-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .guide-intro p, .guide-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .guide-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .guide-card {
+      min-height: 154px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 5px solid var(--green);
+    }
+
+    .guide-card:nth-child(2) { border-top-color: var(--orange); }
+    .guide-card:nth-child(3) { border-top-color: var(--yellow); }
+    .guide-card:nth-child(4) { border-top-color: var(--blue); }
+    .guide-card:nth-child(5) { border-top-color: var(--purple); }
+
+    .guide-card .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .interactive-guide {
+      display: grid;
+      gap: 14px;
+    }
+
+    .guide-shell {
+      display: grid;
+      grid-template-columns: 285px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .stage-nav, .guide-workspace, .quick-links {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .stage-nav {
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      position: sticky;
+      top: 76px;
+    }
+
+    .stage-button {
+      width: 100%;
+      min-height: 54px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 8px;
+      background: #f7f9fc;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .stage-button[aria-selected="true"] {
+      border-color: var(--stage-color, var(--blue));
+      background: #fff;
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+    }
+
+    .stage-index {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--stage-color, var(--blue));
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .stage-button strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .stage-button span:last-child {
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .guide-workspace {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+      border-top: 6px solid var(--active-stage, var(--green));
+    }
+
+    .guide-workspace h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .guide-workspace p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .question-card {
+      overflow: hidden;
+      border: 1px solid var(--active-stage, var(--green));
+      border-radius: 12px;
+      background: #fbfeff;
+      box-shadow: 0 14px 28px rgba(20, 33, 61, .07);
+    }
+
+    .question-toggle {
+      width: 100%;
+      min-height: 66px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 34px;
+      gap: 12px;
+      align-items: center;
+      border: 0;
+      padding: 14px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .98), rgba(236, 250, 253, .7));
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .question-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--active-stage, var(--green));
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .question-title {
+      font-weight: 900;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .question-chevron {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #0d2b5c;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .question-card:not(.open) .question-body {
+      display: none;
+    }
+
+    .question-body {
+      display: grid;
+      gap: 12px;
+      padding: 0 14px 14px;
+    }
+
+    .answer-panel {
+      padding: 14px;
+      border: 1px solid var(--panel-border, var(--line));
+      border-radius: 8px;
+      background: var(--panel-bg, #f7fafc);
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .answer-panel strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .answer-panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .answer-panel p {
+      margin: 0;
+    }
+
+    .answer-panel .btn {
+      margin-top: 12px;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: #e9f0ff;
+      color: #0d2b5c;
+      font-size: 13px;
+    }
+
+    .answer-panel.check {
+      --panel-bg: #f5efff;
+      --panel-border: #dfcff8;
+    }
+
+    .answer-panel.safe {
+      --panel-bg: #eefaf7;
+      --panel-border: #c9e9df;
+    }
+
+    .answer-panel.escalate {
+      --panel-bg: #fff8ec;
+      --panel-border: #ead9b7;
+    }
+
+    .quick-links {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .quick-links .btn {
+      width: 100%;
+      justify-content: center;
+      border: 0;
+      background: #00a889;
+      color: #fff;
+      box-shadow: 0 14px 24px rgba(0, 126, 103, .18);
+    }
+
+    .quick-links .btn:nth-child(2) {
+      background: #176fc1;
+      box-shadow: 0 14px 24px rgba(23, 111, 193, .18);
+    }
+
+    .quick-links .btn:nth-child(3) {
+      background: #ff7a1a;
+      box-shadow: 0 14px 24px rgba(255, 122, 26, .2);
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .faq-item button {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 0;
+      background: var(--surface);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .faq-item div {
+      display: none;
+      padding: 0 16px 16px;
+    }
+
+    .faq-item.open div {
+      display: block;
+    }
+
+    .support-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      padding: 28px;
+      border: 1px solid #d6eadf;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 92% 50%, rgba(114, 204, 161, .28), transparent 28%),
+        radial-gradient(circle at 8% 18%, rgba(242, 248, 214, .72), transparent 22%),
+        #f8fffb;
+      box-shadow: 0 24px 55px rgba(36, 67, 59, .12);
+    }
+
+    .support-card::after {
+      content: "";
+      position: absolute;
+      right: 72px;
+      bottom: -54px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(224, 243, 226, .72);
+      pointer-events: none;
+    }
+
+    .support-avatar {
+      position: relative;
+      z-index: 1;
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 12px 24px rgba(15, 36, 77, .16);
+    }
+
+    .support-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .support-card h2 {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-size: 28px;
+    }
+
+    .support-card p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .support-card .btn {
+      position: relative;
+      z-index: 1;
+      min-width: 250px;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: #ff7a1a;
+      color: #fff;
+      box-shadow: 0 18px 26px rgba(255, 122, 26, .28);
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .topbar {
+        position: sticky;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        min-height: 0;
+        background: rgba(15, 36, 77, .96);
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, .14);
+        box-shadow: none;
+        backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        height: auto;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 12px 20px;
+        align-items: start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        margin-left: 0;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-links a {
+        color: #fff;
+      }
+
+      .hero-brand {
+        width: 176px;
+        min-width: 0;
+      }
+
+      .nav-icon {
+        width: 24px;
+        height: 24px;
+        background: rgba(255, 255, 255, .14);
+        color: #fff;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, .14);
+        color: #fff;
+      }
+
+      .hero-inner {
+        min-height: 500px;
+        padding-left: 20px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(15, 36, 77, .96), rgba(15, 36, 77, .82), rgba(15, 36, 77, .58)),
+          url("assets/gsp/hero-educacional-preview.jpg") bottom center / 100% auto no-repeat;
+      }
+
+      .status-strip,
+      .search-results,
+      .grid-3,
+      .grid-2,
+      .spotlight,
+      .guide-hub,
+      .guide-actions,
+      .guide-shell,
+      .question-grid,
+      .quick-links,
+      .support-card {
+        grid-template-columns: 1fr;
+      }
+
+      .status-strip,
+      main {
+        max-width: var(--max);
+        padding-left: 20px;
+      }
+
+      .support-card .btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .stage-nav {
+        position: static;
+      }
+    }
+
+    @media (max-width: 620px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .status-strip {
+        margin-top: 12px;
+      }
+
+      main {
+        padding-top: 14px;
+      }
+    }
+    /* Visual oficial inspirado na referencia enviada pela Cleide. */
+    :root {
+      --sidebar: 236px;
+      --max: 1020px;
+    }
+
+    body {
+      padding-top: 68px;
+      background: #f6f9fd;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 70;
+      height: 68px;
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+      padding: 0 42px 0 48px;
+      background: rgba(255, 255, 255, .98);
+      border-bottom: 1px solid #e6edf6;
+      box-shadow: 0 8px 24px rgba(20, 33, 61, .06);
+      backdrop-filter: blur(12px);
+    }
+
+    .site-logo {
+      display: inline-flex;
+      width: 166px;
+      align-items: center;
+    }
+
+    .site-logo img {
+      width: 100%;
+      display: block;
+    }
+
+    .site-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 2.4vw, 36px);
+      font-size: 13px;
+      font-weight: 850;
+      color: #102047;
+    }
+
+    .site-menu a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 68px;
+      padding: 0 2px;
+    }
+
+    .site-menu svg {
+      width: 21px;
+      height: 21px;
+      stroke: currentColor;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .site-menu a:first-child {
+      color: #008a73;
+    }
+
+    .site-menu a:first-child::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      height: 4px;
+      border-radius: 99px;
+      background: #008a73;
+    }
+
+    .site-actions {
+      display: none;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 14px;
+      color: #102047;
+    }
+
+    .icon-button {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 999px;
+      background: #f3f7fb;
+      color: #102047;
+      box-shadow: inset 0 0 0 1px #e2eaf5;
+    }
+
+    .icon-button::after {
+      content: "3";
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #008a73;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 10px 0 4px;
+      color: #102047;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .user-avatar {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #eef5ff;
+      color: #102047;
+      box-shadow: inset 0 0 0 1px #dce8f6;
+    }
+
+    .hero {
+      min-height: 0;
+      background: #fff;
+      color: #102047;
+      border-bottom: 1px solid #e2eaf5;
+      overflow: hidden;
+    }
+
+    .hero-banner-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero::before {
+      content: none;
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, #fff 0%, #fff 43%, rgba(255, 255, 255, .88) 51%, rgba(255, 255, 255, .2) 64%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin: 0;
+      min-height: 290px;
+      padding: 31px 0 0 clamp(92px, 8vw, 104px);
+      display: none;
+      align-content: start;
+      gap: 7px;
+    }
+
+    .hero-inner::before {
+      content: none;
+      position: absolute;
+      inset: 0 auto 0 0;
+      z-index: -1;
+      width: min(45vw, 570px);
+      background: linear-gradient(90deg, #fff 0%, #fff 74%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner > * {
+      display: block;
+    }
+
+    .hero-inner .hero-brand,
+    .hero-inner .hero-actions,
+    .floating-hero-icon {
+      display: none;
+    }
+
+    .hero-brand {
+      display: none;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 5px 13px;
+      border-radius: 999px;
+      color: #007c69;
+      background: #dff2ea;
+      font-size: 11px;
+      font-weight: 900;
+      box-shadow: 0 1px 0 rgba(0, 124, 105, .08);
+    }
+
+    h1 {
+      max-width: 560px;
+      color: #081a3d;
+      font-size: clamp(34px, 3.55vw, 42px);
+      line-height: .96;
+      font-weight: 950;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .42);
+    }
+
+    .hero-mainline {
+      white-space: nowrap;
+    }
+
+    .hero-script {
+      display: block;
+      width: fit-content;
+      color: #008a73;
+      font-family: "Segoe Print", "Brush Script MT", cursive;
+      font-size: .95em;
+      font-weight: 900;
+      line-height: .9;
+      text-decoration: underline;
+      text-decoration-color: #ffd21c;
+      text-decoration-thickness: 5px;
+      text-underline-offset: 7px;
+      transform: rotate(-2deg);
+    }
+
+    .lead {
+      max-width: 440px;
+      color: #40516f;
+      font-size: 14px;
+      line-height: 1.44;
+      margin-top: 18px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    .hero-board-words {
+      position: absolute;
+      top: 12px;
+      right: auto;
+      left: min(81vw, 1104px);
+      width: 168px;
+      color: #fff9df;
+      font-family: "Segoe Print", "Bradley Hand", cursive;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.15;
+      transform: rotate(4deg);
+      text-align: left;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .26);
+      letter-spacing: 0;
+    }
+
+    .hero-board-words span {
+      display: block;
+    }
+
+    .inline-actions.hero-actions {
+      margin-top: 8px;
+      gap: 12px;
+    }
+
+    .hero-actions .btn.primary {
+      background: #007c69;
+      color: #fff;
+      min-width: 160px;
+      box-shadow: 0 14px 26px rgba(0, 124, 105, .24);
+    }
+
+    .hero-actions .btn.ghost {
+      background: #fff;
+      color: #007c69;
+      border-color: #008a73;
+      min-width: 130px;
+    }
+
+    .floating-hero-icon {
+      position: absolute;
+      z-index: 2;
+      display: none;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(20, 33, 61, .2);
+    }
+
+    .floating-hero-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .floating-hero-icon.book { top: 58px; right: min(46vw, 570px); background: #22b887; }
+    .floating-hero-icon.megaphone { top: 166px; right: min(51vw, 650px); background: #ff6b2c; }
+    .floating-hero-icon.headset { top: 42px; right: min(23vw, 300px); background: #ffd21c; }
+    .floating-hero-icon.file { top: 142px; right: 72px; background: #1378ff; }
+
+    .status-strip {
+      max-width: none;
+      margin: 12px auto 0;
+      padding: 0 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      position: relative;
+      height: 176px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid #dfe8f4;
+      border-top: 0;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .08);
+      overflow: hidden;
+    }
+
+    .stat::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: -52px;
+      bottom: -66px;
+      width: 154px;
+      height: 154px;
+      border-radius: 999px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 26% 28%, transparent 0 44px, color-mix(in srgb, var(--stat-color, var(--teal)) 36%, transparent) 45px 68px, transparent 70px),
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--stat-color, var(--teal)) 18%, transparent) 0 74px, transparent 76px);
+      opacity: .95;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -24px;
+      width: 88px;
+      height: 88px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 22%, transparent);
+      pointer-events: none;
+    }
+
+    .stat span {
+      font-size: 14px;
+      color: var(--stat-color, var(--teal));
+      font-weight: 950;
+    }
+
+    .stat p {
+      position: relative;
+      z-index: 1;
+      margin: 7px 0 12px;
+      color: #5a6b83;
+      font-size: 12px;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .stat strong {
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      font-size: 21px;
+      line-height: 1.05;
+      color: #101f46;
+      font-weight: 950;
+    }
+
+    .stat-head {
+      position: relative;
+      z-index: 1;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .stat-icon {
+      position: relative;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 34% 32%, rgba(255,255,255,.7) 0 8px, transparent 9px),
+        color-mix(in srgb, var(--stat-color, var(--teal)) 21%, #fff);
+      color: var(--stat-color, var(--teal));
+      box-shadow:
+        0 0 0 7px color-mix(in srgb, var(--stat-color, var(--teal)) 10%, transparent),
+        0 10px 18px color-mix(in srgb, var(--stat-color, var(--teal)) 18%, transparent);
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .stat-icon::before,
+    .stat-icon::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      z-index: -1;
+      border-radius: 44% 56% 53% 47% / 44% 42% 58% 56%;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 30%, #fff);
+      transform: rotate(-9deg);
+    }
+
+    .stat-icon::after {
+      inset: 10px 8px 7px 11px;
+      border-radius: 58% 42% 45% 55% / 49% 57% 43% 51%;
+      background: color-mix(in srgb, var(--stat-color, var(--teal)) 12%, #fff);
+      transform: rotate(13deg);
+    }
+
+    .stat-icon svg {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      width: 23px;
+      height: 23px;
+      display: block;
+      transform: translate(-50%, -50%);
+      stroke: currentColor;
+      stroke-width: 2.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .stat-button {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 104px;
+      min-height: 30px;
+      margin-top: auto;
+      padding: 5px 12px;
+      border-radius: 8px;
+      background: var(--stat-color, var(--teal));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 12px 22px color-mix(in srgb, var(--stat-color, var(--teal)) 30%, transparent);
+    }
+
+    .stat .stat-button,
+    .stat .stat-button span {
+      display: inline-flex;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .topbar {
+      top: calc(68px + 33.333vw + 206px);
+      width: var(--sidebar);
+      min-height: calc(100vh - (68px + 33.333vw + 206px));
+      background: #fff;
+      color: #1d3154;
+      border-right: 1px solid #e0e9f4;
+      box-shadow: 10px 0 28px rgba(20, 33, 61, .08);
+    }
+
+    .nav {
+      padding: 16px 12px;
+      gap: 12px;
+    }
+
+    .side-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: #f3f7fb;
+      color: #718198;
+      font-size: 12px;
+    }
+
+    .side-search svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+    }
+
+    .nav-links {
+      gap: 7px;
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #263b59;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .nav-links a:first-child {
+      background: #e9f5f1;
+      color: #007c69;
+      box-shadow: inset 3px 0 0 #008a73;
+    }
+
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: transparent;
+      color: #254b73;
+      box-shadow: none;
+    }
+
+    .nav-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .nav-links a:hover {
+      transform: translateX(2px);
+      color: #007c69;
+      background: #e9f5f1;
+      box-shadow: none;
+    }
+
+    .nav-links a:hover .nav-icon {
+      background: transparent;
+      color: #007c69;
+    }
+
+    .side-note {
+      margin: 22px auto 0;
+      width: 150px;
+      color: #183153;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-5deg);
+    }
+
+    .side-note::after {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 5px;
+      margin: 2px auto 0;
+      border-radius: 99px;
+      background: #ffd21c;
+    }
+
+    main {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 14px 22px 72px calc(var(--sidebar) + 34px);
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    main > section:first-child {
+      margin-top: 14px;
+    }
+
+    .section-head {
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: 20px;
+    }
+
+    .section-head p {
+      font-size: 12px;
+    }
+
+    #busca {
+      margin-top: 14px;
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #e9f8f6, #edf9fb);
+      border: 1px solid #d7eceb;
+      box-shadow: 0 14px 30px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 8px 22px;
+      align-items: center;
+    }
+
+    #busca .section-head {
+      align-items: center;
+      margin-bottom: 10px;
+      grid-column: 1;
+    }
+
+    #busca .section-head > div {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    #busca .section-head > div::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: #008a73;
+      box-shadow: 0 12px 22px rgba(0, 124, 105, .22);
+    }
+
+    #busca .section-head > div::after {
+      content: "⌕";
+      position: absolute;
+      left: 9px;
+      top: 2px;
+      color: #fff;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .search-panel {
+      grid-template-columns: minmax(0, 1fr) 94px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      grid-column: 1;
+    }
+
+    .search-panel input {
+      min-height: 38px;
+      border-radius: 8px;
+      border-color: #dbe5ef;
+      font-size: 12px;
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .08);
+    }
+
+    #busca .search-results {
+      grid-column: 1 / -1;
+    }
+
+    .btn {
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .btn.primary {
+      background: #007c69;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 124, 105, .2);
+    }
+
+    .find-note {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      justify-self: center;
+      align-self: center;
+      position: relative;
+      color: #16365d;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-8deg);
+    }
+
+    .find-note::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 18px;
+      width: 18px;
+      height: 26px;
+      border-left: 4px solid #ffd21c;
+      border-top: 4px solid #ffd21c;
+      transform: rotate(-18deg);
+      border-radius: 14px 0 0 0;
+    }
+
+    .find-note::after {
+      content: "";
+      display: block;
+      width: 74px;
+      height: 5px;
+      margin: 2px auto 0;
+      border-radius: 999px;
+      background: #ffd21c;
+      transform: rotate(-3deg);
+    }
+
+    .btn.ghost {
+      background: #fff;
+      color: #153468;
+      border-color: #dbe6f3;
+    }
+
+    .quick-links,
+    .guide-workspace,
+    .search-panel,
+    .material-card,
+    .quick-card,
+    .support-card,
+    .result-card {
+      border-radius: 8px;
+    }
+
+    @media (max-width: 920px) {
+      body {
+        padding-top: 0;
+      }
+
+      .site-header {
+        position: static;
+        height: auto;
+        grid-template-columns: 1fr auto;
+        padding: 10px 16px;
+      }
+
+      .site-logo {
+        width: 142px;
+      }
+
+      .site-menu {
+        grid-column: 1 / -1;
+        order: 3;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        width: 100%;
+      }
+
+      .site-menu::-webkit-scrollbar,
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .site-actions {
+        align-self: center;
+      }
+
+      .topbar {
+        top: 0;
+        width: 100%;
+        min-height: 0;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .nav {
+        padding: 10px 16px;
+      }
+
+      .side-search,
+      .side-note {
+        display: none;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .nav-links a {
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        min-height: 0;
+      }
+
+      .hero::before {
+        content: none;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .floating-hero-icon {
+        display: none;
+      }
+
+      .hero-inner {
+        width: min(100% - 32px, var(--max));
+        margin: 0 auto;
+        min-height: 250px;
+        padding: 24px 0 0 0;
+        display: none;
+      }
+
+      .hero-inner::before {
+        content: "";
+        width: min(86vw, 520px);
+        left: -16px;
+      }
+
+      .hero-inner > * {
+        display: block;
+      }
+
+      .hero-inner .hero-brand,
+      .hero-inner .hero-actions,
+      .floating-hero-icon {
+        display: none;
+      }
+
+      h1 {
+        max-width: 520px;
+        font-size: clamp(32px, 9vw, 40px);
+      }
+
+      .hero-mainline {
+        white-space: normal;
+      }
+
+      .hero-board-words {
+        display: none;
+      }
+
+      .status-strip {
+        padding: 0 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #busca {
+        grid-template-columns: 1fr;
+      }
+
+      #busca .section-head,
+      .search-panel,
+      .find-note {
+        grid-column: 1;
+      }
+
+      .find-note {
+        grid-row: auto;
+        justify-self: end;
+        margin-top: 4px;
+        font-size: 18px;
+      }
+
+      main {
+        padding: 16px 16px 72px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site-header {
+        grid-template-columns: 1fr;
+      }
+
+      .site-actions {
+        display: none;
+      }
+
+      .site-menu {
+        gap: 16px;
+        font-size: 12px;
+      }
+
+      .site-menu a {
+        min-height: 40px;
+      }
+
+      .site-menu a:first-child::after {
+        bottom: 0;
+      }
+
+      .hero {
+        min-height: 0;
+      }
+
+      .hero-inner {
+        min-height: 250px;
+        padding: 20px 0;
+      }
+
+      .lead {
+        font-size: 13px;
+      }
+
+      .status-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .search-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .find-note {
+        display: none;
+      }
+    }
+    /* Previa de validacao - alteracoes solicitadas em 2026-09-08. */
+    .side-note {
+      position: relative;
+      padding-top: 24px;
+    }
+
+    .side-note::before {
+      content: "";
+      position: absolute;
+      right: -18px;
+      top: 4px;
+      width: 34px;
+      height: 34px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42' fill='none'%3E%3Cpath d='M36 6 6 19.2l13.3 3.6L23 36 36 6Z' stroke='%23008a73' stroke-width='2.8' stroke-linejoin='round'/%3E%3Cpath d='m19.3 22.8 7.2-7.1' stroke='%23008a73' stroke-width='2.8' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      transform: rotate(8deg);
+    }
+
+    .stat {
+      border-color: #d9e7f6;
+      box-shadow: 0 12px 26px rgba(16, 32, 71, .08);
+    }
+
+    .stat::before {
+      background:
+        radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--stat-color, #008a73) 26%, transparent) 0 70px, transparent 72px),
+        radial-gradient(circle at 108% 108%, color-mix(in srgb, var(--stat-color, #008a73) 14%, transparent) 0 96px, transparent 98px),
+        linear-gradient(135deg, rgba(255,255,255,.9), transparent 62%);
+    }
+
+    .support-room-block {
+      margin-top: 30px;
+      padding: 24px 0 4px;
+      border: 0;
+      background: transparent;
+    }
+
+    .support-room-block .section-head {
+      margin-bottom: 14px;
+    }
+
+    .support-room-block .section-head h2 {
+      font-size: 20px;
+      line-height: 1.2;
+      color: #081b42;
+      letter-spacing: 0;
+    }
+
+    .support-room-block .section-head p {
+      max-width: 760px;
+      font-size: 12px;
+      color: #52627a;
+    }
+
+    .support-room-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .support-room-card {
+      --room-color: #2457c5;
+      --room-soft: #eaf1ff;
+      min-height: 92px;
+      padding: 16px 18px;
+      border: 1px solid #dce4f0;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(16, 32, 71, .08);
+      display: grid;
+      grid-template-columns: 64px minmax(180px, 1fr) auto auto minmax(168px, 220px);
+      align-items: center;
+      gap: 18px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .support-room-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 48px rgba(16, 32, 71, .13);
+    }
+
+    .support-room-card.is-featured {
+      border-color: #2d7eea;
+      box-shadow: 0 0 0 1px rgba(36, 87, 197, .16), 0 22px 46px rgba(16, 32, 71, .12);
+    }
+
+    .support-room-card[data-room="ti"] {
+      --room-color: #008a73;
+      --room-soft: #e5f8ef;
+    }
+
+    .support-room-card[data-room="duvidas"] {
+      --room-color: #7c3bd1;
+      --room-soft: #f1e8ff;
+    }
+
+    .room-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--room-soft);
+      color: var(--room-color);
+    }
+
+    .room-icon svg {
+      width: 35px;
+      height: 35px;
+    }
+
+    .support-room-card h3 {
+      margin: 0;
+      color: #081b42;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .room-status {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 34px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #e7f9ef;
+      color: #137b45;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .room-status::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 0 5px color-mix(in srgb, currentColor 12%, transparent);
+    }
+
+    .room-status.queue {
+      background: #fff3d8;
+      color: #a76400;
+    }
+
+    .room-status.closed {
+      background: #ffe2df;
+      color: #c72d2d;
+    }
+
+    .room-hours {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #52627a;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .room-hours svg {
+      width: 18px;
+      height: 18px;
+      color: #6b7a90;
+    }
+
+    .room-action {
+      margin-top: 0;
+      min-height: 46px;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #0a966f, #007a5f);
+      color: #fff;
+      box-shadow: 0 14px 24px rgba(0, 122, 95, .22);
+    }
+
+    .room-action svg {
+      color: #fff;
+    }
+
+    .support-room-card.is-closed .room-action {
+      background: #91a0b5;
+      box-shadow: none;
+      opacity: .75;
+      cursor: not-allowed;
+    }
+
+    .support-room-footnote {
+      margin: 16px 0 0;
+      color: #52627a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1180px) {
+      .support-room-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .support-room-block {
+        padding-top: 14px;
+      }
+
+      .support-room-actions {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .support-room-card {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+    }
+
+    #sala-apoio.quick-links {
+      display: none;
+    }
+
+    .material-group-title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0 14px;
+      color: #082c63;
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .material-group-title::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--group-accent, #2457c5);
+      box-shadow: 0 12px 22px color-mix(in srgb, var(--group-accent, #2457c5) 24%, transparent);
+    }
+
+    .material-group-title::after {
+      content: "";
+      width: 27px;
+      height: 15px;
+      border-top: 3px solid #ffd21c;
+      border-left: 3px solid #ffd21c;
+      transform: rotate(-18deg);
+      border-radius: 14px 0 0 0;
+      order: -1;
+    }
+
+    .material-group-title.files {
+      --group-accent: #ff6b1a;
+    }
+
+    .material-card {
+      position: relative;
+      min-height: 174px;
+      padding: 18px 24px 18px;
+      border-color: #d9e7f6;
+      box-shadow: 0 10px 24px rgba(16, 32, 71, .07);
+      overflow: hidden;
+    }
+
+    .material-card::after {
+      content: "";
+      position: absolute;
+      right: -46px;
+      bottom: -44px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 18px solid color-mix(in srgb, var(--material-accent, #2457c5) 18%, transparent);
+      pointer-events: none;
+    }
+
+    .material-card .tag {
+      position: relative;
+      width: fit-content;
+      min-height: 23px;
+      padding: 3px 18px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--material-accent, #2457c5) 12%, #fff);
+      color: var(--material-accent, #2457c5);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .material-card .tag::before {
+      content: "";
+      position: absolute;
+      left: -48px;
+      top: -9px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--material-accent, #2457c5);
+      box-shadow: 0 12px 22px color-mix(in srgb, var(--material-accent, #2457c5) 24%, transparent);
+    }
+
+    .material-card strong {
+      max-width: 84%;
+      color: #082c63;
+      font-size: 17px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .material-card p {
+      max-width: 82%;
+      color: #2e5489;
+      font-size: 14px;
+      line-height: 1.28;
+    }
+
+    .material-card .btn {
+      min-width: 112px;
+      border: 0;
+      background: var(--material-button, #8d2bd1);
+      color: #fff;
+      box-shadow: 0 10px 18px color-mix(in srgb, var(--material-button, #8d2bd1) 24%, transparent);
+    }
+
+    .material-card .btn::after {
+      content: "→";
+      margin-left: 12px;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .material-card.support-material {
+      --material-accent: #2457c5;
+      --material-button: #8d2bd1;
+    }
+
+    .material-card.available-file {
+      --material-accent: #ff6b1a;
+      --material-button: #f4bd00;
+    }
+
+    .material-card.available-file .btn {
+      color: #082c63;
+    }
+
+    .company-colors {
+      position: relative;
+      left: calc((var(--sidebar) + 34px) * -1);
+      width: 100vw;
+      height: 14px;
+      margin: 42px 0 -72px;
+      overflow: hidden;
+      background: linear-gradient(105deg, #2457c5 0 27%, #008a73 27% 52%, #ffd21c 52% 74%, #ff6b1a 74% 100%);
+      box-shadow: 0 -4px 12px rgba(20, 33, 61, .06);
+    }
+
+    .company-colors::before,
+    .company-colors::after {
+      display: none;
+    }
+
+    @media (max-width: 920px) {
+      .support-room-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .material-card strong,
+      .material-card p {
+        max-width: 100%;
+      }
+
+      .company-colors {
+        left: -16px;
+        width: 100vw;
+        margin: 36px 0 -72px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-logo" href="#inicio" aria-label="Great Schools Platform">
+      <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+    </a>
+    <nav class="site-menu" aria-label="Navegação superior">
+      <a href="#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>Início</a>
+      <a href="#materiais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg>Central de Materiais</a>
+      <a href="faq.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.8 9a2.4 2.4 0 1 1 4 1.8c-.8.6-1.3 1.1-1.3 2.1"/><path d="M12.5 16h.01"/></svg>FAQ</a>
+      <a href="#roger"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M17 15v1a4 4 0 0 1-4 4h-2"/></svg>Suporte</a>
+      <a href="#comunicados"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg>Comunicados</a>
+    </nav>
+  </header>
+
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="side-search" href="#busca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Buscar no portal...</span>
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span>
+          <span>Início</span>
+        </a>
+        <a href="#guia-amanda">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h5"/><path d="M8 11h6"/></svg></span>
+          <span>Guia de Atendimento</span>
+        </a>
+        <a href="#materiais">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></span>
+          <span>Central de Materiais</span>
+        </a>
+        <a href="faq.html">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.7 9a2.5 2.5 0 1 1 4.2 1.8c-.8.6-1.4 1.1-1.4 2.2"/><path d="M12.5 16h.01"/></svg></span>
+          <span>FAQ</span>
+        </a>
+        <a href="#comunicados">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          <span>Comunicados</span>
+        </a>
+        <a href="#salas-validacao">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z"/></svg></span>
+          <span>Salas de Apoio</span>
+        </a>
+        <a href="#roger">
+          <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7v3a7 7 0 0 0 14 0v-3a7 7 0 0 0-7-7Z"/><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M9 14c1.6 1.2 4.4 1.2 6 0"/></svg></span>
+          <span>Fale com o Roger</span>
+        </a>
+      </div>
+      <div class="side-note">Juntos<br>vamos mais longe!</div>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <img class="hero-banner-img" src="assets/gsp/hero-banner-sem-icones.png" alt="Ambiente interno Great Schools Platform. Tudo o que você precisa, em um só lugar!">
+    <div class="hero-inner">
+      <a class="hero-brand" href="#inicio" aria-label="Great Schools Platform">
+        <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+      </a>
+      <p class="eyebrow">Ambiente interno Great Schools Platform</p>
+      <h1><span class="hero-mainline">Tudo o que você precisa,</span><span class="hero-script">em um só lugar!</span></h1>
+      <p class="lead">Central exclusiva para consultar processos, materiais de treinamento, vídeos, apresentações e respostas de atendimento do ecossistema TOTVS Educacional.</p>
+      <div class="hero-board-words" aria-label="Pessoas, Processos, Tecnologia, Educação, Resultados">
+        <span>Pessoas</span>
+        <span>Processos</span>
+        <span>Tecnologia</span>
+        <span>Educação</span>
+        <span>Resultados</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="status-strip" aria-label="Resumo do portal">
+    <a class="stat" href="#guia-amanda">
+      <div class="stat-head">
+        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 8.5h6.3c1.5 0 2.7.4 3.7 1.4 1-1 2.2-1.4 3.7-1.4H27v16h-6.7c-1.4 0-2.5.3-3.3 1.2-.8-.9-1.9-1.2-3.3-1.2H7v-16Z"/><path d="M17 10v15.7"/><path d="M10.5 12.5h3.2"/><path d="M20.3 12.5h3.2"/></svg></span>
+        <span>Prioridade atual</span>
+      </div>
+      <strong>Rematrícula 2027</strong>
+      <p>Acesse todos os materiais, orientações e prazos.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="stat" href="#materiais">
+      <div class="stat-head">
+        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5.5 24.2V10.8A2.8 2.8 0 0 1 8.3 8h6.1l2.5 2.8h6.8a2.8 2.8 0 0 1 2.8 2.8v1.1"/><path d="M5.5 24.2 8.1 14h18.4l-2.6 10.2a2.5 2.5 0 0 1-2.4 1.9H7.9a2.5 2.5 0 0 1-2.4-1.9Z"/></svg></span>
+        <span>Consulta rápida</span>
+      </div>
+      <strong>Central de Materiais</strong>
+      <p>Encontre materiais, vídeos e apresentações.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="stat" href="faq.html">
+      <div class="stat-head">
+        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12.2 12.3a4.2 4.2 0 1 1 6.9 3.2c-1.5 1.1-2.3 2.2-2.3 4.3"/><path d="M16.8 24.2h.01"/></svg></span>
+        <span>Perguntas</span>
+      </div>
+      <strong>FAQ</strong>
+      <p>Respostas para as principais dúvidas do dia a dia.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
+    </a>
+    <a class="stat" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">
+      <div class="stat-head">
+        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7.5 17.3v-2.4a8.5 8.5 0 0 1 17 0v2.4"/><path d="M7.5 17.3a3 3 0 0 0 3 3h1.6v-8.4h-1.6a3 3 0 0 0-3 3v2.4Z"/><path d="M24.5 17.3a3 3 0 0 1-3 3h-1.6v-8.4h1.6a3 3 0 0 1 3 3v2.4Z"/><path d="M20 20.8v.9a3.8 3.8 0 0 1-3.8 3.8h-2.5"/></svg></span>
+        <span>Suporte</span>
+      </div>
+      <strong>Falar com Roger</strong>
+      <p>Precisa de ajuda? Entre em contato com nossa equipe.</p>
+      <span class="stat-button">Abrir <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+
+  <main>
+    <section id="busca">
+      <div class="section-head">
+        <div>
+          <h2>Busca rápida</h2>
+          <p>Consulta inicial para localizar respostas de Rematrícula, materiais e pontos de escalação.</p>
+        </div>
+      </div>
+      <div class="search-panel">
+        <input id="searchInput" type="search" placeholder="Digite uma dúvida: senha, aluno não aparece, desconto, contrato, pagamento...">
+        <button class="btn primary" id="searchButton">Buscar</button>
+      </div>
+      <div class="find-note" aria-hidden="true">Aqui você<br>encontra!</div>
+      <div class="search-results" id="searchResults" aria-live="polite"></div>
+    </section>
+
+    <section id="guia-amanda">
+      <div class="section-head">
+        <div>
+          <h2>Guia de Atendimento</h2>
+          <p>Menu web baseado no guia atualizado, com etapas, dúvidas recorrentes, resposta segura, conferência e escalação.</p>
+        </div>
+        <div class="inline-actions">
+          <a class="btn ghost" href="assets/rematricula-2027/guia-de-atendimento-ok.ppsx">Baixar Guia</a>
+        </div>
+      </div>
+
+      <div class="interactive-guide">
+        <div class="guide-shell">
+          <div class="stage-nav" id="stageNav" role="tablist" aria-label="Etapas do guia"></div>
+          <div class="guide-workspace" id="guideWorkspace">
+            <div>
+              <span class="tag amber">Rematrícula 2027</span>
+              <h3 id="stageTitle">Acesso ao Portal GSP</h3>
+              <p id="stageSummary">Selecione uma etapa para abrir as dúvidas de atendimento.</p>
+            </div>
+            <div class="question-grid" id="questionGrid"></div>
+          </div>
+        </div>
+
+        <div class="quick-links" id="sala-apoio">
+          <a class="btn ghost" href="https://meet.google.com/doj-fzwe-wqt?authuser=0" target="_blank" rel="noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
+            Sala Acadêmico
+          </a>
+          <a class="btn ghost" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-5 5V5.8Z" fill="currentColor"/></svg>
+            Sala TI
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiais">
+      <div class="section-head">
+        <div>
+          <h2>Central de Materiais</h2>
+          <p>Arquivos disponíveis para consulta, treinamento e atendimento. Cada card representa um documento da biblioteca.</p>
+        </div>
+      </div>
+
+      <h3 class="material-group-title" id="material-apoio">Material de Apoio</h3>
+      <div class="grid-3">
+        <article class="material-card compact support-material">
+          <span class="tag">Drive</span>
+          <strong>Rematrícula / Matrícula todas as escolas</strong>
+          <p>Material de apoio para consulta dos processos de rematrícula e matrícula, exceto Santo Anjo.</p>
+          <a class="btn ghost" href="https://drive.google.com/drive/folders/1qfXiTp6byBFWi99ZvRnXc1BUISoaglQD" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card compact support-material">
+          <span class="tag">Drive</span>
+          <strong>Negociação Upgrade Bolsas</strong>
+          <p>Material de apoio para consulta sobre negociação, upgrade e bolsas, exceto Santo Anjo.</p>
+          <a class="btn ghost" href="https://drive.google.com/drive/folders/1kieDt54E3sw81y14Ng2i366AZYNmG1lu" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card compact support-material">
+          <span class="tag">Planilha</span>
+          <strong>Planilha oficial de bolsa de desconto</strong>
+          <p>Consulta por serviço e por escola, conforme material oficial de apoio.</p>
+          <a class="btn ghost" href="https://docs.google.com/spreadsheets/d/1tkweczH452ToBu-sQaBgpnSX6CWGCL0Z/edit?gid=1816586133#gid=1816586133" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card compact support-material">
+          <span class="tag">Projeto</span>
+          <strong>Projeto Bilíngue 2027</strong>
+          <p>Material complementar para consulta sobre o projeto bilíngue vinculado à Rematrícula 2027.</p>
+          <a class="btn ghost" href="https://andressacarmo-dev.github.io/gsp-projeto-bilingue-2027-piloto/" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card compact support-material">
+          <span class="tag">Drive</span>
+          <strong>Drive exclusivo Santo Anjo</strong>
+          <p>Pasta exclusiva para consulta de materiais de apoio da unidade Santo Anjo.</p>
+          <a class="btn ghost" href="https://drive.google.com/drive/folders/1NxUsbX2ygvJcstdYsFBme1wkptfECxxi" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card compact support-material">
+          <span class="tag">Drive</span>
+          <strong>Materiais complementares da Rematrícula 2027</strong>
+          <p>Pasta complementar para consulta dos materiais de apoio da Rematrícula 2027.</p>
+          <a class="btn ghost" href="https://drive.google.com/drive/folders/1M4RqiunCj3tV22CY7bsQT0X-WTkk0Nyl" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+      </div>
+
+      <h3 class="material-group-title files">Arquivos disponíveis</h3>
+      <div class="grid-3">
+        <article class="material-card available-file">
+          <span class="tag amber">PDF</span>
+          <strong>2027 - Novo código da turma</strong>
+          <p>Documento de apoio para conferência do novo código da turma no processo 2027.</p>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1urHk6IgGtNcyz5AeAxVrIgnOzUUnp4o4/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card available-file">
+          <span class="tag amber">PDF</span>
+          <strong>Alteração do R. Financeiro - Rematrícula pág. 01 e 07</strong>
+          <p>Material de consulta sobre alteração do responsável financeiro durante a Rematrícula.</p>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1_w3f_iQqpWNuKlTtkYra7b3YWLPClz3e/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card available-file">
+          <span class="tag amber">PDF</span>
+          <strong>Como fazer - Transferência interna - Parte Educação</strong>
+          <p>Orientação complementar para consulta sobre transferência interna na parte educacional.</p>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1oZmLrJmN6il-gLF2a7VCdebg5-cQ_YF9/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card available-file">
+          <span class="tag amber">PDF</span>
+          <strong>MARU - Infantil data de corte 2027</strong>
+          <p>Arquivo de apoio para consulta da data de corte 2027 da unidade MARU no Infantil.</p>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1idOqUm7rVxWrEqm8XbgKI0V3eY0kXV8D/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+        <article class="material-card available-file">
+          <span class="tag amber">PDF</span>
+          <strong>OBJ - Infantil data de corte 2027</strong>
+          <p>Arquivo de apoio para consulta da data de corte 2027 da unidade OBJ no Infantil.</p>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1Y10yFjIw5vp0LZ87-59gqEy-toPovWXS/view?usp=drivesdk" target="_blank" rel="noreferrer">Abrir</a>
+        </article>
+      </div>
+
+    </section>
+
+    <section id="comunicados">
+      <div class="section-head">
+        <div>
+          <h2>Comunicados</h2>
+          <p>Avisos importantes para acompanhamento dos processos educacionais da GSP.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="quick-card">
+          <span class="tag green">Atualizações</span>
+          <strong>Nenhum comunicado publicado no momento</strong>
+          <p>Os próximos avisos sobre rematrícula, calendário, materiais e orientações oficiais serão organizados aqui.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="support-room-block" id="salas-validacao">
+      <div class="section-head">
+        <div>
+          <h2>Salas de Suporte</h2>
+          <p>Fale com nossa equipe em tempo real. Escolha a sala conforme a necessidade e acompanhe o status de atendimento antes de entrar.</p>
+        </div>
+      </div>
+      <div class="support-room-actions" aria-live="polite">
+        <article class="support-room-card is-featured" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
+          <div class="room-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm4.5 1.5v7.4h1.8V8.3H8.5Zm3.1 0v7.4h1.8V8.3h-1.8Zm3.1 0v7.4h1.8V8.3h-1.8Z" fill="currentColor"/></svg>
+          </div>
+          <h3>Sala Acadêmico</h3>
+          <span class="room-status" data-room-status>Disponível agora</span>
+          <span class="room-hours">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
+            Seg-Sex, 8h às 17h30
+          </span>
+          <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt?authuser=0" target="_blank" rel="noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
+            Entrar na sala
+          </a>
+        </article>
+        <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
+          <div class="room-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v9h14V6H5Zm2 2h7v2H7V8Zm0 4h4v2H7v-2Z" fill="currentColor"/></svg>
+          </div>
+          <h3>Sala TI</h3>
+          <span class="room-status" data-room-status>Disponível agora</span>
+          <span class="room-hours">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
+            Seg-Sex, 8h às 17h30
+          </span>
+          <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
+            Entrar na sala
+          </a>
+        </article>
+      </div>
+      <p class="support-room-footnote">Status atualizado automaticamente pelo horário de Brasília. Fora do expediente, as salas permanecem sinalizadas como Indisponível.</p>
+    </section>
+
+    <section id="roger">
+      <div class="support-card">
+        <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
+        <div class="support-content">
+          <span class="support-kicker">Agente de suporte educacional</span>
+          <h2>Fale com o Roger</h2>
+          <p>Se você consultou o portal e ainda tem alguma dúvida que não aparece aqui, entre em contato com o Roger para apoio nos processos educacionais da GSP.</p>
+        </div>
+        <a class="btn warn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Acessar suporte do Roger</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Portal interno GSP · Educacional</span>
+      <span>Material de consulta e treinamento</span>
+    </footer>
+    <div class="company-colors" aria-hidden="true"></div>
+  </main>
+
+  <script>
+    const guideData = [
+      {
+        id: "acesso",
+        number: "02",
+        title: "Acesso ao Portal GSP",
+        color: "#2e7d55",
+        summary: "Login, senha, seleção do aluno e bloqueios iniciais no Portal dos Pais.",
+        questions: [
+          {
+            title: "Não lembro o login cadastrado",
+            check: ["OBJ: conferir código da pessoa do responsável financeiro no TOTVS.", "Demais escolas: conferir e-mail cadastrado no responsável financeiro.", "Se for alteração de e-mail, ajustar cadastro do RF e orientar novo acesso após 1 hora."],
+            answer: "O acesso ao Portal dos Pais utiliza o cadastro no sistema do Colégio. Vamos conferir o responsável financeiro e orientar o acesso correto.",
+            escalate: "OBJ sem acesso mesmo com código do RF correto; demais escolas sem acesso mesmo após ajuste do e-mail do RF."
+          },
+          {
+            title: "Esqueci minha senha",
+            check: ["Usar a opção Esqueceu a senha no Portal.", "Confirmar se o e-mail cadastrado está correto.", "Orientar verificação de spam ou lixo eletrônico."],
+            answer: "No Portal dos Pais, utilize Esqueceu senha. O sistema enviará a redefinição para o e-mail cadastrado.",
+            escalate: "Quando o reset não chega mesmo com o e-mail correto."
+          },
+          {
+            title: "Não aparece o nome do aluno",
+            check: ["Confirmar se quem acessou é o responsável financeiro.", "Verificar se RF e responsável acadêmico possuem e-mails distintos quando forem pessoas diferentes.", "Conferir cadastro no TOTVS e aguardar sincronização após ajuste."],
+            answer: "A Rematrícula fica disponível para o responsável financeiro. Vou conferir se o acesso utilizado está vinculado corretamente.",
+            escalate: "Após ajuste cadastral e 1 hora de sincronização, o aluno ainda não aparece."
+          },
+          {
+            title: "Tenho mais de um filho",
+            check: ["Verificar quantos alunos estão vinculados ao RF.", "Confirmar se o responsável está selecionando um aluno por vez.", "Conferir se algum filho não aparece ou se há aluno incorreto."],
+            answer: "O processo é feito um aluno por vez. Ao finalizar o primeiro, volte em Iniciar Rematrícula e selecione o próximo aluno.",
+            escalate: "Algum filho não aparece para seleção ou aparece aluno incorreto."
+          },
+          {
+            title: "Bloqueio ao iniciar matrícula",
+            check: ["Solicitar o código do bloqueio informado na tela.", "Códigos mapeados: 0 já processado, 1 inadimplente, 2 retido, 3 vetado, 5 filho colaborador, 8 sem turma, 11 já possui matrícula.", "Direcionar retido/vetado para coordenação e falhas de turma para sala Acadêmico."],
+            answer: "Vamos analisar o código de bloqueio apresentado e direcionar o atendimento conforme a regra da unidade.",
+            escalate: "Bloqueio não procede, exige inclusão em metadados ou não está mapeado."
+          }
+        ]
+      },
+      {
+        id: "identificacao",
+        number: "03",
+        title: "Identificação",
+        color: "#e8752f",
+        summary: "Validação de dados cadastrais do aluno, responsáveis e pessoas autorizadas.",
+        questions: [
+          {
+            title: "Quero alterar dados cadastrais pelo Portal",
+            check: ["Verificar se o campo está branco/editável ou cinza/bloqueado.", "Campos em branco podem ser alterados no Portal.", "Dados sensíveis ou documentais dependem de validação da secretaria."],
+            answer: "Campos em branco estão disponíveis para alteração pelo Portal. Campos bloqueados dependem de validação da secretaria.",
+            escalate: "Divergência em nome, documento ou filiação."
+          },
+          {
+            title: "Não consigo avançar a etapa de identificação",
+            check: ["Conferir se todas as abas foram confirmadas: aluno, filiação, responsáveis e pessoas autorizadas.", "Certificar se a última aba cadastral não está pendente.", "Pedir imagem da tela quando houver erro, sem dados sensíveis."],
+            answer: "Todas as abas cadastrais precisam estar confirmadas para avançar a etapa.",
+            escalate: "Todas as abas estão confirmadas em verde e o erro persiste."
+          },
+          {
+            title: "Alteração do responsável financeiro",
+            check: ["Confirmar se a pessoa em atendimento é o RF.", "Verificar se há inadimplência.", "Consultar o processo próprio em Material de Apoio."],
+            answer: "Vamos analisar sua solicitação e direcionar conforme o processo de alteração do responsável financeiro.",
+            escalate: "Qualquer dúvida sobre o processo de alteração do RF ou regra financeira."
+          },
+          {
+            title: "Alteração do responsável acadêmico ou pessoas autorizadas",
+            check: ["Localizar primeiro pelo CPF da pessoa.", "Incluir ou validar dados cadastrais no Portal.", "Quando houver guarda, incluir mãe ou pai também em pessoas autorizadas conforme regra interna."],
+            answer: "É possível alterar diretamente pelo Portal, localizando primeiro pelo CPF da pessoa que deseja incluir.",
+            escalate: "Dúvidas no processo de inclusão pelo Portal."
+          }
+        ]
+      },
+      {
+        id: "precontrato",
+        number: "04",
+        title: "Pré-contrato",
+        color: "#f5b82e",
+        summary: "Serviços por escola, turno, bolsas por serviço e descontos exibidos no Portal.",
+        questions: [
+          {
+            title: "Não entendi quais serviços posso contratar",
+            check: ["Conferir unidade do aluno.", "Conferir segmento/série.", "Validar serviços disponíveis no Portal e materiais de marketing da escola."],
+            answer: "As opções de serviço aparecem conforme unidade e segmento. Vou conferir o que está disponível para garantir a escolha correta.",
+            escalate: "Serviço esperado não aparece ou há divergência entre Portal e regra da unidade."
+          },
+          {
+            title: "Quero alterar o turno para o próximo ano letivo",
+            check: ["Conferir unidade, segmento e série.", "Confirmar turnos disponíveis.", "Quando houver dois turnos, o RF deve formalizar por e-mail, exceto Santo Anjo."],
+            answer: "Finalize a Rematrícula e formalize a solicitação pelo canal oficial. A manutenção depende de disponibilidade de vaga.",
+            escalate: "Oferta de serviços por segmento não está completa na visão do RF."
+          },
+          {
+            title: "Desconto aparece em um serviço e não em outro",
+            check: ["Consultar planilha oficial de bolsa por serviço.", "Localizar aluno e serviço.", "Comparar o desconto da planilha com o exibido ao RF."],
+            answer: "Os descontos são cadastrados por tipo de contratação de cada serviço, por isso podem aparecer em um serviço e não em outro.",
+            escalate: "Desconto aprovado não aparece no serviço correto ou precisa ser ajustado após negociação."
+          }
+        ]
+      },
+      {
+        id: "aulas",
+        number: "05",
+        title: "Aulas Extras",
+        color: "#2457c5",
+        summary: "Contratação de aulas extras, planos, valores e ofertas por série.",
+        questions: [
+          {
+            title: "Uma aula extra não aparece para meu filho",
+            check: ["Conferir série/segmento.", "Confirmar oferta disponível para aquela série.", "Validar se a aula deveria aparecer para o aluno."],
+            answer: "Vamos acionar a equipe responsável para verificar a oferta e orientar a contratação para prosseguir.",
+            escalate: "Oferta deveria aparecer e está ausente, ou há divergência de parametrização."
+          },
+          {
+            title: "Marquei contratar, mas o valor não apareceu",
+            check: ["Confirmar se marcou Contratar.", "Confirmar se selecionou a opção/plano de 2027.", "Verificar se o valor apareceu após a seleção do plano."],
+            answer: "Além de marcar Contratar, é necessário selecionar a opção ou plano de 2027. O valor aparece após essa seleção.",
+            escalate: "Plano selecionado e valor ausente, valor divergente ou modalidade esperada ausente."
+          },
+          {
+            title: "Por que a mesma aula tem valores diferentes?",
+            check: ["Conferir modalidade escolhida.", "Validar se há plano com ou sem almoço.", "Conferir quantidade de vezes por semana."],
+            answer: "Algumas aulas possuem planos diferentes, como com ou sem almoço ou quantidade de vezes na semana.",
+            escalate: "Falta modalidade, valor incoerente ou erro ao avançar com tudo selecionado."
+          },
+          {
+            title: "Posso contratar aula extra depois?",
+            check: ["Confirmar se a Rematrícula foi finalizada no painel ou TOTVS.", "Após conclusão, contratação pode ocorrer no Portal em Rematrícula > Aulas Extras.", "Em janeiro, revisar planos por causa de horários e almoço."],
+            answer: "Sim, é possível contratar aulas extras após a conclusão da Rematrícula diretamente no Portal.",
+            escalate: "Falta modalidade no Portal para a série específica."
+          }
+        ]
+      },
+      {
+        id: "contratados",
+        number: "06",
+        title: "Serviços Contratados",
+        color: "#6c3bc4",
+        summary: "Minuta, cálculos, descontos, assinatura eletrônica e contratos.",
+        questions: [
+          {
+            title: "Minuta contratual com dados incorretos",
+            check: ["Identificar qual contrato está com erro.", "Confirmar se é minuta ou contrato assinado.", "Levantar quais dados estão incorretos, sem replicar documentos sensíveis."],
+            answer: "Vamos acionar a equipe responsável para verificar e retornar com a orientação para prosseguir.",
+            escalate: "Qualquer dado cadastral ou cláusula incorreta exige acionamento imediato do setor responsável."
+          },
+          {
+            title: "Dúvidas sobre cláusulas do contrato",
+            check: ["Acolher a família e ler a cláusula em conjunto.", "Entender a dúvida e o argumento.", "Dúvidas específicas após avaliação da diretoria seguem para Jurídico."],
+            answer: "Vamos analisar a dúvida sobre a cláusula e direcionar para a equipe responsável quando exigir validação específica.",
+            escalate: "Demanda que exija análise jurídica específica."
+          },
+          {
+            title: "Como fazer assinatura eletrônica?",
+            check: ["Localizar o botão antes do modo de pagamento.", "Botão: Assine o contrato e siga para o pagamento.", "Após clicar, a visão de formas de pagamento é liberada."],
+            answer: "Clique em Assine o contrato e siga para o pagamento. A assinatura ocorre automaticamente e libera as formas de pagamento.",
+            escalate: "Dúvidas ou erro no processo de assinatura."
+          }
+        ]
+      },
+      {
+        id: "pagamento",
+        number: "07",
+        title: "Formas de Pagamento",
+        color: "#c94836",
+        summary: "Condição anual ou mensal, boleto, cartão, PIX, primeira parcela e finalização.",
+        questions: [
+          {
+            title: "Não aparece a forma de pagamento",
+            check: ["Confirmar se a assinatura eletrônica foi feita.", "Conferir se selecionou mensal ou à vista.", "Só depois aparecem os meios de pagamento."],
+            answer: "A forma de pagamento aparece após a assinatura eletrônica e seleção da condição de pagamento do ano letivo.",
+            escalate: "Regra financeira da unidade divergente do apresentado ao responsável no Portal."
+          },
+          {
+            title: "Mensal: o que pagar para finalizar?",
+            check: ["Confirmar botão Finalizar Matrícula.", "Conferir pagamento da primeira parcela.", "Conferir pagamento do material didático quando aplicável."],
+            answer: "A efetivação ocorre com a confirmação do pagamento da primeira parcela. Também é importante concluir o material didático quando aplicável.",
+            escalate: "Cobrança divergente ou necessidade de prorrogação de boleto da primeira parcela."
+          },
+          {
+            title: "Botão Finalizar está cinza",
+            check: ["Contrato assinado.", "Forma e meio de pagamento selecionados.", "Flags e declarações obrigatórias marcadas."],
+            answer: "Quando Finalizar Matrícula está desabilitado, normalmente falta alguma confirmação obrigatória ou seleção da etapa.",
+            escalate: "Tudo marcado e botão bloqueado, erro não mapeado ou pagamento feito sem avanço da etapa."
+          },
+          {
+            title: "Quero pagar à vista",
+            check: ["Conferir aluno, série e segmento.", "Consultar planilha de bolsa da unidade.", "Bolsa de anuidade não contempla material didático."],
+            answer: "A bolsa de anuidade contempla os serviços contratados, exceto material didático. A regra da unidade precisa ser validada.",
+            escalate: "Percentual ou cálculo divergente da regra financeira da unidade."
+          },
+          {
+            title: "Família Fundadora acumula descontos?",
+            check: ["Verificar porcentagem e serviços contratados.", "A bolsa entra no cálculo em cascata quando há pagamento anual.", "Não se aplica a Santo Anjo conforme guia."],
+            answer: "É possível acrescentar apenas o desconto referente ao pagamento anual da anuidade quando essa modalidade for selecionada.",
+            escalate: "Regra comercial ausente ou valor fora da regra da bolsa Família Fundadora."
+          },
+          {
+            title: "Dúvidas sobre cartão, PIX ou boleto",
+            check: ["Identificar meio de pagamento selecionado.", "PIX/cartão não geram lançamento no TOTVS até finalizar ou trocar para boleto.", "Boleto gera lançamento e pode ser pago pelo boleto registrado."],
+            answer: "A forma selecionada no Portal determina como a Rematrícula será concluída. Para PIX ou cartão, finalize pelo Portal; para boleto, use o boleto registrado.",
+            escalate: "Pagamento pendente, erro no Portal, troca de meio com divergência ou análise financeira."
+          }
+        ]
+      },
+      {
+        id: "painel",
+        number: "08",
+        title: "Painel Administrativo",
+        color: "#007c89",
+        summary: "Consulta interna de matrícula/rematrícula, status, sincronizador e pagamento.",
+        questions: [
+          {
+            title: "Como confirmar se a Rematrícula foi finalizada?",
+            check: ["Consultar painel administrativo interno.", "Localizar aluno e status do processo.", "Verificar financeiro, detalhes pela engrenagem, pagamento da primeira parcela e material."],
+            answer: "Vou consultar o status e, se ainda não tiver passado por todo o processo, orientar o que falta para concluir.",
+            escalate: "Falha no status ou dúvida nos status deve ser direcionada à TI."
+          },
+          {
+            title: "Como identificar os status no painel?",
+            check: ["Matrícula: Em curso, Aguardando, Ag. Pagamento, Processado.", "Financeiro: Pendente ou Falha.", "Sync: Sincronizado, Processado ou Falha."],
+            answer: "Use os status do painel para acompanhar diariamente o andamento e identificar falhas que precisam de atuação.",
+            escalate: "Qualquer status Falha deve acionar a TI imediatamente."
+          }
+        ]
+      }
+    ];
+
+    const records = [
+      {
+        title: "Não lembro o e-mail de acesso",
+        area: "Acesso ao Portal",
+        text: "Conferir o e-mail cadastrado no responsável financeiro. Se houver alteração de e-mail, atualizar no cadastro e orientar novo acesso após a sincronização.",
+        link: "#guia-amanda"
+      },
+      {
+        title: "Esqueci minha senha",
+        area: "Acesso ao Portal",
+        text: "Confirmar e-mail cadastrado e orientar a opção Esqueceu senha no Portal dos Pais.",
+        link: "#guia-amanda"
+      },
+      {
+        title: "Aluno não aparece",
+        area: "Acesso ao Portal",
+        text: "Validar se o acesso é do responsável financeiro e se RF/RA usam e-mails distintos quando forem pessoas diferentes.",
+        link: "faq.html"
+      },
+      {
+        title: "Botão Rematrícula não aparece",
+        area: "Acesso ao Portal",
+        text: "A funcionalidade fica disponível para o responsável financeiro. Se o RF correto não visualizar, escalar.",
+        link: "faq.html"
+      },
+      {
+        title: "Alterar dados cadastrais",
+        area: "Identificação",
+        text: "Campos desbloqueados podem ser atualizados no Portal. Campos cinza, documentais ou sensíveis precisam de validação.",
+        link: "#guia-amanda"
+      },
+      {
+        title: "Serviço ou desconto divergente",
+        area: "Pré-contrato e Serviços",
+        text: "Confirmar unidade, série, serviço e regra comercial validada. Divergência deve ser escalada.",
+        link: "#guia-amanda"
+      },
+      {
+        title: "Pagamento, PIX, cartão ou finalizar bloqueado",
+        area: "Pagamento",
+        text: "Conferir serviços contratados, forma de pagamento e status. Falha sistêmica ou cobrança divergente deve ser escalada.",
+        link: "#guia-amanda"
+      },
+      {
+        title: "Central de Materiais",
+        area: "Central de Materiais",
+        text: "Abrir os arquivos disponíveis, materiais de apoio e documentos do Drive organizados em cards.",
+        link: "#materiais"
+      },
+      {
+        title: "Comunicados",
+        area: "Comunicados",
+        text: "Consultar avisos importantes publicados para acompanhamento dos processos educacionais.",
+        link: "#comunicados"
+      }
+    ].concat(guideData.flatMap(stage => stage.questions.map(question => ({
+      title: question.title,
+      area: stage.title,
+      text: `${question.answer} Escalar: ${question.escalate}`,
+      link: "faq.html"
+    }))));
+
+    const searchInput = document.querySelector("#searchInput");
+    const searchButton = document.querySelector("#searchButton");
+    const searchResults = document.querySelector("#searchResults");
+
+    function renderResults(query = "") {
+      const normalized = query.trim().toLowerCase();
+      const matches = normalized
+        ? records.filter(item => `${item.title} ${item.area} ${item.text}`.toLowerCase().includes(normalized))
+        : records.slice(0, 3);
+
+      searchResults.innerHTML = matches.length
+        ? matches.map(item => `
+          <a class="result-card" href="${item.link}">
+            <strong>${item.title}</strong>
+            <p><b>${item.area}</b> · ${item.text}</p>
+          </a>
+        `).join("")
+        : `<div class="result-card"><strong>Nenhum resultado direto</strong><p>Classifique a dúvida e consulte a equipe responsável para validação.</p></div>`;
+    }
+
+    searchButton.addEventListener("click", () => renderResults(searchInput.value));
+    searchInput.addEventListener("input", () => renderResults(searchInput.value));
+    renderResults();
+
+    const faqList = document.querySelector("#faqList");
+
+    function renderFaq() {
+      const faqs = guideData.flatMap(stage => stage.questions.map(question => ({
+        stage: stage.title,
+        title: question.title,
+        answer: question.answer,
+        escalate: question.escalate
+      })));
+
+      faqList.innerHTML = faqs.map((item, index) => `
+        <article class="faq-item ${index === 0 ? "open" : ""}">
+          <button type="button">${item.stage}: ${item.title}<span>+</span></button>
+          <div>
+            <p><b>Resposta segura:</b> ${item.answer}</p>
+            <p><b>Quando escalar:</b> ${item.escalate}</p>
+          </div>
+        </article>
+      `).join("");
+
+      faqList.querySelectorAll(".faq-item button").forEach(button => {
+        button.addEventListener("click", () => {
+          button.closest(".faq-item").classList.toggle("open");
+        });
+      });
+    }
+
+    if (faqList) {
+      renderFaq();
+    }
+
+    const roomCards = document.querySelectorAll("[data-room-card]");
+    const brTimeFormatter = new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Sao_Paulo",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+
+    function getBrasiliaTimeParts() {
+      const parts = brTimeFormatter.formatToParts(new Date());
+      const weekday = parts.find(part => part.type === "weekday")?.value.toLowerCase() || "";
+      const hour = Number(parts.find(part => part.type === "hour")?.value || 0);
+      const minute = Number(parts.find(part => part.type === "minute")?.value || 0);
+      const dayMap = { seg: 1, ter: 2, qua: 3, qui: 4, sex: 5, sab: 6, sáb: 6, dom: 0 };
+      return {
+        day: dayMap[weekday.slice(0, 3)] ?? 0,
+        minutes: hour * 60 + minute
+      };
+    }
+
+    function updateRoomAvailability() {
+      const { day, minutes } = getBrasiliaTimeParts();
+      roomCards.forEach(card => {
+        const openHour = Number(card.dataset.open || 8);
+        const closeHour = Number(card.dataset.close || 18);
+        const openMinutes = openHour * 60;
+        const closeMinutes = closeHour * 60;
+        const status = card.querySelector("[data-room-status]");
+        const action = card.querySelector(".room-action");
+        const isBusinessDay = day >= 1 && day <= 5;
+        const isOpen = isBusinessDay && minutes >= openMinutes && minutes < closeMinutes;
+        card.classList.toggle("is-closed", !isOpen);
+        status.classList.toggle("closed", !isOpen);
+        status.classList.remove("queue");
+        status.textContent = isOpen
+          ? card.dataset.openLabel || "Disponível agora"
+          : card.dataset.closedLabel || "Indisponível";
+
+        if (action) {
+          action.setAttribute("aria-disabled", String(!isOpen));
+          action.tabIndex = isOpen ? 0 : -1;
+        }
+      });
+    }
+
+    roomCards.forEach(card => {
+      const action = card.querySelector(".room-action");
+      if (action) {
+        action.addEventListener("click", event => {
+          if (card.classList.contains("is-closed")) {
+            event.preventDefault();
+          }
+        });
+      }
+    });
+    updateRoomAvailability();
+    setInterval(updateRoomAvailability, 60000);
+
+    const stageNav = document.querySelector("#stageNav");
+    const guideWorkspace = document.querySelector("#guideWorkspace");
+    const stageTitle = document.querySelector("#stageTitle");
+    const stageSummary = document.querySelector("#stageSummary");
+    const questionGrid = document.querySelector("#questionGrid");
+
+    function renderGuide(stageId = "acesso", openQuestion = 0) {
+      const stage = guideData.find(item => item.id === stageId) || guideData[0];
+      const activeQuestion = Number.isInteger(openQuestion) ? openQuestion : 0;
+      guideWorkspace.style.setProperty("--active-stage", stage.color);
+      stageNav.innerHTML = guideData.map(item => `
+        <button class="stage-button" type="button" role="tab" aria-selected="${item.id === stage.id}" data-stage="${item.id}" style="--stage-color: ${item.color}">
+          <span class="stage-index">${item.number}</span>
+          <span><strong>${item.title}</strong><span>${item.summary}</span></span>
+        </button>
+      `).join("");
+      stageTitle.textContent = `${stage.number} · ${stage.title}`;
+      stageSummary.textContent = stage.summary;
+      questionGrid.innerHTML = stage.questions.map((question, index) => `
+        <article class="question-card ${index === activeQuestion ? "open" : ""}">
+          <button class="question-toggle" type="button" aria-expanded="${index === activeQuestion}" data-stage="${stage.id}" data-question="${index}">
+            <span class="question-number">${String(index + 1).padStart(2, "0")}</span>
+            <span class="question-title">${question.title}</span>
+            <span class="question-chevron" aria-hidden="true">${index === activeQuestion ? "-" : "+"}</span>
+          </button>
+          <div class="question-body">
+            <article class="answer-panel check">
+              <strong>O que conferir</strong>
+              <ul>${question.check.map(item => `<li>${item}</li>`).join("")}</ul>
+            </article>
+            <article class="answer-panel safe">
+              <strong>Resposta segura</strong>
+              <p>${question.answer}</p>
+            </article>
+            <article class="answer-panel escalate">
+              <strong>Quando escalar</strong>
+              <p>${question.escalate}</p>
+              <a class="btn ghost" href="faq.html#${question.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}">Abrir no FAQ</a>
+            </article>
+          </div>
+        </article>
+      `).join("");
+
+      stageNav.querySelectorAll(".stage-button").forEach(button => {
+        button.addEventListener("click", () => renderGuide(button.dataset.stage, 0));
+      });
+      questionGrid.querySelectorAll(".question-toggle").forEach(button => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".question-card");
+          const isOpen = card.classList.contains("open");
+          questionGrid.querySelectorAll(".question-card").forEach(item => {
+            item.classList.remove("open");
+            item.querySelector(".question-toggle").setAttribute("aria-expanded", "false");
+            item.querySelector(".question-chevron").textContent = "+";
+          });
+          if (!isOpen) {
+            card.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+            card.querySelector(".question-chevron").textContent = "-";
+          }
+        });
+      });
+    }
+
+    renderGuide();
+  </script>
+</body>
+</html>
