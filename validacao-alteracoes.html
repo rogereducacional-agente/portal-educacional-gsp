@@ -1746,6 +1746,115 @@
       font-size: 12px;
     }
 
+
+    .finder-section {
+      margin-top: 14px;
+    }
+
+    .finder-section .section-head {
+      margin-bottom: 12px;
+    }
+
+    .finder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .finder-card {
+      --finder-color: #008a73;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 118px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 14px 30px rgba(16, 32, 71, .08);
+      color: var(--ink);
+    }
+
+    .finder-card.material {
+      --finder-color: #ff6b1a;
+    }
+
+    .finder-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--finder-color) 12%, #fff);
+      color: var(--finder-color);
+    }
+
+    .finder-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .finder-kicker {
+      display: block;
+      color: var(--finder-color);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .finder-card strong {
+      display: block;
+      margin-top: 3px;
+      color: #081b42;
+      font-size: 22px;
+      line-height: 1.12;
+    }
+
+    .finder-card p {
+      margin: 5px 0 0;
+      color: #52627a;
+      font-size: 13px;
+    }
+
+    .finder-cta {
+      align-self: center;
+      justify-self: end;
+      min-width: 138px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 8px;
+      background: var(--finder-color);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: 0 10px 20px color-mix(in srgb, var(--finder-color) 22%, transparent);
+    }
+
+    .finder-card.material .finder-cta {
+      background: #ffd21c;
+      color: #082c63;
+      box-shadow: 0 10px 20px rgba(255, 210, 28, .24);
+    }
+
+    @media (max-width: 920px) {
+      .finder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .finder-card {
+        grid-template-columns: 52px 1fr;
+      }
+
+      .finder-cta {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+      }
+    }
+
     #busca {
       margin-top: 14px;
       padding: 18px 20px;
@@ -2422,6 +2531,11 @@
       line-height: 1;
     }
 
+    .complement-open-btn[aria-disabled="true"] {
+      opacity: .72;
+      cursor: not-allowed;
+    }
+
     .complement-find-note {
       grid-column: 2;
       grid-row: 1 / 3;
@@ -2751,15 +2865,36 @@
   </div>
 
   <main>
+    <section class="finder-section" id="encontrar">
+      <div class="section-head">
+        <div>
+          <h2>O que você precisa encontrar?</h2>
+          <p>Escolha o caminho para localizar respostas de atendimento ou materiais de apoio.</p>
+        </div>
+      </div>
+      <div class="finder-grid">
+        <a class="finder-card answer" href="#busca">
+          <span class="finder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-5 5V5.8Z" fill="currentColor"/></svg></span>
+          <span><span class="finder-kicker">Responder</span><strong>Tenho uma dúvida</strong><p>Encontre rapidamente uma resposta para o atendimento.</p></span>
+          <span class="finder-cta">Buscar resposta <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="finder-card material" href="#arquivos-disponiveis">
+          <span class="finder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6.8A2.8 2.8 0 0 1 5.8 4h4.8l2 2H18.2A2.8 2.8 0 0 1 21 8.8v8.4a2.8 2.8 0 0 1-2.8 2.8H5.8A2.8 2.8 0 0 1 3 17.2V6.8Z" fill="currentColor"/></svg></span>
+          <span><span class="finder-kicker">Encontrar</span><strong>Preciso de um material</strong><p>Localize arquivos, processos, planilhas e documentos.</p></span>
+          <span class="finder-cta">Buscar material <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </section>
+
     <section id="busca">
       <div class="section-head">
         <div>
-          <h2>Busca rápida</h2>
-          <p>Consulta inicial para localizar respostas de Rematrícula, materiais e pontos de escalação.</p>
+          <h2>Buscar respostas</h2>
+          <p>Encontre respostas para dúvidas de atendimento, rematrícula e pontos de escalação.</p>
         </div>
       </div>
       <div class="search-panel">
-        <input id="searchInput" type="search" placeholder="Digite uma dúvida: senha, aluno não aparece, desconto, contrato, pagamento...">
+        <input id="searchInput" type="search" placeholder="Digite sua dúvida ou situação: senha, aluno não aparece, desconto, contrato...">
         <button class="btn primary" id="searchButton">Buscar</button>
       </div>
       <div class="find-note" aria-hidden="true">Aqui você<br>encontra!</div>
@@ -3224,7 +3359,7 @@
       {
         title: "Central de Materiais",
         area: "Central de Materiais",
-        text: "Abrir os arquivos disponíveis, materiais de apoio e documentos do Drive organizados em cards.",
+        text: "Encontrar materiais de apoio, processos complementares e documentos organizados para consulta.",
         link: "#materiais"
       },
       {
@@ -3284,6 +3419,31 @@
     const complementSearchButton = document.querySelector("#complementSearchButton");
     const complementSearchResults = document.querySelector("#complementSearchResults");
 
+    function buildComplementResult(item) {
+      const article = document.createElement("article");
+      article.className = "complement-result";
+
+      const content = document.createElement("div");
+      const tag = document.createElement("span");
+      tag.className = "tag amber";
+      tag.textContent = item.type;
+      const title = document.createElement("strong");
+      title.textContent = item.title;
+      const text = document.createElement("p");
+      text.textContent = item.text;
+      content.append(tag, title, text);
+
+      const link = document.createElement("a");
+      link.className = "btn";
+      link.href = item.link;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.textContent = "Abrir";
+
+      article.append(content, link);
+      return article;
+    }
+
     function renderComplementDocuments(query = "") {
       if (!complementSearchButton || !complementSearchResults) return;
       const normalized = query.trim().toLowerCase();
@@ -3292,14 +3452,23 @@
         : [];
       const firstMatch = matches[0];
 
-      complementSearchButton.href = firstMatch ? firstMatch.link : "#";
+      complementSearchButton.href = firstMatch ? firstMatch.link : "#arquivos-disponiveis";
+      complementSearchButton.target = firstMatch ? "_blank" : "";
+      complementSearchButton.rel = firstMatch ? "noreferrer" : "";
       complementSearchButton.toggleAttribute("aria-disabled", !firstMatch);
 
       complementSearchResults.classList.toggle("has-results", matches.length > 0);
       complementSearchResults.classList.toggle("has-empty", normalized.length > 0 && matches.length === 0);
-      complementSearchResults.innerHTML = matches.length
-        ? matches.map(item => "<article class="complement-result"><div><span class="tag amber">" + item.type + "</span><strong>" + item.title + "</strong><p>" + item.text + "</p></div><a class="btn" href="" + item.link + "" target="_blank" rel="noreferrer">Abrir</a></article>").join("")
-        : normalized ? "<div class="complement-empty">Nenhum documento encontrado com essa palavra-chave.</div>" : "";
+      complementSearchResults.replaceChildren();
+
+      if (matches.length) {
+        matches.forEach(item => complementSearchResults.appendChild(buildComplementResult(item)));
+      } else if (normalized) {
+        const empty = document.createElement("div");
+        empty.className = "complement-empty";
+        empty.textContent = "Nenhum documento encontrado com essa palavra-chave.";
+        complementSearchResults.appendChild(empty);
+      }
     }
 
     if (complementSearchInput && complementSearchButton) {
