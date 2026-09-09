@@ -3394,13 +3394,13 @@
         title: "Aluno não aparece",
         area: "Acesso ao Portal",
         text: "Validar se o acesso é do responsável financeiro e se RF/RA usam e-mails distintos quando forem pessoas diferentes.",
-        link: "faq.html"
+        link: "faq-validacao.html"
       },
       {
         title: "Botão Rematrícula não aparece",
         area: "Acesso ao Portal",
         text: "A funcionalidade fica disponível para o responsável financeiro. Se o RF correto não visualizar, escalar.",
-        link: "faq.html"
+        link: "faq-validacao.html"
       },
       {
         title: "Alterar dados cadastrais",
@@ -3436,7 +3436,7 @@
       title: question.title,
       area: stage.title,
       text: `${question.answer} Escalar: ${question.escalate}`,
-      link: "faq.html"
+      link: "faq-validacao.html"
     }))));
 
     const searchInput = document.querySelector("#searchInput");
@@ -3697,7 +3697,7 @@
             <article class="answer-panel escalate">
               <strong>Quando escalar</strong>
               <p>${question.escalate}</p>
-              <a class="btn ghost" href="faq.html#${question.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}">Abrir no FAQ</a>
+              <a class="btn ghost" href="faq-validacao.html#${question.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}">Abrir no FAQ</a>
             </article>
           </div>
         </article>
