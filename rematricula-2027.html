@@ -3003,36 +3003,71 @@
   <script src="assets/rematricula-2027/guide-data.js"></script>
   <script>
     const guideData = window.guideData || [];
-    const stageNav = document.getElementById("stageNav");
-    const guideWorkspace = document.getElementById("guideWorkspace");
-    const stageTitle = document.getElementById("stageTitle");
-    const stageSummary = document.getElementById("stageSummary");
-    const questionGrid = document.getElementById("questionGrid");
-    const slugify = text => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    function renderGuide(activeIndex = 0) {
-      if (!stageNav || !guideWorkspace || !stageTitle || !stageSummary || !questionGrid || !guideData.length) return;
-      stageNav.innerHTML = guideData.map((stage, index) => {
-        return "<button class=\"stage-tab " + (index === activeIndex ? "active" : "") + "\" type=\"button\" data-stage=\"" + index + "\"><span>" + stage.number + "</span><strong>" + stage.title + "</strong><small>" + stage.summary + "</small></button>";
-      }).join("");
-      const stage = guideData[activeIndex];
-      stageTitle.textContent = stage.number + " · " + stage.title;
+    const stageNav = document.querySelector("#stageNav");
+    const guideWorkspace = document.querySelector("#guideWorkspace");
+    const stageTitle = document.querySelector("#stageTitle");
+    const stageSummary = document.querySelector("#stageSummary");
+    const questionGrid = document.querySelector("#questionGrid");
+
+    function renderGuide(stageId = "acesso", openQuestion = 0) {
+      const stage = guideData.find(item => item.id === stageId) || guideData[0];
+      const activeQuestion = Number.isInteger(openQuestion) ? openQuestion : 0;
+      guideWorkspace.style.setProperty("--active-stage", stage.color);
+      stageNav.innerHTML = guideData.map(item => `
+        <button class="stage-button" type="button" role="tab" aria-selected="${item.id === stage.id}" data-stage="${item.id}" style="--stage-color: ${item.color}">
+          <span class="stage-index">${item.number}</span>
+          <span><strong>${item.title}</strong><span>${item.summary}</span></span>
+        </button>
+      `).join("");
+      stageTitle.textContent = `${stage.number} · ${stage.title}`;
       stageSummary.textContent = stage.summary;
-      questionGrid.innerHTML = stage.questions.map((question, questionIndex) => {
-        const checks = question.check.map(item => "<li>" + item + "</li>").join("");
-        return "<article class=\"question-card " + (questionIndex === 0 ? "open" : "") + "\" id=\"" + slugify(question.title) + "\"><button type=\"button\" aria-expanded=\"" + (questionIndex === 0 ? "true" : "false") + "\"><span class=\"question-number\">" + String(questionIndex + 1).padStart(2, "0") + "</span><strong>" + question.title + "</strong><span class=\"toggle\">+</span></button><div class=\"question-body\"><div class=\"info-box purple\"><strong>O que conferir</strong><ul>" + checks + "</ul></div><div class=\"info-box green\"><strong>Resposta segura</strong><p>" + question.answer + "</p></div><div class=\"info-box amber\"><strong>Quando escalar</strong><p>" + question.escalate + "</p></div></div></article>";
-      }).join("");
-      stageNav.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", () => renderGuide(Number(button.dataset.stage)));
+      questionGrid.innerHTML = stage.questions.map((question, index) => `
+        <article class="question-card ${index === activeQuestion ? "open" : ""}">
+          <button class="question-toggle" type="button" aria-expanded="${index === activeQuestion}" data-stage="${stage.id}" data-question="${index}">
+            <span class="question-number">${String(index + 1).padStart(2, "0")}</span>
+            <span class="question-title">${question.title}</span>
+            <span class="question-chevron" aria-hidden="true">${index === activeQuestion ? "-" : "+"}</span>
+          </button>
+          <div class="question-body">
+            <article class="answer-panel check">
+              <strong>O que conferir</strong>
+              <ul>${question.check.map(item => `<li>${item}</li>`).join("")}</ul>
+            </article>
+            <article class="answer-panel safe">
+              <strong>Resposta segura</strong>
+              <p>${question.answer}</p>
+            </article>
+            <article class="answer-panel escalate">
+              <strong>Quando escalar</strong>
+              <p>${question.escalate}</p>
+              <a class="btn ghost" href="faq-validacao.html#${question.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}">Abrir no FAQ</a>
+            </article>
+          </div>
+        </article>
+      `).join("");
+
+      stageNav.querySelectorAll(".stage-button").forEach(button => {
+        button.addEventListener("click", () => renderGuide(button.dataset.stage, 0));
       });
-      questionGrid.querySelectorAll(".question-card button").forEach(button => {
+      questionGrid.querySelectorAll(".question-toggle").forEach(button => {
         button.addEventListener("click", () => {
           const card = button.closest(".question-card");
-          const open = card.classList.toggle("open");
-          button.setAttribute("aria-expanded", open ? "true" : "false");
+          const isOpen = card.classList.contains("open");
+          questionGrid.querySelectorAll(".question-card").forEach(item => {
+            item.classList.remove("open");
+            item.querySelector(".question-toggle").setAttribute("aria-expanded", "false");
+            item.querySelector(".question-chevron").textContent = "+";
+          });
+          if (!isOpen) {
+            card.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+            card.querySelector(".question-chevron").textContent = "-";
+          }
         });
       });
     }
-    renderGuide();
+
+    if (stageNav && guideWorkspace && stageTitle && stageSummary && questionGrid) renderGuide();
   </script>
 </body>
 </html>
