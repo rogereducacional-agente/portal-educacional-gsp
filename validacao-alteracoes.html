@@ -1873,8 +1873,9 @@
     .stat.treinamentos { --stat-color: var(--orange); }
 
     .intent-note {
+      width: calc(100% - var(--sidebar) - 56px);
       max-width: none;
-      margin: 18px 12px 0;
+      margin: 18px 22px 0 calc(var(--sidebar) + 34px);
       padding: 14px 18px;
       border: 1px solid #dce7f3;
       border-radius: 8px;
@@ -2197,6 +2198,11 @@
 
       main {
         padding: 16px 16px 72px;
+      }
+
+      .intent-note {
+        width: auto;
+        margin: 16px 16px 0;
       }
     }
 
