@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Treinamentos e Guias | Validação Portal Educacional GSP</title>
+  <style>
+    :root { --ink:#14213d; --ink-soft:#40516f; --paper:#f4f7fb; --surface:#fff; --line:#d9e2ee; --green:#008a73; --blue:#2a62c9; --purple:#7236c8; --orange:#f26f2b; --yellow:#ffd21c; --shadow:0 18px 46px rgba(20,33,61,.12); --radius:8px; --max:1180px; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5} a{color:inherit;text-decoration:none} button,input{font:inherit} img{max-width:100%;display:block}
+    .site-header{position:sticky;top:0;z-index:20;height:72px;display:grid;grid-template-columns:190px minmax(0,1fr);align-items:center;gap:24px;padding:0 clamp(18px,4vw,56px);background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 8px 24px rgba(20,33,61,.08);backdrop-filter:blur(12px)}
+    .site-logo img{width:150px;height:auto}.site-menu{display:flex;align-items:center;justify-content:flex-end;gap:18px;min-width:0}.site-menu a{display:inline-flex;align-items:center;gap:7px;min-height:40px;color:#16213f;font-size:13px;font-weight:900;white-space:nowrap}.site-menu a.active{color:var(--orange);border-bottom:4px solid var(--orange)}.site-menu svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .hero{position:relative;min-height:320px;display:grid;align-items:end;padding:48px clamp(18px,4vw,56px);background:linear-gradient(90deg,rgba(20,33,61,.92),rgba(0,138,115,.72)),url("assets/gsp/hero-banner-sem-icones.png") center/cover no-repeat;color:#fff}.hero-inner{width:min(100%,var(--max));margin:0 auto}.eyebrow{margin:0 0 10px;color:#ffe9bf;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:0}.hero h1{margin:0;font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:0}.hero p{max-width:760px;margin:14px 0 0;color:rgba(255,255,255,.92);font-size:17px}.hero-search{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;max-width:860px;padding:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:8px;backdrop-filter:blur(10px)}.hero-search input{min-height:48px;border:0;border-radius:8px;padding:0 14px;color:var(--ink);background:#fff}.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:8px;padding:0 18px;background:var(--green);color:#fff;font-weight:950;cursor:pointer;box-shadow:0 12px 24px rgba(0,124,105,.2)}.btn.warn{background:var(--yellow);color:#14213d;box-shadow:0 12px 24px rgba(245,184,46,.24)}
+    main{width:min(100% - 32px,var(--max));margin:0 auto;padding:28px 0 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:0 0 16px}.section-head h2{margin:0;font-size:24px;line-height:1.1}.section-head p{margin:6px 0 0;color:var(--ink-soft);font-size:14px}.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}.filter-row button{min-height:36px;border:1px solid var(--line);border-radius:999px;padding:0 14px;background:#fff;color:#263b59;font-size:13px;font-weight:900;cursor:pointer}.filter-row button.active{background:#fff4d2;border-color:#ffd21c;color:#815000;box-shadow:0 10px 20px rgba(245,184,46,.15)}
+    .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:30px}.featured-card{position:relative;overflow:hidden;min-height:178px;display:flex;flex-direction:column;justify-content:space-between;padding:18px;border:1px solid #f4d28e;border-radius:8px;background:linear-gradient(135deg,#fff,#fff8e5);box-shadow:var(--shadow)}.featured-card::after{content:"";position:absolute;right:-34px;bottom:-44px;width:142px;height:142px;border:20px solid rgba(242,111,43,.18);border-radius:50%}.tag{width:max-content;display:inline-flex;align-items:center;min-height:24px;border-radius:999px;padding:0 10px;background:#e9f5f1;color:#007c69;font-size:11px;font-weight:950;text-transform:uppercase}.tag.orange{background:#fff0e6;color:#d95c1f}.tag.blue{background:#e8f0ff;color:#2457c5}.tag.purple{background:#f1e9ff;color:#6c3bc4}.featured-card strong{position:relative;z-index:1;display:block;margin:12px 0 6px;font-size:20px;line-height:1.15}.featured-card p{position:relative;z-index:1;margin:0;color:var(--ink-soft);font-size:14px}.featured-card .btn{position:relative;z-index:1;width:max-content;margin-top:16px;min-height:38px;background:var(--orange)}
+    .library{display:grid;grid-template-columns:300px minmax(0,1fr);gap:18px}.library-aside{position:sticky;top:92px;align-self:start;padding:18px;border:1px solid var(--line);border-radius:8px;background:#fff;box-shadow:0 12px 28px rgba(20,33,61,.08)}.library-aside strong{display:block;margin-bottom:8px;font-size:18px}.library-aside p{margin:0;color:var(--ink-soft);font-size:13px}.quick-stats{display:grid;gap:10px;margin-top:16px}.quick-stats span{display:flex;justify-content:space-between;gap:12px;padding:10px;border-radius:8px;background:#f7fafc;color:#263b59;font-size:13px;font-weight:850}.results{display:grid;gap:12px}.guide-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff;box-shadow:0 10px 24px rgba(20,33,61,.07)}.guide-item strong{display:block;font-size:18px;line-height:1.2}.guide-item p{margin:6px 0 0;color:var(--ink-soft);font-size:14px}.guide-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.empty{display:none;padding:18px;border:1px dashed #cdd8e7;border-radius:8px;background:#fff;color:var(--ink-soft);font-weight:850}.footer-line{height:6px;background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%)}
+    @media(max-width:960px){.site-header{position:static;height:auto;grid-template-columns:1fr;gap:10px;padding:12px 16px}.site-menu{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.site-menu::-webkit-scrollbar{display:none}.hero-search,.library{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}.library-aside{position:static}.guide-item{grid-template-columns:1fr}.guide-item .btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-logo" href="validacao-alteracoes.html#inicio" aria-label="Great Schools Platform"><img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform"></a>
+    <nav class="site-menu" aria-label="Navegação superior">
+      <a href="validacao-alteracoes.html#inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>Início</a>
+      <a href="rematricula-2027.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h11v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6"/><path d="M8 11h7"/></svg>Rematrícula 2027</a>
+      <a href="validacao-alteracoes.html#encontrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.8A2.8 2.8 0 0 1 5.8 4h4.8l2 2H18.2A2.8 2.8 0 0 1 21 8.8v8.4a2.8 2.8 0 0 1-2.8 2.8H5.8A2.8 2.8 0 0 1 3 17.2V6.8Z"/></svg>Processos e Materiais</a>
+      <a class="active" href="treinamentos-e-guias.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>Treinamentos e Guias</a>
+      <a href="faq-validacao.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1.3-5.2A8 8 0 1 1 21 12Z"/><path d="M9.7 9a2.5 2.5 0 1 1 4.2 1.8c-.8.6-1.4 1.1-1.4 2.2"/><path d="M12.5 16h.01"/></svg>FAQ</a>
+      <a href="comunicados.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg>Comunicados</a>
+      <a href="validacao-alteracoes.html#salas-validacao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2v1Z"/><path d="M20 13a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2v1Z"/><path d="M17 15v1a4 4 0 0 1-4 4h-2"/></svg>Suporte</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Biblioteca de capacitação</p>
+      <h1>Treinamentos e Guias</h1>
+      <p>Local exclusivo para localizar orientações, apresentações, guias rápidos, documentos de apoio e conteúdos mais usados pela operação educacional.</p>
+      <div class="hero-search"><input id="guideSearch" type="search" placeholder="Busque por tema, processo ou documento: rematrícula, bolsa, transferência, série..."><button class="btn warn" id="clearSearch">Limpar</button></div>
+    </div>
+  </section>
+  <main>
+    <section aria-label="Documentos mais acessados">
+      <div class="section-head"><div><h2>Mais acessados</h2><p>Atalhos para os conteúdos que tendem a ser mais consultados no atendimento e treinamento.</p></div></div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+    <section class="library" aria-label="Biblioteca de guias e treinamentos">
+      <aside class="library-aside"><strong>Biblioteca de conteúdos</strong><p>Use a busca ou os filtros para localizar rapidamente materiais por tema.</p><div class="quick-stats"><span><b>Guias</b><b id="countGuides">0</b></span><span><b>Materiais</b><b id="countMaterials">0</b></span><span><b>Planilhas</b><b id="countSheets">0</b></span></div></aside>
+      <div><div class="section-head"><div><h2>Todos os conteúdos</h2><p>Lista organizada para consulta direta, com acesso ao documento correspondente.</p></div></div><div class="filter-row" id="filterRow"></div><div class="results" id="results"></div><div class="empty" id="emptyState">Nenhum conteúdo encontrado com esse filtro.</div></div>
+    </section>
+  </main>
+  <div class="footer-line" aria-hidden="true"></div>
+  <script>
+    const items = [
+      { title: "Guia de Atendimento - Rematrícula 2027", type: "Guia", group: "Rematrícula", tag: "orange", desc: "Apresentação de apoio para atendimento, conferência e escalação de dúvidas da Rematrícula 2027.", href: "assets/rematricula-2027/guia-de-atendimento-ok.ppsx", featured: true },
+      { title: "Material de Apoio - Rematrícula / Matrícula", type: "Drive", group: "Rematrícula", tag: "blue", desc: "Pasta com materiais de apoio para consulta dos processos de rematrícula e matrícula, exceto Santo Anjo.", href: "https://drive.google.com/drive/folders/1qfXiTp6byBFWi99ZvRnXc1BUISoaglQD", featured: true },
+      { title: "Materiais complementares da Rematrícula 2027", type: "Drive", group: "Rematrícula", tag: "orange", desc: "Pasta complementar para consulta dos materiais de apoio da campanha.", href: "https://drive.google.com/drive/folders/1M4RqiunCj3tV22CY7bsQT0X-WTkk0Nyl", featured: true },
+      { title: "Planilha oficial de bolsa de desconto", type: "Planilha", group: "Bolsas", tag: "green", desc: "Consulta por serviço e por escola conforme material oficial de apoio.", href: "https://docs.google.com/spreadsheets/d/1tkweczH452ToBu-sQaBgpnSX6CWGCL0Z/edit?gid=1816586133#gid=1816586133" },
+      { title: "Negociação Upgrade Bolsas", type: "Drive", group: "Bolsas", tag: "blue", desc: "Material de apoio para consulta sobre negociação, upgrade e bolsas, exceto Santo Anjo.", href: "https://drive.google.com/drive/folders/1kieDt54E3sw81y14Ng2i366AZYNmG1lu" },
+      { title: "Drive exclusivo Santo Anjo", type: "Drive", group: "Unidade", tag: "blue", desc: "Pasta exclusiva para consulta de materiais de apoio da unidade Santo Anjo.", href: "https://drive.google.com/drive/folders/1NxUsbX2ygvJcstdYsFBme1wkptfECxxi" },
+      { title: "Projeto Bilíngue 2027", type: "Projeto", group: "Projetos", tag: "purple", desc: "Material complementar para consulta sobre o projeto bilíngue vinculado à Rematrícula 2027.", href: "https://andressacarmo-dev.github.io/gsp-projeto-bilingue-2027-piloto/" },
+      { title: "Como fazer - Transferência interna - Parte Educação", type: "PDF", group: "Processos Complementares", tag: "orange", desc: "Orientação complementar sobre transferência interna na parte educacional.", href: "https://drive.google.com/file/d/1jzE8rqfyidbXw3S2r6cenXVvk5WS8xN-/view?usp=drivesdk" },
+      { title: "Educacional Informa - Alteração de Série", type: "Imagem", group: "Processos Complementares", tag: "purple", desc: "Comunicado visual sobre alteração de série no Educacional.", href: "https://drive.google.com/file/d/1LlLvl2Fq6FVDfpOYMlAVLP6BI4ohfiEx/view?usp=drivesdk" },
+      { title: "FAQ da Rematrícula 2027", type: "FAQ", group: "Dúvidas", tag: "purple", desc: "Perguntas frequentes com resposta segura, pontos de conferência e critérios de escalação.", href: "faq-validacao.html" }
+    ];
+    const filters = ["Todos", "Guia", "Drive", "Planilha", "PDF", "Projeto", "FAQ"];
+    let activeFilter = "Todos";
+    const search = document.querySelector("#guideSearch");
+    const clear = document.querySelector("#clearSearch");
+    const featuredGrid = document.querySelector("#featuredGrid");
+    const filterRow = document.querySelector("#filterRow");
+    const results = document.querySelector("#results");
+    const emptyState = document.querySelector("#emptyState");
+    function tagClass(item) { return "tag " + (item.tag === "orange" ? "orange" : item.tag === "purple" ? "purple" : item.tag === "blue" ? "blue" : ""); }
+    function itemHtml(item, featured = false) { return '<article class="' + (featured ? 'featured-card' : 'guide-item') + '"><div><span class="' + tagClass(item) + '">' + item.type + '</span><strong>' + item.title + '</strong><p>' + item.desc + '</p>' + (!featured ? '<div class="guide-meta"><span class="tag">' + item.group + '</span></div>' : '') + '</div><a class="btn" href="' + item.href + '" target="_blank" rel="noreferrer">Abrir</a></article>'; }
+    function renderFilters() { filterRow.innerHTML = filters.map(filter => '<button type="button" class="' + (filter === activeFilter ? 'active' : '') + '" data-filter="' + filter + '">' + filter + '</button>').join(''); filterRow.querySelectorAll('button').forEach(button => button.addEventListener('click', () => { activeFilter = button.dataset.filter; render(); })); }
+    function render() { const query = search.value.trim().toLowerCase(); const visible = items.filter(item => (activeFilter === "Todos" || item.type === activeFilter) && (item.title + ' ' + item.type + ' ' + item.group + ' ' + item.desc).toLowerCase().includes(query)); featuredGrid.innerHTML = items.filter(item => item.featured).map(item => itemHtml(item, true)).join(''); results.innerHTML = visible.map(item => itemHtml(item)).join(''); emptyState.style.display = visible.length ? 'none' : 'block'; renderFilters(); document.querySelector('#countGuides').textContent = items.filter(item => item.type === 'Guia').length; document.querySelector('#countMaterials').textContent = items.filter(item => item.type === 'Drive' || item.type === 'PDF' || item.type === 'Imagem').length; document.querySelector('#countSheets').textContent = items.filter(item => item.type === 'Planilha').length; }
+    search.addEventListener('input', render); clear.addEventListener('click', () => { search.value = ''; activeFilter = 'Todos'; render(); search.focus(); }); render();
+  </script>
+</body>
+</html>
