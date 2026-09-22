@@ -3225,16 +3225,14 @@
       --card-color: #0a8a67;
       --card-soft: #e8f7ef;
       position: relative;
-      min-height: 150px;
+      min-height: 176px;
       overflow: hidden;
       border: 1px solid #dbe7f1;
       border-radius: 8px;
       background: #fff;
       color: #0b1d46;
       box-shadow: 0 12px 26px rgba(20, 33, 61, .08);
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(120px, .9fr);
-      align-items: stretch;
+      display: block;
       text-decoration: none;
     }
 
@@ -3251,7 +3249,9 @@
 
     .home-shortcut-copy {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      width: min(58%, 250px);
+      min-height: 176px;
       padding: 20px 18px 16px;
       display: grid;
       align-content: start;
@@ -3269,12 +3269,12 @@
     }
 
     .home-shortcut-icon {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: var(--card-color);
+      color: #000;
       background: color-mix(in srgb, var(--card-color) 13%, #fff);
       box-shadow: 0 0 0 9px color-mix(in srgb, var(--card-color) 8%, transparent);
     }
@@ -3318,7 +3318,9 @@
     }
 
     .home-shortcut-image {
-      position: relative;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
       overflow: hidden;
       min-height: 100%;
     }
@@ -3327,6 +3329,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       filter: saturate(.98);
     }
 
@@ -3334,7 +3337,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.38) 34%, rgba(255,255,255,0) 76%);
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.94) 34%, rgba(255,255,255,.46) 55%, rgba(255,255,255,0) 82%);
     }
 
     .home-shortcut-card.processos { --card-color: #c9142f; --card-soft: #ffe9ec; }
