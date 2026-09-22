@@ -2481,7 +2481,7 @@
 
     .comunicados-showcase {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
       margin-top: 16px;
     }
@@ -3395,11 +3395,22 @@
       <div class="section-head">
         <div>
           <h2>Comunicados</h2>
-          <p>Avisos importantes para acompanhamento dos processos educacionais da GSP.</p>
+          <p>Fique por dentro das novidades, atualizações e orientações importantes para acompanhar os processos educacionais da GSP.</p>
         </div>
       </div>
 
       <div class="comunicados-showcase" aria-label="Últimos comunicados">
+        <article class="comunicado-card">
+          <div class="comunicado-media">
+            <img src="assets/comunicados/acao-nota-em-dia-card.jpg" alt="">
+            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          </div>
+          <div class="comunicado-body">
+            <h3>Ação Nota em Dia: preparação para o fechamento acadêmico</h3>
+            <p>Conferência e regularização de notas pendentes antes da geração da Média Anual.</p>
+            <a class="btn" href="assets/comunicados/acao-nota-em-dia-informativo.jpg" target="_blank" rel="noreferrer">Abrir</a>
+          </div>
+        </article>
         <article class="comunicado-card">
           <div class="comunicado-media">
             <img src="assets/comunicados/reserva-de-vaga-card.svg" alt="">
@@ -3409,26 +3420,6 @@
             <h3>Reserva de Vaga: regras e orientações do processo</h3>
             <p>Quando usar, status do processo e pontos de atenção para liberação do link.</p>
             <a class="btn" href="assets/comunicados/reserva-de-vaga-informativo.jpg" target="_blank" rel="noreferrer">Abrir</a>
-          </div>
-        </article>
-        <article class="comunicado-card">
-          <div class="comunicado-media">
-            <img src="assets/gsp/hero-banner-sem-icones.png" alt="">
-            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
-          </div>
-          <div class="comunicado-body">
-            <h3>Comunicados do Portal Educacional GSP</h3>
-            <a class="btn" href="comunicados.html#comunicados-portal-educacional-gsp">Ler Comunicado</a>
-          </div>
-        </article>
-        <article class="comunicado-card">
-          <div class="comunicado-media">
-            <img src="assets/gsp/hero-layout-reference-people.jpg" alt="">
-            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
-          </div>
-          <div class="comunicado-body">
-            <h3>Educacional Informa - Alteração de Série</h3>
-            <a class="btn" href="https://drive.google.com/file/d/1LlLvl2Fq6FVDfpOYMlAVLP6BI4ohfiEx/view?usp=drivesdk" target="_blank" rel="noreferrer">Ler Comunicado</a>
           </div>
         </article>
       </div>

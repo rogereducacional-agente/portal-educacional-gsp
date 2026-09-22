@@ -79,7 +79,7 @@
     <div class="hero-inner">
       <p class="eyebrow">Comunicados oficiais</p>
       <h1>Comunicados</h1>
-      <p class="lead">Acompanhe as postagens oficiais do Portal Educacional GSP em ordem cronológica, sempre com a atualização mais recente no começo.</p>
+      <p class="lead">Fique por dentro das novidades, atualizações e orientações importantes para acompanhar os processos educacionais da GSP.</p>
     </div>
   </section>
   <main>
@@ -94,6 +94,18 @@
   <script>
     const comunicados = [
       {
+        ordem: 1,
+        slug: "acao-nota-em-dia",
+        titulo: "Ação Nota em Dia: preparação para o fechamento acadêmico",
+        descricao: "Orientação para conferência e regularização de notas pendentes antes da geração da Média Anual, com prazo de regularização até 23/10/2026.",
+        imagem: "assets/comunicados/acao-nota-em-dia-card.jpg",
+        arquivo: "assets/comunicados/acao-nota-em-dia-informativo.jpg",
+        data: "2026-09-21",
+        postadoPor: "Amanda Bindilatti",
+        categoria: "Acadêmico"
+      },
+      {
+        ordem: 2,
         slug: "reserva-de-vaga-orientacoes",
         titulo: "Reserva de Vaga: regras e orientações do processo",
         descricao: "Comunicado com as regras principais da Reserva de Vaga: quando usar, quando não usar, liberação do link de matrícula, lançamento de adiantamento e pontos de atenção para a equipe.",
@@ -102,15 +114,6 @@
         data: "2026-09-22",
         postadoPor: "Roger - GreatSchools Platform",
         categoria: "Orientação"
-      },
-      {
-        slug: "comunicados-portal-educacional-gsp",
-        titulo: "Comunicados do Portal Educacional GSP",
-        descricao: "Área criada para organizar avisos oficiais em formato sequencial, com título, breve descrição, imagem, data de postagem e responsável pela publicação.",
-        imagem: "assets/gsp/hero-banner-sem-icones.png",
-        data: "2026-09-09",
-        postadoPor: "Roger - GreatSchools Platform",
-        categoria: "Atualização"
       }
     ];
     const timeline = document.getElementById("postTimeline");
@@ -123,7 +126,7 @@
     }
     function renderPosts(query = "") {
       const normalizedQuery = query.trim().toLowerCase();
-      const ordered = comunicados.slice().sort((a, b) => new Date(b.data) - new Date(a.data));
+      const ordered = comunicados.slice().sort((a, b) => (a.ordem ?? 999) - (b.ordem ?? 999) || new Date(b.data) - new Date(a.data));
       const filtered = ordered.filter(post => {
         const searchable = [post.titulo, post.descricao, post.postadoPor, post.categoria, formatDate(post.data)].join(" ").toLowerCase();
         return !normalizedQuery || searchable.includes(normalizedQuery);
