@@ -2497,13 +2497,14 @@
     .support-room-block.support-assist-section .section-head {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: flex-start;
+      gap: 6px;
       margin-bottom: 14px;
     }
 
     .support-title-icon {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
       display: grid;
       place-items: center;
@@ -2513,8 +2514,8 @@
     }
 
     .support-title-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 15px;
+      height: 15px;
     }
 
     .support-room-block.support-assist-section .section-head h2 {
@@ -2591,16 +2592,12 @@
       align-items: center;
       gap: 8px 12px;
       color: #53657c;
-      font-size: 11px;
+      font-size: 10px;
       line-height: 1.25;
     }
 
     .room-meet {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: #0b7a64;
-      white-space: nowrap;
+      display: none;
     }
 
     .room-meet::before {
@@ -2630,15 +2627,7 @@
     }
 
     .support-all-rooms {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 13px;
-      color: #087d7a;
-      font-size: 12px;
-      font-weight: 800;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      display: none;
     }
 
     .roger-assist-card {
@@ -2659,15 +2648,16 @@
     .roger-assist-card::before {
       content: "";
       position: absolute;
-      top: -34px;
-      right: -46px;
-      width: 150px;
-      height: 150px;
+      top: -18px;
+      right: -18px;
+      width: 78px;
+      height: 78px;
       border-radius: 999px;
       background: #1f72bd;
       box-shadow:
-        -18px 24px 0 #f3c51d,
-        -38px 44px 0 #4aa3df;
+        -9px 13px 0 #f3c51d,
+        -19px 24px 0 #4aa3df;
+      opacity: .9;
       z-index: -1;
     }
 
@@ -2685,7 +2675,7 @@
     .roger-card-copy {
       position: relative;
       z-index: 1;
-      padding: 18px 94px 18px 18px;
+      padding: 18px 58px 18px 18px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -2735,7 +2725,7 @@
       }
 
       .roger-card-copy {
-        padding-right: 112px;
+        padding-right: 70px;
       }
     }
 
@@ -2757,7 +2747,7 @@
       }
 
       .roger-card-copy {
-        padding: 16px 86px 16px 16px;
+        padding: 16px 58px 16px 16px;
       }
 
       .roger-assist-card h3 {
@@ -3329,7 +3319,6 @@
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
                 </span>
-                <span class="room-meet">Entra até 17h10</span>
               </div>
               <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt?authuser=0" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
@@ -3346,7 +3335,6 @@
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
                 </span>
-                <span class="room-meet">Encontra até 17h30</span>
               </div>
               <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
@@ -3354,7 +3342,6 @@
               </a>
             </article>
           </div>
-          <a class="support-all-rooms" href="#salas-validacao">Ver todas as salas de apoio <span aria-hidden="true">→</span></a>
         </div>
         <aside class="roger-assist-card" id="roger" aria-label="Fale com o Roger">
           <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
