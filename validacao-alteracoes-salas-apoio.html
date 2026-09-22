@@ -3204,7 +3204,428 @@
       display: none;
     }
 
+    .home-shortcuts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px auto 0;
+      max-width: 1180px;
+      padding: 0 12px;
+    }
+
+    .home-shortcut-card {
+      --card-color: #0a8a67;
+      --card-soft: #e8f7ef;
+      position: relative;
+      min-height: 150px;
+      overflow: hidden;
+      border: 1px solid #dbe7f1;
+      border-radius: 8px;
+      background: #fff;
+      color: #0b1d46;
+      box-shadow: 0 12px 26px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(120px, .9fr);
+      align-items: stretch;
+      text-decoration: none;
+    }
+
+    .home-shortcut-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -42px;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--card-color) 16%, transparent);
+    }
+
+    .home-shortcut-copy {
+      position: relative;
+      z-index: 1;
+      padding: 20px 18px 16px;
+      display: grid;
+      align-content: start;
+      gap: 7px;
+    }
+
+    .home-shortcut-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--card-color);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .home-shortcut-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--card-color);
+      background: color-mix(in srgb, var(--card-color) 13%, #fff);
+      box-shadow: 0 0 0 9px color-mix(in srgb, var(--card-color) 8%, transparent);
+    }
+
+    .home-shortcut-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .home-shortcut-card h2 {
+      margin: 5px 0 0;
+      color: #091b45;
+      font-size: 24px;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .home-shortcut-card p {
+      margin: 0;
+      max-width: 280px;
+      color: #51677f;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .home-shortcut-button {
+      align-self: end;
+      justify-self: stretch;
+      min-height: 34px;
+      margin-top: 6px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #fff;
+      background: var(--card-color);
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 12px 22px color-mix(in srgb, var(--card-color) 20%, transparent);
+    }
+
+    .home-shortcut-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .home-shortcut-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.98);
+    }
+
+    .home-shortcut-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.38) 34%, rgba(255,255,255,0) 76%);
+    }
+
+    .home-shortcut-card.processos { --card-color: #c9142f; --card-soft: #ffe9ec; }
+    .home-shortcut-card.treinamentos { --card-color: #e2a000; --card-soft: #fff6d7; }
+    .home-shortcut-card.avaliacao { --card-color: #7d1ab6; --card-soft: #f4e7ff; }
+    .home-shortcut-card.professor { --card-color: #f26a21; --card-soft: #fff0e5; }
+    .home-shortcut-card.pais { --card-color: #0e65a8; --card-soft: #e7f3ff; }
+
+    .home-search-banner {
+      position: relative;
+      overflow: hidden;
+      margin: 18px auto 0;
+      max-width: 1180px;
+      min-height: 178px;
+      border-radius: 0;
+      background:
+        linear-gradient(90deg, #06244e 0%, #063a6d 46%, rgba(6,58,109,.82) 66%, rgba(6,58,109,.28) 100%),
+        url("assets/gsp/hero-layout-reference-people.jpg") right center / 42% 100% no-repeat;
+      color: #fff;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, .42fr);
+      align-items: center;
+      padding: 26px 32px;
+      box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
+    }
+
+    .home-search-banner::before {
+      content: "";
+      position: absolute;
+      left: 26px;
+      top: 32px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #ffb000;
+      box-shadow: 0 0 0 10px rgba(255, 176, 0, .16);
+    }
+
+    .home-search-banner::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -58px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 18px solid #ff6b1a;
+      opacity: .88;
+    }
+
+    .home-search-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+      padding-left: 90px;
+    }
+
+    .home-search-icon {
+      position: absolute;
+      left: 43px;
+      top: 50px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      color: #fff;
+    }
+
+    .home-search-kicker {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .home-search-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(29px, 3.4vw, 48px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .home-search-title em {
+      color: #ffb000;
+      font-style: italic;
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 5px;
+    }
+
+    .home-search-content p {
+      margin: 0;
+      max-width: 650px;
+      color: #dceeff;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .home-search-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      width: min(100%, 650px);
+      min-height: 44px;
+      padding: 4px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, .2);
+    }
+
+    .home-search-panel input {
+      min-width: 0;
+      border: 0;
+      outline: none;
+      padding: 0 14px;
+      color: #183252;
+      font-weight: 700;
+      background: transparent;
+    }
+
+    .home-search-panel button {
+      min-height: 36px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 24px;
+      color: #fff;
+      background: #ff6b1a;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .home-search-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: #dceeff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .home-search-chips a {
+      min-height: 24px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .home-search-note {
+      position: relative;
+      z-index: 1;
+      justify-self: end;
+      align-self: end;
+      max-width: 220px;
+      color: #fff;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      font-size: 21px;
+      line-height: 1.05;
+      text-align: right;
+      transform: rotate(-4deg);
+    }
+
+    .home-benefits {
+      max-width: 1180px;
+      margin: 18px auto 0;
+      padding: 18px 14px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: center;
+      border-top: 1px solid #dfe8f0;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .home-benefit {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+      color: #52677f;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .home-benefit strong {
+      display: block;
+      color: #0b8f78;
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    .home-benefit-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--benefit-color, #0b8f78);
+      background: color-mix(in srgb, var(--benefit-color, #0b8f78) 10%, #fff);
+    }
+
+    .home-benefit-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .home-benefit.slogan {
+      grid-template-columns: 1fr 34px;
+      justify-self: end;
+      color: #082c63;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.05;
+      transform: rotate(-4deg);
+    }
+
+    .home-benefit.slogan .home-benefit-icon {
+      color: #0b8f78;
+      background: transparent;
+    }
+
+    .status-strip,
+    .finder-section,
+    .intent-note {
+      display: none;
+    }
+
+    .search-hub.home-search-only {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .search-hub.home-search-only > .search-mode-panel {
+      display: none;
+    }
+
+    .search-hub.home-search-only .search-results {
+      max-width: 1180px;
+      margin: 12px auto 0;
+    }
+
+    .search-hub.home-search-only[data-active-search="respostas"] .search-mode-panel[data-search-panel="respostas"],
+    .search-hub.home-search-only[data-active-search="materiais"] .search-mode-panel[data-search-panel="materiais"] {
+      display: block;
+    }
+
+    .search-hub.home-search-only .search-mode-panel > .section-head,
+    .search-hub.home-search-only .search-mode-panel > .search-panel,
+    .search-hub.home-search-only .find-note,
+    .search-hub.home-search-only .complement-search-panel,
+    .search-hub.home-search-only .complement-find-note {
+      display: none;
+    }
+
     @media (max-width: 920px) {
+      .home-shortcuts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-search-banner {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+        background:
+          linear-gradient(90deg, #06244e 0%, rgba(6,58,109,.94) 100%),
+          url("assets/gsp/hero-layout-reference-people.jpg") right center / cover no-repeat;
+      }
+
+      .home-search-content {
+        padding-left: 78px;
+      }
+
+      .home-search-note {
+        justify-self: start;
+        margin-left: 78px;
+        text-align: left;
+      }
+
+      .home-benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-benefit.slogan {
+        justify-self: start;
+      }
+
       .support-room-actions {
         grid-template-columns: 1fr;
       }
@@ -3218,6 +3639,70 @@
         left: -16px;
         width: 100vw;
         margin: 36px 0 -72px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-menu {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 12px 8px;
+        scrollbar-width: none;
+      }
+
+      .site-menu::-webkit-scrollbar {
+        display: none;
+      }
+
+      .site-menu a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
+      .home-shortcuts {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+
+      .home-shortcut-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .home-shortcut-image {
+        min-height: 130px;
+        order: -1;
+      }
+
+      .home-search-banner {
+        margin-inline: -12px;
+        padding: 22px 14px;
+      }
+
+      .home-search-banner::before,
+      .home-search-icon {
+        display: none;
+      }
+
+      .home-search-content {
+        padding-left: 0;
+      }
+
+      .home-search-panel {
+        grid-template-columns: 1fr;
+        border-radius: 12px;
+        padding: 8px;
+      }
+
+      .home-search-panel button {
+        border-radius: 8px;
+      }
+
+      .home-search-note {
+        margin-left: 0;
+      }
+
+      .home-benefits {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -3298,35 +3783,62 @@
     </div>
   </section>
 
-  <div class="status-strip" aria-label="Ambientes principais do portal">
-    <a class="stat rematricula" href="rematricula-2027.html">
-      <div class="stat-head">
-        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 8.5h6.3c1.5 0 2.7.4 3.7 1.4 1-1 2.2-1.4 3.7-1.4H27v16h-6.7c-1.4 0-2.5.3-3.3 1.2-.8-.9-1.9-1.2-3.3-1.2H7v-16Z"/><path d="M17 10v15.7"/><path d="M10.5 12.5h3.2"/><path d="M20.3 12.5h3.2"/></svg></span>
-        <span>Ambiente principal</span>
+  <section class="home-shortcuts" aria-label="Atalhos principais">
+    <a class="home-shortcut-card rematricula" href="rematricula-2027.html">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M5 6.5h5.5c1.3 0 2.4.4 3.2 1.2.8-.8 1.9-1.2 3.2-1.2H22v13h-5.6c-1.2 0-2.1.3-2.7 1-.6-.7-1.5-1-2.7-1H5v-13Z"/><path d="M13.7 7.7v12.8"/></svg></span>Ambiente principal</span>
+        <h2>Rematrícula 2027</h2>
+        <p>Orientações, etapas, dúvidas, materiais, bolsas, prazos e comunicados da campanha.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
       </div>
-      <strong>Rematrícula 2027</strong>
-      <p>Orientações, etapas, dúvidas, materiais, bolsas, prazos e comunicados da campanha.</p>
-      <span class="stat-button">Acessar <span aria-hidden="true">→</span></span>
+      <div class="home-shortcut-image"><img src="assets/gsp/hero-layout-reference-people.jpg" alt=""></div>
     </a>
-    <a class="stat processos" href="#encontrar" data-search-mode="materiais">
-      <div class="stat-head">
-        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5.5 24.2V10.8A2.8 2.8 0 0 1 8.3 8h6.1l2.5 2.8h6.8a2.8 2.8 0 0 1 2.8 2.8v1.1"/><path d="M5.5 24.2 8.1 14h18.4l-2.6 10.2a2.5 2.5 0 0 1-2.4 1.9H7.9a2.5 2.5 0 0 1-2.4-1.9Z"/></svg></span>
-        <span>Rotina operacional</span>
+    <a class="home-shortcut-card processos" href="#comunicados">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M3.5 19V6.5A2.5 2.5 0 0 1 6 4h4.6l2 2.4H18a2.5 2.5 0 0 1 2.5 2.5V10"/><path d="M3.5 19 6 9.5h15L18.5 19H3.5Z"/></svg></span>Rotina operacional</span>
+        <h2>Processos e Materiais</h2>
+        <p>Localize processos e comunicados para apoiar sua rotina.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
       </div>
-      <strong>Comunicados</strong>
-      <p>Acompanhe avisos oficiais, atualizações importantes e orientações publicadas para a comunidade escolar.</p>
-      <span class="stat-button">Acessar <span aria-hidden="true">→</span></span>
+      <div class="home-shortcut-image"><img src="assets/gsp/hero-layout-full-clean.jpg" alt=""></div>
     </a>
-    <a class="stat treinamentos" href="treinamentos-e-guias.html">
-      <div class="stat-head">
-        <span class="stat-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 21.5 16 26l12-4.5V10L16 5.5 4 10v11.5Z"/><path d="M4 10l12 4.5L28 10"/><path d="M16 14.5V26"/></svg></span>
-        <span>Capacitação</span>
+    <a class="home-shortcut-card treinamentos" href="treinamentos-e-guias.html">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M12 3 3.5 7.2 12 11.4l8.5-4.2L12 3Z"/><path d="M3.5 12 12 16.2 20.5 12"/><path d="M3.5 16.8 12 21l8.5-4.2"/></svg></span>Capacitação</span>
+        <h2>Treinamentos e Guias</h2>
+        <p>Acesse vídeos, treinamentos, apresentações e guias para realizar suas atividades.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
       </div>
-      <strong>Treinamentos e Processos</strong>
-      <p>Consulte treinamentos, guias, processos e orientações organizadas para apoiar a rotina de atendimento.</p>
-      <span class="stat-button">Acessar <span aria-hidden="true">→</span></span>
+      <div class="home-shortcut-image"><img src="assets/gsp/hero-educacional-preview.jpg" alt=""></div>
     </a>
-  </div>
+    <a class="home-shortcut-card avaliacao" href="#busca" data-search-mode="materiais">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h4"/></svg></span>Sistema de Avaliação</span>
+        <h2>Sistema de Avaliação</h2>
+        <p>Consulte regras da sua escola, processos e orientações.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="home-shortcut-image"><img src="assets/rematricula-2027/templates/template-07-formas-de-pagamento-validacao.png" alt=""></div>
+    </a>
+    <a class="home-shortcut-card professor" href="#busca" data-search-mode="materiais">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>Portal do Professor</span>
+        <h2>Portal do Professor</h2>
+        <p>Localize processos e funcionalidades.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="home-shortcut-image"><img src="assets/gsp/hero-banner-realistic.jpg" alt=""></div>
+    </a>
+    <a class="home-shortcut-card pais" href="#busca" data-search-mode="respostas">
+      <div class="home-shortcut-copy">
+        <span class="home-shortcut-kicker"><span class="home-shortcut-icon"><svg viewBox="0 0 24 24"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M3 21a5 5 0 0 1 10 0"/><path d="M11 21a5 5 0 0 1 10 0"/></svg></span>Portal do Pais GSP</span>
+        <h2>Portal do Pais GSP</h2>
+        <p>Encontre os principais processos realizados dentro do Portal dos Pais.</p>
+        <span class="home-shortcut-button">Acessar <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="home-shortcut-image"><img src="assets/gsp/hero-layout-clean-text-html.jpg" alt=""></div>
+    </a>
+  </section>
 
   <section class="intent-note" aria-label="Busca transversal">
     <strong>Não encontrou o que procura?</strong>
@@ -3358,7 +3870,29 @@
       </div>
     </section>
 
-    <section id="busca" class="search-hub" data-active-search="respostas">
+    <section class="home-search-banner" aria-label="Busca principal do portal">
+      <svg class="home-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.7"/></svg>
+      <div class="home-search-content">
+        <span class="home-search-kicker">Encontre o que precisa</span>
+        <h2 class="home-search-title">de forma <em>rápida e fácil!</em></h2>
+        <p>Use a busca para encontrar processos, materiais, treinamentos, orientações e muito mais. Aqui você encontra tudo em um só lugar.</p>
+        <div class="home-search-panel">
+          <input id="homeSearchInput" type="search" placeholder="Digite aqui o que você procura...">
+          <button id="homeSearchButton" type="button">Buscar <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="home-search-chips" aria-label="Exemplos de busca">
+          <span>Exemplos do que você pode buscar:</span>
+          <a href="#busca" data-home-query="Professor">Professor</a>
+          <a href="#busca" data-home-query="Como fazer">Como fazer</a>
+          <a href="#busca" data-home-query="Alteração do Responsável">Alteração do Responsável</a>
+          <a href="#busca" data-home-query="Grade Horária">Grade Horária</a>
+          <a href="#busca" data-home-query="Reserva de Vaga">Reserva de Vaga</a>
+        </div>
+      </div>
+      <div class="home-search-note">Juntos<br>construímos<br>um futuro<br>ainda melhor!</div>
+    </section>
+
+    <section id="busca" class="search-hub home-search-only" data-active-search="respostas">
       <div class="search-mode-panel is-active" data-search-panel="respostas">
         <div class="section-head">
           <div>
@@ -3484,6 +4018,29 @@
             <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com o Roger <span aria-hidden="true">→</span></a>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="home-benefits" aria-label="Benefícios do portal">
+      <div class="home-benefit">
+        <span class="home-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+        <span><strong>Mais agilidade</strong>Encontre o que precisa em poucos cliques.</span>
+      </div>
+      <div class="home-benefit" style="--benefit-color:#1f72bd">
+        <span class="home-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.2 3.4 9.1 8 11 4.6-1.9 8-5.8 8-11V5l-8-3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+        <span><strong>Informação segura</strong>Conte com conteúdos atualizados e confiáveis.</span>
+      </div>
+      <div class="home-benefit" style="--benefit-color:#9b4bd6">
+        <span class="home-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h7v7H4z"/><path d="M13 5h7v7h-7z"/><path d="M7 16h7v5H7z"/><path d="M16 15h4v6h-4z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+        <span><strong>Tudo em um só lugar</strong>Processos, treinamentos, materiais e muito mais.</span>
+      </div>
+      <div class="home-benefit" style="--benefit-color:#f0a700">
+        <span class="home-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.9 6 6.6.9-4.8 4.7 1.1 6.6L12 17l-5.8 3.2 1.1-6.6-4.8-4.7 6.6-.9L12 2Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+        <span><strong>Sempre com você</strong>Conte com o apoio da nossa equipe para te ajudar.</span>
+      </div>
+      <div class="home-benefit slogan">
+        <span>Juntos<br>vamos mais longe!</span>
+        <span class="home-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 3 3 7L21 3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m10 13.5 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
       </div>
     </section>
 
@@ -3799,9 +4356,11 @@
       const normalized = query.trim().toLowerCase();
       const matches = normalized
         ? records.filter(item => `${item.title} ${item.area} ${item.text}`.toLowerCase().includes(normalized))
-        : records.slice(0, 3);
+        : [];
 
-      searchResults.innerHTML = matches.length
+      searchResults.innerHTML = !normalized
+        ? ""
+        : matches.length
         ? matches.map(item => `
           <a class="result-card" href="${item.link}">
             <strong>${item.title}</strong>
@@ -4075,6 +4634,30 @@
         });
       });
     }
+
+    const homeSearchInput = document.querySelector("#homeSearchInput");
+    const homeSearchButton = document.querySelector("#homeSearchButton");
+    const homeSearchChips = document.querySelectorAll("[data-home-query]");
+    function runHomeSearch(value) {
+      const query = (value || "").trim();
+      if (searchInput) {
+        setActiveSearchMode("respostas", { focus: false });
+        searchInput.value = query;
+        renderResults(query);
+      }
+      document.querySelector("#busca")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    homeSearchButton?.addEventListener("click", () => runHomeSearch(homeSearchInput?.value));
+    homeSearchInput?.addEventListener("keydown", event => {
+      if (event.key === "Enter") runHomeSearch(homeSearchInput.value);
+    });
+    homeSearchChips.forEach(chip => {
+      chip.addEventListener("click", event => {
+        event.preventDefault();
+        if (homeSearchInput) homeSearchInput.value = chip.dataset.homeQuery || "";
+        runHomeSearch(chip.dataset.homeQuery || "");
+      });
+    });
 
     if (stageNav && guideWorkspace && stageTitle && stageSummary && questionGrid) renderGuide();
   </script>
