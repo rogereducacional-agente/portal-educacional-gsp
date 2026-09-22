@@ -3577,9 +3577,21 @@
       display: none;
     }
 
+    .search-hub.home-search-only .search-mode-panel {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
     .search-hub.home-search-only .search-results {
       max-width: 1180px;
       margin: 12px auto 0;
+    }
+
+    .search-hub.home-search-only .search-results:empty,
+    .search-hub.home-search-only .complement-search-results:empty {
+      display: none;
     }
 
     .search-hub.home-search-only[data-active-search="respostas"] .search-mode-panel[data-search-panel="respostas"],
