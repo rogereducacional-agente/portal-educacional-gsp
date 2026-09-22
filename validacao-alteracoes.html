@@ -2472,13 +2472,14 @@
 
     .support-room-block.support-assist-section {
       margin-top: 38px;
-      padding: 30px;
-      border: 1px solid #d7ece5;
+      padding: 26px;
+      border: 1px solid #dcefe8;
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(235, 252, 246, .94), rgba(255, 255, 255, .98) 52%, rgba(255, 248, 238, .96)),
+        radial-gradient(circle at 96% 12%, rgba(255, 210, 28, .16), transparent 26%),
+        linear-gradient(135deg, rgba(239, 253, 248, .9), rgba(255, 255, 255, .98) 58%, rgba(255, 249, 241, .92)),
         #fff;
-      box-shadow: 0 18px 40px rgba(20, 33, 61, .08);
+      box-shadow: 0 14px 32px rgba(20, 33, 61, .07);
     }
 
     .support-room-block.support-assist-section .section-head {
@@ -2498,15 +2499,15 @@
 
     .support-assist-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
-      gap: 22px;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .5fr);
+      gap: 18px;
       align-items: stretch;
     }
 
     .support-room-block.support-assist-section .support-room-actions {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 12px;
       border: 0;
       border-radius: 0;
       background: transparent;
@@ -2514,18 +2515,18 @@
     }
 
     .support-room-block.support-assist-section .support-room-card {
-      min-height: 116px;
-      padding: 18px;
+      min-height: 88px;
+      padding: 14px 16px;
       border: 1px solid #d8e7f0;
       border-radius: 8px;
       background: rgba(255, 255, 255, .98);
-      box-shadow: 0 10px 24px rgba(20, 33, 61, .07);
-      grid-template-columns: 54px minmax(170px, 1fr) auto;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .055);
+      grid-template-columns: 48px minmax(160px, 1fr) auto;
       grid-template-areas:
         "icon title status"
         "icon details action";
       align-items: center;
-      gap: 10px 16px;
+      gap: 6px 14px;
     }
 
     .support-room-block.support-assist-section .support-room-card + .support-room-card {
@@ -2534,20 +2535,22 @@
 
     .support-room-block.support-assist-section .room-icon {
       grid-area: icon;
-      width: 54px;
-      height: 54px;
+      width: 48px;
+      height: 48px;
       border-radius: 8px;
     }
 
     .support-room-block.support-assist-section .support-room-card h3 {
       grid-area: title;
-      font-size: 21px;
+      font-size: 20px;
     }
 
     .room-details {
       grid-area: details;
-      display: grid;
-      gap: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
       color: #52627a;
       font-size: 13px;
       line-height: 1.35;
@@ -2563,40 +2566,43 @@
       grid-area: status;
       justify-self: end;
       font-size: 12px;
+      min-height: 28px;
+      padding: 6px 11px;
     }
 
     .support-room-block.support-assist-section .room-action {
       grid-area: action;
       justify-self: end;
       width: auto;
-      min-width: 156px;
-      min-height: 40px;
+      min-width: 148px;
+      min-height: 38px;
     }
 
     .roger-assist-card {
       position: relative;
       overflow: hidden;
       min-height: 100%;
-      padding: 24px;
-      border: 1px solid #f2d8c7;
+      padding: 22px 20px;
+      border: 1px solid #f4dcc9;
       border-radius: 8px;
       background:
-        radial-gradient(circle at 88% 8%, rgba(255, 210, 28, .24), transparent 30%),
-        linear-gradient(180deg, #fff8ef, #fff);
-      box-shadow: 0 12px 28px rgba(232, 117, 47, .10);
+        radial-gradient(circle at 50% 7%, rgba(255, 210, 28, .22), transparent 34%),
+        radial-gradient(circle at 100% 96%, rgba(232, 117, 47, .12), transparent 36%),
+        linear-gradient(180deg, #fffaf4, #fff);
+      box-shadow: 0 10px 24px rgba(232, 117, 47, .10);
       display: grid;
       align-content: center;
       justify-items: center;
       text-align: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .roger-assist-card .support-avatar {
-      width: 132px;
-      height: 132px;
+      width: 118px;
+      height: 118px;
       border-radius: 999px;
-      border: 6px solid #fff;
-      box-shadow: 0 16px 34px rgba(20, 33, 61, .16);
+      border: 5px solid #fff;
+      box-shadow: 0 14px 28px rgba(20, 33, 61, .14);
     }
 
     .roger-assist-card .support-kicker {
@@ -2607,19 +2613,20 @@
     .roger-assist-card h3 {
       margin: 0;
       color: #082c63;
-      font-size: 28px;
+      font-size: 27px;
       line-height: 1.05;
     }
 
     .roger-assist-card p {
-      max-width: 290px;
+      max-width: 250px;
       margin: 0;
       color: #53657c;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .roger-assist-card .btn {
-      min-width: 190px;
+      min-width: 180px;
+      min-height: 40px;
       border: 0;
       background: #e8752f;
       color: #fff;
@@ -3221,7 +3228,6 @@
               <span class="room-status" data-room-status>Disponível agora</span>
               <div class="room-details">
                 <strong>Equipe Acadêmico ASE</strong>
-                <span>Dúvidas sobre matrícula, rematrícula, reserva de vaga e processos educacionais.</span>
                 <span class="room-hours">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
                   Seg a sex, das 8h às 17h30
@@ -3240,7 +3246,6 @@
               <span class="room-status" data-room-status>Disponível agora</span>
               <div class="room-details">
                 <strong>Suporte de TI</strong>
-                <span>Apoio para acesso, ferramentas, links, ambiente digital e direcionamento técnico.</span>
                 <span class="room-hours">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
                   Seg a sex, das 8h às 17h30
