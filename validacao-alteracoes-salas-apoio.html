@@ -2479,6 +2479,108 @@
       box-shadow: 0 10px 24px rgba(20, 33, 61, .055);
     }
 
+    .comunicados-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .comunicado-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 214px;
+      border: 1px solid #dde7f1;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(20, 33, 61, .07);
+      display: grid;
+      grid-template-rows: 106px minmax(0, 1fr);
+    }
+
+    .comunicado-media {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b8f78, #1f72bd);
+    }
+
+    .comunicado-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .84;
+      filter: saturate(.96);
+    }
+
+    .comunicado-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(8, 44, 99, .72), rgba(8, 143, 120, .34)),
+        radial-gradient(circle at 88% 14%, rgba(255, 210, 28, .88) 0 16px, transparent 17px);
+    }
+
+    .comunicado-icon {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 1;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: rgba(255, 255, 255, .18);
+      border: 1px solid rgba(255, 255, 255, .34);
+      backdrop-filter: blur(8px);
+    }
+
+    .comunicado-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .comunicado-body {
+      padding: 14px;
+      display: grid;
+      align-content: space-between;
+      gap: 14px;
+    }
+
+    .comunicado-body h3 {
+      margin: 0;
+      color: #082c63;
+      font-size: 18px;
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    .comunicado-body .btn {
+      justify-self: start;
+      min-height: 36px;
+      padding-inline: 14px;
+      border: 1px solid #d7e7f7;
+      color: #1f72bd;
+      background: #f7fbff;
+      box-shadow: none;
+    }
+
+    .comunicados-footer-action {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+
+    .comunicados-footer-action .btn {
+      min-height: 40px;
+      border: 0;
+      color: #fff;
+      background: #1f72bd;
+      box-shadow: 0 12px 24px rgba(31, 114, 189, .22);
+    }
+
     .support-assist-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
@@ -2720,6 +2822,10 @@
     }
 
     @media (max-width: 1080px) {
+      .comunicados-showcase {
+        grid-template-columns: 1fr;
+      }
+
       .support-assist-layout {
         grid-template-columns: 1fr;
       }
@@ -3286,13 +3392,40 @@
         </div>
       </div>
 
-      <div class="grid-2">
-        <article class="quick-card">
-          <span class="tag green">Atualizações</span>
-          <strong>Acessar comunicados</strong>
-          <p>Consulte a página com as postagens organizadas por data, sempre da mais recente para a mais antiga.</p>
-          <a class="btn ghost" href="comunicados.html">Abrir comunicados</a>
+      <div class="comunicados-showcase" aria-label="Últimos comunicados">
+        <article class="comunicado-card">
+          <div class="comunicado-media">
+            <img src="assets/gsp/hero-banner-sem-icones.png" alt="">
+            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          </div>
+          <div class="comunicado-body">
+            <h3>Comunicados do Portal Educacional GSP</h3>
+            <a class="btn" href="comunicados.html">Ler Comunicado</a>
+          </div>
         </article>
+        <article class="comunicado-card">
+          <div class="comunicado-media">
+            <img src="assets/gsp/hero-layout-reference-people.jpg" alt="">
+            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          </div>
+          <div class="comunicado-body">
+            <h3>Educacional Informa - Alteração de Série</h3>
+            <a class="btn" href="https://drive.google.com/file/d/1LlLvl2Fq6FVDfpOYMlAVLP6BI4ohfiEx/view?usp=drivesdk" target="_blank" rel="noreferrer">Ler Comunicado</a>
+          </div>
+        </article>
+        <article class="comunicado-card">
+          <div class="comunicado-media">
+            <img src="assets/gsp/hero-educacional-preview.jpg" alt="">
+            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          </div>
+          <div class="comunicado-body">
+            <h3>Orientações e atualizações para processos educacionais</h3>
+            <a class="btn" href="comunicados.html">Ler Comunicado</a>
+          </div>
+        </article>
+      </div>
+      <div class="comunicados-footer-action">
+        <a class="btn" href="comunicados.html">Comunicados » Ler todos os Comunicados</a>
       </div>
     </section>
 
