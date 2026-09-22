@@ -2470,6 +2470,198 @@
       }
     }
 
+    .support-room-block.support-assist-section {
+      margin-top: 38px;
+      padding: 30px;
+      border: 1px solid #d7ece5;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(235, 252, 246, .94), rgba(255, 255, 255, .98) 52%, rgba(255, 248, 238, .96)),
+        #fff;
+      box-shadow: 0 18px 40px rgba(20, 33, 61, .08);
+    }
+
+    .support-room-block.support-assist-section .section-head {
+      margin-bottom: 22px;
+    }
+
+    .support-room-block.support-assist-section .section-head h2 {
+      font-size: 28px;
+      color: #082c63;
+    }
+
+    .support-room-block.support-assist-section .section-head p {
+      max-width: 760px;
+      font-size: 14px;
+      color: #53657c;
+    }
+
+    .support-assist-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .support-room-block.support-assist-section .support-room-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .support-room-block.support-assist-section .support-room-card {
+      min-height: 116px;
+      padding: 18px;
+      border: 1px solid #d8e7f0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .07);
+      grid-template-columns: 54px minmax(170px, 1fr) auto;
+      grid-template-areas:
+        "icon title status"
+        "icon details action";
+      align-items: center;
+      gap: 10px 16px;
+    }
+
+    .support-room-block.support-assist-section .support-room-card + .support-room-card {
+      border-top: 1px solid #d8e7f0;
+    }
+
+    .support-room-block.support-assist-section .room-icon {
+      grid-area: icon;
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+    }
+
+    .support-room-block.support-assist-section .support-room-card h3 {
+      grid-area: title;
+      font-size: 21px;
+    }
+
+    .room-details {
+      grid-area: details;
+      display: grid;
+      gap: 5px;
+      color: #52627a;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .room-details strong {
+      color: #0b7a64;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .support-room-block.support-assist-section .room-status {
+      grid-area: status;
+      justify-self: end;
+      font-size: 12px;
+    }
+
+    .support-room-block.support-assist-section .room-action {
+      grid-area: action;
+      justify-self: end;
+      width: auto;
+      min-width: 156px;
+      min-height: 40px;
+    }
+
+    .roger-assist-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      padding: 24px;
+      border: 1px solid #f2d8c7;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(255, 210, 28, .24), transparent 30%),
+        linear-gradient(180deg, #fff8ef, #fff);
+      box-shadow: 0 12px 28px rgba(232, 117, 47, .10);
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+
+    .roger-assist-card .support-avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 999px;
+      border: 6px solid #fff;
+      box-shadow: 0 16px 34px rgba(20, 33, 61, .16);
+    }
+
+    .roger-assist-card .support-kicker {
+      margin: 0;
+      color: #e8752f;
+    }
+
+    .roger-assist-card h3 {
+      margin: 0;
+      color: #082c63;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .roger-assist-card p {
+      max-width: 290px;
+      margin: 0;
+      color: #53657c;
+      font-size: 14px;
+    }
+
+    .roger-assist-card .btn {
+      min-width: 190px;
+      border: 0;
+      background: #e8752f;
+      color: #fff;
+      box-shadow: 0 14px 26px rgba(232, 117, 47, .24);
+    }
+
+    .support-room-block.support-assist-section .support-room-footnote {
+      margin-top: 18px;
+      color: #53657c;
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .support-assist-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .roger-assist-card {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .support-room-block.support-assist-section {
+        padding: 20px;
+      }
+
+      .support-room-block.support-assist-section .support-room-card {
+        grid-template-columns: 48px 1fr;
+        grid-template-areas:
+          "icon title"
+          "icon status"
+          "details details"
+          "action action";
+      }
+
+      .support-room-block.support-assist-section .room-status,
+      .support-room-block.support-assist-section .room-action {
+        justify-self: stretch;
+      }
+    }
+
     #sala-apoio.quick-links {
       display: none;
     }
@@ -3011,57 +3203,64 @@
       </div>
     </section>
 
-    <section class="support-room-block" id="salas-validacao">
+    <section class="support-room-block support-assist-section" id="salas-validacao">
       <div class="section-head">
         <div>
-          <h2>Salas de Suporte</h2>
-          <p>Fale com nossa equipe em tempo real. Escolha a sala conforme a necessidade e acompanhe o status de atendimento antes de entrar.</p>
+          <h2>Salas de Apoio</h2>
+          <p>Atendimento online para dúvidas de rotina, apoio aos processos educacionais e orientação sobre os canais corretos de suporte.</p>
         </div>
       </div>
-      <div class="support-room-actions" aria-live="polite">
-        <article class="support-room-card" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
-          <div class="room-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm4.5 1.5v7.4h1.8V8.3H8.5Zm3.1 0v7.4h1.8V8.3h-1.8Zm3.1 0v7.4h1.8V8.3h-1.8Z" fill="currentColor"/></svg>
+      <div class="support-assist-layout">
+        <div>
+          <div class="support-room-actions" aria-live="polite">
+            <article class="support-room-card" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
+              <div class="room-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm4.5 1.5v7.4h1.8V8.3H8.5Zm3.1 0v7.4h1.8V8.3h-1.8Zm3.1 0v7.4h1.8V8.3h-1.8Z" fill="currentColor"/></svg>
+              </div>
+              <h3>Sala Acadêmico</h3>
+              <span class="room-status" data-room-status>Disponível agora</span>
+              <div class="room-details">
+                <strong>Equipe Acadêmico ASE</strong>
+                <span>Dúvidas sobre matrícula, rematrícula, reserva de vaga e processos educacionais.</span>
+                <span class="room-hours">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
+                  Seg a sex, das 8h às 17h30
+                </span>
+              </div>
+              <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt?authuser=0" target="_blank" rel="noreferrer">
+                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
+                Entrar na sala
+              </a>
+            </article>
+            <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
+              <div class="room-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v9h14V6H5Zm2 2h7v2H7V8Zm0 4h4v2H7v-2Z" fill="currentColor"/></svg>
+              </div>
+              <h3>Sala TI</h3>
+              <span class="room-status" data-room-status>Disponível agora</span>
+              <div class="room-details">
+                <strong>Suporte de TI</strong>
+                <span>Apoio para acesso, ferramentas, links, ambiente digital e direcionamento técnico.</span>
+                <span class="room-hours">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
+                  Seg a sex, das 8h às 17h30
+                </span>
+              </div>
+              <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
+                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
+                Entrar na sala
+              </a>
+            </article>
           </div>
-          <h3>Sala Acadêmico</h3>
-          <span class="room-status" data-room-status>Disponível agora</span>
-          <span class="room-hours">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
-            Seg-Sex, 8h às 17h30
-          </span>
-          <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt?authuser=0" target="_blank" rel="noreferrer">
-            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-            Entrar na sala
-          </a>
-        </article>
-        <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
-          <div class="room-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v9h14V6H5Zm2 2h7v2H7V8Zm0 4h4v2H7v-2Z" fill="currentColor"/></svg>
-          </div>
-          <h3>Sala TI</h3>
-          <span class="room-status" data-room-status>Disponível agora</span>
-          <span class="room-hours">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm1-10.4V6h-2v6.4l4.5 3.1 1.1-1.7-3.6-2.2Z" fill="currentColor"/></svg>
-            Seg-Sex, 8h às 17h30
-          </span>
-          <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
-            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-            Entrar na sala
-          </a>
-        </article>
-      </div>
-      <p class="support-room-footnote">Status atualizado automaticamente pelo horário de Brasília. Fora do expediente, as salas permanecem sinalizadas como Indisponível.</p>
-    </section>
-
-    <section id="roger">
-      <div class="support-card">
-        <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
-        <div class="support-content">
-          <span class="support-kicker">Agente de suporte educacional</span>
-          <h2>Fale com o Roger</h2>
-          <p>Se você consultou o portal e ainda tem alguma dúvida que não aparece aqui, entre em contato com o Roger para apoio nos processos educacionais da GSP.</p>
+          <p class="support-room-footnote">Status atualizado automaticamente pelo horário de Brasília. Fora do expediente, as salas permanecem sinalizadas como Indisponível.</p>
         </div>
-        <a class="btn warn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Acessar suporte do Roger</a>
+        <aside class="roger-assist-card" id="roger" aria-label="Fale com o Roger">
+          <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
+          <span class="support-kicker">Assistente virtual</span>
+          <h3>Roger</h3>
+          <p>Precisa de ajuda para encontrar uma orientação ou entender qual caminho seguir?</p>
+          <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com o Roger</a>
+        </aside>
       </div>
     </section>
 
