@@ -3354,12 +3354,9 @@
       min-height: 178px;
       border-radius: 0;
       background:
-        linear-gradient(90deg, #06244e 0%, #063a6d 46%, rgba(6,58,109,.82) 66%, rgba(6,58,109,.28) 100%),
-        url("assets/gsp/home-ref-search-person.jpg") right center / 32% 100% no-repeat;
+        linear-gradient(90deg, #06244e 0%, #063a6d 48%, rgba(6,58,109,.72) 70%, rgba(6,58,109,.18) 100%),
+        url("assets/gsp/home-ref-search-person.jpg") center center / cover no-repeat;
       color: #fff;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(270px, .42fr);
-      align-items: center;
       padding: 26px 32px;
       box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
     }
@@ -3495,10 +3492,10 @@
     }
 
     .home-search-note {
-      position: relative;
+      position: absolute;
       z-index: 1;
-      justify-self: end;
-      align-self: end;
+      right: 34px;
+      bottom: 24px;
       max-width: 220px;
       color: #fff;
       font-family: Georgia, serif;
@@ -3592,6 +3589,12 @@
       margin: 12px auto 0;
     }
 
+    .search-hub.home-search-only .complement-search-results {
+      max-width: 1180px;
+      margin: 12px auto 0;
+      padding: 0 12px;
+    }
+
     .search-hub.home-search-only .search-results:empty,
     .search-hub.home-search-only .complement-search-results:empty {
       display: none;
@@ -3628,6 +3631,9 @@
       }
 
       .home-search-note {
+        position: relative;
+        right: auto;
+        bottom: auto;
         justify-self: start;
         margin-left: 78px;
         text-align: left;
@@ -4414,6 +4420,54 @@
 
     const complementRecords = [
       {
+        title: "Rematrícula 2027",
+        type: "Página",
+        text: "Ambiente com orientações, materiais, perguntas frequentes e apoio para a campanha de Rematrícula 2027.",
+        link: "rematricula-2027.html"
+      },
+      {
+        title: "Treinamentos e Processos",
+        type: "Página",
+        text: "Central de vídeos, treinamentos, apresentações, processos e guias para consulta da equipe.",
+        link: "treinamentos-e-guias.html"
+      },
+      {
+        title: "Comunicados",
+        type: "Página",
+        text: "Lista de comunicados publicados, ordenados do mais recente para o mais antigo.",
+        link: "comunicados.html"
+      },
+      {
+        title: "FAQ - Perguntas frequentes",
+        type: "Página",
+        text: "Respostas de atendimento e pontos de orientação para dúvidas frequentes.",
+        link: "faq-validacao.html"
+      },
+      {
+        title: "Comunicado - Reserva de Vaga",
+        type: "Imagem",
+        text: "Informativo completo sobre regras, status e liberação do link de matrícula para Reserva de Vaga.",
+        link: "assets/comunicados/reserva-de-vaga-informativo.jpg"
+      },
+      {
+        title: "Comunicado - Ação Nota em Dia",
+        type: "Imagem",
+        text: "Informativo sobre conferência e regularização de notas pendentes para fechamento acadêmico.",
+        link: "assets/comunicados/acao-nota-em-dia-informativo.jpg"
+      },
+      {
+        title: "Portal do Professor",
+        type: "Atalho",
+        text: "Atalho de consulta para materiais, processos e funcionalidades relacionadas ao Portal do Professor.",
+        link: "#busca"
+      },
+      {
+        title: "Grade Horária",
+        type: "Atalho",
+        text: "Consulta rápida para localizar materiais e orientações relacionadas a grade horária.",
+        link: "#busca"
+      },
+      {
         title: "Cópia de COMO FAZER - TRANSFERÊNCIA INTERNA - PARTE EDUCAÇÃO",
         type: "PDF",
         text: "Orientação complementar sobre transferência interna na parte educacional.",
@@ -4654,16 +4708,31 @@
     const homeSearchInput = document.querySelector("#homeSearchInput");
     const homeSearchButton = document.querySelector("#homeSearchButton");
     const homeSearchChips = document.querySelectorAll("[data-home-query]");
-    function runHomeSearch(value) {
+    function showHomeMaterialSearch(value, { scroll = false } = {}) {
       const query = (value || "").trim();
       if (searchHub) searchHub.style.display = "block";
-      if (searchInput) {
-        setActiveSearchMode("respostas", { focus: false });
-        searchInput.value = query;
-        renderResults(query);
-      }
-      document.querySelector("#busca")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      searchHub?.setAttribute("data-active-search", "materiais");
+      searchModeLinks.forEach(link => link.classList.toggle("is-active", link.dataset.searchMode === "materiais"));
+      searchPanels.forEach(panel => panel.classList.toggle("is-active", panel.dataset.searchPanel === "materiais"));
+      if (complementSearchInput) complementSearchInput.value = query;
+      renderComplementDocuments(query);
+      if (scroll) document.querySelector("#busca")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+
+    function runHomeSearch(value) {
+      showHomeMaterialSearch(value, { scroll: true });
+    }
+
+    homeSearchInput?.addEventListener("input", () => {
+      const query = homeSearchInput.value.trim();
+      if (query.length >= 2) {
+        showHomeMaterialSearch(query);
+      } else {
+        if (searchHub) searchHub.style.display = "none";
+        if (complementSearchInput) complementSearchInput.value = "";
+        renderComplementDocuments("");
+      }
+    });
     homeSearchButton?.addEventListener("click", () => runHomeSearch(homeSearchInput?.value));
     homeSearchInput?.addEventListener("keydown", event => {
       if (event.key === "Enter") runHomeSearch(homeSearchInput.value);
