@@ -93,6 +93,16 @@
   <script>
     const comunicados = [
       {
+        slug: "reserva-de-vaga-orientacoes",
+        titulo: "Reserva de Vaga: regras e orientações do processo",
+        descricao: "Comunicado com as regras principais da Reserva de Vaga: quando usar, quando não usar, liberação do link de matrícula, lançamento de adiantamento e pontos de atenção para a equipe.",
+        imagem: "assets/gsp/hero-layout-clean-text-html.jpg",
+        data: "2026-09-22",
+        postadoPor: "Roger - GreatSchools Platform",
+        categoria: "Orientação"
+      },
+      {
+        slug: "comunicados-portal-educacional-gsp",
         titulo: "Comunicados do Portal Educacional GSP",
         descricao: "Área criada para organizar avisos oficiais em formato sequencial, com título, breve descrição, imagem, data de postagem e responsável pela publicação.",
         imagem: "assets/gsp/hero-banner-sem-icones.png",
@@ -120,6 +130,7 @@
       filtered.forEach(post => {
         const article = document.createElement("article");
         article.className = "post";
+        if (post.slug) article.id = post.slug;
         const media = document.createElement("div");
         media.className = "post-media";
         const image = document.createElement("img");
