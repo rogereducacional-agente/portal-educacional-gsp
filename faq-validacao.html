@@ -345,6 +345,13 @@
       font-weight: 900;
     }
 
+    .stage-nav a.is-active {
+      border-color: rgba(0, 138, 115, .28);
+      background: #eaf8f5;
+      color: var(--green);
+      box-shadow: 0 8px 18px rgba(0, 138, 115, .12);
+    }
+
     .faq-meta {
       display: flex;
       justify-content: space-between;
@@ -539,7 +546,7 @@
         <div>
           <small>Busca rápida</small>
           <h2 id="faqSearchTitle">Encontre a resposta <em>sem perder tempo.</em></h2>
-          <p>Digite uma palavra-chave ou escolha um exemplo para filtrar somente as perguntas frequentes.</p>
+          <p>Digite uma palavra-chave, escolha uma pergunta real ou filtre por grupo de perguntas.</p>
         </div>
       </div>
 
@@ -554,18 +561,18 @@
 
       <div class="chips" aria-label="Exemplos de busca">
         <span>Exemplos do que você pode buscar:</span>
-        <button class="chip" type="button" data-query="senha"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Senha</button>
-        <button class="chip" type="button" data-query="aluno"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Aluno</button>
-        <button class="chip" type="button" data-query="desconto"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Desconto</button>
-        <button class="chip" type="button" data-query="pagamento"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Pagamento</button>
-        <button class="chip" type="button" data-query="contrato"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Contrato</button>
+        <button class="chip" type="button" data-query="Esqueci minha senha"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Esqueci minha senha</button>
+        <button class="chip" type="button" data-query="Não aparece o nome do aluno"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Não aparece o aluno</button>
+        <button class="chip" type="button" data-query="Alteração do responsável financeiro"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Alteração do responsável</button>
+        <button class="chip" type="button" data-query="Botão Finalizar está cinza"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Botão Finalizar cinza</button>
+        <button class="chip" type="button" data-query="Como fazer assinatura eletrônica?"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Assinatura eletrônica</button>
       </div>
     </section>
 
     <div class="faq-meta">
       <div>
         <h2>Perguntas frequentes</h2>
-        <p>As perguntas seguem a base atual da página, com respostas reformuladas para consulta rápida.</p>
+        <p>Escolha um grupo para abrir suas perguntas ou use a busca acima para localizar uma dúvida específica.</p>
       </div>
     </div>
 
@@ -614,6 +621,7 @@
     const faqSearch = document.querySelector("#faqSearch");
     const clearSearch = document.querySelector("#clearSearch");
     const resultCount = document.querySelector("#resultCount");
+    let activeCategory = "all";
 
     function getAnswer(question) {
       return directAnswers[question.title] || question.answer.replace(/<[^>]+>/g, "");
@@ -656,16 +664,19 @@
       return haystack.includes(query);
     }
 
-    function renderFaq(query = "") {
+    function renderFaq(query = "", categoryFilter = activeCategory) {
       const normalized = normalize(query.trim());
       let total = 0;
       const categories = buildFaqCategories();
+      activeCategory = categoryFilter || "all";
 
-      stageLinks.innerHTML = categories
-        .map(category => `<a href="#${slug(category.title)}">${category.title}</a>`)
+      stageLinks.innerHTML = [
+        `<a href="#faqGroups" class="${activeCategory === "all" ? "is-active" : ""}" data-category="all">Todos os grupos</a>`,
+        ...categories.map(category => `<a href="#${slug(category.title)}" class="${activeCategory === category.title ? "is-active" : ""}" data-category="${category.title}">${category.title}</a>`)
+      ]
         .join("");
 
-      faqGroups.innerHTML = categories.map((category, categoryIndex) => {
+      faqGroups.innerHTML = categories.filter(category => activeCategory === "all" || category.title === activeCategory).map((category, categoryIndex) => {
         const questions = category.questions.filter(question => questionMatches(category, question, normalized));
         total += questions.length;
         if (!questions.length) return "";
@@ -696,19 +707,30 @@
           button.setAttribute("aria-expanded", item.classList.contains("open") ? "true" : "false");
         });
       });
+
+      stageLinks.querySelectorAll("[data-category]").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          activeCategory = link.dataset.category;
+          renderFaq(faqSearch.value, activeCategory);
+          faqGroups.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
     }
 
     faqSearch.addEventListener("input", () => renderFaq(faqSearch.value));
     clearSearch.addEventListener("click", () => {
       faqSearch.value = "";
-      renderFaq();
+      activeCategory = "all";
+      renderFaq("", "all");
       faqSearch.focus();
     });
 
     document.querySelectorAll(".chip").forEach(chip => {
       chip.addEventListener("click", () => {
         faqSearch.value = chip.dataset.query;
-        renderFaq(faqSearch.value);
+        activeCategory = "all";
+        renderFaq(faqSearch.value, "all");
         faqSearch.focus();
       });
     });
