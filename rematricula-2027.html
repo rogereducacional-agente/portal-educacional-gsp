@@ -97,34 +97,16 @@
     }
 
     .hero {
-      min-height: 274px;
-      background: #006d54;
+      background: #fff;
       overflow: hidden;
       position: relative;
       color: #fff;
     }
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("assets/rematricula-2027/page2/banner-rematricula-referencia-cleide.jpg") center / cover no-repeat;
+      display: none;
     }
     .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -4%;
-      width: 58%;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 106% 102%, #67cc48 0 112px, transparent 114px),
-        radial-gradient(circle at 100% -18%, #ffd321 0 84px, transparent 86px),
-        radial-gradient(circle at 98% 16%, #0a7f63 0 28px, transparent 30px),
-        #006d54;
-      border-radius: 0 48% 50% 0 / 0 56% 56% 0;
-      box-shadow: 34px 0 52px rgba(0, 109, 84, .28);
-      opacity: .99;
+      display: none;
     }
     .hero-inner {
       position: relative;
@@ -192,6 +174,11 @@
       border-radius: 999px;
       background: #ffd321;
       transform: rotate(-5deg);
+    }
+    .hero-reference {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     main { max-width: var(--max); margin: 0 auto; padding: 40px 24px 56px; }
@@ -306,10 +293,8 @@
     @media (max-width: 680px) {
       .topbar { padding: 12px 16px; }
       .brand img { width: 142px; }
-      .hero { min-height: 390px; }
-      .hero::before { background: linear-gradient(180deg, rgba(0,109,84,.74) 0%, rgba(0,109,84,.56) 42%, rgba(0,109,84,.15) 100%), url("assets/rematricula-2027/page2/banner-rematricula-referencia-cleide.jpg") center bottom / cover no-repeat; }
-      .hero::after { left: -34%; width: 108%; height: 72%; border-radius: 0 0 48% 0 / 0 0 30% 0; }
-      .hero-inner { min-height: 360px; padding: 30px 20px 138px; align-content: start; }
+      .hero { min-height: 0; }
+      .hero-inner { display: none; }
       .hero-knowledge-note { display: none; }
       .hero h1 { font-size: 34px; max-width: 520px; }
       .hero p { font-size: 15px; }
@@ -337,14 +322,11 @@
   </header>
 
   <section class="hero" id="inicio">
-    <div class="hero-inner">
-      <p class="eyebrow">Rematrícula 2027</p>
-      <h1>Tudo o que você precisa sobre a <span>Rematrícula 2027</span></h1>
-      <p>Orientações, etapas, materiais, dúvidas e suporte para conduzir o processo de rematrícula.</p>
-    </div>
-    <div class="hero-knowledge-note" aria-label="Mensagem sobre busca de conhecimento">
-      <strong>Conhecimento para encontrar o caminho!</strong>
-    </div>
+    <img
+      class="hero-reference"
+      src="assets/rematricula-2027/page2/banner-rematricula-2027-referencia-exata.jpg"
+      alt="Rematrícula 2027: tudo o que você precisa sobre a Rematrícula 2027. Orientações, etapas, materiais, dúvidas e suporte para conduzir o processo de rematrícula. Juntos vamos mais longe!"
+    />
   </section>
 
   <main>
