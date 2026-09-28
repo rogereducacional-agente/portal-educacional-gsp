@@ -2588,6 +2588,38 @@
       box-shadow: 0 12px 24px rgba(31, 114, 189, .22);
     }
 
+    .home-timeline-callout {
+      position: relative;
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 18px 38px rgba(20, 33, 61, .10);
+      overflow: hidden;
+    }
+
+    .home-timeline-callout img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .home-timeline-callout .timeline-access {
+      position: absolute;
+      left: 9.3%;
+      top: 39.6%;
+      width: 17.3%;
+      height: 10.8%;
+      border-radius: 999px;
+      font-size: 0;
+      color: transparent;
+    }
+
+    .home-timeline-callout .timeline-access:focus-visible {
+      outline: 3px solid #123b76;
+      outline-offset: 3px;
+    }
+
     .support-assist-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(430px, .98fr);
@@ -4115,6 +4147,11 @@
       <div class="comunicados-footer-action">
         <a class="btn" href="comunicados.html">Comunicados » Ler todos os Comunicados</a>
       </div>
+    </section>
+
+    <section class="home-timeline-callout" aria-label="Timeline Educacional">
+      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Confira o cronograma do setor Acadêmico Educacional">
+      <a class="timeline-access" href="timeline-educacional.html">Acessar Timeline Educacional</a>
     </section>
 
     <section class="support-room-block support-assist-section" id="salas-validacao">
