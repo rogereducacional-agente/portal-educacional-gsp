@@ -2745,10 +2745,13 @@
       overflow: hidden;
       min-height: 100%;
       padding: 0;
-      border: 1px solid #d7e7f7;
+      border: 1px solid #cfe4f8;
       border-radius: 8px;
-      background: linear-gradient(135deg, #ffffff 0%, #eef7ff 58%, #1f72bd 100%);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(255, 210, 28, .55) 0 32px, transparent 33px),
+        radial-gradient(circle at 86% 20%, rgba(74, 163, 223, .38) 0 46px, transparent 47px),
+        linear-gradient(135deg, #ffffff 0%, #f4fbff 42%, #d9efff 72%, #90c8f4 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), 0 12px 26px rgba(31, 114, 189, .10);
       display: grid;
       grid-template-columns: 128px minmax(0, 1fr);
       align-items: stretch;
@@ -2758,16 +2761,10 @@
     .roger-assist-card::before {
       content: "";
       position: absolute;
-      top: -18px;
-      right: -18px;
-      width: 78px;
-      height: 78px;
-      border-radius: 999px;
-      background: #1f72bd;
-      box-shadow:
-        -9px 13px 0 #f3c51d,
-        -19px 24px 0 #4aa3df;
-      opacity: .9;
+      inset: 0 0 0 128px;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.64) 50%, rgba(255,255,255,.2) 100%),
+        radial-gradient(circle at 96% 96%, rgba(15, 101, 168, .35) 0 64px, transparent 65px);
       z-index: -1;
     }
 
@@ -2785,12 +2782,37 @@
     .roger-card-copy {
       position: relative;
       z-index: 1;
-      padding: 18px 58px 18px 18px;
+      padding: 16px 48px 16px 18px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       text-align: left;
+    }
+
+    .roger-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 7px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #0b7f54;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(11,127,84,.18);
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .roger-status-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0bbf72;
+      box-shadow: 0 0 0 4px rgba(11,191,114,.14);
     }
 
     .roger-assist-card h3 {
@@ -2811,11 +2833,42 @@
     }
 
     .roger-assist-card p {
-      max-width: 300px;
-      margin: 9px 0 12px;
-      color: #53657c;
+      max-width: 320px;
+      margin: 8px 0 10px;
+      color: #40556f;
       font-size: 12px;
-      line-height: 1.4;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .roger-support-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .roger-support-points li {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 24px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #123b76;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(31,114,189,.14);
+      font-size: 10.5px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .roger-support-points li::before {
+      content: "✓";
+      color: #0b8f78;
+      font-weight: 950;
     }
 
     .roger-assist-card .btn {
@@ -4151,9 +4204,15 @@
         <aside class="roger-assist-card" id="roger" aria-label="Fale com o Roger">
           <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
           <div class="roger-card-copy">
+            <span class="roger-status-pill">Disponível agora</span>
             <h3>Ainda não encontrou o que procura?</h3>
             <strong class="roger-signature">O Roger pode ajudar.</strong>
-            <p>Consulte o portal, encontre uma orientação ou peça ajuda para encontrar o caminho certo.</p>
+            <p>Receba apoio para localizar orientações, processos e materiais do Portal Interno Educacional GSP.</p>
+            <ul class="roger-support-points" aria-label="Destaques do suporte Roger">
+              <li>Suporte 24/7</li>
+              <li>Orientação personalizada</li>
+              <li>Respostas rápidas</li>
+            </ul>
             <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com o Roger <span aria-hidden="true">→</span></a>
           </div>
         </aside>
