@@ -36,20 +36,19 @@
     h1 { margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1; letter-spacing: 0; }
     .lead { max-width: 760px; margin: 14px 0 0; color: #edf6ff; font-size: 17px; }
     main { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 32px 0 72px; }
-    .comms-search { position: relative; isolation: isolate; margin-bottom: 24px; padding: clamp(24px, 4vw, 38px); border-radius: 8px; overflow: hidden; color: #fff; background: linear-gradient(112deg, #07306f 0%, #0d4f90 46%, #007b86 100%); box-shadow: 0 20px 46px rgba(20,33,61,.16); }
-    .comms-search::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 8% 18%, rgba(255,210,28,.34) 0 8%, transparent 9%), radial-gradient(circle at 96% 20%, rgba(242,111,43,.24) 0 16%, transparent 17%), radial-gradient(circle at 86% 100%, rgba(0,138,115,.48) 0 28%, transparent 29%); }
-    .comms-search::after { content: ""; position: absolute; right: clamp(18px, 4vw, 52px); top: 22px; width: clamp(180px, 24vw, 300px); aspect-ratio: 1.3; z-index: -1; border-radius: 42% 58% 48% 52%; background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.04)); border: 1px solid rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
-    .search-eyebrow { display: inline-flex; align-items: center; min-height: 24px; margin: 0 0 8px; padding: 3px 10px; border-radius: 999px; background: #d9f7e7; color: #006c57; font-size: 12px; font-weight: 950; text-transform: uppercase; letter-spacing: 0; }
-    .comms-search h2 { max-width: 720px; margin: 0; font-size: clamp(27px, 4.4vw, 50px); line-height: 1.02; letter-spacing: 0; }
-    .comms-search h2 span { display: block; color: #ffd21c; font-style: italic; }
-    .comms-search p { max-width: 790px; margin: 12px 0 0; color: rgba(255,255,255,.92); font-size: clamp(14px, 1.7vw, 17px); font-weight: 720; }
-    .toolbar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 10px; align-items: center; max-width: 900px; margin-top: 22px; padding: 8px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; background: #fff; box-shadow: 0 18px 34px rgba(3, 22, 52, .22); }
-    .search-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; background: var(--orange); font-weight: 950; }
+    .comms-search { position: relative; isolation: isolate; margin-bottom: 24px; min-height: 274px; padding: 30px 38px 26px 132px; border-radius: 8px; overflow: hidden; color: var(--ink); background: #fff url("assets/gsp/comunicados-search-clean.jpg") center / cover no-repeat; box-shadow: 0 20px 46px rgba(20,33,61,.13); }
+    .comms-search::before { content: "⌕"; position: absolute; left: 28px; top: 38px; width: 82px; height: 82px; display: grid; place-items: center; border-radius: 50%; background: #d31224; color: #fff; font-size: 54px; font-weight: 950; box-shadow: 0 0 0 10px #fff, 0 14px 26px rgba(211, 18, 36, .20); }
+    .search-eyebrow { display: inline-flex; align-items: center; min-height: 24px; margin: 0 0 3px; padding: 3px 13px; border-radius: 999px; background: #b9f0b5; color: #00724f; font-size: 13px; font-weight: 950; text-transform: uppercase; letter-spacing: 0; }
+    .comms-search h2 { max-width: 650px; margin: 0; color: #0c2454; font-size: clamp(28px, 3.4vw, 42px); line-height: .98; letter-spacing: 0; }
+    .comms-search h2 span { display: block; color: #d31224; font-style: italic; }
+    .comms-search p { max-width: 730px; margin: 11px 0 0; color: #24415f; font-size: clamp(13px, 1.35vw, 15px); font-weight: 760; }
+    .toolbar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 10px; align-items: center; max-width: 910px; margin-top: 20px; padding: 9px; border: 1px solid #f5cdd1; border-radius: 999px; background: rgba(255,255,255,.98); box-shadow: 0 18px 34px rgba(166, 10, 24, .12); }
+    .search-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; background: #d31224; font-weight: 950; }
     .toolbar input { width: 100%; min-height: 42px; border: 0; outline: 0; padding: 0 6px; font: inherit; color: var(--ink); background: transparent; }
     .counter { padding: 0 10px; color: #697995; font-size: 12px; font-weight: 900; white-space: nowrap; }
-    .search-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--orange); color: #fff; font: inherit; font-size: 13px; font-weight: 950; cursor: pointer; white-space: nowrap; }
+    .search-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 26px; border: 0; border-radius: 999px; background: #d31224; color: #fff; font: inherit; font-size: 13px; font-weight: 950; cursor: pointer; white-space: nowrap; }
     .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .search-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(255,255,255,.12); color: #fff; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; backdrop-filter: blur(8px); }
+    .search-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 15px; border: 1px solid #f7d7db; border-radius: 999px; background: rgba(255,236,239,.88); color: #0c2454; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; }
     .timeline { display: grid; gap: 18px; }
     .post { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 22px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
     .post-media { min-height: 190px; border-radius: var(--radius); overflow: hidden; background: #eaf2f9; }
@@ -66,7 +65,8 @@
       .site-menu { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
       .site-menu::-webkit-scrollbar { display: none; }
       .hero { min-height: 220px; padding: 28px 18px; }
-      .comms-search { padding: 22px 16px; }
+      .comms-search { min-height: 350px; padding: 128px 16px 22px; background-position: center; }
+      .comms-search::before { left: 28px; top: 28px; width: 72px; height: 72px; font-size: 46px; }
       .toolbar { grid-template-columns: auto minmax(0, 1fr); border-radius: 18px; }
       .counter { grid-column: 1 / -1; text-align: center; }
       .search-button { grid-column: 1 / -1; width: 100%; }
@@ -112,6 +112,7 @@
         <button class="search-chip" type="button" data-query="Reserva de Vaga">Reserva de Vaga</button>
         <button class="search-chip" type="button" data-query="Amanda Bindilatti">Amanda Bindilatti</button>
         <button class="search-chip" type="button" data-query="Acadêmico">Acadêmico</button>
+        <button class="search-chip" type="button" data-query="Orientação">Orientação</button>
       </div>
     </section>
     <section class="timeline" id="postTimeline" aria-label="Lista de comunicados"></section>
