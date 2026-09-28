@@ -118,36 +118,17 @@
     .hero-copy {
       position: absolute;
       z-index: 2;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 52%;
-      display: grid;
-      align-content: center;
-      padding: clamp(24px, 3vw, 42px) clamp(18px, 3.1vw, 48px) clamp(22px, 2.8vw, 38px) clamp(58px, 6.4vw, 86px);
-      background:
-        radial-gradient(circle at 101% 101%, #5ec743 0 92px, transparent 94px),
-        radial-gradient(circle at 101% 3%, #ffd321 0 48px, transparent 50px),
-        #006d54;
-      border-radius: 0 38% 42% 0 / 0 54% 56% 0;
-      box-shadow: 24px 0 34px rgba(0, 71, 54, .16);
+      left: 6.7%;
+      top: 13%;
+      width: 47%;
+      color: #fff;
+      pointer-events: none;
     }
     .hero-copy::before,
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      left: clamp(30px, 4.8vw, 62px);
-      width: clamp(28px, 3vw, 42px);
-      height: 7px;
-      border-radius: 999px;
-      background: #ffd321;
-      transform-origin: right center;
-    }
-    .hero-copy::before { top: 40%; transform: rotate(28deg); }
-    .hero-copy::after { top: 50%; transform: rotate(-16deg); }
+    .hero-copy::after { display: none; }
     .hero-kicker {
-      margin: 0 0 10px;
-      font-size: clamp(13px, 1.24vw, 17px);
+      margin: 0 0 clamp(8px, .8vw, 12px);
+      font-size: clamp(13px, 1.16vw, 17px);
       font-weight: 900;
       letter-spacing: .055em;
       text-transform: uppercase;
@@ -155,10 +136,10 @@
     }
     .hero-title {
       margin: 0;
-      max-width: 610px;
+      max-width: 670px;
       color: #fff;
-      font-size: clamp(27px, 2.8vw, 40px);
-      line-height: 1.02;
+      font-size: clamp(28px, 2.62vw, 37px);
+      line-height: 1.03;
       font-weight: 950;
       letter-spacing: 0;
       text-shadow: 0 2px 0 rgba(0, 48, 38, .18);
@@ -169,10 +150,10 @@
       margin-top: 2px;
       color: #ffd321;
       font-family: "Segoe Print", "Comic Sans MS", cursive;
-      font-size: 1.22em;
+      font-size: 1.34em;
       font-style: italic;
       font-weight: 900;
-      line-height: .98;
+      line-height: .96;
       transform: rotate(-1.9deg);
       text-shadow: 0 2px 0 rgba(0, 63, 49, .25);
     }
@@ -186,8 +167,8 @@
       transform: rotate(-4deg);
     }
     .hero-subtitle {
-      max-width: 540px;
-      margin: clamp(10px, 1.25vw, 16px) 0 0;
+      max-width: 610px;
+      margin: clamp(12px, 1.15vw, 16px) 0 0;
       color: #fff;
       font-size: clamp(14px, 1.24vw, 17px);
       line-height: 1.45;
@@ -197,23 +178,19 @@
     .hero-note {
       position: absolute;
       z-index: 2;
-      right: 0;
-      top: 22%;
-      bottom: 0;
-      width: 24%;
-      min-width: 248px;
+      right: 3.4%;
+      top: 34%;
+      width: 18.5%;
       display: grid;
       place-items: center;
-      padding: 22px 44px 34px 28px;
-      background: #006d54;
-      border-radius: 58% 0 0 42% / 60% 0 0 42%;
+      pointer-events: none;
     }
     .hero-note strong {
       display: block;
-      max-width: 210px;
+      max-width: 215px;
       color: #fff;
       font-family: "Segoe Print", "Comic Sans MS", cursive;
-      font-size: clamp(23px, 2.05vw, 32px);
+      font-size: clamp(24px, 2.08vw, 33px);
       font-weight: 900;
       line-height: 1.05;
       text-align: center;
@@ -345,11 +322,11 @@
       .topbar { padding: 12px 16px; }
       .brand img { width: 142px; }
       .hero { min-height: 0; aspect-ratio: 2560 / 760; }
-      .hero-copy { width: 72%; padding: 24px 22px 28px 28px; }
+      .hero-copy { left: 5%; top: 10%; width: 62%; }
       .hero-copy::before, .hero-copy::after { display: none; }
       .hero-title { font-size: 30px; max-width: 430px; }
       .hero-subtitle { font-size: 13px; max-width: 390px; }
-      .hero-note { min-width: 0; width: 34%; padding: 14px 14px 18px; }
+      .hero-note { right: 2%; top: 36%; width: 30%; }
       .hero-note strong { font-size: 18px; }
       main { padding: 26px 14px 42px; }
       .material-grid, .stage-list { grid-template-columns: 1fr; }
@@ -377,8 +354,8 @@
   <section class="hero" id="inicio">
     <img
       class="hero-reference"
-      src="assets/rematricula-2027/page2/banner-rematricula-2027-text-clean.jpg"
-      alt="Estudante sorrindo com livros em uma sala de aula"
+      src="assets/rematricula-2027/page2/banner-rematricula-2027-clean-exact.jpg"
+      alt="Estudante sorrindo com livros em ambiente escolar"
     />
     <div class="hero-copy">
       <p class="hero-kicker">Rematrícula 2027</p>
