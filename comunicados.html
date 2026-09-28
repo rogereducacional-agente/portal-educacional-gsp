@@ -36,9 +36,20 @@
     h1 { margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1; letter-spacing: 0; }
     .lead { max-width: 760px; margin: 14px 0 0; color: #edf6ff; font-size: 17px; }
     main { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 32px 0 72px; }
-    .toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; margin-bottom: 18px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 10px 24px rgba(20,33,61,.07); }
-    .toolbar input { width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: var(--radius); padding: 0 14px; font: inherit; color: var(--ink); background: #f8fafc; }
-    .counter { color: var(--ink-soft); font-size: 13px; font-weight: 850; white-space: nowrap; }
+    .comms-search { position: relative; isolation: isolate; margin-bottom: 24px; padding: clamp(24px, 4vw, 38px); border-radius: 8px; overflow: hidden; color: #fff; background: linear-gradient(112deg, #07306f 0%, #0d4f90 46%, #007b86 100%); box-shadow: 0 20px 46px rgba(20,33,61,.16); }
+    .comms-search::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 8% 18%, rgba(255,210,28,.34) 0 8%, transparent 9%), radial-gradient(circle at 96% 20%, rgba(242,111,43,.24) 0 16%, transparent 17%), radial-gradient(circle at 86% 100%, rgba(0,138,115,.48) 0 28%, transparent 29%); }
+    .comms-search::after { content: ""; position: absolute; right: clamp(18px, 4vw, 52px); top: 22px; width: clamp(180px, 24vw, 300px); aspect-ratio: 1.3; z-index: -1; border-radius: 42% 58% 48% 52%; background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.04)); border: 1px solid rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
+    .search-eyebrow { display: inline-flex; align-items: center; min-height: 24px; margin: 0 0 8px; padding: 3px 10px; border-radius: 999px; background: #d9f7e7; color: #006c57; font-size: 12px; font-weight: 950; text-transform: uppercase; letter-spacing: 0; }
+    .comms-search h2 { max-width: 720px; margin: 0; font-size: clamp(27px, 4.4vw, 50px); line-height: 1.02; letter-spacing: 0; }
+    .comms-search h2 span { display: block; color: #ffd21c; font-style: italic; }
+    .comms-search p { max-width: 790px; margin: 12px 0 0; color: rgba(255,255,255,.92); font-size: clamp(14px, 1.7vw, 17px); font-weight: 720; }
+    .toolbar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 10px; align-items: center; max-width: 900px; margin-top: 22px; padding: 8px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; background: #fff; box-shadow: 0 18px 34px rgba(3, 22, 52, .22); }
+    .search-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; background: var(--orange); font-weight: 950; }
+    .toolbar input { width: 100%; min-height: 42px; border: 0; outline: 0; padding: 0 6px; font: inherit; color: var(--ink); background: transparent; }
+    .counter { padding: 0 10px; color: #697995; font-size: 12px; font-weight: 900; white-space: nowrap; }
+    .search-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--orange); color: #fff; font: inherit; font-size: 13px; font-weight: 950; cursor: pointer; white-space: nowrap; }
+    .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .search-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(255,255,255,.12); color: #fff; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; backdrop-filter: blur(8px); }
     .timeline { display: grid; gap: 18px; }
     .post { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 22px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
     .post-media { min-height: 190px; border-radius: var(--radius); overflow: hidden; background: #eaf2f9; }
@@ -55,7 +66,10 @@
       .site-menu { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
       .site-menu::-webkit-scrollbar { display: none; }
       .hero { min-height: 220px; padding: 28px 18px; }
-      .toolbar { grid-template-columns: 1fr; }
+      .comms-search { padding: 22px 16px; }
+      .toolbar { grid-template-columns: auto minmax(0, 1fr); border-radius: 18px; }
+      .counter { grid-column: 1 / -1; text-align: center; }
+      .search-button { grid-column: 1 / -1; width: 100%; }
       .post { grid-template-columns: 1fr; padding: 14px; }
       .post-media { min-height: 170px; }
     }
@@ -83,10 +97,23 @@
     </div>
   </section>
   <main>
-    <div class="toolbar" aria-label="Filtro de comunicados">
-      <input id="postSearch" type="search" placeholder="Buscar comunicado por título, descrição, autor ou data..." autocomplete="off">
-      <span class="counter" id="postCounter"></span>
-    </div>
+    <section class="comms-search" aria-label="Busca de comunicados">
+      <p class="search-eyebrow">Busca rápida</p>
+      <h2>Encontre o comunicado que precisa <span>de forma rápida e fácil!</span></h2>
+      <p>Use a busca para encontrar comunicados de orientações, atualizações de processos, prazos, responsáveis e materiais publicados para a equipe GSP.</p>
+      <div class="toolbar" aria-label="Filtro de comunicados">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="postSearch" type="search" placeholder="Digite aqui o que você procura..." autocomplete="off">
+        <span class="counter" id="postCounter"></span>
+        <button class="search-button" id="postSearchButton" type="button">Buscar →</button>
+      </div>
+      <div class="search-examples" aria-label="Exemplos de busca">
+        <button class="search-chip" type="button" data-query="Ação Nota em Dia">Ação Nota em Dia</button>
+        <button class="search-chip" type="button" data-query="Reserva de Vaga">Reserva de Vaga</button>
+        <button class="search-chip" type="button" data-query="Amanda Bindilatti">Amanda Bindilatti</button>
+        <button class="search-chip" type="button" data-query="Acadêmico">Acadêmico</button>
+      </div>
+    </section>
     <section class="timeline" id="postTimeline" aria-label="Lista de comunicados"></section>
     <p class="empty-state" id="emptyState">Nenhum comunicado encontrado com esse termo.</p>
   </main>
@@ -118,8 +145,10 @@
     ];
     const timeline = document.getElementById("postTimeline");
     const searchInput = document.getElementById("postSearch");
+    const searchButton = document.getElementById("postSearchButton");
     const counter = document.getElementById("postCounter");
     const emptyState = document.getElementById("emptyState");
+    const searchChips = Array.from(document.querySelectorAll(".search-chip"));
     function formatDate(dateValue) {
       const parts = dateValue.split("-").map(Number);
       return new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(parts[0], parts[1] - 1, parts[2]));
@@ -174,6 +203,20 @@
       emptyState.style.display = filtered.length ? "none" : "block";
     }
     searchInput.addEventListener("input", event => renderPosts(event.target.value));
+    searchButton.addEventListener("click", () => renderPosts(searchInput.value));
+    searchInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        renderPosts(searchInput.value);
+      }
+    });
+    searchChips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        searchInput.value = chip.dataset.query || chip.textContent.trim();
+        renderPosts(searchInput.value);
+        searchInput.focus();
+      });
+    });
     renderPosts();
   </script>
 </body>
