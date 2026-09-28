@@ -6,40 +6,696 @@
   <meta name="robots" content="noindex,nofollow">
   <title>FAQ | Validação Portal Educacional GSP</title>
   <style>
-    :root { --ink:#14213d; --ink-soft:#40516f; --paper:#f4f7fb; --surface:#fff; --line:#d9e2ee; --green:#008a73; --blue:#2a62c9; --purple:#7236c8; --orange:#f26f2b; --yellow:#ffd21c; --shadow:0 18px 46px rgba(20,33,61,.12); --radius:8px; --max:1160px; }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5} a{color:inherit;text-decoration:none} button,input{font:inherit} img{max-width:100%;display:block}
-    .site-header{position:sticky;top:0;z-index:20;height:72px;display:grid;grid-template-columns:190px minmax(0,1fr);align-items:center;gap:24px;padding:0 clamp(18px,4vw,56px);background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 8px 24px rgba(20,33,61,.08);backdrop-filter:blur(12px)}
-    .site-logo img{width:150px;height:auto}.site-menu{display:flex;align-items:center;justify-content:flex-end;gap:18px;min-width:0}.site-menu a{display:inline-flex;align-items:center;min-height:40px;color:#16213f;font-size:13px;font-weight:900;white-space:nowrap}.site-menu a.active{color:var(--green);border-bottom:4px solid var(--green)}
-    .hero{background:linear-gradient(90deg,rgba(15,36,77,.94),rgba(114,54,200,.72)),url("assets/gsp/hero-banner-sem-icones.png") center/cover no-repeat;color:#fff;min-height:270px;display:grid;align-items:center;padding:42px clamp(22px,5vw,72px)}.hero-inner{width:min(100%,var(--max));margin:0 auto}.eyebrow{margin:0 0 10px;color:#dcd0ff;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:0}h1{margin:0;font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:0}.lead{max-width:760px;margin:14px 0 0;color:#f3f0ff;font-size:17px}
-    main{width:min(100% - 32px,var(--max));margin:0 auto;padding:32px 0 72px}.search-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:18px;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:0 10px 24px rgba(20,33,61,.07)}.search-panel input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:var(--radius);padding:0 14px;color:var(--ink);background:#f8fafc}.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:var(--radius);padding:0 18px;background:var(--green);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 10px 20px rgba(0,124,105,.18)}
-    .stage-nav{display:flex;gap:8px;margin-bottom:24px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.stage-nav::-webkit-scrollbar{display:none}.stage-nav a{flex:0 0 auto;min-height:34px;display:inline-flex;align-items:center;padding:6px 12px;border:1px solid #dfe8f4;border-radius:999px;background:#fff;color:#24405f;font-size:12px;font-weight:900}.faq-groups{display:grid;gap:24px}.faq-group{display:grid;gap:12px}.faq-group h2{margin:0;color:#081b42;font-size:24px;line-height:1.15}.faq-item{overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.faq-item button{width:100%;min-height:62px;display:flex;justify-content:space-between;gap:14px;align-items:center;padding:16px 18px;border:0;border-left:6px solid var(--purple);background:#fff;color:var(--ink);text-align:left;font-weight:950;cursor:pointer}.faq-toggle{flex:0 0 30px;width:30px;height:30px;display:grid;place-items:center;border-radius:999px;background:#f0e8ff;color:var(--purple);font-size:18px}.faq-body{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1fr) minmax(0,.9fr);gap:14px;padding:0 18px 18px}.faq-item.open .faq-body{display:grid}.check,.answer,.escalate{padding:14px;border-radius:var(--radius);color:var(--ink-soft);font-size:14px}.check{background:#f5efff;border:1px solid #dfcff8}.answer{background:#eefaf7;border:1px solid #c9e9df}.escalate{background:#fff8ec;border:1px solid #ead9b7}.check ul{margin:8px 0 0;padding-left:18px}.check strong,.answer strong,.escalate strong{display:block;margin-bottom:6px;color:var(--ink)}.empty-card{padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 10px 24px rgba(20,33,61,.07)}.footer-line{height:6px;margin-top:38px;background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%)}
-    @media(max-width:900px){.site-header{position:static;height:auto;grid-template-columns:1fr;gap:10px;padding:12px 16px}.site-menu{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.site-menu::-webkit-scrollbar{display:none}.hero{min-height:220px;padding:28px 18px}.search-panel,.faq-body{grid-template-columns:1fr}.faq-item button{align-items:flex-start}}
+    :root {
+      --ink: #102044;
+      --ink-soft: #40516f;
+      --paper: #f4f7fb;
+      --surface: #fff;
+      --line: #d9e2ee;
+      --green: #008a73;
+      --blue: #2a62c9;
+      --orange: #f26f2b;
+      --yellow: #ffd21c;
+      --red: #d70f2f;
+      --shadow: 0 18px 46px rgba(20, 33, 61, .12);
+      --radius: 8px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 72px;
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+      padding: 0 clamp(18px, 4vw, 56px);
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(20, 33, 61, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    .site-logo img { width: 150px; height: auto; }
+
+    .site-menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .site-menu a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      color: #16213f;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .site-menu a.active {
+      color: var(--green);
+      border-bottom: 4px solid var(--green);
+    }
+
+    .hero {
+      min-height: 280px;
+      display: grid;
+      align-items: center;
+      padding: 42px clamp(22px, 5vw, 72px);
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(15, 36, 77, .94), rgba(15, 36, 77, .74) 50%, rgba(0, 138, 115, .76)),
+        url("assets/gsp/hero-banner-sem-icones.png") center/cover no-repeat;
+    }
+
+    .hero-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      margin: 0 0 12px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: #dff8f3;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: #f3f7ff;
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    main {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+
+    .faq-search {
+      position: relative;
+      overflow: hidden;
+      margin-top: -74px;
+      margin-bottom: 30px;
+      padding: 28px 30px;
+      border: 1px solid rgba(217, 226, 238, .92);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88) 52%, rgba(255, 255, 255, .52)),
+        url("assets/gsp/comunicados-search-clean.jpg") center/cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-search::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -58px;
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      border: 28px solid rgba(0, 138, 115, .14);
+      pointer-events: none;
+    }
+
+    .search-title {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .search-icon {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 14px 28px rgba(215, 15, 47, .24);
+    }
+
+    .search-icon svg {
+      width: 34px;
+      height: 34px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .search-title small {
+      display: inline-flex;
+      width: max-content;
+      margin-bottom: 2px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #b8f1ca;
+      color: #085b44;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .search-title h2 {
+      margin: 0;
+      color: #102044;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .search-title h2 em {
+      color: var(--red);
+      font-style: italic;
+    }
+
+    .search-title p {
+      max-width: 720px;
+      margin: 8px 0 0;
+      color: #24405f;
+      font-weight: 800;
+    }
+
+    .search-box {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto auto;
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #f1ccd5;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 18px 38px rgba(215, 15, 47, .12);
+    }
+
+    .search-dot {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+    }
+
+    .search-dot svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      outline: 0;
+      color: var(--ink);
+      background: transparent;
+      font-size: 16px;
+    }
+
+    .result-count {
+      color: #60708d;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 22px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 950;
+      box-shadow: 0 12px 24px rgba(215, 15, 47, .20);
+    }
+
+    .chips {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chips span {
+      flex: 0 0 100%;
+      color: #183453;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .chip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #f1ccd5;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: #fff4f6;
+      color: #102044;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .chip svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .stage-nav {
+      display: flex;
+      gap: 8px;
+      margin: 0 0 24px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .stage-nav::-webkit-scrollbar { display: none; }
+
+    .stage-nav a {
+      flex: 0 0 auto;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid #dfe8f4;
+      border-radius: 999px;
+      background: #fff;
+      color: #24405f;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .faq-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin: 0 0 18px;
+    }
+
+    .faq-meta h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .faq-meta p {
+      max-width: 600px;
+      margin: 6px 0 0;
+      color: var(--ink-soft);
+    }
+
+    .faq-groups {
+      display: grid;
+      gap: 26px;
+    }
+
+    .faq-group {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-group h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      color: #081b42;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .faq-group h3 span {
+      display: inline-grid;
+      place-items: center;
+      min-width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: #eaf8f5;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(20, 33, 61, .07);
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 68px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 34px;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 18px;
+      border: 0;
+      border-left: 6px solid var(--green);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      font-weight: 950;
+    }
+
+    .faq-question small {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--green);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .faq-toggle {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #eaf8f5;
+      color: var(--green);
+      font-size: 20px;
+      line-height: 1;
+      transition: transform .18s ease;
+    }
+
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px 24px;
+      color: #35486a;
+      font-size: 15px;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    .faq-answer p {
+      max-width: 880px;
+      margin: 0;
+    }
+
+    .empty-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .07);
+    }
+
+    .footer-line {
+      height: 6px;
+      margin-top: 38px;
+      background: linear-gradient(90deg, var(--blue) 0 24%, var(--green) 24% 50%, var(--yellow) 50% 74%, var(--orange) 74% 100%);
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: static;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 12px 16px;
+      }
+      .site-menu {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .site-menu::-webkit-scrollbar { display: none; }
+      .hero {
+        min-height: 250px;
+        padding: 30px 18px 86px;
+      }
+      main {
+        width: min(100% - 24px, var(--max));
+      }
+      .faq-search {
+        margin-top: -70px;
+        padding: 22px 18px;
+      }
+      .search-title {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .search-icon {
+        width: 58px;
+        height: 58px;
+      }
+      .search-box {
+        grid-template-columns: 42px minmax(0, 1fr);
+        border-radius: var(--radius);
+      }
+      .search-dot {
+        width: 42px;
+        height: 42px;
+      }
+      .result-count, .btn {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+      .faq-meta { display: block; }
+    }
   </style>
 </head>
 <body>
-  <header class="site-header"><a class="site-logo" href="validacao-alteracoes.html#inicio" aria-label="Great Schools Platform"><img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform"></a><nav class="site-menu" aria-label="Navegação superior"><a href="validacao-alteracoes.html#inicio">Início</a><a href="rematricula-2027.html">Rematrícula 2027</a><a href="comunicados.html">Comunicados</a><a href="treinamentos-e-guias.html">Processos e Materiais</a><a class="active" href="faq-validacao.html">FAQ</a><a href="validacao-alteracoes.html#salas-validacao">Suporte</a></nav></header>
-  <section class="hero"><div class="hero-inner"><p class="eyebrow">Dúvidas e respostas</p><h1>FAQ</h1><p class="lead">Consulte perguntas frequentes da Rematrícula 2027 por etapa do guia, com resposta segura, pontos de conferência e critérios de escalação.</p></div></section>
-  <main><div class="search-panel"><input id="faqSearch" type="search" placeholder="Buscar pergunta: senha, aluno, desconto, pagamento, contrato..." autocomplete="off"><button class="btn" id="clearSearch">Limpar</button></div><nav class="stage-nav" id="stageLinks" aria-label="Etapas do FAQ"></nav><div class="faq-groups" id="faqGroups"></div></main>
+  <header class="site-header">
+    <a class="site-logo" href="validacao-alteracoes.html#inicio" aria-label="Great Schools Platform">
+      <img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform">
+    </a>
+    <nav class="site-menu" aria-label="Navegação superior">
+      <a href="validacao-alteracoes.html#inicio">Início</a>
+      <a href="rematricula-2027.html">Rematrícula 2027</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="treinamentos-e-guias.html">Processos e Materiais</a>
+      <a class="active" href="faq-validacao.html">FAQ</a>
+      <a href="validacao-alteracoes.html#salas-validacao">Suporte</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Dúvidas e respostas</p>
+      <h1>FAQ</h1>
+      <p class="lead">Perguntas frequentes da Rematrícula 2027 em formato direto, objetivo e fácil de consultar.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="faq-search" aria-labelledby="faqSearchTitle">
+      <div class="search-title">
+        <div class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+        </div>
+        <div>
+          <small>Busca rápida</small>
+          <h2 id="faqSearchTitle">Encontre a resposta <em>sem perder tempo.</em></h2>
+          <p>Digite uma palavra-chave ou escolha um exemplo para filtrar somente as perguntas frequentes.</p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <span class="search-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+        </span>
+        <input id="faqSearch" type="search" placeholder="Digite aqui sua dúvida: senha, aluno, desconto, pagamento..." autocomplete="off">
+        <span class="result-count" id="resultCount">0 perguntas</span>
+        <button class="btn" id="clearSearch" type="button">Limpar</button>
+      </div>
+
+      <div class="chips" aria-label="Exemplos de busca">
+        <span>Exemplos do que você pode buscar:</span>
+        <button class="chip" type="button" data-query="senha"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Senha</button>
+        <button class="chip" type="button" data-query="aluno"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Aluno</button>
+        <button class="chip" type="button" data-query="desconto"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Desconto</button>
+        <button class="chip" type="button" data-query="pagamento"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Pagamento</button>
+        <button class="chip" type="button" data-query="contrato"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Contrato</button>
+      </div>
+    </section>
+
+    <div class="faq-meta">
+      <div>
+        <h2>Perguntas frequentes</h2>
+        <p>As perguntas seguem a base atual da página, com respostas reformuladas para consulta rápida.</p>
+      </div>
+    </div>
+
+    <nav class="stage-nav" id="stageLinks" aria-label="Etapas do FAQ"></nav>
+    <div class="faq-groups" id="faqGroups"></div>
+  </main>
+
   <div class="footer-line" aria-hidden="true"></div>
+
   <script src="assets/rematricula-2027/guide-data.js"></script>
   <script>
+    const directAnswers = {
+      "Não lembro o login cadastrado": "O acesso deve ser conferido pelo cadastro do responsável financeiro. No Objetivo, use o código da pessoa; nas demais escolas, valide o e-mail cadastrado e oriente novo acesso após a atualização.",
+      "Esqueci minha senha": "Use a opção Esqueceu a senha no Portal dos Pais. A redefinição será enviada para o e-mail cadastrado; também vale conferir spam ou lixo eletrônico.",
+      "Não aparece o nome do aluno": "A Rematrícula aparece para o responsável financeiro vinculado ao aluno. Confirme se o acesso usado é do responsável financeiro e aguarde a sincronização quando houver ajuste cadastral.",
+      "Tenho mais de um filho": "A Rematrícula deve ser concluída um aluno por vez. Ao finalizar o primeiro, volte em Iniciar Rematrícula e selecione o próximo aluno.",
+      "Bloqueio ao iniciar matrícula": "O bloqueio depende do código apresentado na tela. Use o código para classificar o motivo e direcionar o atendimento conforme a regra da unidade.",
+      "Quero alterar dados cadastrais pelo Portal": "Campos em branco ou editáveis podem ser atualizados no Portal. Campos bloqueados, dados sensíveis ou documentos dependem de validação da secretaria.",
+      "Não consigo avançar a etapa de identificação": "Todas as abas cadastrais precisam estar confirmadas para avançar: aluno, filiação, responsáveis e pessoas autorizadas.",
+      "Alteração do responsável financeiro": "A alteração do responsável financeiro precisa seguir o processo próprio e considerar regra financeira, inadimplência e validação interna antes da continuidade.",
+      "Alteração do responsável acadêmico ou pessoas autorizadas": "A alteração pode ser feita pelo Portal, localizando primeiro a pessoa pelo CPF e validando os dados cadastrais necessários.",
+      "Não entendi quais serviços posso contratar": "Os serviços disponíveis aparecem conforme unidade, segmento e série do aluno. Consulte as opções exibidas no Portal e valide com a regra da escola quando houver divergência.",
+      "Quero alterar o turno para o próximo ano letivo": "Finalize a Rematrícula e formalize a solicitação pelo canal oficial. A alteração depende de disponibilidade de vaga e regra da unidade.",
+      "Desconto aparece em um serviço e não em outro": "Os descontos podem variar por tipo de serviço contratado. Por isso, um desconto pode aparecer em um serviço e não aparecer em outro.",
+      "Uma aula extra não aparece para meu filho": "A oferta de aula extra depende da série, segmento e regra da unidade. Se a aula deveria estar disponível, a parametrização precisa ser conferida.",
+      "Marquei contratar, mas o valor não apareceu": "Além de marcar Contratar, é necessário selecionar a opção ou plano de 2027. O valor aparece depois da seleção do plano.",
+      "Por que a mesma aula tem valores diferentes?": "A mesma aula pode ter valores diferentes conforme modalidade, quantidade de dias, plano com almoço ou plano sem almoço.",
+      "Posso contratar aula extra depois?": "Sim. Depois da Rematrícula concluída, a contratação pode ser feita no Portal em Rematrícula > Aulas Extras, conforme disponibilidade.",
+      "Minuta contratual com dados incorretos": "Quando a minuta ou contrato apresentar dados incorretos, identifique qual informação está divergente e acione a equipe responsável para correção.",
+      "Dúvidas sobre cláusulas do contrato": "Dúvidas sobre cláusulas devem ser analisadas com cuidado. Quando envolver interpretação jurídica ou decisão específica, o caso deve seguir para validação responsável.",
+      "Como fazer assinatura eletrônica?": "Clique em Assine o contrato e siga para o pagamento. Após a assinatura, o Portal libera a seleção das formas de pagamento.",
+      "Não aparece a forma de pagamento": "A forma de pagamento aparece depois da assinatura eletrônica e da seleção da condição de pagamento do ano letivo.",
+      "Mensal: o que pagar para finalizar?": "A efetivação ocorre com o pagamento da primeira parcela. Quando houver material didático, essa etapa também precisa ser concluída.",
+      "Botão Finalizar está cinza": "Quando o botão Finalizar está cinza, normalmente falta assinar contrato, escolher pagamento ou marcar alguma confirmação obrigatória.",
+      "Quero pagar à vista": "O pagamento à vista deve seguir a regra financeira da unidade. A bolsa de anuidade não contempla material didático.",
+      "Família Fundadora acumula descontos?": "Quando aplicável, acrescenta-se apenas o desconto referente ao pagamento anual da anuidade. A regra deve respeitar a política comercial da unidade.",
+      "Dúvidas sobre cartão, PIX ou boleto": "Para PIX ou cartão, finalize o pagamento pelo Portal. Para boleto, utilize o boleto registrado gerado no processo.",
+      "Como confirmar se a Rematrícula foi finalizada?": "Consulte o painel administrativo e verifique o status do processo, financeiro, pagamento e sincronização.",
+      "Como identificar os status no painel?": "Use os status do painel para acompanhar o andamento: matrícula, financeiro e sincronização. Status de falha exigem atuação da área responsável."
+    };
+
     const slug = text => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    const normalize = text => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     const stageLinks = document.querySelector("#stageLinks");
     const faqGroups = document.querySelector("#faqGroups");
     const faqSearch = document.querySelector("#faqSearch");
     const clearSearch = document.querySelector("#clearSearch");
-    function renderFaq(query = "") {
-      const normalized = query.trim().toLowerCase();
-      stageLinks.innerHTML = window.guideData.map(stage => '<a href="#' + slug(stage.title) + '">' + stage.number + ' · ' + stage.title + '</a>').join("");
-      faqGroups.innerHTML = window.guideData.map(stage => {
-        const questions = stage.questions.filter(question => (stage.title + ' ' + question.title + ' ' + question.check.join(' ') + ' ' + question.answer + ' ' + question.escalate).toLowerCase().includes(normalized));
-        if (!questions.length) return "";
-        return '<section class="faq-group" id="' + slug(stage.title) + '"><h2>' + stage.number + ' · ' + stage.title + '</h2>' + questions.map((question, index) => '<article class="faq-item ' + (index === 0 && !normalized ? 'open' : '') + '" id="' + slug(question.title) + '"><button type="button"><span>' + question.title + '</span><span class="faq-toggle">+</span></button><div class="faq-body"><div class="check"><strong>O que conferir</strong><ul>' + question.check.map(item => '<li>' + item + '</li>').join('') + '</ul></div><div class="answer"><strong>Resposta segura</strong>' + question.answer + '</div><div class="escalate"><strong>Quando escalar</strong>' + question.escalate + '</div></div></article>').join('') + '</section>';
-      }).join("") || '<article class="empty-card"><strong>Nenhuma pergunta encontrada</strong><p>Revise a palavra pesquisada ou consulte o Guia de Atendimento.</p></article>';
-      faqGroups.querySelectorAll(".faq-item button").forEach(button => { button.addEventListener("click", () => button.closest(".faq-item").classList.toggle("open")); });
+    const resultCount = document.querySelector("#resultCount");
+
+    function getAnswer(question) {
+      return directAnswers[question.title] || question.answer.replace(/<[^>]+>/g, "");
     }
+
+    function questionMatches(stage, question, query) {
+      if (!query) return true;
+      const haystack = normalize([stage.title, stage.summary, question.title, getAnswer(question), question.check.join(" "), question.escalate].join(" "));
+      return haystack.includes(query);
+    }
+
+    function renderFaq(query = "") {
+      const normalized = normalize(query.trim());
+      let total = 0;
+
+      stageLinks.innerHTML = window.guideData
+        .map(stage => `<a href="#${slug(stage.title)}">${stage.number} · ${stage.title}</a>`)
+        .join("");
+
+      faqGroups.innerHTML = window.guideData.map((stage, stageIndex) => {
+        const questions = stage.questions.filter(question => questionMatches(stage, question, normalized));
+        total += questions.length;
+        if (!questions.length) return "";
+        return `
+          <section class="faq-group" id="${slug(stage.title)}">
+            <h3><span>${stage.number}</span>${stage.title}</h3>
+            ${questions.map((question, index) => `
+              <article class="faq-item ${(!normalized && stageIndex === 0 && index === 0) || normalized ? "open" : ""}" id="${slug(question.title)}">
+                <button class="faq-question" type="button" aria-expanded="${((!normalized && stageIndex === 0 && index === 0) || normalized) ? "true" : "false"}">
+                  <span><small>Pergunta</small>${question.title}</span>
+                  <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                  <p>${getAnswer(question)}</p>
+                </div>
+              </article>
+            `).join("")}
+          </section>
+        `;
+      }).join("") || `<article class="empty-card"><strong>Nenhuma pergunta encontrada</strong><p>Revise a palavra pesquisada ou tente um termo mais amplo, como senha, aluno, contrato ou pagamento.</p></article>`;
+
+      resultCount.textContent = `${total} ${total === 1 ? "pergunta" : "perguntas"}`;
+
+      faqGroups.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          item.classList.toggle("open");
+          button.setAttribute("aria-expanded", item.classList.contains("open") ? "true" : "false");
+        });
+      });
+    }
+
     faqSearch.addEventListener("input", () => renderFaq(faqSearch.value));
-    clearSearch.addEventListener("click", () => { faqSearch.value = ""; renderFaq(); faqSearch.focus(); });
+    clearSearch.addEventListener("click", () => {
+      faqSearch.value = "";
+      renderFaq();
+      faqSearch.focus();
+    });
+
+    document.querySelectorAll(".chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        faqSearch.value = chip.dataset.query;
+        renderFaq(faqSearch.value);
+        faqSearch.focus();
+      });
+    });
+
     renderFaq();
   </script>
 </body>
