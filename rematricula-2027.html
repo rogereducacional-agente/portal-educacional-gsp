@@ -97,88 +97,139 @@
     }
 
     .hero {
-      background: #fff;
+      position: relative;
+      aspect-ratio: 2560 / 594;
+      min-height: 286px;
       overflow: hidden;
-      position: relative;
-      color: #fff;
-    }
-    .hero::before {
-      display: none;
-    }
-    .hero::after {
-      display: none;
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: var(--max);
-      margin: 0 auto;
-      min-height: 274px;
-      padding: 30px 32px 28px 20px;
-      display: grid;
-      align-content: center;
-    }
-    .eyebrow { margin: 0 0 10px; font-size: 16px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
-    .hero h1 { margin: 0; max-width: 670px; color: #fff; font-size: clamp(30px, 3.8vw, 40px); line-height: 1.05; letter-spacing: 0; }
-    .hero h1 span {
-      position: relative;
-      display: block;
-      width: fit-content;
-      color: #ffd321;
-      font-family: "Comic Sans MS", "Segoe Print", Georgia, cursive;
-      font-size: 1.2em;
-      font-style: italic;
-      font-weight: 900;
-      text-decoration: none;
-      text-shadow: 0 2px 0 rgba(0, 71, 54, .22);
-      transform: rotate(-2deg);
-    }
-    .hero p { max-width: 560px; margin: 15px 0 0; color: #f4fff9; font-size: 16px; font-weight: 800; text-shadow: 0 1px 1px rgba(0, 50, 38, .22); }
-
-    .hero-knowledge-note {
-      position: absolute;
-      z-index: 3;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: min(30vw, 342px);
-      min-width: 260px;
-      min-height: auto;
-      padding: 34px 32px 30px 44px;
-      display: grid;
-      align-content: center;
       color: #fff;
       background: #006d54;
-      border-radius: 96px 0 0 96px / 50% 0 0 50%;
-      box-shadow: -22px 0 42px rgba(0, 71, 54, .22);
     }
-
-    .hero-knowledge-note strong {
-      display: block;
-      max-width: 220px;
-      color: #fff;
-      font-family: "Segoe Print", "Comic Sans MS", cursive;
-      font-size: clamp(23px, 2vw, 31px);
-      line-height: 1.05;
-      font-weight: 900;
-      text-shadow: 0 2px 0 rgba(0, 71, 54, .24);
-      transform: rotate(-3deg);
+    .hero::before,
+    .hero::after { display: none; }
+    .hero-reference {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
     }
-
-    .hero-knowledge-note strong::after {
+    .hero-copy {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 52%;
+      display: grid;
+      align-content: center;
+      padding: clamp(24px, 3vw, 42px) clamp(18px, 3.1vw, 48px) clamp(22px, 2.8vw, 38px) clamp(58px, 6.4vw, 86px);
+      background:
+        radial-gradient(circle at 101% 101%, #5ec743 0 92px, transparent 94px),
+        radial-gradient(circle at 101% 3%, #ffd321 0 48px, transparent 50px),
+        #006d54;
+      border-radius: 0 38% 42% 0 / 0 54% 56% 0;
+      box-shadow: 24px 0 34px rgba(0, 71, 54, .16);
+    }
+    .hero-copy::before,
+    .hero-copy::after {
       content: "";
-      display: block;
-      width: 98px;
-      height: 6px;
-      margin: 10px 0 0 12px;
+      position: absolute;
+      left: clamp(30px, 4.8vw, 62px);
+      width: clamp(28px, 3vw, 42px);
+      height: 7px;
       border-radius: 999px;
       background: #ffd321;
-      transform: rotate(-5deg);
+      transform-origin: right center;
     }
-    .hero-reference {
+    .hero-copy::before { top: 40%; transform: rotate(28deg); }
+    .hero-copy::after { top: 50%; transform: rotate(-16deg); }
+    .hero-kicker {
+      margin: 0 0 10px;
+      font-size: clamp(13px, 1.24vw, 17px);
+      font-weight: 900;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(0, 54, 42, .2);
+    }
+    .hero-title {
+      margin: 0;
+      max-width: 610px;
+      color: #fff;
+      font-size: clamp(27px, 2.8vw, 40px);
+      line-height: 1.02;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-shadow: 0 2px 0 rgba(0, 48, 38, .18);
+    }
+    .hero-title .script {
       display: block;
-      width: 100%;
-      height: auto;
+      width: fit-content;
+      margin-top: 2px;
+      color: #ffd321;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 1.22em;
+      font-style: italic;
+      font-weight: 900;
+      line-height: .98;
+      transform: rotate(-1.9deg);
+      text-shadow: 0 2px 0 rgba(0, 63, 49, .25);
+    }
+    .hero-title .script::after {
+      content: "";
+      display: block;
+      height: 5px;
+      margin: 5px 4px 0 8px;
+      border-radius: 999px;
+      background: #ffd321;
+      transform: rotate(-4deg);
+    }
+    .hero-subtitle {
+      max-width: 540px;
+      margin: clamp(10px, 1.25vw, 16px) 0 0;
+      color: #fff;
+      font-size: clamp(14px, 1.24vw, 17px);
+      line-height: 1.45;
+      font-weight: 800;
+      text-shadow: 0 1px 0 rgba(0, 50, 38, .22);
+    }
+    .hero-note {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 22%;
+      bottom: 0;
+      width: 24%;
+      min-width: 248px;
+      display: grid;
+      place-items: center;
+      padding: 22px 44px 34px 28px;
+      background: #006d54;
+      border-radius: 58% 0 0 42% / 60% 0 0 42%;
+    }
+    .hero-note strong {
+      display: block;
+      max-width: 210px;
+      color: #fff;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: clamp(23px, 2.05vw, 32px);
+      font-weight: 900;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-3deg);
+      text-shadow: 0 2px 0 rgba(0, 63, 49, .25);
+    }
+    .hero-note strong::after {
+      content: "";
+      display: block;
+      width: 124px;
+      height: 6px;
+      margin: 10px auto 0;
+      border-radius: 999px;
+      background: #ffd321;
+      transform: rotate(-6deg);
+      box-shadow: 26px 8px 0 -2px rgba(255, 211, 33, .48);
     }
 
     main { max-width: var(--max); margin: 0 auto; padding: 40px 24px 56px; }
@@ -293,11 +344,13 @@
     @media (max-width: 680px) {
       .topbar { padding: 12px 16px; }
       .brand img { width: 142px; }
-      .hero { min-height: 0; }
-      .hero-inner { display: none; }
-      .hero-knowledge-note { display: none; }
-      .hero h1 { font-size: 34px; max-width: 520px; }
-      .hero p { font-size: 15px; }
+      .hero { min-height: 0; aspect-ratio: 2560 / 760; }
+      .hero-copy { width: 72%; padding: 24px 22px 28px 28px; }
+      .hero-copy::before, .hero-copy::after { display: none; }
+      .hero-title { font-size: 30px; max-width: 430px; }
+      .hero-subtitle { font-size: 13px; max-width: 390px; }
+      .hero-note { min-width: 0; width: 34%; padding: 14px 14px 18px; }
+      .hero-note strong { font-size: 18px; }
       main { padding: 26px 14px 42px; }
       .material-grid, .stage-list { grid-template-columns: 1fr; }
       .material-card { min-height: 230px; }
@@ -324,9 +377,15 @@
   <section class="hero" id="inicio">
     <img
       class="hero-reference"
-      src="assets/rematricula-2027/page2/banner-rematricula-2027-referencia-exata.jpg"
-      alt="Rematrícula 2027: tudo o que você precisa sobre a Rematrícula 2027. Orientações, etapas, materiais, dúvidas e suporte para conduzir o processo de rematrícula. Juntos vamos mais longe!"
+      src="assets/rematricula-2027/page2/banner-rematricula-2027-text-clean.jpg"
+      alt="Estudante sorrindo com livros em uma sala de aula"
     />
+    <div class="hero-copy">
+      <p class="hero-kicker">Rematrícula 2027</p>
+      <h1 class="hero-title">Tudo o que você precisa sobre a <span class="script">Rematrícula 2027.</span></h1>
+      <p class="hero-subtitle">Orientações, etapas, materiais, dúvidas e suporte para conduzir o processo de rematrícula.</p>
+    </div>
+    <div class="hero-note"><strong>Juntos vamos mais longe!</strong></div>
   </section>
 
   <main>
