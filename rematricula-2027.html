@@ -153,6 +153,46 @@
     }
     .hero p { max-width: 560px; margin: 15px 0 0; color: #f4fff9; font-size: 16px; font-weight: 800; text-shadow: 0 1px 1px rgba(0, 50, 38, .22); }
 
+    .hero-knowledge-note {
+      position: absolute;
+      z-index: 3;
+      right: 32px;
+      top: 36px;
+      width: min(25vw, 292px);
+      min-width: 232px;
+      min-height: 216px;
+      padding: 42px 24px 34px 34px;
+      display: grid;
+      align-content: center;
+      color: #fff;
+      background: #006d54;
+      border-radius: 78px 0 0 78px / 70px 0 0 70px;
+      box-shadow: -18px 0 36px rgba(0, 71, 54, .18);
+    }
+
+    .hero-knowledge-note strong {
+      display: block;
+      max-width: 220px;
+      color: #fff;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: clamp(23px, 2vw, 31px);
+      line-height: 1.05;
+      font-weight: 900;
+      text-shadow: 0 2px 0 rgba(0, 71, 54, .24);
+      transform: rotate(-3deg);
+    }
+
+    .hero-knowledge-note strong::after {
+      content: "";
+      display: block;
+      width: 98px;
+      height: 6px;
+      margin: 10px 0 0 12px;
+      border-radius: 999px;
+      background: #ffd321;
+      transform: rotate(-5deg);
+    }
+
     main { max-width: var(--max); margin: 0 auto; padding: 40px 24px 56px; }
     .material-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
     .material-card {
@@ -269,6 +309,7 @@
       .hero::before { background: linear-gradient(180deg, rgba(0,109,84,.74) 0%, rgba(0,109,84,.56) 42%, rgba(0,109,84,.15) 100%), url("assets/rematricula-2027/page2/banner-rematricula-referencia-cleide.jpg") center bottom / cover no-repeat; }
       .hero::after { left: -34%; width: 108%; height: 72%; border-radius: 0 0 48% 0 / 0 0 30% 0; }
       .hero-inner { min-height: 360px; padding: 30px 20px 138px; align-content: start; }
+      .hero-knowledge-note { display: none; }
       .hero h1 { font-size: 34px; max-width: 520px; }
       .hero p { font-size: 15px; }
       main { padding: 26px 14px 42px; }
@@ -299,6 +340,9 @@
       <p class="eyebrow">Rematrícula 2027</p>
       <h1>Tudo o que você precisa sobre a <span>Rematrícula 2027</span></h1>
       <p>Orientações, etapas, materiais, dúvidas e suporte para conduzir o processo de rematrícula.</p>
+    </div>
+    <div class="hero-knowledge-note" aria-label="Mensagem sobre busca de conhecimento">
+      <strong>Conhecimento para guiar cada etapa!</strong>
     </div>
   </section>
 
