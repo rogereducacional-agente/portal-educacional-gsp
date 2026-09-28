@@ -377,25 +377,10 @@
     }
 
     .faq-group h3 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin: 0;
       color: #081b42;
       font-size: 22px;
       line-height: 1.15;
-    }
-
-    .faq-group h3 span {
-      display: inline-grid;
-      place-items: center;
-      min-width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: #eaf8f5;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 950;
     }
 
     .faq-item {
@@ -677,7 +662,7 @@
       const categories = buildFaqCategories();
 
       stageLinks.innerHTML = categories
-        .map(category => `<a href="#${slug(category.title)}">${category.number} · ${category.title}</a>`)
+        .map(category => `<a href="#${slug(category.title)}">${category.title}</a>`)
         .join("");
 
       faqGroups.innerHTML = categories.map((category, categoryIndex) => {
@@ -686,11 +671,11 @@
         if (!questions.length) return "";
         return `
           <section class="faq-group" id="${slug(category.title)}">
-            <h3><span>${category.number}</span>${category.title}</h3>
+            <h3>${category.title}</h3>
             ${questions.map((question, index) => `
               <article class="faq-item ${(!normalized && categoryIndex === 0 && index === 0) || normalized ? "open" : ""}" id="${slug(question.title)}">
                 <button class="faq-question" type="button" aria-expanded="${((!normalized && categoryIndex === 0 && index === 0) || normalized) ? "true" : "false"}">
-                  <span><small>Pergunta</small>${question.title}</span>
+                  <span>${question.title}</span>
                   <span class="faq-toggle">+</span>
                 </button>
                 <div class="faq-answer">
