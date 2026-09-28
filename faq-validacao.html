@@ -634,30 +634,62 @@
       return directAnswers[question.title] || question.answer.replace(/<[^>]+>/g, "");
     }
 
-    function questionMatches(stage, question, query) {
+    function buildFaqCategories() {
+      const cloneQuestion = (stage, question) => ({
+        ...question,
+        sourceTitle: stage.title,
+        sourceSummary: stage.summary
+      });
+      const access = window.guideData.find(stage => stage.number === "02");
+      const rematriculaStages = window.guideData.filter(stage => Number(stage.number) >= 3 && Number(stage.number) <= 7);
+      const admin = window.guideData.find(stage => stage.number === "08");
+      return [
+        access && {
+          number: access.number,
+          title: access.title,
+          summary: access.summary,
+          questions: access.questions.map(question => cloneQuestion(access, question))
+        },
+        {
+          number: "03-07",
+          title: "Etapas rematrícula",
+          summary: "Perguntas ligadas às etapas de identificação, pré-contrato, aulas extras, serviços contratados e pagamento.",
+          questions: rematriculaStages.flatMap(stage => stage.questions.map(question => cloneQuestion(stage, question)))
+        },
+        admin && {
+          number: admin.number,
+          title: admin.title,
+          summary: admin.summary,
+          questions: admin.questions.map(question => cloneQuestion(admin, question))
+        }
+      ].filter(Boolean);
+    }
+
+    function questionMatches(category, question, query) {
       if (!query) return true;
-      const haystack = normalize([stage.title, stage.summary, question.title, getAnswer(question), question.check.join(" "), question.escalate].join(" "));
+      const haystack = normalize([category.title, category.summary, question.sourceTitle, question.sourceSummary, question.title, getAnswer(question), question.check.join(" "), question.escalate].join(" "));
       return haystack.includes(query);
     }
 
     function renderFaq(query = "") {
       const normalized = normalize(query.trim());
       let total = 0;
+      const categories = buildFaqCategories();
 
-      stageLinks.innerHTML = window.guideData
-        .map(stage => `<a href="#${slug(stage.title)}">${stage.number} · ${stage.title}</a>`)
+      stageLinks.innerHTML = categories
+        .map(category => `<a href="#${slug(category.title)}">${category.number} · ${category.title}</a>`)
         .join("");
 
-      faqGroups.innerHTML = window.guideData.map((stage, stageIndex) => {
-        const questions = stage.questions.filter(question => questionMatches(stage, question, normalized));
+      faqGroups.innerHTML = categories.map((category, categoryIndex) => {
+        const questions = category.questions.filter(question => questionMatches(category, question, normalized));
         total += questions.length;
         if (!questions.length) return "";
         return `
-          <section class="faq-group" id="${slug(stage.title)}">
-            <h3><span>${stage.number}</span>${stage.title}</h3>
+          <section class="faq-group" id="${slug(category.title)}">
+            <h3><span>${category.number}</span>${category.title}</h3>
             ${questions.map((question, index) => `
-              <article class="faq-item ${(!normalized && stageIndex === 0 && index === 0) || normalized ? "open" : ""}" id="${slug(question.title)}">
-                <button class="faq-question" type="button" aria-expanded="${((!normalized && stageIndex === 0 && index === 0) || normalized) ? "true" : "false"}">
+              <article class="faq-item ${(!normalized && categoryIndex === 0 && index === 0) || normalized ? "open" : ""}" id="${slug(question.title)}">
+                <button class="faq-question" type="button" aria-expanded="${((!normalized && categoryIndex === 0 && index === 0) || normalized) ? "true" : "false"}">
                   <span><small>Pergunta</small>${question.title}</span>
                   <span class="faq-toggle">+</span>
                 </button>
