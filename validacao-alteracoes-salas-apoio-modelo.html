@@ -2911,7 +2911,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 6px;
     }
 
@@ -3441,10 +3441,10 @@
       overflow: hidden;
       margin: 18px auto 0;
       max-width: 1180px;
-      aspect-ratio: 1174 / 246;
+      aspect-ratio: 1240 / 480;
       min-height: 0;
       border-radius: 0;
-      background: url("assets/gsp/home-search-banner-reference.jpg") center / cover no-repeat;
+      background: url("assets/gsp/home-search-banner-light-clean.jpg") center / cover no-repeat;
       color: #fff;
       padding: 0;
       box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
@@ -3476,15 +3476,15 @@
 
     .home-search-panel {
       position: absolute;
-      left: 4.35%;
-      top: 50.8%;
+      left: 3.7%;
+      top: 48.5%;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 16.4%;
+      grid-template-columns: minmax(0, 1fr) 26%;
       gap: 0;
-      width: 64%;
-      min-height: 13.8%;
+      width: 67%;
+      min-height: 13.2%;
       margin: 0;
-      padding: 0 0 0 4.2%;
+      padding: 0 0 0 6.5%;
       border-radius: 999px;
       background: transparent;
       box-shadow: none;
@@ -3524,13 +3524,14 @@
 
     .home-search-chips {
       position: absolute;
-      left: 3.55%;
-      top: 77.2%;
+      left: 3.7%;
+      top: 72.3%;
       display: flex;
       flex-wrap: nowrap;
-      align-items: center;
-      gap: 1.05%;
-      width: 49%;
+      align-items: flex-start;
+      gap: 0;
+      width: 52%;
+      height: 22%;
       margin: 0;
       color: transparent;
       font-size: clamp(10px, .9vw, 12px);
@@ -3547,13 +3548,10 @@
     }
 
     .home-search-chips a {
-      min-height: clamp(18px, 2.1vw, 25px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      gap: 6px;
-      padding: 5px 12px;
+      position: absolute;
+      min-height: 0;
+      display: block;
+      padding: 0;
       border-radius: 999px;
       color: transparent;
       background: transparent;
@@ -3562,6 +3560,12 @@
       line-height: 1;
       box-shadow: none;
     }
+
+    .home-search-chips a:nth-of-type(1) { left: 0; top: 0; width: 24%; height: 37%; }
+    .home-search-chips a:nth-of-type(2) { left: 29%; top: 0; width: 25%; height: 37%; }
+    .home-search-chips a:nth-of-type(3) { left: 58%; top: 0; width: 42%; height: 37%; }
+    .home-search-chips a:nth-of-type(4) { left: 0; top: 50%; width: 31%; height: 37%; }
+    .home-search-chips a:nth-of-type(5) { left: 35%; top: 50%; width: 34%; height: 37%; }
 
     .home-search-chips a::before {
       content: "";
@@ -3761,7 +3765,7 @@
       }
 
       .home-search-banner {
-        aspect-ratio: 1174 / 246;
+        aspect-ratio: 1240 / 480;
       }
 
       .home-search-content {
@@ -3845,7 +3849,7 @@
         width: calc(100vw - 24px);
         max-width: none;
         margin: 18px 0 0;
-        aspect-ratio: 1174 / 246;
+        aspect-ratio: 1240 / 480;
       }
 
       .home-search-panel input {
