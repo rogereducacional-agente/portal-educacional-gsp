@@ -47,7 +47,8 @@
     .toolbar input { width: 100%; min-height: 42px; border: 0; outline: 0; padding: 0 6px; font: inherit; color: var(--ink); background: transparent; }
     .counter { padding: 0 10px; color: #697995; font-size: 12px; font-weight: 900; white-space: nowrap; }
     .search-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 26px; border: 0; border-radius: 999px; background: #d31224; color: #fff; font: inherit; font-size: 13px; font-weight: 950; cursor: pointer; white-space: nowrap; }
-    .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .search-examples-title { margin: 15px 0 8px; color: #0c2454; font-size: 13px; font-weight: 950; }
+    .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
     .search-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 15px; border: 1px solid #f7d7db; border-radius: 999px; background: rgba(255,236,239,.88); color: #0c2454; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; }
     .timeline { display: grid; gap: 18px; }
     .post { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 22px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
@@ -100,19 +101,20 @@
     <section class="comms-search" aria-label="Busca de comunicados">
       <p class="search-eyebrow">Busca rápida</p>
       <h2>Encontre o comunicado que precisa <span>de forma rápida e fácil!</span></h2>
-      <p>Use a busca para encontrar comunicados de orientações, atualizações de processos, prazos, responsáveis e materiais publicados para a equipe GSP.</p>
+      <p>Localize comunicados por tema, processo, prazo ou orientação publicada para acompanhar rapidamente as atualizações da GSP.</p>
       <div class="toolbar" aria-label="Filtro de comunicados">
         <span class="search-icon" aria-hidden="true">⌕</span>
         <input id="postSearch" type="search" placeholder="Digite aqui o que você procura..." autocomplete="off">
         <span class="counter" id="postCounter"></span>
         <button class="search-button" id="postSearchButton" type="button">Buscar →</button>
       </div>
+      <p class="search-examples-title">O que você pode buscar</p>
       <div class="search-examples" aria-label="Exemplos de busca">
         <button class="search-chip" type="button" data-query="Ação Nota em Dia">Ação Nota em Dia</button>
         <button class="search-chip" type="button" data-query="Reserva de Vaga">Reserva de Vaga</button>
-        <button class="search-chip" type="button" data-query="Amanda Bindilatti">Amanda Bindilatti</button>
+        <button class="search-chip" type="button" data-query="Bolsa por Serviço">Bolsa por Serviço</button>
         <button class="search-chip" type="button" data-query="Acadêmico">Acadêmico</button>
-        <button class="search-chip" type="button" data-query="Orientação">Orientação</button>
+        <button class="search-chip" type="button" data-query="Matrícula">Matrícula</button>
       </div>
     </section>
     <section class="timeline" id="postTimeline" aria-label="Lista de comunicados"></section>
