@@ -2592,15 +2592,19 @@
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(430px, .98fr);
       gap: 14px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .support-rooms-panel {
+      height: 100%;
       padding: 16px 18px;
       border: 1px solid #d9e8ef;
       border-radius: 8px;
       background: rgba(255, 255, 255, .96);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .support-room-block.support-assist-section .section-head {
