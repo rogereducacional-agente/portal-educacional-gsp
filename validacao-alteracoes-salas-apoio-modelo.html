@@ -2591,6 +2591,7 @@
     .home-timeline-callout {
       position: relative;
       margin-top: 28px;
+      aspect-ratio: 1240 / 380;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--surface);
@@ -2600,8 +2601,10 @@
 
     .home-timeline-callout img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: cover;
+      object-position: center top;
     }
 
     .home-timeline-callout .timeline-access {
@@ -3447,10 +3450,10 @@
       margin: 18px 0 0;
       width: 100%;
       max-width: none;
-      aspect-ratio: 1240 / 480;
+      aspect-ratio: 1240 / 380;
       min-height: 0;
       border-radius: 0;
-      background: url("assets/gsp/home-search-banner-light-clean.jpg") center / cover no-repeat;
+      background: url("assets/gsp/home-search-banner-light-clean.jpg") center top / cover no-repeat;
       color: #fff;
       padding: 0;
       box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
@@ -3468,6 +3471,19 @@
       min-height: 0;
     }
 
+    .home-search-content::after {
+      content: "";
+      position: absolute;
+      left: 3.7%;
+      top: 55.4%;
+      width: 67.6%;
+      height: 18.2%;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, .08);
+      z-index: 3;
+    }
+
     .home-search-icon,
     .home-search-kicker,
     .home-search-title,
@@ -3483,7 +3499,7 @@
     .home-search-panel {
       position: absolute;
       left: 3.7%;
-      top: 48.4%;
+      top: 56.2%;
       display: block;
       width: 67.6%;
       height: 13.4%;
@@ -3564,7 +3580,7 @@
       left: -1.5%;
       top: -50%;
       width: 100%;
-      height: 245%;
+      height: 330%;
       border-radius: 18px;
       background: #fff;
       box-shadow: 0 6px 18px rgba(15, 45, 85, .04);
@@ -3806,7 +3822,7 @@
       }
 
       .home-search-banner {
-        aspect-ratio: 1240 / 480;
+        aspect-ratio: 1240 / 380;
       }
 
       .home-search-content {
@@ -3890,7 +3906,7 @@
         width: calc(100vw - 24px);
         max-width: none;
         margin: 18px 0 0;
-        aspect-ratio: 1240 / 480;
+        aspect-ratio: 1240 / 380;
       }
 
       .home-search-panel input {
@@ -4195,7 +4211,7 @@
     </section>
 
     <section class="home-timeline-callout" aria-label="Timeline Educacional">
-      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Confira o cronograma do setor Acadêmico Educacional">
+      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Confira a Timeline do setor Acadêmico Educacional">
       <a class="timeline-access" href="timeline-educacional.html">Acessar Timeline Educacional</a>
     </section>
 
