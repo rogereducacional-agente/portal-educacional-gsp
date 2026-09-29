@@ -2479,113 +2479,325 @@
       box-shadow: 0 10px 24px rgba(20, 33, 61, .055);
     }
 
-    .comunicados-showcase {
+    .comunicados-panel {
+      position: relative;
+      overflow: hidden;
+      margin-top: 22px;
+      min-height: 344px;
+      border: 1px solid #dbe8f0;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fdfd 100%);
+      box-shadow: 0 22px 46px rgba(20, 33, 61, .09);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: minmax(380px, .98fr) minmax(0, 1.52fr);
+      gap: 22px;
+      padding: 26px 26px 24px;
+    }
+
+    .comunicados-panel::before,
+    .comunicados-panel::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      z-index: 0;
+    }
+
+    .comunicados-panel::before {
+      width: 310px;
+      height: 500px;
+      left: -280px;
+      top: -78px;
+      border: 30px solid #28d6be;
+      box-shadow: 0 0 0 30px #f8ffff, 0 0 0 48px #07394d;
+      transform: rotate(-10deg);
+      opacity: .98;
+    }
+
+    .comunicados-panel::after {
+      width: 190px;
+      height: 190px;
+      right: -108px;
+      top: 90px;
+      border: 28px solid #28d6be;
+      opacity: .15;
+    }
+
+    .comunicados-intro {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding-left: 154px;
+      min-width: 0;
+    }
+
+    .comunicados-bell {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      width: 98px;
+      height: 98px;
+      transform: translateY(-50%);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: radial-gradient(circle at 42% 28%, #0c4554 0%, #062f3d 72%);
+      box-shadow: 0 0 0 20px rgba(255,255,255,.88), 0 20px 36px rgba(8, 44, 99, .18);
+    }
+
+    .comunicados-bell svg {
+      width: 56px;
+      height: 56px;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      fill: none;
+    }
+
+    .comunicados-kicker {
+      justify-self: start;
+      border-radius: 999px;
+      padding: 9px 18px;
+      color: #062f3d;
+      background: linear-gradient(90deg, #c2fff2, #9ef3df);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    .comunicados-intro h2 {
+      margin: 0;
+      color: #082c63;
+      font-size: clamp(32px, 3.5vw, 48px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .comunicados-intro h2 strong {
+      display: block;
+      color: #12b898;
+    }
+
+    .comunicados-intro p {
+      margin: -4px 0 0;
+      max-width: 470px;
+      color: #16395a;
+      font-size: clamp(15px, 1.25vw, 19px);
+      line-height: 1.28;
+      font-weight: 700;
+    }
+
+    .comunicados-tags {
+      display: flex;
+      flex-wrap: wrap;
       gap: 14px;
-      margin-top: 16px;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .comunicados-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #0b3151;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .comunicados-tags span + span {
+      padding-left: 14px;
+      border-left: 1px solid #9eb7c7;
+    }
+
+    .comunicados-tags svg {
+      width: 25px;
+      height: 25px;
+      color: #10baa0;
+      fill: currentColor;
+    }
+
+    .comunicados-carousel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+      min-width: 0;
     }
 
     .comunicado-card {
       position: relative;
+      min-height: 258px;
       overflow: hidden;
-      min-height: 214px;
-      border: 1px solid #dde7f1;
+      border: 1px solid #dce8ef;
       border-radius: 8px;
       background: #fff;
-      box-shadow: 0 12px 26px rgba(20, 33, 61, .07);
+      box-shadow: 0 16px 30px rgba(20, 33, 61, .08);
       display: grid;
-      grid-template-rows: 106px minmax(0, 1fr);
+      grid-template-rows: 72px 1fr;
     }
 
-    .comunicado-media {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0b8f78, #1f72bd);
-    }
-
-    .comunicado-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .84;
-      filter: saturate(.96);
-    }
-
-    .comunicado-media::after {
+    .comunicado-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(8, 44, 99, .72), rgba(8, 143, 120, .34)),
-        radial-gradient(circle at 88% 14%, rgba(255, 210, 28, .88) 0 16px, transparent 17px);
+      inset: 0 0 auto;
+      height: 72px;
+      background: linear-gradient(135deg, #052f3d 0%, #075c62 56%, #28d6be 100%);
+      z-index: 0;
     }
 
-    .comunicado-icon {
+    .comunicado-card::after {
+      content: "";
       position: absolute;
-      left: 14px;
-      bottom: 12px;
+      right: -26px;
+      top: -64px;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      border: 24px solid rgba(38, 214, 190, .5);
       z-index: 1;
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+    }
+
+    .comunicado-top {
+      position: relative;
+      z-index: 2;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      color: #fff;
+    }
+
+    .comunicado-doc {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
-      color: #fff;
-      background: rgba(255, 255, 255, .18);
-      border: 1px solid rgba(255, 255, 255, .34);
-      backdrop-filter: blur(8px);
+      color: #0a8f7d;
+      background: #fff;
+      box-shadow: 0 8px 16px rgba(4, 32, 48, .18);
     }
 
-    .comunicado-icon svg {
-      width: 19px;
-      height: 19px;
+    .comunicado-doc svg {
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .comunicado-date {
+      margin-top: 7px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
     }
 
     .comunicado-body {
-      padding: 14px;
+      position: relative;
+      z-index: 1;
+      padding: 22px 20px 18px;
       display: grid;
-      align-content: space-between;
+      align-content: start;
       gap: 14px;
     }
 
     .comunicado-body h3 {
       margin: 0;
       color: #082c63;
-      font-size: 18px;
-      line-height: 1.16;
+      font-size: clamp(17px, 1.45vw, 24px);
+      line-height: 1.1;
       letter-spacing: 0;
     }
 
     .comunicado-body p {
-      margin: -6px 0 0;
+      margin: 0;
       color: #526b82;
-      font-size: 13px;
-      line-height: 1.35;
+      font-size: 15px;
+      line-height: 1.38;
+      font-weight: 600;
     }
 
     .comunicado-body .btn {
       justify-self: start;
-      min-height: 36px;
-      padding-inline: 14px;
-      border: 1px solid #d7e7f7;
-      color: #1f72bd;
-      background: #f7fbff;
+      align-self: end;
+      min-height: 42px;
+      margin-top: 8px;
+      padding-inline: 18px;
+      border: 0;
+      border-radius: 8px;
+      color: #078c7e;
+      background: #c9fff4;
       box-shadow: none;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .comunicado-nav {
+      position: absolute;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #0b3151;
+      background: #fff;
+      box-shadow: 0 10px 22px rgba(20, 33, 61, .12);
+      border: 1px solid #e0edf3;
+    }
+
+    .comunicado-nav.prev {
+      left: calc(38.2% - 18px);
+      top: 48%;
+    }
+
+    .comunicado-nav.next {
+      right: 10px;
+      top: 48%;
+    }
+
+    .comunicado-dots {
+      position: absolute;
+      z-index: 3;
+      left: 63%;
+      bottom: 28px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .comunicado-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #d3d9df;
+    }
+
+    .comunicado-dots span:first-child {
+      background: #10baa0;
     }
 
     .comunicados-footer-action {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
+      position: absolute;
+      right: 24px;
+      bottom: 20px;
+      z-index: 4;
     }
 
     .comunicados-footer-action .btn {
-      min-height: 40px;
+      min-height: 44px;
       border: 0;
+      border-radius: 999px;
+      padding-inline: 24px;
       color: #fff;
-      background: #1f72bd;
-      box-shadow: 0 12px 24px rgba(31, 114, 189, .22);
+      background: #082c63;
+      box-shadow: 0 12px 24px rgba(8, 44, 99, .20);
+      font-weight: 900;
     }
 
     .home-timeline-callout {
@@ -2930,8 +3142,36 @@
     }
 
     @media (max-width: 1080px) {
-      .comunicados-showcase {
+      .comunicados-panel {
         grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .comunicados-intro {
+        min-height: 220px;
+        padding-left: 126px;
+      }
+
+      .comunicados-carousel {
+        grid-template-columns: repeat(3, minmax(210px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 58px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .comunicado-card {
+        min-width: 230px;
+        scroll-snap-align: start;
+      }
+
+      .comunicado-nav,
+      .comunicado-dots {
+        display: none;
+      }
+
+      .comunicados-footer-action {
+        right: 24px;
+        bottom: 20px;
       }
 
       .support-assist-layout {
@@ -2944,6 +3184,76 @@
     }
 
     @media (max-width: 700px) {
+      .comunicados-panel {
+        padding: 20px 16px;
+        gap: 18px;
+      }
+
+      .comunicados-panel::before {
+        left: -246px;
+        opacity: .72;
+      }
+
+      .comunicados-intro {
+        padding-left: 0;
+        padding-top: 118px;
+        min-height: 0;
+      }
+
+      .comunicados-bell {
+        top: 58px;
+        left: 20px;
+        transform: none;
+        width: 82px;
+        height: 82px;
+      }
+
+      .comunicados-bell svg {
+        width: 48px;
+        height: 48px;
+      }
+
+      .comunicados-intro h2 {
+        font-size: 34px;
+      }
+
+      .comunicados-intro p {
+        font-size: 16px;
+      }
+
+      .comunicados-tags {
+        gap: 9px;
+      }
+
+      .comunicados-tags span {
+        font-size: 12px;
+      }
+
+      .comunicados-tags span + span {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .comunicados-carousel {
+        grid-template-columns: 1fr;
+        overflow: visible;
+        padding-bottom: 62px;
+      }
+
+      .comunicado-card {
+        min-width: 0;
+      }
+
+      .comunicados-footer-action {
+        left: 16px;
+        right: 16px;
+      }
+
+      .comunicados-footer-action .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
       .support-room-block.support-assist-section {
         padding: 10px;
       }
@@ -4152,51 +4462,64 @@
     </section>
 
 
-    <section id="comunicados">
-      <div class="section-head">
-        <div>
-          <h2>Comunicados</h2>
-          <p>Fique por dentro das novidades, atualizações e orientações importantes para acompanhar os processos educacionais da GSP.</p>
+    <section id="comunicados" aria-label="Comunicados oficiais">
+      <div class="comunicados-panel">
+        <div class="comunicados-intro">
+          <span class="comunicados-bell" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/><path d="M4.2 4.4 2.8 3"/><path d="M19.8 4.4 21.2 3"/><path d="M12 2V.6"/></svg>
+          </span>
+          <span class="comunicados-kicker">Comunicados oficiais</span>
+          <h2>Fique por dentro <strong>do que acontece</strong></h2>
+          <p>Novidades, orientações e atualizações importantes para o dia a dia das escolas.</p>
+          <div class="comunicados-tags" aria-label="Tipos de comunicados">
+            <span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-1.1 14.8-4-4 1.7-1.7 2.3 2.3 5-5 1.7 1.7Z"/></svg>Novidades</span>
+            <span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-1.1 14.8-4-4 1.7-1.7 2.3 2.3 5-5 1.7 1.7Z"/></svg>Orientações</span>
+            <span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-1.1 14.8-4-4 1.7-1.7 2.3 2.3 5-5 1.7 1.7Z"/></svg>Atualizações</span>
+          </div>
         </div>
-      </div>
 
-      <div class="comunicados-showcase" aria-label="Últimos comunicados">
+        <div class="comunicados-carousel" aria-label="Últimos comunicados">
         <article class="comunicado-card">
-          <div class="comunicado-media">
-            <img src="assets/comunicados/bolsa-por-servico-matricula-nova-card.jpg" alt="">
-            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          <div class="comunicado-top">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
+            <span class="comunicado-date">12/08/2025</span>
           </div>
           <div class="comunicado-body">
-            <h3>Bolsa por Serviço - Matrícula Nova</h3>
+            <h3>Bolsa por Serviço: Matrícula Nova</h3>
             <p>Orientação sobre aplicação de bolsa por serviço na matrícula nova.</p>
-            <a class="btn" href="assets/comunicados/bolsa-por-servico-matricula-nova-informativo.jpg" target="_blank" rel="noreferrer">Abrir</a>
+            <a class="btn" href="assets/comunicados/bolsa-por-servico-matricula-nova-informativo.jpg" target="_blank" rel="noreferrer">Abrir →</a>
           </div>
         </article>
         <article class="comunicado-card">
-          <div class="comunicado-media">
-            <img src="assets/comunicados/acao-nota-em-dia-card.jpg" alt="">
-            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          <div class="comunicado-top">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
+            <span class="comunicado-date">10/08/2025</span>
           </div>
           <div class="comunicado-body">
             <h3>Ação Nota em Dia: preparação para o fechamento acadêmico</h3>
             <p>Conferência e regularização de notas pendentes antes da geração da Média Anual.</p>
-            <a class="btn" href="assets/comunicados/acao-nota-em-dia-informativo.jpg" target="_blank" rel="noreferrer">Abrir</a>
+            <a class="btn" href="assets/comunicados/acao-nota-em-dia-informativo.jpg" target="_blank" rel="noreferrer">Abrir →</a>
           </div>
         </article>
         <article class="comunicado-card">
-          <div class="comunicado-media">
-            <img src="assets/comunicados/reserva-de-vaga-card.svg" alt="">
-            <span class="comunicado-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2l12-5v12L4 13Z"/><path d="M4 11H2v2h2"/><path d="M8 14l1.5 5H12l-1.2-4.1"/></svg></span>
+          <div class="comunicado-top">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
+            <span class="comunicado-date">08/08/2025</span>
           </div>
           <div class="comunicado-body">
             <h3>Reserva de Vaga: regras e orientações do processo</h3>
             <p>Quando usar, status do processo e pontos de atenção para liberação do link.</p>
-            <a class="btn" href="assets/comunicados/reserva-de-vaga-informativo.jpg" target="_blank" rel="noreferrer">Abrir</a>
+            <a class="btn" href="assets/comunicados/reserva-de-vaga-informativo.jpg" target="_blank" rel="noreferrer">Abrir →</a>
           </div>
         </article>
-      </div>
-      <div class="comunicados-footer-action">
-        <a class="btn" href="comunicados.html">Comunicados » Ler todos os Comunicados</a>
+        </div>
+
+        <span class="comunicado-nav prev" aria-hidden="true">‹</span>
+        <span class="comunicado-nav next" aria-hidden="true">›</span>
+        <div class="comunicado-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="comunicados-footer-action">
+          <a class="btn" href="comunicados.html">Ver todos os comunicados →</a>
+        </div>
       </div>
     </section>
 
