@@ -4638,6 +4638,12 @@
         link: "faq-validacao.html"
       },
       {
+        title: "Alteração do Responsável",
+        type: "FAQ",
+        text: "Perguntas e respostas sobre alteração do responsável financeiro, responsável acadêmico e pessoas autorizadas.",
+        link: "faq-validacao.html"
+      },
+      {
         title: "Comunicado - Bolsa por Serviço - Matrícula Nova",
         type: "Imagem",
         text: "Informativo sobre aplicação de bolsa por serviço na matrícula nova e reflexos no pré-contrato.",
@@ -4685,6 +4691,26 @@
     const complementSearchButton = document.querySelector("#complementSearchButton");
     const complementSearchResults = document.querySelector("#complementSearchResults");
 
+    function normalizeSearchText(value = "") {
+      return value
+        .toString()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+    function complementSearchScore(item, normalizedQuery) {
+      const title = normalizeSearchText(item.title);
+      const text = normalizeSearchText(`${item.type} ${item.text}`);
+      if (!normalizedQuery) return 0;
+      if (title === normalizedQuery) return 4;
+      if (title.includes(normalizedQuery)) return 3;
+      if (normalizedQuery.split(/\s+/).every(word => title.includes(word))) return 2;
+      if (text.includes(normalizedQuery)) return 1;
+      return 0;
+    }
+
     function buildComplementResult(item) {
       const article = document.createElement("article");
       article.className = "complement-result";
@@ -4712,9 +4738,13 @@
 
     function renderComplementDocuments(query = "") {
       if (!complementSearchButton || !complementSearchResults) return;
-      const normalized = query.trim().toLowerCase();
+      const normalized = normalizeSearchText(query);
       const matches = normalized
-        ? complementRecords.filter(item => (item.title + " " + item.type + " " + item.text).toLowerCase().includes(normalized))
+        ? complementRecords
+          .map(item => ({ item, score: complementSearchScore(item, normalized) }))
+          .filter(result => result.score > 0)
+          .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title, "pt-BR"))
+          .map(result => result.item)
         : [];
       const firstMatch = matches[0];
 
