@@ -97,19 +97,21 @@
     }
 
     .hero {
-      min-height: clamp(210px, 25vw, 330px);
+      min-height: 276px;
       display: grid;
       align-items: center;
       background: #007f61 url("assets/subpage-banners/rematricula-2027.png") center / cover no-repeat;
       overflow: hidden;
       position: relative;
       color: #fff;
-      padding: clamp(22px, 4vw, 56px) clamp(24px, 5vw, 72px);
+      padding: 42px clamp(22px, 5vw, 72px);
     }
     .hero::before,
     .hero::after { display: none; }
     .hero-copy {
-      width: min(640px, 58%);
+      width: min(100% - 32px, var(--max));
+      max-width: var(--max);
+      margin: 0 auto;
       position: relative;
       z-index: 1;
       text-shadow: 0 2px 8px rgba(0, 63, 48, .16);
@@ -253,8 +255,8 @@
     @media (max-width: 680px) {
       .topbar { padding: 12px 16px; }
       .brand img { width: 142px; }
-      .hero { min-height: 300px; padding: 28px 20px; background-position: center; }
-      .hero-copy { width: min(100%, 520px); }
+      .hero { min-height: 230px; padding: 28px 20px; background-position: center; }
+      .hero-copy { width: min(100%, 520px); margin: 0; }
       main { padding: 26px 14px 42px; }
       .material-grid, .stage-list { grid-template-columns: 1fr; }
       .material-card { min-height: 230px; }
