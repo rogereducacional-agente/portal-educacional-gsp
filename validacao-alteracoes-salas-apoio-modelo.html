@@ -3779,6 +3779,7 @@
       z-index: 1;
       width: 100%;
       min-height: 0;
+      pointer-events: none;
     }
 
     .home-search-content::after {
@@ -3809,7 +3810,8 @@
       border-radius: 999px;
       background: transparent;
       box-shadow: none;
-      z-index: 4;
+      z-index: 20;
+      pointer-events: none;
     }
 
     .home-search-panel::before {
@@ -3831,7 +3833,11 @@
       font-weight: 800;
       background: transparent;
       border-radius: 999px;
-      z-index: 1;
+      z-index: 21;
+      cursor: text;
+      pointer-events: auto;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .home-search-panel input::placeholder {
@@ -3854,7 +3860,10 @@
       font-weight: 900;
       cursor: pointer;
       box-shadow: none;
-      z-index: 2;
+      z-index: 22;
+      pointer-events: auto;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .home-search-chips {
@@ -3872,8 +3881,9 @@
       color: #0b2d57;
       font-size: clamp(9px, .82vw, 11px);
       font-weight: 850;
-      z-index: 4;
+      z-index: 20;
       isolation: isolate;
+      pointer-events: none;
     }
 
     .home-search-chips::before {
@@ -3904,6 +3914,8 @@
       line-height: 1;
       box-shadow: none;
       white-space: nowrap;
+      cursor: pointer;
+      pointer-events: auto;
     }
 
     .home-search-chips a::before {
