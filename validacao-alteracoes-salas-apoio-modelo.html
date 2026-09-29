@@ -3763,7 +3763,7 @@
       aspect-ratio: 1240 / 380;
       min-height: 0;
       border-radius: 0;
-      background: url("assets/gsp/home-search-banner-light-clean.jpg") center top / cover no-repeat;
+      background: url("assets/gsp/home-search-banner-light-clean.jpg") center / 100% 100% no-repeat;
       color: #fff;
       padding: 0;
       box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
@@ -3782,16 +3782,7 @@
     }
 
     .home-search-content::after {
-      content: "";
-      position: absolute;
-      left: 3.1%;
-      top: 53.8%;
-      width: 76.2%;
-      height: 46.2%;
-      border-radius: 20px;
-      background: #fff;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, .08);
-      z-index: 3;
+      content: none;
     }
 
     .home-search-icon,
@@ -3816,8 +3807,8 @@
       margin: 0;
       padding: 0;
       border-radius: 999px;
-      background: #fff;
-      box-shadow: 0 5px 12px rgba(15, 23, 42, .08);
+      background: transparent;
+      box-shadow: none;
       z-index: 4;
     }
 
@@ -3844,7 +3835,7 @@
     }
 
     .home-search-panel input::placeholder {
-      color: #738199;
+      color: transparent;
     }
 
     .home-search-panel button {
@@ -3857,12 +3848,12 @@
       border: 0;
       border-radius: 999px;
       padding: 0;
-      color: #fff;
-      background: #d6082f;
+      color: transparent;
+      background: transparent;
       font-size: clamp(11px, .95vw, 14px);
       font-weight: 900;
       cursor: pointer;
-      box-shadow: 0 5px 12px rgba(214, 8, 47, .22);
+      box-shadow: none;
       z-index: 2;
     }
 
@@ -3876,6 +3867,7 @@
       gap: clamp(6px, .7vw, 10px);
       width: 76%;
       min-height: 17%;
+      padding: 0;
       margin: 0;
       color: #0b2d57;
       font-size: clamp(9px, .82vw, 11px);
@@ -3890,7 +3882,7 @@
 
     .home-search-chips > span {
       flex: 0 0 100%;
-      color: #0b2d57;
+      color: transparent;
       font-size: clamp(11px, .95vw, 13px);
       font-weight: 950;
       line-height: 1.1;
@@ -3905,12 +3897,12 @@
       min-height: 28px;
       padding: 0 clamp(8px, .9vw, 13px);
       border-radius: 999px;
-      color: #0b2d57;
-      background: #eaf6ff;
-      border: 1px solid #dcebf6;
+      color: transparent;
+      background: transparent;
+      border: 1px solid transparent;
       text-decoration: none;
       line-height: 1;
-      box-shadow: 0 6px 14px rgba(15, 45, 85, .08);
+      box-shadow: none;
       white-space: nowrap;
     }
 
@@ -3922,17 +3914,17 @@
       height: 18px;
       margin-right: 7px;
       border-radius: 50%;
-      color: #fff;
-      background: #e00035;
+      color: transparent;
+      background: transparent;
       font-size: 11px;
       line-height: 1;
     }
 
     .home-search-chips a.is-active {
-      color: #071f50;
-      background: #fff4d2;
-      border-color: rgba(255, 191, 0, .75);
-      box-shadow: 0 0 0 2px rgba(255, 210, 28, .25), 0 8px 18px rgba(15, 45, 85, .1);
+      color: transparent;
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
     }
 
     .home-search-feedback {
