@@ -2483,7 +2483,7 @@
       position: relative;
       overflow: hidden;
       margin-top: 22px;
-      min-height: 344px;
+      min-height: 368px;
       border: 1px solid #dbe8f0;
       border-radius: 8px;
       background: linear-gradient(180deg, #ffffff 0%, #f9fdfd 100%);
@@ -2653,12 +2653,12 @@
     .comunicado-card::after {
       content: "";
       position: absolute;
-      right: -26px;
-      top: -64px;
-      width: 140px;
-      height: 140px;
+      right: -18px;
+      top: -44px;
+      width: 108px;
+      height: 108px;
       border-radius: 999px;
-      border: 24px solid rgba(38, 214, 190, .5);
+      border: 18px solid rgba(38, 214, 190, .42);
       z-index: 1;
     }
 
@@ -2702,9 +2702,10 @@
       position: relative;
       z-index: 1;
       padding: 22px 20px 18px;
-      display: grid;
-      align-content: start;
+      display: flex;
+      flex-direction: column;
       gap: 14px;
+      min-height: 186px;
     }
 
     .comunicado-body h3 {
@@ -2725,9 +2726,9 @@
 
     .comunicado-body .btn {
       justify-self: start;
-      align-self: end;
+      align-self: flex-start;
       min-height: 42px;
-      margin-top: 8px;
+      margin-top: auto;
       padding-inline: 18px;
       border: 0;
       border-radius: 8px;
@@ -2763,12 +2764,7 @@
     }
 
     .comunicado-dots {
-      position: absolute;
-      z-index: 3;
-      left: 63%;
-      bottom: 28px;
-      display: flex;
-      gap: 10px;
+      display: none;
     }
 
     .comunicado-dots span {
@@ -2783,9 +2779,11 @@
     }
 
     .comunicados-footer-action {
-      position: absolute;
-      right: 24px;
-      bottom: 20px;
+      position: relative;
+      grid-column: 2;
+      justify-self: end;
+      align-self: end;
+      margin-top: 8px;
       z-index: 4;
     }
 
@@ -3155,7 +3153,7 @@
       .comunicados-carousel {
         grid-template-columns: repeat(3, minmax(210px, 1fr));
         overflow-x: auto;
-        padding-bottom: 58px;
+        padding-bottom: 8px;
         scroll-snap-type: x mandatory;
       }
 
@@ -3170,8 +3168,8 @@
       }
 
       .comunicados-footer-action {
-        right: 24px;
-        bottom: 20px;
+        grid-column: 1;
+        justify-self: end;
       }
 
       .support-assist-layout {
@@ -3237,7 +3235,7 @@
       .comunicados-carousel {
         grid-template-columns: 1fr;
         overflow: visible;
-        padding-bottom: 62px;
+        padding-bottom: 0;
       }
 
       .comunicado-card {
@@ -3245,8 +3243,8 @@
       }
 
       .comunicados-footer-action {
-        left: 16px;
-        right: 16px;
+        grid-column: 1;
+        justify-self: stretch;
       }
 
       .comunicados-footer-action .btn {
