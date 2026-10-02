@@ -34,8 +34,9 @@
     .kpi:nth-child(3) span { background:var(--orange); }
     .kpi strong { display:block; color:#081b42; font-size:15px; }
     .kpi small { display:block; color:var(--ink-soft); font-size:12px; }
-    .toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin:24px 0 18px; padding:16px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.06); }
-    .toolbar strong { color:#081b42; font-size:15px; }
+    .toolbar { display:grid; gap:14px; margin:24px 0 18px; padding:16px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.06); }
+    .filter-row { display:grid; grid-template-columns:120px minmax(0,1fr); gap:12px; align-items:start; }
+    .toolbar strong { color:#081b42; font-size:14px; padding-top:7px; }
     .filters { display:flex; flex-wrap:wrap; gap:8px; }
     .filter-button { min-height:34px; padding:0 12px; border:1px solid #cdd8e6; border-radius:999px; background:#fff; color:#33445e; font-size:12px; font-weight:900; cursor:pointer; }
     .filter-button.active { background:#13213d; border-color:#13213d; color:#fff; }
@@ -60,14 +61,22 @@
     .tag.academico { background:#fff8df; color:#7a5400; }
     .tag.fechamento { background:#fff0e8; color:#954100; }
     .tag.avaliacao { background:#ffecef; color:#a40f21; }
+    .tag.treinamento { background:#f0eaff; color:#4e2d91; }
+    .tag.sistema { background:#eaf6ff; color:#115078; }
+    .tag.nota { background:#e7f8f2; color:#00745f; }
+    .tag.rematricula { background:#fff0e8; color:#954100; }
+    .tag.reserva { background:#ffecef; color:#a40f21; }
     .period-card p { margin:0; color:var(--ink-soft); font-size:14px; }
     .task-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
     .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr); gap:10px; align-items:start; color:#2f405c; font-size:14px; }
     .task-list li::before { content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--green); }
+    .task-meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+    .mini-tag { display:inline-flex; align-items:center; min-height:22px; padding:0 8px; border-radius:999px; background:#f3f6fb; color:#526078; font-size:11px; font-weight:850; }
+    .empty-state { padding:18px; border:1px dashed #b9c8dc; border-radius:8px; background:#fff; color:var(--ink-soft); font-weight:850; }
     .notice { margin-top:24px; padding:18px; border:1px solid #f1d28b; border-radius:8px; background:#fff9e8; color:#6d4b00; font-size:14px; }
     .footer-line { height:6px; background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%); }
     @media (max-width:920px) { .site-header { position:static; grid-template-columns:1fr; gap:10px; padding:12px 16px; } .site-menu { justify-content:flex-start; overflow-x:auto; scrollbar-width:none; } .site-menu::-webkit-scrollbar { display:none; } .hero { grid-template-columns:1fr; } .hero-panel { border-left:0; border-top:1px solid var(--line); } .period { grid-template-columns:1fr; } .period-date { display:flex; align-items:baseline; justify-content:space-between; gap:12px; } }
-    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .hero-copy, .hero-panel { padding:22px; } .toolbar { align-items:stretch; } .filters { width:100%; } .filter-button { flex:1 1 130px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } .period-top { display:grid; } }
+    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .hero-copy, .hero-panel { padding:22px; } .filter-row { grid-template-columns:1fr; } .toolbar strong { padding-top:0; } .filters { width:100%; } .filter-button { flex:1 1 130px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } .period-top { display:grid; } }
   </style>
 </head>
 <body>
@@ -88,67 +97,140 @@
       <div class="hero-copy">
         <p class="eyebrow">Timeline Educacional</p>
         <h1>Cronograma Acadêmico 2026-2027</h1>
-        <p>Modelo para acompanhar os marcos do ciclo acadêmico, organizar responsáveis e apoiar a comunicação entre Acadêmico ASE, unidades e áreas de suporte.</p>
+        <p>Agenda operacional com atividades, prazos, treinamentos e preparações do ciclo acadêmico, organizada a partir do documento compartilhado pela equipe.</p>
         <div class="hero-actions" aria-label="Status do modelo">
           <span class="pill">Modelo de homologação</span>
           <span class="pill warning">Aguardando validação humana</span>
         </div>
       </div>
       <aside class="hero-panel" aria-label="Resumo do cronograma">
-        <div class="kpi"><span>18</span><div><strong>Meses mapeados</strong><small>Julho/2026 a Dezembro/2027</small></div></div>
-        <div class="kpi"><span>5</span><div><strong>Frentes principais</strong><small>Preparação, matrícula, acadêmico, fechamento e avaliação</small></div></div>
+        <div class="kpi"><span>12</span><div><strong>Meses mapeados</strong><small>Setembro/2026 a Agosto/2027</small></div></div>
+        <div class="kpi"><span>47</span><div><strong>Atividades listadas</strong><small>Com filtros por tipo e grupo responsável</small></div></div>
         <div class="kpi"><span>N1</span><div><strong>Uso em suporte</strong><small>Base visual para triagem e alinhamento operacional</small></div></div>
       </aside>
     </section>
 
     <section class="toolbar" aria-label="Filtros do cronograma">
-      <strong>Filtrar por frente</strong>
-      <div class="filters">
-        <button class="filter-button active" type="button" data-filter="todos">Todos</button>
-        <button class="filter-button" type="button" data-filter="preparacao">Preparação</button>
-        <button class="filter-button" type="button" data-filter="matricula">Matrícula</button>
-        <button class="filter-button" type="button" data-filter="academico">Acadêmico</button>
-        <button class="filter-button" type="button" data-filter="fechamento">Fechamento</button>
-        <button class="filter-button" type="button" data-filter="avaliacao">Avaliação</button>
+      <div class="filter-row">
+        <strong>Tipo</strong>
+        <div class="filters" id="typeFilters"></div>
+      </div>
+      <div class="filter-row">
+        <strong>Grupo</strong>
+        <div class="filters" id="groupFilters"></div>
       </div>
     </section>
 
-    <section class="timeline" aria-label="Linha do tempo acadêmica">
-      <article class="period" data-track="preparacao"><div class="period-date"><strong>Jul/2026</strong><span>Preparação</span></div><div class="period-card"><div class="period-top"><h2>Planejamento do ciclo 2027</h2><span class="tag preparacao">Preparação</span></div><p>Organização inicial das regras acadêmicas, calendários e pontos de dependência entre áreas.</p><ul class="task-list"><li>Conferir premissas do calendário acadêmico e marcos institucionais.</li><li>Levantar processos que precisam de material, treinamento ou comunicado.</li></ul></div></article>
-      <article class="period" data-track="preparacao"><div class="period-date"><strong>Ago/2026</strong><span>Preparação</span></div><div class="period-card"><div class="period-top"><h2>Parametrizações e materiais-base</h2><span class="tag preparacao">Preparação</span></div><p>Estruturação dos insumos usados em rematrícula, contratos, turmas, serviços e orientações de atendimento.</p><ul class="task-list"><li>Mapear telas, regras, evidências e dúvidas recorrentes.</li><li>Preparar rascunhos de guias rápidos, checklists e FAQs.</li></ul></div></article>
-      <article class="period" data-track="matricula"><div class="period-date"><strong>Set/2026</strong><span>Matrícula</span></div><div class="period-card"><div class="period-top"><h2>Pré-ciclo de rematrícula</h2><span class="tag matricula">Matrícula</span></div><p>Validação operacional do fluxo antes da liberação para unidades e responsáveis.</p><ul class="task-list"><li>Conferir comunicação, acessos e orientações para início do ciclo.</li><li>Separar dúvidas que exigem validação acadêmica, financeira ou sistêmica.</li></ul></div></article>
-      <article class="period" data-track="matricula"><div class="period-date"><strong>Out/2026</strong><span>Matrícula</span></div><div class="period-card"><div class="period-top"><h2>Rematrícula 2027 em execução</h2><span class="tag matricula">Matrícula</span></div><p>Acompanhamento do fluxo no portal, dúvidas de acesso, identificação, serviços e finalização.</p><ul class="task-list"><li>Monitorar chamados recorrentes e atualizar base de suporte validada.</li><li>Separar exceções para Cleide, Amanda, Jonathan e área responsável.</li></ul></div></article>
-      <article class="period" data-track="fechamento"><div class="period-date"><strong>Nov/2026</strong><span>Fechamento</span></div><div class="period-card"><div class="period-top"><h2>Ajustes e conferências finais</h2><span class="tag fechamento">Fechamento</span></div><p>Tratamento das pendências do ciclo, revisão de contratos, serviços e inconsistências reportadas.</p><ul class="task-list"><li>Consolidar pontos que geraram retrabalho nas unidades.</li><li>Atualizar materiais de orientação após validação humana.</li></ul></div></article>
-      <article class="period" data-track="fechamento"><div class="period-date"><strong>Dez/2026</strong><span>Fechamento</span></div><div class="period-card"><div class="period-top"><h2>Virada acadêmica</h2><span class="tag fechamento">Fechamento</span></div><p>Preparação para entrada no ano letivo seguinte, com atenção a status, turmas e comunicações de retorno.</p><ul class="task-list"><li>Conferir pendências críticas antes da virada do calendário.</li><li>Registrar decisões e exceções aprovadas para uso em 2027.</li></ul></div></article>
-      <article class="period" data-track="academico"><div class="period-date"><strong>Jan/2027</strong><span>Acadêmico</span></div><div class="period-card"><div class="period-top"><h2>Preparação de início de ano</h2><span class="tag academico">Acadêmico</span></div><p>Conferência dos dados acadêmicos essenciais para retorno das unidades e atendimento inicial.</p><ul class="task-list"><li>Organizar canais de orientação, prioridades e materiais de consulta.</li><li>Revisar dúvidas sobre aluno, turma, matrícula e portal.</li></ul></div></article>
-      <article class="period" data-track="academico"><div class="period-date"><strong>Fev/2027</strong><span>Acadêmico</span></div><div class="period-card"><div class="period-top"><h2>Início do ano letivo</h2><span class="tag academico">Acadêmico</span></div><p>Acompanhamento do início das aulas, ajustes de turma e dúvidas operacionais das unidades.</p><ul class="task-list"><li>Mapear divergências de acesso, cadastro, turma e portal.</li><li>Direcionar decisões não documentadas para validação humana.</li></ul></div></article>
-      <article class="period" data-track="avaliacao"><div class="period-date"><strong>Mar/2027</strong><span>Avaliação</span></div><div class="period-card"><div class="period-top"><h2>Rotina de notas, faltas e acompanhamento</h2><span class="tag avaliacao">Avaliação</span></div><p>Organização de orientações para consultas, registros e dúvidas iniciais do processo avaliativo.</p><ul class="task-list"><li>Levantar dúvidas frequentes de professores, secretaria e coordenação.</li><li>Classificar o que pode virar guia rápido após validação.</li></ul></div></article>
-      <article class="period" data-track="fechamento"><div class="period-date"><strong>Abr/2027</strong><span>Fechamento</span></div><div class="period-card"><div class="period-top"><h2>Conferências acadêmicas do período</h2><span class="tag fechamento">Fechamento</span></div><p>Consolidação de pendências, ajustes de registros e acompanhamento de solicitações recorrentes.</p><ul class="task-list"><li>Separar erros de processo, regra de negócio e dúvida de uso.</li><li>Registrar lacunas de treinamento para melhoria contínua.</li></ul></div></article>
-      <article class="period" data-track="academico"><div class="period-date"><strong>Mai/2027</strong><span>Acadêmico</span></div><div class="period-card"><div class="period-top"><h2>Manutenção do ciclo letivo</h2><span class="tag academico">Acadêmico</span></div><p>Período de acompanhamento operacional, apoio às unidades e refinamento da base de conhecimento.</p><ul class="task-list"><li>Revisar dúvidas repetidas e transformar em FAQ de suporte.</li><li>Apontar riscos de processo para validação da equipe.</li></ul></div></article>
-      <article class="period" data-track="fechamento"><div class="period-date"><strong>Jun/2027</strong><span>Fechamento</span></div><div class="period-card"><div class="period-top"><h2>Fechamento semestral</h2><span class="tag fechamento">Fechamento</span></div><p>Organização dos pontos de encerramento do semestre e preparação para recesso/retomada.</p><ul class="task-list"><li>Conferir pendências acadêmicas e necessidades de comunicação.</li><li>Atualizar materiais com decisões já validadas.</li></ul></div></article>
-      <article class="period" data-track="preparacao"><div class="period-date"><strong>Jul/2027</strong><span>Preparação</span></div><div class="period-card"><div class="period-top"><h2>Revisão de meio de ano</h2><span class="tag preparacao">Preparação</span></div><p>Análise das ocorrências do semestre para ajustar materiais, treinamentos e processos do segundo semestre.</p><ul class="task-list"><li>Consolidar aprendizados e gargalos identificados no N1.</li><li>Priorizar atualizações de materiais para o segundo semestre.</li></ul></div></article>
-      <article class="period" data-track="academico"><div class="period-date"><strong>Ago/2027</strong><span>Acadêmico</span></div><div class="period-card"><div class="period-top"><h2>Retomada e acompanhamento</h2><span class="tag academico">Acadêmico</span></div><p>Continuidade do acompanhamento acadêmico e suporte às unidades em rotinas do período.</p><ul class="task-list"><li>Monitorar dúvidas de portal, registros e rotinas acadêmicas.</li><li>Preparar base para comunicações do próximo ciclo.</li></ul></div></article>
-      <article class="period" data-track="preparacao"><div class="period-date"><strong>Set/2027</strong><span>Preparação</span></div><div class="period-card"><div class="period-top"><h2>Preparação do ciclo seguinte</h2><span class="tag preparacao">Preparação</span></div><p>Início da revisão do próximo ciclo, com atualização de documentação, fluxos e mensagens.</p><ul class="task-list"><li>Revisar calendário, regras e materiais que precisarão de nova validação.</li><li>Planejar comunicação e treinamento das unidades.</li></ul></div></article>
-      <article class="period" data-track="matricula"><div class="period-date"><strong>Out/2027</strong><span>Matrícula</span></div><div class="period-card"><div class="period-top"><h2>Novo ciclo de matrícula/rematrícula</h2><span class="tag matricula">Matrícula</span></div><p>Modelo reservado para acompanhar a abertura do ciclo seguinte, quando validado pela equipe.</p><ul class="task-list"><li>Usar aprendizados de 2026-2027 para reduzir retrabalho.</li><li>Revisar perguntas, respostas e critérios de escalação.</li></ul></div></article>
-      <article class="period" data-track="fechamento"><div class="period-date"><strong>Nov/2027</strong><span>Fechamento</span></div><div class="period-card"><div class="period-top"><h2>Consolidação operacional</h2><span class="tag fechamento">Fechamento</span></div><p>Período previsto para revisão de pendências, ajustes e comunicação final do ciclo.</p><ul class="task-list"><li>Conferir indicadores de dúvidas e pontos de falha recorrente.</li><li>Registrar decisões aprovadas para padronização.</li></ul></div></article>
-      <article class="period" data-track="avaliacao"><div class="period-date"><strong>Dez/2027</strong><span>Avaliação</span></div><div class="period-card"><div class="period-top"><h2>Retrospectiva e melhoria contínua</h2><span class="tag avaliacao">Avaliação</span></div><p>Fechamento do modelo anual, registro de aprendizados e preparação da versão oficial revisada.</p><ul class="task-list"><li>Separar o que virou procedimento validado e o que segue como rascunho.</li><li>Definir melhorias para treinamento, comunicação e suporte N1.</li></ul></div></article>
-    </section>
+    <section class="timeline" id="timeline" aria-label="Linha do tempo acadêmica"></section>
 
     <div class="notice">Este cronograma é um modelo de homologação. Datas, regras, responsáveis e ações operacionais devem ser validados por Cleide Dani, Amanda Bindilatti, Jonathan Souza e área responsável antes de uso como procedimento oficial.</div>
   </main>
   <div class="footer-line" aria-hidden="true"></div>
   <script>
-    const buttons = document.querySelectorAll(".filter-button");
-    const periods = document.querySelectorAll(".period");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        buttons.forEach((item) => item.classList.toggle("active", item === button));
-        periods.forEach((period) => {
-          period.hidden = filter !== "todos" && period.dataset.track !== filter;
-        });
+    const schedule = [
+      { month: "Set/2026", title: "Lançamento e prazos iniciais", track: "preparacao", tasks: [
+        { text: "Lançamento do Projeto - Nota em Dia", type: "Projeto", group: "Acadêmico GSP" },
+        { text: "13/10 - Prazo para lançamento de notas", type: "Nota em Dia", group: "Acadêmico Escolas" },
+        { text: "09 e 15/10 - Entrega das disciplinas", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
+        { text: "30/10 - Confirmação do Sistema de Avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" }
+      ]},
+      { month: "Out/2026", title: "Preparação acadêmica e processos", track: "academico", tasks: [
+        { text: "Matricular alunos em disciplinas", type: "Operação Acadêmica", group: "Acadêmico GSP" },
+        { text: "Replicação do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
+        { text: "Ajuste no itinerário formativo", type: "Operação Acadêmica", group: "Acadêmico GSP" },
+        { text: "Preparação do material de treinamento/apoio TAA Cancelamento", type: "Preparação", group: "Acadêmico GSP" },
+        { text: "Histórico escolar - manutenção e readequação do processo de emissão: Objetivo SJC, Praia Grande, CCPA e CJA", type: "Histórico Escolar", group: "Acadêmico GSP" },
+        { text: "Histórico escolar - alteração do processo de emissão: Marupiara e Santo Anjo", type: "Histórico Escolar", group: "Acadêmico GSP" }
+      ]},
+      { month: "Nov/2026", title: "Treinamentos, metadados e fechamento", track: "treinamento", tasks: [
+        { text: "Treinamento Importação de Grade Horária - Urânia com TOTVS", type: "Treinamento", group: "Acadêmico Escolas" },
+        { text: "Construção de metadados de bolsas colaboradores", type: "Preparação", group: "Regional" },
+        { text: "Importação de metadados de bolsas colaboradores", type: "Sistema/Portal", group: "TI" },
+        { text: "Replicação do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
+        { text: "Treinamento TAA Cancelamento", type: "Treinamento", group: "Acadêmico GSP" },
+        { text: "Treinamento do processo de emissão de histórico - Objetivo SJC, Praia Grande, CCPA e CJA", type: "Treinamento", group: "Acadêmico GSP" },
+        { text: "Treinamento do novo processo de emissão de histórico - Marupiara e Santo Anjo", type: "Treinamento", group: "Acadêmico GSP" },
+        { text: "Configuração sistema/portal para matrícula na colônia de férias", type: "Sistema/Portal", group: "Acadêmico GSP" },
+        { text: "Nota em Dia - Fechamento bimestral e trimestral", type: "Nota em Dia", group: "Acadêmico GSP" }
+      ]},
+      { month: "Dez/2026", title: "Virada do ano acadêmico", track: "fechamento", tasks: [
+        { text: "Geração da grade horária através da integração do Urânia com Educacional", type: "Grade Horária", group: "Acadêmico Escolas" },
+        { text: "Abertura rematrícula - filhos de colaboradores", type: "Rematrícula", group: "Rejoel" },
+        { text: "Fechamento geral - Nota em Dia", type: "Nota em Dia", group: "Acadêmico GSP" },
+        { text: "Treinamento Grade Horária - Integração com Urânia", type: "Treinamento", group: "Acadêmico GSP" },
+        { text: "Cadastro de professores novos", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
+        { text: "Atualização dos documentos do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
+        { text: "Preparação do treinamento dos professores - notas, faltas e conteúdo", type: "Preparação", group: "Acadêmico GSP" },
+        { text: "Geração de histórico escolar dos concluintes", type: "Histórico Escolar", group: "Acadêmico Escolas" }
+      ]},
+      { month: "Jan/2027", title: "Início de ano letivo", track: "academico", tasks: [
+        { text: "Geração da grade horária através da integração do Urânia com Educacional - CJA até dia xx/01 e demais unidades até o dia xx", type: "Grade Horária", group: "Acadêmico Escolas" },
+        { text: "Importar grade horária do Urânia para o TOTVS", type: "Grade Horária", group: "Acadêmico Escolas" },
+        { text: "Geração da prévia da folha de pagamento após inclusão das informações da grade horária dos professores", type: "Sistema/Portal", group: "DP" },
+        { text: "Publicação do documento atualizado do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
+        { text: "Confirmação do funcionamento dos Apps de comunicação com as famílias", type: "Sistema/Portal", group: "Acadêmico GSP" },
+        { text: "Ensalamento via TOTVS - processo nativo antes do início das aulas", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
+        { text: "Treinamento professores - inclusão de notas, faltas e conteúdo", type: "Treinamento", group: "Acadêmico GSP" },
+        { text: "Ativar matrícula para alunos em dependência", type: "Matrícula", group: "Acadêmico GSP" },
+        { text: "Geração de histórico escolar dos concluintes", type: "Histórico Escolar", group: "Acadêmico Escolas" },
+        { text: "Geração de histórico escolar de alunos transferidos", type: "Histórico Escolar", group: "Acadêmico Escolas" }
+      ]},
+      { month: "Fev/2027", title: "Itinerário formativo", track: "academico", tasks: [ { text: "Matricular alunos no itinerário", type: "Operação Acadêmica", group: "Acadêmico Escolas" } ]},
+      { month: "Mar/2027", title: "Reserva de vaga 2028", track: "reserva", tasks: [ { text: "Abertura da reserva de vaga para 2028", type: "Reserva de Vaga", group: "Comercial" } ]},
+      { month: "Abr/2027", title: "Preparação da rematrícula 2028", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - preparação dos arquivos e coleta de dados", type: "Rematrícula", group: "Regional e ASE" } ]},
+      { month: "Mai/2027", title: "Coleta e parametrização da rematrícula 2028", track: "rematricula", tasks: [
+        { text: "Rematrícula 2028 - preparação dos arquivos e coleta de dados", type: "Rematrícula", group: "Regional e ASE" },
+        { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" }
+      ]},
+      { month: "Jun/2027", title: "Parametrização e treinamento", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" } ]},
+      { month: "Jul/2027", title: "Continuidade da preparação 2028", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" } ]},
+      { month: "Ago/2027", title: "Abertura e transição 2028", track: "rematricula", tasks: [
+        { text: "Abertura Rematrícula 2028", type: "Rematrícula", group: "Regional e ASE" },
+        { text: "Fechamento da reserva de vagas para 2028: matrícula direto", type: "Reserva de Vaga", group: "Comercial" },
+        { text: "Envio dos links após aprovação das reservas para 2028", type: "Reserva de Vaga", group: "Comercial" }
+      ]}
+    ];
+
+    let activeType = "Todos";
+    let activeGroup = "Todos";
+    const typeFilters = document.getElementById("typeFilters");
+    const groupFilters = document.getElementById("groupFilters");
+    const timeline = document.getElementById("timeline");
+    const types = ["Todos", ...new Set(schedule.flatMap(month => month.tasks.map(task => task.type)))];
+    const groups = ["Todos", ...new Set(schedule.flatMap(month => month.tasks.map(task => task.group)))];
+    const trackLabel = { preparacao: "Preparação", academico: "Acadêmico", treinamento: "Treinamento", fechamento: "Fechamento", rematricula: "Rematrícula", reserva: "Reserva de Vaga" };
+
+    function escapeHtml(value) { return value.replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char])); }
+    function buildFilters(container, values, activeValue, onClick) {
+      container.innerHTML = "";
+      values.forEach((value) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "filter-button" + (value === activeValue ? " active" : "");
+        button.textContent = value;
+        button.addEventListener("click", () => onClick(value));
+        container.appendChild(button);
       });
-    });
+    }
+    function render() {
+      buildFilters(typeFilters, types, activeType, (value) => { activeType = value; render(); });
+      buildFilters(groupFilters, groups, activeGroup, (value) => { activeGroup = value; render(); });
+      timeline.innerHTML = "";
+      let visibleMonths = 0;
+      schedule.forEach((month) => {
+        const tasks = month.tasks.filter((task) => (activeType === "Todos" || task.type === activeType) && (activeGroup === "Todos" || task.group === activeGroup));
+        if (!tasks.length) return;
+        visibleMonths += 1;
+        const article = document.createElement("article");
+        article.className = "period";
+        article.dataset.track = month.track;
+        const taskItems = tasks.map((task) => '<li><div>' + escapeHtml(task.text) + '<div class="task-meta"><span class="mini-tag">' + escapeHtml(task.type) + '</span><span class="mini-tag">' + escapeHtml(task.group) + '</span></div></div></li>').join("");
+        article.innerHTML = '<div class="period-date"><strong>' + escapeHtml(month.month) + '</strong><span>' + tasks.length + ' atividade' + (tasks.length > 1 ? 's' : '') + '</span></div><div class="period-card"><div class="period-top"><h2>' + escapeHtml(month.title) + '</h2><span class="tag ' + escapeHtml(month.track) + '">' + escapeHtml(trackLabel[month.track] || month.track) + '</span></div><ul class="task-list">' + taskItems + '</ul></div>';
+        timeline.appendChild(article);
+      });
+      if (!visibleMonths) timeline.innerHTML = '<div class="empty-state">Nenhuma atividade encontrada para os filtros selecionados.</div>';
+    }
+    render();
   </script>
 </body>
 </html>
