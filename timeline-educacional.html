@@ -103,18 +103,14 @@
       </div>
       <aside class="hero-panel" aria-label="Resumo do cronograma">
         <div class="kpi"><span>12</span><div><strong>Meses mapeados</strong><small>Setembro/2026 a Agosto/2027</small></div></div>
-        <div class="kpi"><span>47</span><div><strong>Atividades listadas</strong><small>Com filtros por tipo e grupo responsável</small></div></div>
+        <div class="kpi"><span>48</span><div><strong>Atividades listadas</strong><small>Com filtro por grupo de pesquisa</small></div></div>
         <div class="kpi"><span>N1</span><div><strong>Uso em suporte</strong><small>Base visual para triagem e alinhamento operacional</small></div></div>
       </aside>
     </section>
 
     <section class="toolbar" aria-label="Filtros do cronograma">
       <div class="filter-row">
-        <strong>Tipo</strong>
-        <div class="filters" id="typeFilters"></div>
-      </div>
-      <div class="filter-row">
-        <strong>Grupo</strong>
+        <strong>Grupo de pesquisa</strong>
         <div class="filters" id="groupFilters"></div>
       </div>
     </section>
@@ -126,75 +122,335 @@
   <div class="footer-line" aria-hidden="true"></div>
   <script>
     const schedule = [
-      { month: "Set/2026", title: "Lançamento e prazos iniciais", track: "preparacao", tasks: [
-        { text: "Lançamento do Projeto - Nota em Dia", type: "Projeto", group: "Acadêmico GSP" },
-        { text: "13/10 - Prazo para lançamento de notas", type: "Nota em Dia", group: "Acadêmico Escolas" },
-        { text: "09 e 15/10 - Entrega das disciplinas", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
-        { text: "30/10 - Confirmação do Sistema de Avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" }
-      ]},
-      { month: "Out/2026", title: "Preparação acadêmica e processos", track: "academico", tasks: [
-        { text: "Matricular alunos em disciplinas", type: "Operação Acadêmica", group: "Acadêmico GSP" },
-        { text: "Replicação do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
-        { text: "Ajuste no itinerário formativo", type: "Operação Acadêmica", group: "Acadêmico GSP" },
-        { text: "Preparação do material de treinamento/apoio TAA Cancelamento", type: "Preparação", group: "Acadêmico GSP" },
-        { text: "Histórico escolar - manutenção e readequação do processo de emissão: Objetivo SJC, Praia Grande, CCPA e CJA", type: "Histórico Escolar", group: "Acadêmico GSP" },
-        { text: "Histórico escolar - alteração do processo de emissão: Marupiara e Santo Anjo", type: "Histórico Escolar", group: "Acadêmico GSP" }
-      ]},
-      { month: "Nov/2026", title: "Treinamentos, metadados e fechamento", track: "treinamento", tasks: [
-        { text: "Treinamento Importação de Grade Horária - Urânia com TOTVS", type: "Treinamento", group: "Acadêmico Escolas" },
-        { text: "Construção de metadados de bolsas colaboradores", type: "Preparação", group: "Regional" },
-        { text: "Importação de metadados de bolsas colaboradores", type: "Sistema/Portal", group: "TI" },
-        { text: "Replicação do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
-        { text: "Treinamento TAA Cancelamento", type: "Treinamento", group: "Acadêmico GSP" },
-        { text: "Treinamento do processo de emissão de histórico - Objetivo SJC, Praia Grande, CCPA e CJA", type: "Treinamento", group: "Acadêmico GSP" },
-        { text: "Treinamento do novo processo de emissão de histórico - Marupiara e Santo Anjo", type: "Treinamento", group: "Acadêmico GSP" },
-        { text: "Configuração sistema/portal para matrícula na colônia de férias", type: "Sistema/Portal", group: "Acadêmico GSP" },
-        { text: "Nota em Dia - Fechamento bimestral e trimestral", type: "Nota em Dia", group: "Acadêmico GSP" }
-      ]},
-      { month: "Dez/2026", title: "Virada do ano acadêmico", track: "fechamento", tasks: [
-        { text: "Geração da grade horária através da integração do Urânia com Educacional", type: "Grade Horária", group: "Acadêmico Escolas" },
-        { text: "Abertura rematrícula - filhos de colaboradores", type: "Rematrícula", group: "Rejoel" },
-        { text: "Fechamento geral - Nota em Dia", type: "Nota em Dia", group: "Acadêmico GSP" },
-        { text: "Treinamento Grade Horária - Integração com Urânia", type: "Treinamento", group: "Acadêmico GSP" },
-        { text: "Cadastro de professores novos", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
-        { text: "Atualização dos documentos do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
-        { text: "Preparação do treinamento dos professores - notas, faltas e conteúdo", type: "Preparação", group: "Acadêmico GSP" },
-        { text: "Geração de histórico escolar dos concluintes", type: "Histórico Escolar", group: "Acadêmico Escolas" }
-      ]},
-      { month: "Jan/2027", title: "Início de ano letivo", track: "academico", tasks: [
-        { text: "Geração da grade horária através da integração do Urânia com Educacional - CJA até dia xx/01 e demais unidades até o dia xx", type: "Grade Horária", group: "Acadêmico Escolas" },
-        { text: "Importar grade horária do Urânia para o TOTVS", type: "Grade Horária", group: "Acadêmico Escolas" },
-        { text: "Geração da prévia da folha de pagamento após inclusão das informações da grade horária dos professores", type: "Sistema/Portal", group: "DP" },
-        { text: "Publicação do documento atualizado do sistema de avaliação", type: "Sistema de Avaliação", group: "Acadêmico GSP" },
-        { text: "Confirmação do funcionamento dos Apps de comunicação com as famílias", type: "Sistema/Portal", group: "Acadêmico GSP" },
-        { text: "Ensalamento via TOTVS - processo nativo antes do início das aulas", type: "Operação Acadêmica", group: "Acadêmico Escolas" },
-        { text: "Treinamento professores - inclusão de notas, faltas e conteúdo", type: "Treinamento", group: "Acadêmico GSP" },
-        { text: "Ativar matrícula para alunos em dependência", type: "Matrícula", group: "Acadêmico GSP" },
-        { text: "Geração de histórico escolar dos concluintes", type: "Histórico Escolar", group: "Acadêmico Escolas" },
-        { text: "Geração de histórico escolar de alunos transferidos", type: "Histórico Escolar", group: "Acadêmico Escolas" }
-      ]},
-      { month: "Fev/2027", title: "Itinerário formativo", track: "academico", tasks: [ { text: "Matricular alunos no itinerário", type: "Operação Acadêmica", group: "Acadêmico Escolas" } ]},
-      { month: "Mar/2027", title: "Reserva de vaga 2028", track: "reserva", tasks: [ { text: "Abertura da reserva de vaga para 2028", type: "Reserva de Vaga", group: "Comercial" } ]},
-      { month: "Abr/2027", title: "Preparação da rematrícula 2028", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - preparação dos arquivos e coleta de dados", type: "Rematrícula", group: "Regional e ASE" } ]},
-      { month: "Mai/2027", title: "Coleta e parametrização da rematrícula 2028", track: "rematricula", tasks: [
-        { text: "Rematrícula 2028 - preparação dos arquivos e coleta de dados", type: "Rematrícula", group: "Regional e ASE" },
-        { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" }
-      ]},
-      { month: "Jun/2027", title: "Parametrização e treinamento", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" } ]},
-      { month: "Jul/2027", title: "Continuidade da preparação 2028", track: "rematricula", tasks: [ { text: "Rematrícula 2028 - definição, cadastros, parametrizações e treinamento", type: "Rematrícula", group: "Regional e ASE" } ]},
-      { month: "Ago/2027", title: "Abertura e transição 2028", track: "rematricula", tasks: [
-        { text: "Abertura Rematrícula 2028", type: "Rematrícula", group: "Regional e ASE" },
-        { text: "Fechamento da reserva de vagas para 2028: matrícula direto", type: "Reserva de Vaga", group: "Comercial" },
-        { text: "Envio dos links após aprovação das reservas para 2028", type: "Reserva de Vaga", group: "Comercial" }
-      ]}
+          {
+                "month": "Set/2026",
+                "title": "Lançamento e prazos iniciais",
+                "track": "preparacao",
+                "tasks": [
+                      {
+                            "text": "Lançamento do Projeto",
+                            "type": "Projeto",
+                            "group": "Nota em Dia"
+                      },
+                      {
+                            "text": "Nota em Dia - Lançamento de notas - 13/10",
+                            "type": "Prazo",
+                            "group": "Prazo"
+                      },
+                      {
+                            "text": "Entrega das disciplinas em 09/10 Unidade CCPA",
+                            "type": "Prazo",
+                            "group": "Prazo"
+                      },
+                      {
+                            "text": "Entrega das disciplinas em 15/10 Unidades: CJA, Marupiara, Objetivo, Santo Anjo",
+                            "type": "Prazo",
+                            "group": "Prazo"
+                      },
+                      {
+                            "text": "Confirmação do Sistema de Avaliação - 30/10",
+                            "type": "Prazo",
+                            "group": "Prazo"
+                      }
+                ]
+          },
+          {
+                "month": "Out/2026",
+                "title": "Preparação acadêmica e processos",
+                "track": "academico",
+                "tasks": [
+                      {
+                            "text": "Sistema de avaliação, após confirmação das unidades",
+                            "type": "Análise",
+                            "group": "Análise"
+                      },
+                      {
+                            "text": "Atualização do itinerário formativo",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Criação do material de treinamento/apoio TAA Cancelamento",
+                            "type": "Material",
+                            "group": "Material"
+                      },
+                      {
+                            "text": "Manutenção readequação do processo de emissão - Objetivo SJC e Praia Grande, CCPA, CJA",
+                            "type": "Histórico escolar",
+                            "group": "Histórico escolar"
+                      },
+                      {
+                            "text": "Alteração do processo de emissão de histórico escolar: Marupiara e Santo Anjo",
+                            "type": "Histórico escolar",
+                            "group": "Histórico escolar"
+                      }
+                ]
+          },
+          {
+                "month": "Nov/2026",
+                "title": "Treinamentos, metadados e fechamento",
+                "track": "treinamento",
+                "tasks": [
+                      {
+                            "text": "Importação de Grade Horária - Urânia com TOTVS",
+                            "type": "Treinamento",
+                            "group": "Treinamento"
+                      },
+                      {
+                            "text": "Construção metadados de bolsas colaboradores, exceto Santo Anjo",
+                            "type": "Rematrícula Colaboradores",
+                            "group": "Rematrícula Colaboradores"
+                      },
+                      {
+                            "text": "Importação metadados de bolsas colaboradores",
+                            "type": "Rematrícula Colaboradores",
+                            "group": "Rematrícula Colaboradores"
+                      },
+                      {
+                            "text": "Replicação do sistema de avaliação",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Treinamento TAA Cancelamento",
+                            "type": "TAA",
+                            "group": "TAA"
+                      },
+                      {
+                            "text": "Processo emissão de histórico - Objetivo SJC e Praia Grande, CCPA e CJA",
+                            "type": "Treinamento",
+                            "group": "Treinamento"
+                      },
+                      {
+                            "text": "Novo processo emissão de histórico - Marupiara e Santo Anjo",
+                            "type": "Treinamento",
+                            "group": "Treinamento"
+                      },
+                      {
+                            "text": "Configuração sistema/portal para matrícula na colônia de férias",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Fechamento: Bimestral e Trimestral",
+                            "type": "Nota em Dia",
+                            "group": "Nota em Dia"
+                      }
+                ]
+          },
+          {
+                "month": "Dez/2026",
+                "title": "Virada do ano acadêmico",
+                "track": "fechamento",
+                "tasks": [
+                      {
+                            "text": "Geração da grade horária através da integração do Urânia com Educacional, realizado pelas unidades",
+                            "type": "Grade Horária Professor",
+                            "group": "Grade Horária Professor"
+                      },
+                      {
+                            "text": "Abertura rematrícula 2027 - Filhos de colaboradores, exceto Santo Anjo",
+                            "type": "Rematrícula Colaboradores",
+                            "group": "Rematrícula Colaboradores"
+                      },
+                      {
+                            "text": "Fechamento Geral",
+                            "type": "Nota em Dia",
+                            "group": "Nota em Dia"
+                      },
+                      {
+                            "text": "Cadastro de professores novos no TOTVS, realizado pelas unidades",
+                            "type": "Grade Horária Professor",
+                            "group": "Grade Horária Professor"
+                      },
+                      {
+                            "text": "Atualização dos documentos do sistema de avaliação",
+                            "type": "Material",
+                            "group": "Material"
+                      },
+                      {
+                            "text": "Treinamento dos Professores - Notas, Faltas e Conteúdo",
+                            "type": "Material",
+                            "group": "Material"
+                      },
+                      {
+                            "text": "Geração de histórico escolar dos concluintes pelas unidades (9.º e 3.º Série do EM) / Alunos Transferência",
+                            "type": "Histórico escolar",
+                            "group": "Histórico escolar"
+                      }
+                ]
+          },
+          {
+                "month": "Jan/2027",
+                "title": "Início de ano letivo",
+                "track": "academico",
+                "tasks": [
+                      {
+                            "text": "Geração da grade horária através da integração do Urânia com Educacional - CJA até dia xx/01 e demais unidades até o dia xx",
+                            "type": "Grade Horária Professor",
+                            "group": "Grade Horária Professor"
+                      },
+                      {
+                            "text": "Importar grade horária do Urânia para o TOTVS",
+                            "type": "Grade Horária Professor",
+                            "group": "Grade Horária Professor"
+                      },
+                      {
+                            "text": "Geração da prévia da folha de pagamento, realizada pelo DP, após inclusão das informações da grade horária dos professores",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Documento atualizado do sistema de avaliação",
+                            "type": "Publicação Material",
+                            "group": "Publicação Material"
+                      },
+                      {
+                            "text": "Confirmação do funcionamento dos Apps de comunicação com as famílias",
+                            "type": "Geral",
+                            "group": "Geral"
+                      },
+                      {
+                            "text": "Ensalamento dos alunos via processo sistemático",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Professores - Processo de inclusão de notas (whatsapp), faltas e conteúdo",
+                            "type": "Treinamento",
+                            "group": "Treinamento"
+                      },
+                      {
+                            "text": "Turmas e disciplinas alunos dependência Objetivo",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Ativar matrícula para alunos em dependência Objetivo",
+                            "type": "Portal",
+                            "group": "Portal"
+                      },
+                      {
+                            "text": "Geração de histórico escolar dos concluintes",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Geração de histórico escolar alunos transferidos",
+                            "type": "TOTVS",
+                            "group": "TOTVS"
+                      },
+                      {
+                            "text": "Fechamento no portal",
+                            "type": "Rematrícula 2027",
+                            "group": "Rematrícula 2027"
+                      }
+                ]
+          },
+          {
+                "month": "Fev/2027",
+                "title": "Itinerário formativo",
+                "track": "academico",
+                "tasks": [
+                      {
+                            "text": "Matricular alunos no itinerário (Acadêmico Escolas)",
+                            "type": "Geral",
+                            "group": "Geral"
+                      }
+                ]
+          },
+          {
+                "month": "Mar/2027",
+                "title": "Reserva de vaga 2028",
+                "track": "reserva",
+                "tasks": [
+                      {
+                            "text": "Abertura da reserva de vaga para 2028",
+                            "type": "Reserva de Vaga",
+                            "group": "Reserva de Vaga"
+                      }
+                ]
+          },
+          {
+                "month": "Abr/2027",
+                "title": "Preparação da rematrícula 2028",
+                "track": "rematricula",
+                "tasks": [
+                      {
+                            "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      }
+                ]
+          },
+          {
+                "month": "Mai/2027",
+                "title": "Coleta e parametrização da rematrícula 2028",
+                "track": "rematricula",
+                "tasks": [
+                      {
+                            "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      },
+                      {
+                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      }
+                ]
+          },
+          {
+                "month": "Jun/2027",
+                "title": "Parametrização e treinamento",
+                "track": "rematricula",
+                "tasks": [
+                      {
+                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      }
+                ]
+          },
+          {
+                "month": "Jul/2027",
+                "title": "Continuidade da preparação 2028",
+                "track": "rematricula",
+                "tasks": [
+                      {
+                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      }
+                ]
+          },
+          {
+                "month": "Ago/2027",
+                "title": "Abertura e transição 2028",
+                "track": "rematricula",
+                "tasks": [
+                      {
+                            "text": "Abertura Rematrícula 2028 (A confirmar)",
+                            "type": "Rematrícula 2028",
+                            "group": "Rematrícula 2028"
+                      },
+                      {
+                            "text": "Fechamento da reserva de vagas para 2028: Matrícula direto (Comercial)",
+                            "type": "Reserva de Vaga",
+                            "group": "Reserva de Vaga"
+                      },
+                      {
+                            "text": "Envio dos links após aprovação das reservas para 2028 (Comercial)",
+                            "type": "Matrícula 2028",
+                            "group": "Matrícula 2028"
+                      }
+                ]
+          }
     ];
 
-    let activeType = "Todos";
     let activeGroup = "Todos";
-    const typeFilters = document.getElementById("typeFilters");
     const groupFilters = document.getElementById("groupFilters");
     const timeline = document.getElementById("timeline");
-    const types = ["Todos", ...new Set(schedule.flatMap(month => month.tasks.map(task => task.type)))];
     const groups = ["Todos", ...new Set(schedule.flatMap(month => month.tasks.map(task => task.group)))];
     const trackLabel = { preparacao: "Preparação", academico: "Acadêmico", treinamento: "Treinamento", fechamento: "Fechamento", rematricula: "Rematrícula", reserva: "Reserva de Vaga" };
 
@@ -211,12 +467,11 @@
       });
     }
     function render() {
-      buildFilters(typeFilters, types, activeType, (value) => { activeType = value; render(); });
       buildFilters(groupFilters, groups, activeGroup, (value) => { activeGroup = value; render(); });
       timeline.innerHTML = "";
       let visibleMonths = 0;
       schedule.forEach((month) => {
-        const tasks = month.tasks.filter((task) => (activeType === "Todos" || task.type === activeType) && (activeGroup === "Todos" || task.group === activeGroup));
+        const tasks = month.tasks.filter((task) => activeGroup === "Todos" || task.group === activeGroup);
         if (!tasks.length) return;
         visibleMonths += 1;
         const article = document.createElement("article");
