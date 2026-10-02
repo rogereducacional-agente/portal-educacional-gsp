@@ -70,8 +70,6 @@
     .task-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
     .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr); gap:10px; align-items:start; color:#2f405c; font-size:14px; }
     .task-list li::before { content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--green); }
-    .task-meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-    .mini-tag { display:inline-flex; align-items:center; min-height:22px; padding:0 8px; border-radius:999px; background:#f3f6fb; color:#526078; font-size:11px; font-weight:850; }
     .empty-state { padding:18px; border:1px dashed #b9c8dc; border-radius:8px; background:#fff; color:var(--ink-soft); font-weight:850; }
     .notice { margin-top:24px; padding:18px; border:1px solid #f1d28b; border-radius:8px; background:#fff9e8; color:#6d4b00; font-size:14px; }
     .footer-line { height:6px; background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%); }
@@ -224,7 +222,7 @@
         const article = document.createElement("article");
         article.className = "period";
         article.dataset.track = month.track;
-        const taskItems = tasks.map((task) => '<li><div>' + escapeHtml(task.text) + '<div class="task-meta"><span class="mini-tag">' + escapeHtml(task.type) + '</span><span class="mini-tag">' + escapeHtml(task.group) + '</span></div></div></li>').join("");
+        const taskItems = tasks.map((task) => '<li><div>' + escapeHtml(task.text) + '</div></li>').join("");
         article.innerHTML = '<div class="period-date"><strong>' + escapeHtml(month.month) + '</strong><span>' + tasks.length + ' atividade' + (tasks.length > 1 ? 's' : '') + '</span></div><div class="period-card"><div class="period-top"><h2>' + escapeHtml(month.title) + '</h2><span class="tag ' + escapeHtml(month.track) + '">' + escapeHtml(trackLabel[month.track] || month.track) + '</span></div><ul class="task-list">' + taskItems + '</ul></div>';
         timeline.appendChild(article);
       });
