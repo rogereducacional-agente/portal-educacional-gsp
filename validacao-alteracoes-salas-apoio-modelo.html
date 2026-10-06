@@ -3758,14 +3758,11 @@
       margin: 18px 0 0;
       width: 100%;
       max-width: none;
-      aspect-ratio: 1240 / 405;
+      aspect-ratio: 1240 / 330;
       min-height: 0;
       border: 1px solid #dce6f2;
       border-radius: 8px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.96) 45%, rgba(255,255,255,.70) 63%, rgba(255,255,255,.10) 100%),
-        url("assets/gsp/home-search-people-clean.jpg") right center / auto 100% no-repeat,
-        #fff;
+      background: #fff;
       color: #0d2144;
       padding: 0;
       box-shadow: 0 16px 34px rgba(8, 28, 67, .18);
@@ -3774,25 +3771,19 @@
     .home-search-banner::before {
       content: "";
       position: absolute;
-      left: -5.5%;
-      top: -16%;
-      width: 20%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle, #d8113b 0 34%, #fff 35% 49%, #ffcc27 50% 63%, transparent 64%);
-      box-shadow: 0 18px 34px rgba(200, 20, 50, .18);
+      inset: -6px;
+      background: url("assets/gsp/hero-banner-sem-icones.png") center right / cover no-repeat;
+      filter: blur(1.4px) saturate(.98);
+      transform: scale(1.015);
     }
 
     .home-search-banner::after {
       content: "";
       position: absolute;
-      right: -4%;
-      bottom: -16%;
-      width: 20%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: conic-gradient(from 220deg, #c9142f 0 30deg, #ffcc27 30deg 54deg, #174276 54deg 83deg, transparent 83deg 360deg);
-      opacity: .95;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.97) 46%, rgba(255,255,255,.78) 62%, rgba(255,255,255,.18) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.34));
     }
 
     .home-search-banner.is-searching {
@@ -3802,7 +3793,7 @@
     .home-search-content {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 3;
       width: 100%;
       min-height: 0;
       pointer-events: auto;
@@ -3824,10 +3815,10 @@
 
     .home-search-icon {
       left: 4.6%;
-      top: 11%;
-      width: 72px;
-      height: 72px;
-      padding: 17px;
+      top: 10%;
+      width: 60px;
+      height: 60px;
+      padding: 14px;
       border-radius: 50%;
       color: #fff;
       background: #d8113b;
@@ -3836,7 +3827,7 @@
 
     .home-search-kicker {
       left: 15.2%;
-      top: 9.6%;
+      top: 8.8%;
       width: auto;
       height: auto;
       padding: 5px 13px;
@@ -3851,12 +3842,12 @@
 
     .home-search-title {
       left: 15.2%;
-      top: 19.6%;
-      width: 50%;
+      top: 20.5%;
+      width: 54%;
       height: auto;
       margin: 0;
       color: #0b2d57;
-      font-size: clamp(28px, 3.55vw, 48px);
+      font-size: clamp(28px, 3.25vw, 44px);
       line-height: .98;
       font-weight: 950;
       letter-spacing: 0;
@@ -3871,8 +3862,8 @@
 
     .home-search-content > p {
       left: 15.4%;
-      top: 40%;
-      width: 50%;
+      top: 42.5%;
+      width: 54%;
       height: auto;
       margin: 0;
       color: #274366;
@@ -3884,7 +3875,7 @@
     .home-search-panel {
       position: absolute;
       left: 4.2%;
-      top: 55.5%;
+      top: 58.4%;
       display: block;
       width: 68%;
       height: 14.5%;
@@ -3969,12 +3960,12 @@
     .home-search-chips {
       position: absolute;
       left: 4.2%;
-      top: 73.2%;
+      top: 76.4%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: clamp(6px, .7vw, 10px);
-      width: 62%;
+      width: 69%;
       min-height: 23%;
       padding: 0;
       margin: 0;
