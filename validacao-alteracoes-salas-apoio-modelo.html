@@ -3772,7 +3772,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url("assets/gsp/home-search-background-cleide-final.jpg") center / 100% 100% no-repeat;
+      background: url("assets/gsp/home-search-background-model.jpg") center / 100% 100% no-repeat;
       filter: none;
       transform: none;
     }
@@ -3782,8 +3782,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.96) 46%, rgba(255,255,255,.58) 62%, rgba(255,255,255,.04) 100%),
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.16));
+        linear-gradient(90deg, rgba(255,255,255,.74) 0%, rgba(255,255,255,.58) 46%, rgba(255,255,255,.18) 65%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.08));
     }
 
     .home-search-banner.is-searching {
@@ -3814,7 +3814,18 @@
     }
 
     .home-search-icon {
-      display: none;
+      left: 4.8%;
+      top: 8.4%;
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      padding: 20px;
+      border-radius: 50%;
+      color: #fff;
+      background: #d8113b;
+      box-shadow: 0 16px 30px rgba(216, 17, 59, .26);
+      z-index: 4;
     }
 
     .home-search-kicker {
