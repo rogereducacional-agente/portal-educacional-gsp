@@ -2801,7 +2801,7 @@
     .home-timeline-callout {
       position: relative;
       margin-top: 28px;
-      aspect-ratio: 1240 / 380;
+      aspect-ratio: 1240 / 270;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #f8fafb;
@@ -2819,12 +2819,39 @@
 
     .home-timeline-content {
       position: absolute;
-      left: 7.5%;
+      left: 13.5%;
       top: 50%;
       z-index: 1;
-      width: min(40%, 470px);
+      width: min(34%, 430px);
       transform: translateY(-50%);
       color: #082c63;
+    }
+
+    .home-timeline-icon {
+      position: absolute;
+      left: 3.4%;
+      top: 50%;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: clamp(62px, 7.8vw, 98px);
+      aspect-ratio: 1;
+      transform: translateY(-50%);
+      border: 1px solid rgba(217, 11, 66, .14);
+      border-radius: 24px;
+      color: #d90b42;
+      background: rgba(255, 244, 248, .92);
+      box-shadow: 0 12px 24px rgba(217, 11, 66, .12);
+    }
+
+    .home-timeline-icon svg {
+      width: 60%;
+      height: 60%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .home-timeline-eyebrow {
@@ -2846,16 +2873,16 @@
       max-width: 400px;
       margin: 0;
       color: #082c63;
-      font-size: clamp(1.65rem, 2.7vw, 2.65rem);
+      font-size: clamp(1.35rem, 2.1vw, 2.15rem);
       line-height: 1.02;
       letter-spacing: -.04em;
     }
 
     .home-timeline-content p {
       max-width: 420px;
-      margin: 12px 0 18px;
+      margin: 8px 0 14px;
       color: #344963;
-      font-size: clamp(.84rem, 1.25vw, 1.05rem);
+      font-size: clamp(.76rem, 1vw, .92rem);
       font-weight: 700;
       line-height: 1.35;
     }
@@ -2864,13 +2891,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 10px 22px;
+      min-height: 36px;
+      padding: 8px 18px;
       border-radius: 999px;
       color: #fff;
       background: #d90b42;
       box-shadow: 0 10px 20px rgba(217, 11, 66, .24);
-      font-size: .9rem;
+      font-size: .78rem;
       font-weight: 900;
       text-decoration: none;
       transition: transform .2s ease, background .2s ease;
@@ -2889,7 +2916,7 @@
     @media (max-width: 680px) {
       .home-timeline-callout {
         aspect-ratio: auto;
-        min-height: 320px;
+        min-height: 230px;
       }
 
       .home-timeline-callout img {
@@ -2898,10 +2925,17 @@
 
       .home-timeline-content {
         top: auto;
-        bottom: 24px;
-        left: 22px;
-        width: calc(100% - 44px);
+        bottom: 20px;
+        left: 100px;
+        width: calc(100% - 120px);
         transform: none;
+      }
+
+      .home-timeline-icon {
+        left: 20px;
+        top: 50%;
+        width: 64px;
+        border-radius: 18px;
       }
 
       .home-timeline-content h2 {
@@ -4742,6 +4776,9 @@
 
     <section class="home-timeline-callout" aria-label="Timeline Educacional">
       <img src="assets/gsp/timeline-educacional-banner-cleide.jpg" alt="Calendário de mesa com datas e marcadores coloridos">
+      <div class="home-timeline-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><circle cx="27" cy="33" r="17"></circle><path d="M27 22v12l8 5"></path><path d="M44 15h9v9"></path><path d="m53 15-11 11"></path><path d="m43 44 4 4 9-10"></path></svg>
+      </div>
       <div class="home-timeline-content">
         <span class="home-timeline-eyebrow">Organize-se</span>
         <h2>Timeline Educacional</h2>
