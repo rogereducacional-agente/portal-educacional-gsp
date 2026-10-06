@@ -2819,72 +2819,111 @@
 
     .home-timeline-content {
       position: absolute;
-      left: 13.5%;
+      left: 18.4%;
       top: 50%;
       z-index: 1;
-      width: min(34%, 430px);
+      width: min(38%, 470px);
       transform: translateY(-50%);
       color: #082c63;
     }
 
     .home-timeline-icon {
       position: absolute;
-      left: 3.4%;
+      left: 5.1%;
       top: 50%;
       z-index: 1;
       display: grid;
       place-items: center;
-      width: clamp(62px, 7.8vw, 98px);
+      width: clamp(76px, 9.8vw, 128px);
       aspect-ratio: 1;
       transform: translateY(-50%);
-      border: 1px solid rgba(217, 11, 66, .14);
-      border-radius: 24px;
-      color: #d90b42;
-      background: rgba(255, 244, 248, .92);
-      box-shadow: 0 12px 24px rgba(217, 11, 66, .12);
+      border-radius: 50%;
+      color: #fff;
+      background: #d8113b;
+      box-shadow: 0 18px 34px rgba(216, 17, 59, .28);
+    }
+
+    .home-timeline-icon::before,
+    .home-timeline-icon::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .home-timeline-icon::before {
+      inset: -18px;
+      border: 18px solid rgba(216, 17, 59, .09);
+      box-shadow: 0 0 0 18px rgba(255, 205, 31, .15);
+    }
+
+    .home-timeline-icon::after {
+      right: -25px;
+      bottom: -20px;
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 205, 31, .46);
+      filter: blur(.2px);
     }
 
     .home-timeline-icon svg {
-      width: 60%;
-      height: 60%;
+      position: relative;
+      z-index: 2;
+      width: 68%;
+      height: 68%;
       fill: none;
       stroke: currentColor;
-      stroke-width: 3.5;
+      stroke-width: 3;
       stroke-linecap: round;
       stroke-linejoin: round;
+    }
+
+    .home-timeline-icon .timeline-icon-paper {
+      fill: rgba(255, 255, 255, .96);
+      stroke: none;
+    }
+
+    .home-timeline-icon .timeline-icon-ink {
+      stroke: #d8113b;
+    }
+
+    .home-timeline-icon .timeline-icon-accent {
+      fill: #ffcd1f;
+      stroke: none;
     }
 
     .home-timeline-eyebrow {
       display: inline-flex;
       align-items: center;
-      min-height: 27px;
-      margin: 0 0 10px;
-      padding: 4px 12px;
+      min-height: 30px;
+      margin: 0 0 9px;
+      padding: 5px 13px;
       border-radius: 999px;
-      color: #c80c3e;
-      background: rgba(255, 241, 246, .92);
-      font-size: .77rem;
-      font-weight: 900;
-      letter-spacing: .04em;
+      color: #b8193a;
+      background: #ffe6ee;
+      font-size: clamp(10px, .92vw, 13px);
+      font-weight: 950;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .home-timeline-content h2 {
-      max-width: 400px;
+      max-width: 470px;
       margin: 0;
-      color: #082c63;
-      font-size: clamp(1.35rem, 2.1vw, 2.15rem);
-      line-height: 1.02;
-      letter-spacing: -.04em;
+      color: #0b2d57;
+      font-size: clamp(28px, 3.25vw, 44px);
+      line-height: .98;
+      font-weight: 950;
+      letter-spacing: 0;
     }
 
     .home-timeline-content p {
-      max-width: 420px;
-      margin: 8px 0 14px;
-      color: #344963;
-      font-size: clamp(.76rem, 1vw, .92rem);
+      max-width: 460px;
+      margin: 11px 0 16px;
+      color: #274366;
+      font-size: clamp(11.5px, 1.05vw, 14px);
       font-weight: 700;
-      line-height: 1.35;
+      line-height: 1.16;
     }
 
     .home-timeline-callout .timeline-access {
@@ -2892,13 +2931,13 @@
       align-items: center;
       justify-content: center;
       min-height: 36px;
-      padding: 8px 18px;
+      padding: 9px 19px;
       border-radius: 999px;
       color: #fff;
-      background: #d90b42;
-      box-shadow: 0 10px 20px rgba(217, 11, 66, .24);
-      font-size: .78rem;
-      font-weight: 900;
+      background: #d8113b;
+      box-shadow: 0 12px 24px rgba(216, 17, 59, .28);
+      font-size: clamp(11px, .9vw, 13px);
+      font-weight: 950;
       text-decoration: none;
       transition: transform .2s ease, background .2s ease;
     }
@@ -2926,16 +2965,15 @@
       .home-timeline-content {
         top: auto;
         bottom: 20px;
-        left: 100px;
-        width: calc(100% - 120px);
+        left: 112px;
+        width: calc(100% - 128px);
         transform: none;
       }
 
       .home-timeline-icon {
         left: 20px;
         top: 50%;
-        width: 64px;
-        border-radius: 18px;
+        width: 72px;
       }
 
       .home-timeline-content h2 {
@@ -4777,7 +4815,13 @@
     <section class="home-timeline-callout" aria-label="Timeline Educacional">
       <img src="assets/gsp/timeline-educacional-banner-cleide.jpg" alt="Calendário de mesa com datas e marcadores coloridos">
       <div class="home-timeline-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><circle cx="27" cy="33" r="17"></circle><path d="M27 22v12l8 5"></path><path d="M44 15h9v9"></path><path d="m53 15-11 11"></path><path d="m43 44 4 4 9-10"></path></svg>
+        <svg viewBox="0 0 64 64">
+          <rect class="timeline-icon-paper" x="14" y="16" width="36" height="34" rx="6"></rect>
+          <path class="timeline-icon-ink" d="M20 25h24M24 12v9M40 12v9"></path>
+          <path class="timeline-icon-ink" d="M23 33h7M23 41h7"></path>
+          <path class="timeline-icon-ink" d="m36 39 4 4 9-11"></path>
+          <circle class="timeline-icon-accent" cx="47" cy="19" r="5"></circle>
+        </svg>
       </div>
       <div class="home-timeline-content">
         <span class="home-timeline-eyebrow">Organize-se</span>
