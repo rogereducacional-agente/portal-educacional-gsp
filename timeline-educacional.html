@@ -36,6 +36,17 @@
     .kpi:nth-child(3) span { background:var(--orange); }
     .kpi strong { display:block; color:#081b42; font-size:15px; }
     .kpi small { display:block; color:var(--ink-soft); font-size:12px; }
+    .timeline-filters { margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 12px 28px rgba(19,33,61,.07); }
+    .filter-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:14px; }
+    .filter-head h2 { margin:0; color:#081b42; font-size:22px; line-height:1.15; }
+    .filter-head p { max-width:620px; margin:5px 0 0; color:var(--ink-soft); font-size:14px; }
+    .filter-count { display:inline-flex; align-items:center; min-height:32px; padding:0 11px; border-radius:999px; background:#eaf7f4; color:var(--green); font-size:12px; font-weight:900; white-space:nowrap; }
+    .filter-group { display:grid; gap:8px; margin-top:14px; }
+    .filter-label { color:#30415f; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
+    .filter-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter-chip { min-height:34px; padding:0 12px; border:1px solid #d8e4f1; border-radius:999px; background:#f8fbff; color:#263955; cursor:pointer; font-size:13px; font-weight:700; }
+    .filter-chip:hover { border-color:#a9c3e3; background:#eef6ff; }
+    .filter-chip.is-active { border-color:#d8113b; background:#ffe6ee; color:#b8193a; box-shadow:0 8px 18px rgba(216,17,59,.10); }
     .timeline { position:relative; display:grid; gap:16px; margin-top:24px; padding-left:34px; }
     .timeline::before { content:""; position:absolute; left:13px; top:8px; bottom:8px; width:4px; border-radius:999px; background:linear-gradient(180deg,var(--blue),var(--green),var(--yellow),var(--orange),var(--red)); }
     .period { position:relative; display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:stretch; }
@@ -45,6 +56,9 @@
     .period[data-track="academico"]::before { background:var(--yellow); }
     .period[data-track="fechamento"]::before { background:var(--orange); }
     .period[data-track="avaliacao"]::before { background:var(--red); }
+    .period[data-track="treinamento"]::before { background:#8b1cc2; }
+    .period[data-track="reserva"]::before { background:#0e78b8; }
+    .period[data-track="rematricula"]::before { background:#d8113b; }
     .period-date { padding:17px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.05); }
     .period-date strong { display:block; color:#081b42; font-size:20px; line-height:1.1; }
     .period-date span { display:none; }
@@ -54,13 +68,15 @@
     .tag { display:none; }
     .period-card p { margin:0; color:var(--ink-soft); font-size:14px; }
     .task-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
-    .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr); gap:10px; align-items:start; color:#2f405c; font-size:14px; }
+    .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr) auto; gap:10px; align-items:start; color:#2f405c; font-size:14px; }
     .task-list li::before { content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--green); }
+    .task-category { align-self:start; max-width:170px; padding:3px 8px; border-radius:999px; background:#eef5ff; color:#214f95; font-size:11px; font-weight:800; line-height:1.2; text-align:center; }
+    .period.is-hidden, .task-list li.is-hidden { display:none; }
     .empty-state { padding:18px; border:1px dashed #b9c8dc; border-radius:8px; background:#fff; color:var(--ink-soft); font-weight:850; }
     .notice { margin-top:24px; padding:18px; border:1px solid #f1d28b; border-radius:8px; background:#fff9e8; color:#6d4b00; font-size:14px; }
     .footer-line { height:6px; background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%); }
-    @media (max-width:920px) { .site-header { position:static; grid-template-columns:1fr; gap:10px; padding:12px 16px; } .site-menu { justify-content:flex-start; overflow-x:auto; scrollbar-width:none; } .site-menu::-webkit-scrollbar { display:none; } .hero { grid-template-columns:1fr; } .hero-panel { border-left:0; border-top:1px solid var(--line); } .period { grid-template-columns:1fr; } .period-date { display:flex; align-items:baseline; justify-content:space-between; gap:12px; } }
-    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .hero-copy, .hero-panel { padding:22px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } }
+    @media (max-width:920px) { .site-header { position:static; grid-template-columns:1fr; gap:10px; padding:12px 16px; } .site-menu { justify-content:flex-start; overflow-x:auto; scrollbar-width:none; } .site-menu::-webkit-scrollbar { display:none; } .hero { grid-template-columns:1fr; } .hero-panel { border-left:0; border-top:1px solid var(--line); } .filter-head { display:block; } .filter-count { margin-top:10px; } .period { grid-template-columns:1fr; } .period-date { display:flex; align-items:baseline; justify-content:space-between; gap:12px; } }
+    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .hero-copy, .hero-panel { padding:22px; } .timeline-filters { padding:14px; } .filter-row { gap:6px; } .filter-chip { min-height:32px; padding:0 10px; font-size:12px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } .task-list li { grid-template-columns:10px minmax(0,1fr); } .task-category { justify-self:start; grid-column:2; max-width:100%; } }
   </style>
 </head>
 <body>
@@ -96,6 +112,24 @@
         <div class="kpi"><span>48</span><div><strong>Atividades listadas</strong><small>Organizadas por mês do cronograma</small></div></div>
         <div class="kpi"><span>N1</span><div><strong>Uso em suporte</strong><small>Base visual para triagem e alinhamento operacional</small></div></div>
       </aside>
+    </section>
+
+    <section class="timeline-filters" aria-label="Filtros da Timeline Educacional">
+      <div class="filter-head">
+        <div>
+          <h2>Pesquisar por mês e categoria</h2>
+          <p>Use os filtros para localizar rapidamente as tarefas do cronograma acadêmico por período ou por tipo de atividade.</p>
+        </div>
+        <span class="filter-count" id="filterCount">48 tarefas</span>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Por mês</span>
+        <div class="filter-row" id="monthFilters"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Por categoria</span>
+        <div class="filter-row" id="categoryFilters"></div>
+      </div>
     </section>
 
     <section class="timeline" id="timeline" aria-label="Linha do tempo acadêmica"></section>
@@ -432,21 +466,86 @@
     ];
 
     const timeline = document.getElementById("timeline");
+    const monthFilters = document.getElementById("monthFilters");
+    const categoryFilters = document.getElementById("categoryFilters");
+    const filterCount = document.getElementById("filterCount");
+    const filters = { month: "Todos", category: "Todas" };
 
     function escapeHtml(value) { return value.replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char])); }
-    function render() {
+
+    function getCategories() {
+      return [...new Set(schedule.flatMap(month => month.tasks.map(task => task.group || task.type || "Geral")))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+    }
+
+    function createChip(label, value, filterKey) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "filter-chip";
+      button.dataset.filterKey = filterKey;
+      button.dataset.filterValue = value;
+      button.textContent = label;
+      button.addEventListener("click", () => {
+        filters[filterKey] = value;
+        applyFilters();
+      });
+      return button;
+    }
+
+    function renderFilters() {
+      monthFilters.appendChild(createChip("Todos os meses", "Todos", "month"));
+      schedule.forEach(month => monthFilters.appendChild(createChip(month.month, month.month, "month")));
+      categoryFilters.appendChild(createChip("Todas as categorias", "Todas", "category"));
+      getCategories().forEach(category => categoryFilters.appendChild(createChip(category, category, "category")));
+    }
+
+    function updateFilterButtons() {
+      document.querySelectorAll(".filter-chip").forEach((button) => {
+        const isActive = filters[button.dataset.filterKey] === button.dataset.filterValue;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    function applyFilters() {
+      let visibleTasks = 0;
+      let visibleMonths = 0;
+      timeline.querySelectorAll(".period").forEach((period) => {
+        const monthMatches = filters.month === "Todos" || period.dataset.month === filters.month;
+        let monthVisibleTasks = 0;
+        period.querySelectorAll(".task-list li").forEach((item) => {
+          const categoryMatches = filters.category === "Todas" || item.dataset.category === filters.category;
+          const isVisible = monthMatches && categoryMatches;
+          item.classList.toggle("is-hidden", !isVisible);
+          if (isVisible) monthVisibleTasks += 1;
+        });
+        const showPeriod = monthVisibleTasks > 0;
+        period.classList.toggle("is-hidden", !showPeriod);
+        if (showPeriod) visibleMonths += 1;
+        visibleTasks += monthVisibleTasks;
+      });
+      filterCount.textContent = visibleTasks + (visibleTasks === 1 ? " tarefa" : " tarefas") + " em " + visibleMonths + (visibleMonths === 1 ? " mês" : " meses");
+      updateFilterButtons();
+    }
+
+    function renderTimeline() {
       timeline.innerHTML = "";
       schedule.forEach((month) => {
         const tasks = month.tasks;
         const article = document.createElement("article");
         article.className = "period";
         article.dataset.track = month.track;
-        const taskItems = tasks.map((task) => '<li><div>' + escapeHtml(task.text) + '</div></li>').join("");
+        article.dataset.month = month.month;
+        const taskItems = tasks.map((task) => {
+          const category = task.group || task.type || "Geral";
+          return '<li data-category="' + escapeHtml(category) + '"><div>' + escapeHtml(task.text) + '</div><span class="task-category">' + escapeHtml(category) + '</span></li>';
+        }).join("");
         article.innerHTML = '<div class="period-date"><strong>' + escapeHtml(month.month) + '</strong></div><div class="period-card"><div class="period-top"><h2>' + escapeHtml(month.title) + '</h2></div><ul class="task-list">' + taskItems + '</ul></div>';
         timeline.appendChild(article);
       });
     }
-    render();
+    renderFilters();
+    renderTimeline();
+    applyFilters();
   </script>
 </body>
 </html>
