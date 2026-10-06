@@ -2804,7 +2804,7 @@
       aspect-ratio: 1240 / 380;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--surface);
+      background: #f8fafb;
       box-shadow: 0 18px 38px rgba(20, 33, 61, .10);
       overflow: hidden;
     }
@@ -2814,23 +2814,103 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
+    }
+
+    .home-timeline-content {
+      position: absolute;
+      left: 7.5%;
+      top: 50%;
+      z-index: 1;
+      width: min(40%, 470px);
+      transform: translateY(-50%);
+      color: #082c63;
+    }
+
+    .home-timeline-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 27px;
+      margin: 0 0 10px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      color: #c80c3e;
+      background: rgba(255, 241, 246, .92);
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .home-timeline-content h2 {
+      max-width: 400px;
+      margin: 0;
+      color: #082c63;
+      font-size: clamp(1.65rem, 2.7vw, 2.65rem);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+
+    .home-timeline-content p {
+      max-width: 420px;
+      margin: 12px 0 18px;
+      color: #344963;
+      font-size: clamp(.84rem, 1.25vw, 1.05rem);
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .home-timeline-callout .timeline-access {
-      position: absolute;
-      left: 9.3%;
-      top: 39.6%;
-      width: 17.3%;
-      height: 10.8%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 22px;
       border-radius: 999px;
-      font-size: 0;
-      color: transparent;
+      color: #fff;
+      background: #d90b42;
+      box-shadow: 0 10px 20px rgba(217, 11, 66, .24);
+      font-size: .9rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .home-timeline-callout .timeline-access:hover {
+      background: #b60735;
+      transform: translateY(-2px);
     }
 
     .home-timeline-callout .timeline-access:focus-visible {
       outline: 3px solid #123b76;
       outline-offset: 3px;
+    }
+
+    @media (max-width: 680px) {
+      .home-timeline-callout {
+        aspect-ratio: auto;
+        min-height: 320px;
+      }
+
+      .home-timeline-callout img {
+        object-position: 65% center;
+      }
+
+      .home-timeline-content {
+        top: auto;
+        bottom: 24px;
+        left: 22px;
+        width: calc(100% - 44px);
+        transform: none;
+      }
+
+      .home-timeline-content h2 {
+        max-width: 270px;
+      }
+
+      .home-timeline-content p {
+        max-width: 280px;
+      }
     }
 
     .support-assist-layout {
@@ -4661,8 +4741,13 @@
     </section>
 
     <section class="home-timeline-callout" aria-label="Timeline Educacional">
-      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Confira a Timeline do setor Acadêmico Educacional">
-      <a class="timeline-access" href="timeline-educacional.html">Acessar Timeline Educacional</a>
+      <img src="assets/gsp/timeline-educacional-banner-cleide.jpg" alt="Calendário de mesa com datas e marcadores coloridos">
+      <div class="home-timeline-content">
+        <span class="home-timeline-eyebrow">Organize-se</span>
+        <h2>Timeline Educacional</h2>
+        <p>Acompanhe os principais prazos, etapas e orientações do setor Acadêmico.</p>
+        <a class="timeline-access" href="timeline-educacional.html">Acessar Timeline →</a>
+      </div>
     </section>
 
     <section class="support-room-block support-assist-section" id="salas-validacao">
