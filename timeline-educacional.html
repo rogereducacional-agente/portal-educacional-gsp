@@ -5,66 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>Cronograma Acadêmico 2026-2027 | Portal Educacional GSP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
   <style>
-    :root { --ink:#13213d; --ink-soft:#526078; --paper:#f3f6fb; --surface:#fff; --line:#dce5ef; --blue:#2563c9; --green:#008a73; --yellow:#f5c542; --orange:#f26f2b; --red:#cf2337; --shadow:0 18px 42px rgba(19,33,61,.12); --max:1180px; }
+    :root {
+      --ink: #13213d;
+      --muted: #64748b;
+      --paper: #f4f6fa;
+      --surface: #ffffff;
+      --line: #e2e8f0;
+      --deep-blue: #1a237e;
+      --green: #008a73;
+      --shadow: 0 2px 8px rgba(15, 23, 42, .06);
+    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin:0; font-family:Inter,"Segoe UI",Arial,sans-serif; color:var(--ink); background:var(--paper); line-height:1.5; }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; }
-    .site-header { position:sticky; top:0; z-index:20; min-height:72px; display:grid; grid-template-columns:190px minmax(0,1fr); align-items:center; gap:24px; padding:0 clamp(18px,4vw,56px); background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); box-shadow:0 8px 24px rgba(20,33,61,.08); backdrop-filter:blur(12px); }
-    .site-logo img { width:150px; height:auto; display:block; }
-    .site-menu { display:flex; align-items:center; justify-content:flex-end; gap:18px; min-width:0; }
-    .site-menu a { display:inline-flex; align-items:center; min-height:40px; color:#16213f; font-size:13px; font-weight:900; white-space:nowrap; }
-    .site-menu a.active { color:var(--green); border-bottom:4px solid var(--green); }
-    main { width:min(100% - 32px,var(--max)); margin:0 auto; padding:28px 0 72px; }
-    .top-image { overflow:hidden; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); }
-    .top-image img { display:block; width:100%; height:auto; }
-    .eyebrow { margin:0 0 10px; color:var(--green); font-size:12px; font-weight:950; letter-spacing:0; text-transform:uppercase; }
-    h1 { margin:0; color:#081b42; font-size:clamp(34px,5vw,60px); line-height:1.02; }
-    .pill { display:inline-flex; align-items:center; min-height:38px; padding:0 14px; border-radius:999px; border:1px solid #bfd7ee; background:#eef7ff; color:#154b8f; font-size:13px; font-weight:900; }
-    .pill.warning { border-color:#f3d695; background:#fff8df; color:#7a5400; }
-    .timeline-filters { margin-top:0; padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 12px 28px rgba(19,33,61,.07); }
-    .filter-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:14px; }
-    .filter-head h2 { margin:0; color:#081b42; font-size:22px; line-height:1.15; }
-    .filter-head p { max-width:620px; margin:5px 0 0; color:var(--ink-soft); font-size:14px; }
-    .filter-count { display:inline-flex; align-items:center; min-height:32px; padding:0 11px; border-radius:999px; background:#eaf7f4; color:var(--green); font-size:12px; font-weight:900; white-space:nowrap; }
-    .filter-group { display:grid; gap:8px; margin-top:14px; }
-    .filter-label { color:#30415f; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:0; }
-    .filter-row { display:flex; flex-wrap:wrap; gap:8px; }
-    .filter-chip { min-height:34px; padding:0 12px; border:1px solid #d8e4f1; border-radius:999px; background:#f8fbff; color:#263955; cursor:pointer; font-size:13px; font-weight:700; }
-    .filter-chip:hover { border-color:#a9c3e3; background:#eef6ff; }
-    .filter-chip.is-active { border-color:#d8113b; background:#ffe6ee; color:#b8193a; box-shadow:0 8px 18px rgba(216,17,59,.10); }
-    .timeline { position:relative; display:grid; gap:16px; margin-top:24px; padding-left:34px; }
-    .timeline::before { content:""; position:absolute; left:13px; top:8px; bottom:8px; width:4px; border-radius:999px; background:linear-gradient(180deg,var(--blue),var(--green),var(--yellow),var(--orange),var(--red)); }
-    .period { position:relative; display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:stretch; }
-    .period::before { content:""; position:absolute; left:-30px; top:26px; width:16px; height:16px; border:4px solid #fff; border-radius:50%; background:var(--blue); box-shadow:0 0 0 1px var(--line); }
-    .period[data-track="preparacao"]::before { background:var(--blue); }
-    .period[data-track="matricula"]::before { background:var(--green); }
-    .period[data-track="academico"]::before { background:var(--yellow); }
-    .period[data-track="fechamento"]::before { background:var(--orange); }
-    .period[data-track="avaliacao"]::before { background:var(--red); }
-    .period[data-track="treinamento"]::before { background:#8b1cc2; }
-    .period[data-track="reserva"]::before { background:#0e78b8; }
-    .period[data-track="rematricula"]::before { background:#d8113b; }
-    .period-date { padding:17px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.05); }
-    .period-date strong { display:block; color:#081b42; font-size:20px; line-height:1.1; }
-    .period-date span { display:none; }
-    .period-card { display:grid; gap:12px; padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.05); }
-    .period-top { display:block; }
-    .period-card h2 { margin:0; color:#081b42; font-size:clamp(20px,2.4vw,28px); line-height:1.12; }
-    .tag { display:none; }
-    .period-card p { margin:0; color:var(--ink-soft); font-size:14px; }
-    .task-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
-    .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr) auto; gap:10px; align-items:start; color:#2f405c; font-size:14px; }
-    .task-list li::before { content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--green); }
-    .task-category { align-self:start; max-width:170px; padding:3px 8px; border-radius:999px; background:#eef5ff; color:#214f95; font-size:11px; font-weight:800; line-height:1.2; text-align:center; }
-    .period.is-hidden, .task-list li.is-hidden { display:none; }
-    .empty-state { padding:18px; border:1px dashed #b9c8dc; border-radius:8px; background:#fff; color:var(--ink-soft); font-weight:850; }
-    .notice { margin-top:24px; padding:18px; border:1px solid #f1d28b; border-radius:8px; background:#fff9e8; color:#6d4b00; font-size:14px; }
-    .footer-line { height:6px; background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%); }
-    @media (max-width:920px) { .site-header { position:static; grid-template-columns:1fr; gap:10px; padding:12px 16px; } .site-menu { justify-content:flex-start; overflow-x:auto; scrollbar-width:none; } .site-menu::-webkit-scrollbar { display:none; } .filter-head { display:block; } .filter-count { margin-top:10px; } .period { grid-template-columns:1fr; } .period-date { display:flex; align-items:baseline; justify-content:space-between; gap:12px; } }
-    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .timeline-filters { padding:14px; } .filter-row { gap:6px; } .filter-chip { min-height:32px; padding:0 10px; font-size:12px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } .task-list li { grid-template-columns:10px minmax(0,1fr); } .task-category { justify-self:start; grid-column:2; max-width:100%; } }
+    body { margin: 0; font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--paper); color: #1e293b; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .site-header { min-height: 72px; display: grid; grid-template-columns: 190px minmax(0, 1fr); align-items: center; gap: 24px; padding: 0 clamp(18px, 4vw, 56px); background: rgba(255,255,255,.98); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+    .site-logo img { width: 150px; height: auto; display: block; }
+    .site-menu { display: flex; align-items: center; justify-content: flex-end; gap: 18px; min-width: 0; }
+    .site-menu a { display: inline-flex; align-items: center; min-height: 40px; color: #16213f; font-size: 13px; font-weight: 800; white-space: nowrap; }
+    .site-menu a.active { color: var(--green); border-bottom: 4px solid var(--green); }
+    .header-bar { background: #fff; border-bottom: 1px solid var(--line); padding: 18px 32px; box-shadow: 0 2px 8px rgba(15,23,42,.04); position: sticky; top: 0; z-index: 50; }
+    .header-content { max-width: 1600px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .main-title { margin: 0; color: var(--deep-blue); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; font-weight: 800; letter-spacing: 0; display: flex; align-items: center; gap: 10px; }
+    .main-title svg { flex: 0 0 auto; }
+    .title-meta { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .subtitle-badge { font-size: 12px; font-weight: 700; background: #e8eaf6; color: var(--deep-blue); padding: 5px 11px; border-radius: 999px; border: 1px solid #c5cae9; }
+    .title-note { color: var(--muted); font-size: 13px; font-weight: 500; }
+    .controls-wrapper { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .search-box { position: relative; display: flex; align-items: center; }
+    .search-icon { position: absolute; left: 10px; color: #94a3b8; pointer-events: none; display: grid; place-items: center; }
+    .search-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .search-input { width: 230px; min-height: 38px; padding: 8px 12px 8px 34px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; color: #102047; font-size: 13px; outline: none; transition: .2s ease; }
+    .search-input:focus { width: 280px; border-color: var(--deep-blue); box-shadow: 0 0 0 3px rgba(26,35,126,.14); }
+    .nav-btn { min-height: 38px; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 12px; background: #fff; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; transition: .15s ease; }
+    .nav-btn:hover { background: #f1f5f9; border-color: #94a3b8; color: #0f172a; }
+    .nav-btn.primary { background: var(--deep-blue); border-color: var(--deep-blue); color: #fff; }
+    .legend-container { max-width: 1600px; margin: 16px auto 0; padding: 14px 24px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.03); display: flex; flex-wrap: wrap; align-items: center; gap: 9px 16px; }
+    .legend-title { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+    .legend-item { border: 0; background: transparent; border-radius: 6px; padding: 4px 8px; color: #334155; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; }
+    .legend-item:hover, .legend-item.active { background: #f1f5f9; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; background: #64748b; }
+    .nota { background: #1a237e; } .prazo { background: #dc2626; } .analise { background: #7c3aed; } .geral { background: #64748b; } .grade { background: #0284c7; } .historico { background: #0f766e; } .material { background: #d97706; } .matricula { background: #059669; } .portal { background: #2563eb; } .publicacao { background: #db2777; } .rematricula { background: #7e22ce; } .colaboradores { background: #c2410c; } .reserva { background: #0e7490; } .taa { background: #65a30d; } .totvs { background: #334155; } .treinamento { background: #ea580c; }
+    .scroll-hint-bar { max-width: 1600px; margin: 8px auto 0; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; font-weight: 600; }
+    .active-filter-label { color: var(--deep-blue); font-weight: 800; }
+    .timeline-viewport { width: 100%; overflow-x: auto; overflow-y: hidden; padding: 24px 0 56px; cursor: grab; scrollbar-width: thin; scrollbar-color: #94a3b8 #f1f5f9; -webkit-overflow-scrolling: touch; }
+    .timeline-viewport:active { cursor: grabbing; }
+    .timeline-viewport::-webkit-scrollbar { height: 10px; }
+    .timeline-viewport::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 6px; margin: 0 32px; }
+    .timeline-viewport::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; }
+    .timeline-stage { display: inline-flex; min-width: max-content; padding: 28px 70px 44px; position: relative; flex-direction: row; }
+    .timeline-axis-line { position: absolute; top: 50%; left: 48px; right: 48px; height: 16px; background: linear-gradient(90deg, #b0bac9, #cbd5e1 50%, #b0bac9); transform: translateY(-50%); z-index: 1; border-radius: 999px; box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 2px 4px rgba(0,0,0,.05); }
+    .axis-cap { position: absolute; top: 50%; width: 28px; height: 28px; background: #8b99ab; transform: translateY(-50%); z-index: 2; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+    .axis-cap.start { left: 32px; } .axis-cap.end { right: 32px; }
+    .month-col { width: 335px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; --theme-color: #64748b; }
+    .task-slot { width: 100%; height: 560px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 8px; position: relative; }
+    .task-slot.bottom { justify-content: flex-start; }
+    .task-slot.is-empty { pointer-events: none; }
+    .node-slot { height: 90px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 10; width: 100%; }
+    .month-badge { padding: 10px 23px; border-radius: 999px; color: #fff; border: 3px solid #fff; background: var(--theme-color); box-shadow: 0 4px 12px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.4); font-size: 17px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+    .month-col:hover .month-badge { transform: scale(1.08); box-shadow: 0 8px 20px rgba(0,0,0,.24); }
+    .month-year-sub { margin-top: 2px; font-size: 11px; font-weight: 600; line-height: 1; opacity: .92; }
+    .current-pin { position: absolute; top: -65px; display: flex; flex-direction: column; align-items: center; z-index: 25; animation: bounce 2s infinite ease-in-out; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .pin-tag { background: #dc2626; color: #fff; border-radius: 6px; padding: 5px 10px; box-shadow: 0 4px 10px rgba(220,38,38,.38); font-size: 12px; font-weight: 800; white-space: nowrap; display: flex; flex-direction: column; align-items: center; }
+    .pin-date { font-size: 10px; font-weight: 600; opacity: .9; }
+    .pin-arrow { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #dc2626; }
+    .dashed-connector-top, .dashed-connector-bottom { position: absolute; left: 50%; width: 2px; height: 120px; transform: translateX(-50%); border-left: 2.5px dashed var(--theme-color); pointer-events: none; z-index: 3; }
+    .dashed-connector-top { bottom: 45px; } .dashed-connector-bottom { top: 45px; }
+    .tasks-container { width: 100%; max-width: 318px; max-height: 505px; overflow-y: auto; padding-right: 3px; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 4; scrollbar-width: thin; }
+    .task-card { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid var(--theme-color); border-radius: 10px; padding: 10px 12px; box-shadow: 0 2px 6px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04); display: flex; gap: 10px; align-items: flex-start; transition: .2s ease; }
+    .task-card:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 8px 18px rgba(0,0,0,.12); z-index: 20; }
+    .task-card.highlighted { background: #f8fafc; box-shadow: 0 0 0 2px var(--deep-blue); }
+    .task-card.dimmed { opacity: .22; transform: none; }
+    .task-number-target { width: 26px; height: 26px; flex: 0 0 auto; border-radius: 50%; border: 1.5px dashed var(--theme-color); display: grid; place-items: center; color: var(--theme-color); background: #fff; font-size: 11px; font-weight: 800; }
+    .task-body { min-width: 0; flex: 1; }
+    .task-name { margin: 0 0 5px; color: #1e293b; font-size: 12px; font-weight: 700; line-height: 1.32; word-break: break-word; }
+    .sector-tag { display: inline-block; border: 1px solid #e2e8f0; border-radius: 4px; padding: 2px 6px; color: #475569; background: #f1f5f9; font-size: 10px; font-weight: 700; line-height: 1.2; }
+    .month-set { --theme-color: #65a30d; } .month-out { --theme-color: #0f766e; } .month-nov { --theme-color: #7e22ce; } .month-dez { --theme-color: #ea580c; } .month-jan { --theme-color: #4d7c0f; } .month-fev { --theme-color: #0d9488; } .month-mar { --theme-color: #6b21a8; } .month-abr { --theme-color: #c2410c; } .month-mai { --theme-color: #65a30d; } .month-jun { --theme-color: #0e7490; } .month-jul { --theme-color: #7c3aed; } .month-ago { --theme-color: #d97706; }
+    .summary-footer { max-width: 1600px; margin: 0 auto 40px; padding: 20px 32px; border: 1px solid var(--line); border-radius: 12px; background: #fff; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; color: var(--muted); font-size: 13px; }
+    .kpi-row { display: flex; gap: 32px; flex-wrap: wrap; }
+    .kpi-mini { display: flex; flex-direction: column; }
+    .kpi-mini-val { color: var(--deep-blue); font-size: 22px; font-weight: 800; line-height: 1.1; }
+    .kpi-mini-lbl { color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    @media (max-width: 920px) { .site-header { grid-template-columns: 1fr; gap: 8px; padding: 12px 16px; } .site-menu { justify-content: flex-start; overflow-x: auto; scrollbar-width: none; } .header-bar { position: static; padding: 16px; } .search-input, .search-input:focus { width: min(100%, 280px); } .timeline-stage { padding-left: 30px; padding-right: 30px; } .month-col { width: 310px; } .summary-footer, .legend-container, .scroll-hint-bar { margin-left: 12px; margin-right: 12px; } }
+    @media (max-width: 620px) { .main-title { align-items: flex-start; } .controls-wrapper { width: 100%; } .search-box { width: 100%; } .search-input, .search-input:focus { width: 100%; } .nav-btn { flex: 1 1 auto; justify-content: center; } .legend-container { padding: 12px; } .scroll-hint-bar { display: block; } .task-slot { height: 535px; } .tasks-container { max-height: 486px; } .month-col { width: 286px; } .timeline-stage { padding-top: 24px; } }
+    @media print { .site-header, .header-bar .controls-wrapper, .legend-container, .scroll-hint-bar, .nav-btn { display: none !important; } .timeline-viewport { overflow: visible; padding: 0; } .timeline-stage { transform: scale(.68); transform-origin: top left; } }
   </style>
 </head>
 <body>
@@ -80,443 +110,706 @@
     </nav>
   </header>
 
-  <main>
-    <section class="top-image" aria-label="Imagem da Timeline Educacional">
-      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Timeline Educacional">
-    </section>
-
-    <section class="timeline-filters" aria-label="Filtros da Timeline Educacional">
-      <div class="filter-head">
-        <div>
-          <h2>Pesquisar por mês e categoria</h2>
-          <p>Use os filtros para localizar rapidamente as tarefas do cronograma acadêmico por período ou por tipo de atividade.</p>
+  <header class="header-bar">
+    <div class="header-content">
+      <div>
+        <h1 class="main-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a237e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Cronograma Acadêmico 2026-2027
+        </h1>
+        <div class="title-meta">
+          <span class="subtitle-badge">12 meses • Setembro/26 a Agosto/27</span>
+          <span class="title-note">Fluxo acadêmico com 48 tarefas organizadas por mês e categoria</span>
         </div>
-        <span class="filter-count" id="filterCount">48 tarefas</span>
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Por mês</span>
-        <div class="filter-row" id="monthFilters"></div>
+      <div class="controls-wrapper">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+          <input type="text" id="taskSearch" class="search-input" placeholder="Buscar tarefa ou categoria...">
+        </div>
+        <button class="nav-btn primary" id="btnToday" type="button">Mês atual (OUT/26)</button>
+        <button class="nav-btn" id="btnScrollLeft" type="button" aria-label="Rolar para esquerda">◀</button>
+        <button class="nav-btn" id="btnScrollRight" type="button" aria-label="Rolar para direita">▶</button>
+        <button class="nav-btn" type="button" onclick="window.print()">Imprimir / PDF</button>
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Por categoria</span>
-        <div class="filter-row" id="categoryFilters"></div>
-      </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="timeline" id="timeline" aria-label="Linha do tempo acadêmica"></section>
+  <section class="legend-container" id="legendContainer" aria-label="Filtro por categoria">
+    <span class="legend-title">Filtrar por categoria:</span>
+    <button class="legend-item" type="button" data-category="all"><span class="legend-dot" style="background:#0f172a"></span><span>Todos (48)</span></button>
+    <button class="legend-item" type="button" data-category="Análise">
+      <span class="legend-dot analise"></span>
+      <span>Análise</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Geral">
+      <span class="legend-dot geral"></span>
+      <span>Geral</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Grade Horária Professor">
+      <span class="legend-dot grade"></span>
+      <span>Grade Horária Professor</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Histórico escolar">
+      <span class="legend-dot historico"></span>
+      <span>Histórico escolar</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Material">
+      <span class="legend-dot material"></span>
+      <span>Material</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Matrícula 2028">
+      <span class="legend-dot matricula"></span>
+      <span>Matrícula 2028</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Nota em Dia">
+      <span class="legend-dot nota"></span>
+      <span>Nota em Dia</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Portal">
+      <span class="legend-dot portal"></span>
+      <span>Portal</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Prazo">
+      <span class="legend-dot prazo"></span>
+      <span>Prazo</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Publicação Material">
+      <span class="legend-dot publicacao"></span>
+      <span>Publicação Material</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Rematrícula 2027">
+      <span class="legend-dot rematricula"></span>
+      <span>Rematrícula 2027</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Rematrícula 2028">
+      <span class="legend-dot rematricula"></span>
+      <span>Rematrícula 2028</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Rematrícula Colaboradores">
+      <span class="legend-dot colaboradores"></span>
+      <span>Rematrícula Colaboradores</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Reserva de Vaga">
+      <span class="legend-dot reserva"></span>
+      <span>Reserva de Vaga</span>
+    </button>
+    <button class="legend-item" type="button" data-category="TAA">
+      <span class="legend-dot taa"></span>
+      <span>TAA</span>
+    </button>
+    <button class="legend-item" type="button" data-category="TOTVS">
+      <span class="legend-dot totvs"></span>
+      <span>TOTVS</span>
+    </button>
+    <button class="legend-item" type="button" data-category="Treinamento">
+      <span class="legend-dot treinamento"></span>
+      <span>Treinamento</span>
+    </button>
+  </section>
 
-    <div class="notice">Este cronograma é um modelo de homologação. Datas, regras, responsáveis e ações operacionais devem ser validados por Cleide Dani, Amanda Bindilatti, Jonathan Souza e área responsável antes de uso como procedimento oficial.</div>
+  <div class="scroll-hint-bar">
+    <span>Role horizontalmente ou arraste para navegar pelos 12 meses.</span>
+    <span class="active-filter-label" id="activeFilterLabel"></span>
+  </div>
+
+  <main class="timeline-viewport" id="timelineViewport">
+    <div class="timeline-stage">
+      <div class="timeline-axis-line" aria-hidden="true"></div>
+      <div class="axis-cap start" aria-hidden="true"></div>
+      <div class="axis-cap end" aria-hidden="true"></div>
+      <section class="month-col month-set" id="month-set" data-month="Set/2026">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Nota em Dia" data-month="Set/2026">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Lançamento do Projeto</h3>
+                <span class="sector-tag nota">Nota em Dia</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Prazo" data-month="Set/2026">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Nota em Dia - Lançamento de notas - 13/10</h3>
+                <span class="sector-tag prazo">Prazo</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Prazo" data-month="Set/2026">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Entrega das disciplinas em 09/10 Unidade CCPA</h3>
+                <span class="sector-tag prazo">Prazo</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Prazo" data-month="Set/2026">
+              <div class="task-number-target">4</div>
+              <div class="task-body">
+                <h3 class="task-name">Entrega das disciplinas em 15/10 Unidades: CJA, Marupiara, Objetivo, Santo Anjo</h3>
+                <span class="sector-tag prazo">Prazo</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Prazo" data-month="Set/2026">
+              <div class="task-number-target">5</div>
+              <div class="task-body">
+                <h3 class="task-name">Confirmação do Sistema de Avaliação - 30/10</h3>
+                <span class="sector-tag prazo">Prazo</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Set/2026">
+            SET
+            <span class="month-year-sub">2026</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-out" id="month-out" data-month="Out/2026">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <div class="current-pin">
+            <div class="pin-tag"><span>Estamos aqui</span><span class="pin-date">06/10/2026</span></div>
+            <div class="pin-arrow"></div>
+          </div>
+          <button class="month-badge" type="button" data-month-jump="Out/2026">
+            OUT
+            <span class="month-year-sub">2026</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Análise" data-month="Out/2026">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Sistema de avaliação, após confirmação das unidades</h3>
+                <span class="sector-tag analise">Análise</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Out/2026">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Atualização do itinerário formativo</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Material" data-month="Out/2026">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Criação do material de treinamento/apoio TAA Cancelamento</h3>
+                <span class="sector-tag material">Material</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Histórico escolar" data-month="Out/2026">
+              <div class="task-number-target">4</div>
+              <div class="task-body">
+                <h3 class="task-name">Manutenção readequação do processo de emissão - Objetivo SJC e Praia Grande, CCPA, CJA</h3>
+                <span class="sector-tag historico">Histórico escolar</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Histórico escolar" data-month="Out/2026">
+              <div class="task-number-target">5</div>
+              <div class="task-body">
+                <h3 class="task-name">Alteração do processo de emissão de histórico escolar: Marupiara e Santo Anjo</h3>
+                <span class="sector-tag historico">Histórico escolar</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="month-col month-nov" id="month-nov" data-month="Nov/2026">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Treinamento" data-month="Nov/2026">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Importação de Grade Horária - Urânia com TOTVS</h3>
+                <span class="sector-tag treinamento">Treinamento</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Rematrícula Colaboradores" data-month="Nov/2026">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Construção metadados de bolsas colaboradores, exceto Santo Anjo</h3>
+                <span class="sector-tag colaboradores">Rematrícula Colaboradores</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Rematrícula Colaboradores" data-month="Nov/2026">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Importação metadados de bolsas colaboradores</h3>
+                <span class="sector-tag colaboradores">Rematrícula Colaboradores</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Nov/2026">
+              <div class="task-number-target">4</div>
+              <div class="task-body">
+                <h3 class="task-name">Replicação do sistema de avaliação</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TAA" data-month="Nov/2026">
+              <div class="task-number-target">5</div>
+              <div class="task-body">
+                <h3 class="task-name">Treinamento TAA Cancelamento</h3>
+                <span class="sector-tag taa">TAA</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Treinamento" data-month="Nov/2026">
+              <div class="task-number-target">6</div>
+              <div class="task-body">
+                <h3 class="task-name">Processo emissão de histórico - Objetivo SJC e Praia Grande, CCPA e CJA</h3>
+                <span class="sector-tag treinamento">Treinamento</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Treinamento" data-month="Nov/2026">
+              <div class="task-number-target">7</div>
+              <div class="task-body">
+                <h3 class="task-name">Novo processo emissão de histórico - Marupiara e Santo Anjo</h3>
+                <span class="sector-tag treinamento">Treinamento</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Nov/2026">
+              <div class="task-number-target">8</div>
+              <div class="task-body">
+                <h3 class="task-name">Configuração sistema/portal para matrícula na colônia de férias</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Nota em Dia" data-month="Nov/2026">
+              <div class="task-number-target">9</div>
+              <div class="task-body">
+                <h3 class="task-name">Fechamento: Bimestral e Trimestral</h3>
+                <span class="sector-tag nota">Nota em Dia</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Nov/2026">
+            NOV
+            <span class="month-year-sub">2026</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-dez" id="month-dez" data-month="Dez/2026">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Dez/2026">
+            DEZ
+            <span class="month-year-sub">2026</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Grade Horária Professor" data-month="Dez/2026">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração da grade horária através da integração do Urânia com Educacional, realizado pelas unidades</h3>
+                <span class="sector-tag grade">Grade Horária Professor</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Rematrícula Colaboradores" data-month="Dez/2026">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Abertura rematrícula 2027 - Filhos de colaboradores, exceto Santo Anjo</h3>
+                <span class="sector-tag colaboradores">Rematrícula Colaboradores</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Nota em Dia" data-month="Dez/2026">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Fechamento Geral</h3>
+                <span class="sector-tag nota">Nota em Dia</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Grade Horária Professor" data-month="Dez/2026">
+              <div class="task-number-target">4</div>
+              <div class="task-body">
+                <h3 class="task-name">Cadastro de professores novos no TOTVS, realizado pelas unidades</h3>
+                <span class="sector-tag grade">Grade Horária Professor</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Material" data-month="Dez/2026">
+              <div class="task-number-target">5</div>
+              <div class="task-body">
+                <h3 class="task-name">Atualização dos documentos do sistema de avaliação</h3>
+                <span class="sector-tag material">Material</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Material" data-month="Dez/2026">
+              <div class="task-number-target">6</div>
+              <div class="task-body">
+                <h3 class="task-name">Treinamento dos Professores - Notas, Faltas e Conteúdo</h3>
+                <span class="sector-tag material">Material</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Histórico escolar" data-month="Dez/2026">
+              <div class="task-number-target">7</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração de histórico escolar dos concluintes pelas unidades (9.º e 3.º Série do EM) / Alunos Transferência</h3>
+                <span class="sector-tag historico">Histórico escolar</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="month-col month-jan" id="month-jan" data-month="Jan/2027">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Grade Horária Professor" data-month="Jan/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração da grade horária através da integração do Urânia com Educacional - CJA até dia xx/01 e demais unidades até o dia xx</h3>
+                <span class="sector-tag grade">Grade Horária Professor</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Grade Horária Professor" data-month="Jan/2027">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Importar grade horária do Urânia para o TOTVS</h3>
+                <span class="sector-tag grade">Grade Horária Professor</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Jan/2027">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração da prévia da folha de pagamento, realizada pelo DP, após inclusão das informações da grade horária dos professores</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Publicação Material" data-month="Jan/2027">
+              <div class="task-number-target">4</div>
+              <div class="task-body">
+                <h3 class="task-name">Documento atualizado do sistema de avaliação</h3>
+                <span class="sector-tag publicacao">Publicação Material</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Geral" data-month="Jan/2027">
+              <div class="task-number-target">5</div>
+              <div class="task-body">
+                <h3 class="task-name">Confirmação do funcionamento dos Apps de comunicação com as famílias</h3>
+                <span class="sector-tag geral">Geral</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Jan/2027">
+              <div class="task-number-target">6</div>
+              <div class="task-body">
+                <h3 class="task-name">Ensalamento dos alunos via processo sistemático</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Treinamento" data-month="Jan/2027">
+              <div class="task-number-target">7</div>
+              <div class="task-body">
+                <h3 class="task-name">Professores - Processo de inclusão de notas (whatsapp), faltas e conteúdo</h3>
+                <span class="sector-tag treinamento">Treinamento</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Jan/2027">
+              <div class="task-number-target">8</div>
+              <div class="task-body">
+                <h3 class="task-name">Turmas e disciplinas alunos dependência Objetivo</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Portal" data-month="Jan/2027">
+              <div class="task-number-target">9</div>
+              <div class="task-body">
+                <h3 class="task-name">Ativar matrícula para alunos em dependência Objetivo</h3>
+                <span class="sector-tag portal">Portal</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Jan/2027">
+              <div class="task-number-target">10</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração de histórico escolar dos concluintes</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="TOTVS" data-month="Jan/2027">
+              <div class="task-number-target">11</div>
+              <div class="task-body">
+                <h3 class="task-name">Geração de histórico escolar alunos transferidos</h3>
+                <span class="sector-tag totvs">TOTVS</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Rematrícula 2027" data-month="Jan/2027">
+              <div class="task-number-target">12</div>
+              <div class="task-body">
+                <h3 class="task-name">Fechamento no portal</h3>
+                <span class="sector-tag rematricula">Rematrícula 2027</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Jan/2027">
+            JAN
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-fev" id="month-fev" data-month="Fev/2027">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Fev/2027">
+            FEV
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Geral" data-month="Fev/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Matricular alunos no itinerário (Acadêmico Escolas)</h3>
+                <span class="sector-tag geral">Geral</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="month-col month-mar" id="month-mar" data-month="Mar/2027">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Reserva de Vaga" data-month="Mar/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Abertura da reserva de vaga para 2028</h3>
+                <span class="sector-tag reserva">Reserva de Vaga</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Mar/2027">
+            MAR
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-abr" id="month-abr" data-month="Abr/2027">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Abr/2027">
+            ABR
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Abr/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="month-col month-mai" id="month-mai" data-month="Mai/2027">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Mai/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Mai/2027">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Mai/2027">
+            MAI
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-jun" id="month-jun" data-month="Jun/2027">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Jun/2027">
+            JUN
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Jun/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="month-col month-jul" id="month-jul" data-month="Jul/2027">
+        <div class="task-slot">
+          <div class="dashed-connector-top"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Jul/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Jul/2027">
+            JUL
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom is-empty">
+
+        </div>
+      </section>
+
+      <section class="month-col month-ago" id="month-ago" data-month="Ago/2027">
+        <div class="task-slot is-empty">
+
+        </div>
+        <div class="node-slot">
+          <button class="month-badge" type="button" data-month-jump="Ago/2027">
+            AGO
+            <span class="month-year-sub">2027</span>
+          </button>
+        </div>
+        <div class="task-slot bottom">
+          <div class="dashed-connector-bottom"></div>
+          <div class="tasks-container">
+            <article class="task-card" data-category="Rematrícula 2028" data-month="Ago/2027">
+              <div class="task-number-target">1</div>
+              <div class="task-body">
+                <h3 class="task-name">Abertura Rematrícula 2028 (A confirmar)</h3>
+                <span class="sector-tag rematricula">Rematrícula 2028</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Reserva de Vaga" data-month="Ago/2027">
+              <div class="task-number-target">2</div>
+              <div class="task-body">
+                <h3 class="task-name">Fechamento da reserva de vagas para 2028: Matrícula direto (Comercial)</h3>
+                <span class="sector-tag reserva">Reserva de Vaga</span>
+              </div>
+            </article>
+            <article class="task-card" data-category="Matrícula 2028" data-month="Ago/2027">
+              <div class="task-number-target">3</div>
+              <div class="task-body">
+                <h3 class="task-name">Envio dos links após aprovação das reservas para 2028 (Comercial)</h3>
+                <span class="sector-tag matricula">Matrícula 2028</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
-  <div class="footer-line" aria-hidden="true"></div>
+
+  <footer class="summary-footer">
+    <div class="kpi-row">
+      <div class="kpi-mini"><span class="kpi-mini-val">48</span><span class="kpi-mini-lbl">Total de tarefas</span></div>
+      <div class="kpi-mini"><span class="kpi-mini-val">12</span><span class="kpi-mini-lbl">Meses planejados</span></div>
+      <div class="kpi-mini"><span class="kpi-mini-val">17</span><span class="kpi-mini-lbl">Categorias</span></div>
+      <div class="kpi-mini"><span class="kpi-mini-val">06/10/2026</span><span class="kpi-mini-lbl">Marco atual</span></div>
+    </div>
+    <div><strong>Sistema de Gestão e Planejamento Acadêmico</strong><span style="display:block;font-size:12px;">Ciclo acadêmico 2026/2027 em homologação</span></div>
+  </footer>
+
   <script>
-    const schedule = [
-          {
-                "month": "Set/2026",
-                "title": "Lançamento e prazos iniciais",
-                "track": "preparacao",
-                "tasks": [
-                      {
-                            "text": "Lançamento do Projeto",
-                            "type": "Projeto",
-                            "group": "Nota em Dia"
-                      },
-                      {
-                            "text": "Nota em Dia - Lançamento de notas - 13/10",
-                            "type": "Prazo",
-                            "group": "Prazo"
-                      },
-                      {
-                            "text": "Entrega das disciplinas em 09/10 Unidade CCPA",
-                            "type": "Prazo",
-                            "group": "Prazo"
-                      },
-                      {
-                            "text": "Entrega das disciplinas em 15/10 Unidades: CJA, Marupiara, Objetivo, Santo Anjo",
-                            "type": "Prazo",
-                            "group": "Prazo"
-                      },
-                      {
-                            "text": "Confirmação do Sistema de Avaliação - 30/10",
-                            "type": "Prazo",
-                            "group": "Prazo"
-                      }
-                ]
-          },
-          {
-                "month": "Out/2026",
-                "title": "Preparação acadêmica e processos",
-                "track": "academico",
-                "tasks": [
-                      {
-                            "text": "Sistema de avaliação, após confirmação das unidades",
-                            "type": "Análise",
-                            "group": "Análise"
-                      },
-                      {
-                            "text": "Atualização do itinerário formativo",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Criação do material de treinamento/apoio TAA Cancelamento",
-                            "type": "Material",
-                            "group": "Material"
-                      },
-                      {
-                            "text": "Manutenção readequação do processo de emissão - Objetivo SJC e Praia Grande, CCPA, CJA",
-                            "type": "Histórico escolar",
-                            "group": "Histórico escolar"
-                      },
-                      {
-                            "text": "Alteração do processo de emissão de histórico escolar: Marupiara e Santo Anjo",
-                            "type": "Histórico escolar",
-                            "group": "Histórico escolar"
-                      }
-                ]
-          },
-          {
-                "month": "Nov/2026",
-                "title": "Treinamentos, metadados e fechamento",
-                "track": "treinamento",
-                "tasks": [
-                      {
-                            "text": "Importação de Grade Horária - Urânia com TOTVS",
-                            "type": "Treinamento",
-                            "group": "Treinamento"
-                      },
-                      {
-                            "text": "Construção metadados de bolsas colaboradores, exceto Santo Anjo",
-                            "type": "Rematrícula Colaboradores",
-                            "group": "Rematrícula Colaboradores"
-                      },
-                      {
-                            "text": "Importação metadados de bolsas colaboradores",
-                            "type": "Rematrícula Colaboradores",
-                            "group": "Rematrícula Colaboradores"
-                      },
-                      {
-                            "text": "Replicação do sistema de avaliação",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Treinamento TAA Cancelamento",
-                            "type": "TAA",
-                            "group": "TAA"
-                      },
-                      {
-                            "text": "Processo emissão de histórico - Objetivo SJC e Praia Grande, CCPA e CJA",
-                            "type": "Treinamento",
-                            "group": "Treinamento"
-                      },
-                      {
-                            "text": "Novo processo emissão de histórico - Marupiara e Santo Anjo",
-                            "type": "Treinamento",
-                            "group": "Treinamento"
-                      },
-                      {
-                            "text": "Configuração sistema/portal para matrícula na colônia de férias",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Fechamento: Bimestral e Trimestral",
-                            "type": "Nota em Dia",
-                            "group": "Nota em Dia"
-                      }
-                ]
-          },
-          {
-                "month": "Dez/2026",
-                "title": "Virada do ano acadêmico",
-                "track": "fechamento",
-                "tasks": [
-                      {
-                            "text": "Geração da grade horária através da integração do Urânia com Educacional, realizado pelas unidades",
-                            "type": "Grade Horária Professor",
-                            "group": "Grade Horária Professor"
-                      },
-                      {
-                            "text": "Abertura rematrícula 2027 - Filhos de colaboradores, exceto Santo Anjo",
-                            "type": "Rematrícula Colaboradores",
-                            "group": "Rematrícula Colaboradores"
-                      },
-                      {
-                            "text": "Fechamento Geral",
-                            "type": "Nota em Dia",
-                            "group": "Nota em Dia"
-                      },
-                      {
-                            "text": "Cadastro de professores novos no TOTVS, realizado pelas unidades",
-                            "type": "Grade Horária Professor",
-                            "group": "Grade Horária Professor"
-                      },
-                      {
-                            "text": "Atualização dos documentos do sistema de avaliação",
-                            "type": "Material",
-                            "group": "Material"
-                      },
-                      {
-                            "text": "Treinamento dos Professores - Notas, Faltas e Conteúdo",
-                            "type": "Material",
-                            "group": "Material"
-                      },
-                      {
-                            "text": "Geração de histórico escolar dos concluintes pelas unidades (9.º e 3.º Série do EM) / Alunos Transferência",
-                            "type": "Histórico escolar",
-                            "group": "Histórico escolar"
-                      }
-                ]
-          },
-          {
-                "month": "Jan/2027",
-                "title": "Início de ano letivo",
-                "track": "academico",
-                "tasks": [
-                      {
-                            "text": "Geração da grade horária através da integração do Urânia com Educacional - CJA até dia xx/01 e demais unidades até o dia xx",
-                            "type": "Grade Horária Professor",
-                            "group": "Grade Horária Professor"
-                      },
-                      {
-                            "text": "Importar grade horária do Urânia para o TOTVS",
-                            "type": "Grade Horária Professor",
-                            "group": "Grade Horária Professor"
-                      },
-                      {
-                            "text": "Geração da prévia da folha de pagamento, realizada pelo DP, após inclusão das informações da grade horária dos professores",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Documento atualizado do sistema de avaliação",
-                            "type": "Publicação Material",
-                            "group": "Publicação Material"
-                      },
-                      {
-                            "text": "Confirmação do funcionamento dos Apps de comunicação com as famílias",
-                            "type": "Geral",
-                            "group": "Geral"
-                      },
-                      {
-                            "text": "Ensalamento dos alunos via processo sistemático",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Professores - Processo de inclusão de notas (whatsapp), faltas e conteúdo",
-                            "type": "Treinamento",
-                            "group": "Treinamento"
-                      },
-                      {
-                            "text": "Turmas e disciplinas alunos dependência Objetivo",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Ativar matrícula para alunos em dependência Objetivo",
-                            "type": "Portal",
-                            "group": "Portal"
-                      },
-                      {
-                            "text": "Geração de histórico escolar dos concluintes",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Geração de histórico escolar alunos transferidos",
-                            "type": "TOTVS",
-                            "group": "TOTVS"
-                      },
-                      {
-                            "text": "Fechamento no portal",
-                            "type": "Rematrícula 2027",
-                            "group": "Rematrícula 2027"
-                      }
-                ]
-          },
-          {
-                "month": "Fev/2027",
-                "title": "Itinerário formativo",
-                "track": "academico",
-                "tasks": [
-                      {
-                            "text": "Matricular alunos no itinerário (Acadêmico Escolas)",
-                            "type": "Geral",
-                            "group": "Geral"
-                      }
-                ]
-          },
-          {
-                "month": "Mar/2027",
-                "title": "Reserva de vaga 2028",
-                "track": "reserva",
-                "tasks": [
-                      {
-                            "text": "Abertura da reserva de vaga para 2028",
-                            "type": "Reserva de Vaga",
-                            "group": "Reserva de Vaga"
-                      }
-                ]
-          },
-          {
-                "month": "Abr/2027",
-                "title": "Preparação da rematrícula 2028",
-                "track": "rematricula",
-                "tasks": [
-                      {
-                            "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      }
-                ]
-          },
-          {
-                "month": "Mai/2027",
-                "title": "Coleta e parametrização da rematrícula 2028",
-                "track": "rematricula",
-                "tasks": [
-                      {
-                            "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      },
-                      {
-                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      }
-                ]
-          },
-          {
-                "month": "Jun/2027",
-                "title": "Parametrização e treinamento",
-                "track": "rematricula",
-                "tasks": [
-                      {
-                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      }
-                ]
-          },
-          {
-                "month": "Jul/2027",
-                "title": "Continuidade da preparação 2028",
-                "track": "rematricula",
-                "tasks": [
-                      {
-                            "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      }
-                ]
-          },
-          {
-                "month": "Ago/2027",
-                "title": "Abertura e transição 2028",
-                "track": "rematricula",
-                "tasks": [
-                      {
-                            "text": "Abertura Rematrícula 2028 (A confirmar)",
-                            "type": "Rematrícula 2028",
-                            "group": "Rematrícula 2028"
-                      },
-                      {
-                            "text": "Fechamento da reserva de vagas para 2028: Matrícula direto (Comercial)",
-                            "type": "Reserva de Vaga",
-                            "group": "Reserva de Vaga"
-                      },
-                      {
-                            "text": "Envio dos links após aprovação das reservas para 2028 (Comercial)",
-                            "type": "Matrícula 2028",
-                            "group": "Matrícula 2028"
-                      }
-                ]
-          }
-    ];
-
-    const timeline = document.getElementById("timeline");
-    const monthFilters = document.getElementById("monthFilters");
-    const categoryFilters = document.getElementById("categoryFilters");
-    const filterCount = document.getElementById("filterCount");
-    const filters = { month: "Todos", category: "Todas" };
-
-    function escapeHtml(value) { return value.replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char])); }
-
-    function getCategories() {
-      return [...new Set(schedule.flatMap(month => month.tasks.map(task => task.group || task.type || "Geral")))].sort((a, b) => a.localeCompare(b, "pt-BR"));
-    }
-
-    function createChip(label, value, filterKey) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "filter-chip";
-      button.dataset.filterKey = filterKey;
-      button.dataset.filterValue = value;
-      button.textContent = label;
-      button.addEventListener("click", () => {
-        filters[filterKey] = value;
-        applyFilters();
-      });
-      return button;
-    }
-
-    function renderFilters() {
-      monthFilters.appendChild(createChip("Todos os meses", "Todos", "month"));
-      schedule.forEach(month => monthFilters.appendChild(createChip(month.month, month.month, "month")));
-      categoryFilters.appendChild(createChip("Todas as categorias", "Todas", "category"));
-      getCategories().forEach(category => categoryFilters.appendChild(createChip(category, category, "category")));
-    }
-
-    function updateFilterButtons() {
-      document.querySelectorAll(".filter-chip").forEach((button) => {
-        const isActive = filters[button.dataset.filterKey] === button.dataset.filterValue;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-    }
-
-    function applyFilters() {
-      let visibleTasks = 0;
-      let visibleMonths = 0;
-      timeline.querySelectorAll(".period").forEach((period) => {
-        const monthMatches = filters.month === "Todos" || period.dataset.month === filters.month;
-        let monthVisibleTasks = 0;
-        period.querySelectorAll(".task-list li").forEach((item) => {
-          const categoryMatches = filters.category === "Todas" || item.dataset.category === filters.category;
-          const isVisible = monthMatches && categoryMatches;
-          item.classList.toggle("is-hidden", !isVisible);
-          if (isVisible) monthVisibleTasks += 1;
+    document.addEventListener('DOMContentLoaded', () => {
+      const viewport = document.getElementById('timelineViewport');
+      const searchInput = document.getElementById('taskSearch');
+      const legendItems = document.querySelectorAll('.legend-item');
+      const allTaskCards = document.querySelectorAll('.task-card');
+      const activeFilterLabel = document.getElementById('activeFilterLabel');
+      let currentCategory = 'all';
+      document.getElementById('btnScrollLeft').addEventListener('click', () => viewport.scrollBy({ left: -380, behavior: 'smooth' }));
+      document.getElementById('btnScrollRight').addEventListener('click', () => viewport.scrollBy({ left: 380, behavior: 'smooth' }));
+      document.getElementById('btnToday').addEventListener('click', () => document.getElementById('month-out')?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }));
+      document.querySelectorAll('[data-month-jump]').forEach(button => button.addEventListener('click', () => button.closest('.month-col')?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })));
+      let isDown = false, startX = 0, scrollLeft = 0;
+      viewport.addEventListener('mousedown', event => { if (event.target.closest('button,input,.task-card')) return; isDown = true; startX = event.pageX - viewport.offsetLeft; scrollLeft = viewport.scrollLeft; });
+      viewport.addEventListener('mouseleave', () => { isDown = false; });
+      viewport.addEventListener('mouseup', () => { isDown = false; });
+      viewport.addEventListener('mousemove', event => { if (!isDown) return; event.preventDefault(); const x = event.pageX - viewport.offsetLeft; viewport.scrollLeft = scrollLeft - ((x - startX) * 1.5); });
+      function applyFilters() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visible = 0;
+        allTaskCards.forEach(card => {
+          const cardText = card.innerText.toLowerCase();
+          const category = card.dataset.category || '';
+          const matchesQuery = !query || cardText.includes(query);
+          const matchesCategory = currentCategory === 'all' || category === currentCategory;
+          if (matchesQuery && matchesCategory) { card.classList.remove('dimmed'); visible++; if (query || currentCategory !== 'all') card.classList.add('highlighted'); else card.classList.remove('highlighted'); }
+          else { card.classList.add('dimmed'); card.classList.remove('highlighted'); }
         });
-        const showPeriod = monthVisibleTasks > 0;
-        period.classList.toggle("is-hidden", !showPeriod);
-        if (showPeriod) visibleMonths += 1;
-        visibleTasks += monthVisibleTasks;
-      });
-      filterCount.textContent = visibleTasks + (visibleTasks === 1 ? " tarefa" : " tarefas") + " em " + visibleMonths + (visibleMonths === 1 ? " mês" : " meses");
-      updateFilterButtons();
-    }
-
-    function renderTimeline() {
-      timeline.innerHTML = "";
-      schedule.forEach((month) => {
-        const tasks = month.tasks;
-        const article = document.createElement("article");
-        article.className = "period";
-        article.dataset.track = month.track;
-        article.dataset.month = month.month;
-        const taskItems = tasks.map((task) => {
-          const category = task.group || task.type || "Geral";
-          return '<li data-category="' + escapeHtml(category) + '"><div>' + escapeHtml(task.text) + '</div><span class="task-category">' + escapeHtml(category) + '</span></li>';
-        }).join("");
-        article.innerHTML = '<div class="period-date"><strong>' + escapeHtml(month.month) + '</strong></div><div class="period-card"><div class="period-top"><h2>' + escapeHtml(month.title) + '</h2></div><ul class="task-list">' + taskItems + '</ul></div>';
-        timeline.appendChild(article);
-      });
-    }
-    renderFilters();
-    renderTimeline();
-    applyFilters();
+        if (currentCategory !== 'all') activeFilterLabel.textContent = 'Filtrado por: ' + currentCategory + ' • ' + visible + ' tarefa(s)';
+        else if (query) activeFilterLabel.textContent = 'Buscando por: "' + query + '" • ' + visible + ' tarefa(s)';
+        else activeFilterLabel.textContent = '';
+      }
+      legendItems.forEach(item => item.addEventListener('click', () => { legendItems.forEach(i => i.classList.remove('active')); item.classList.add('active'); currentCategory = item.dataset.category || 'all'; applyFilters(); }));
+      searchInput.addEventListener('input', applyFilters);
+      document.querySelector('.legend-item[data-category="all"]')?.classList.add('active');
+    });
   </script>
 </body>
 </html>
