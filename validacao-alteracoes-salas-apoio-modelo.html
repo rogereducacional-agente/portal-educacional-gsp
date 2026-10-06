@@ -3772,7 +3772,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url("assets/gsp/home-search-background-model.jpg") center / 100% 100% no-repeat;
+      background: url("assets/gsp/home-search-background-model-sharp.jpg") center / 100% 100% no-repeat;
       filter: none;
       transform: none;
     }
@@ -3782,8 +3782,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.74) 0%, rgba(255,255,255,.58) 46%, rgba(255,255,255,.18) 65%, rgba(255,255,255,0) 100%),
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.08));
+        linear-gradient(90deg, rgba(255,255,255,.66) 0%, rgba(255,255,255,.48) 46%, rgba(255,255,255,.10) 65%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.04));
     }
 
     .home-search-banner.is-searching {
@@ -3826,6 +3826,29 @@
       background: #d8113b;
       box-shadow: 0 16px 30px rgba(216, 17, 59, .26);
       z-index: 4;
+    }
+
+    .home-search-icon::before,
+    .home-search-icon::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .home-search-icon::before {
+      inset: -15px;
+      border: 14px solid rgba(216, 17, 59, .08);
+      box-shadow: 0 0 0 16px rgba(255, 205, 31, .18);
+    }
+
+    .home-search-icon::after {
+      right: -22px;
+      bottom: -18px;
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 205, 31, .42);
+      filter: blur(.2px);
     }
 
     .home-search-kicker {
