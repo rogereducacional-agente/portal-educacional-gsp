@@ -2638,11 +2638,11 @@
       background: #fff;
       box-shadow: 0 16px 30px rgba(20, 33, 61, .08);
       display: grid;
-      grid-template-rows: 148px 1fr;
+      grid-template-rows: 72px 1fr;
     }
 
     .comunicado-card::before {
-      content: none;
+      content: "";
       position: absolute;
       inset: 0 0 auto;
       height: 72px;
@@ -2665,18 +2665,11 @@
     .comunicado-top {
       position: relative;
       z-index: 2;
-      padding: 0;
-      display: block;
-      overflow: hidden;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
       color: #fff;
-    }
-
-    .comunicado-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: top center;
     }
 
     .comunicado-doc {
@@ -2699,13 +2692,7 @@
     }
 
     .comunicado-date {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      margin-top: 0;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(6, 33, 68, .78);
+      margin-top: 7px;
       color: #fff;
       font-size: 14px;
       font-weight: 900;
@@ -4716,7 +4703,7 @@
         <div class="comunicados-carousel" aria-label="Últimos comunicados">
         <article class="comunicado-card">
           <div class="comunicado-top">
-            <img class="comunicado-image" src="https://drive.google.com/thumbnail?id=1xG7VKLzJ0k8Y7tnyiXyEsPHFFxIAuGF6&sz=w800" alt="">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
             <span class="comunicado-date">07/10/2026</span>
           </div>
           <div class="comunicado-body">
@@ -4727,7 +4714,7 @@
         </article>
         <article class="comunicado-card">
           <div class="comunicado-top">
-            <img class="comunicado-image" src="https://drive.google.com/thumbnail?id=1aFU3MH0aSE_wZU5TFqfNteHM0-WhxfFY&sz=w800" alt="">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
             <span class="comunicado-date">07/10/2026</span>
           </div>
           <div class="comunicado-body">
@@ -4738,7 +4725,7 @@
         </article>
         <article class="comunicado-card">
           <div class="comunicado-top">
-            <img class="comunicado-image" src="https://drive.google.com/thumbnail?id=1jrlbTYWx0j87tI5PkRxPLnELwqmgoVfL&sz=w800" alt="">
+            <span class="comunicado-doc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M10 12h6"/><path d="M10 16h6"/></svg></span>
             <span class="comunicado-date">07/10/2026</span>
           </div>
           <div class="comunicado-body">
@@ -5264,7 +5251,7 @@
         title: "Comunicado - Ação Nota em Dia",
         type: "Imagem",
         text: "Informativo sobre conferência e regularização de notas pendentes para fechamento acadêmico.",
-        link: "https://drive.google.com/file/d/1HeXEnXdlCXsxDpK3Dv5_N3GcowoDF1C5/view?usp=drivesdk"
+        link: "assets/comunicados/acao-nota-em-dia-informativo.jpg"
       },
       {
         title: "Portal do Professor",
