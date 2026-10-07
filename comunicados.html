@@ -109,11 +109,11 @@
       </div>
       <p class="search-examples-title">O que você pode buscar</p>
       <div class="search-examples" aria-label="Exemplos de busca">
+        <button class="search-chip" type="button" data-query="Alteração de Série">Alteração de Série</button>
+        <button class="search-chip" type="button" data-query="Disciplinas 2027">Disciplinas 2027</button>
+        <button class="search-chip" type="button" data-query="Bolsa 1ª Parcela">Bolsa 1ª Parcela</button>
         <button class="search-chip" type="button" data-query="Ação Nota em Dia">Ação Nota em Dia</button>
         <button class="search-chip" type="button" data-query="Reserva de Vaga">Reserva de Vaga</button>
-        <button class="search-chip" type="button" data-query="Bolsa por Serviço">Bolsa por Serviço</button>
-        <button class="search-chip" type="button" data-query="Acadêmico">Acadêmico</button>
-        <button class="search-chip" type="button" data-query="Matrícula">Matrícula</button>
       </div>
     </section>
     <section class="timeline" id="postTimeline" aria-label="Lista de comunicados"></section>
@@ -124,6 +124,39 @@
     const comunicados = [
       {
         ordem: 1,
+        slug: "alteracao-de-serie",
+        titulo: "Educacional Informa - Alteração de Série",
+        descricao: "Comunicado sobre orientações e pontos de atenção para solicitação e acompanhamento de alteração de série.",
+        imagem: "https://drive.google.com/thumbnail?id=1xG7VKLzJ0k8Y7tnyiXyEsPHFFxIAuGF6&sz=w800",
+        arquivo: "https://drive.google.com/file/d/1xG7VKLzJ0k8Y7tnyiXyEsPHFFxIAuGF6/view?usp=drivesdk",
+        data: "2026-10-07",
+        postadoPor: "Amanda Bindilatti",
+        categoria: "Acadêmico"
+      },
+      {
+        ordem: 2,
+        slug: "solicitacao-disciplinas-2027",
+        titulo: "Ação - Solicitação das Disciplinas 2027",
+        descricao: "Comunicado para orientar a solicitação das disciplinas de 2027 e apoiar o acompanhamento pelas unidades.",
+        imagem: "https://drive.google.com/thumbnail?id=1aFU3MH0aSE_wZU5TFqfNteHM0-WhxfFY&sz=w800",
+        arquivo: "https://drive.google.com/file/d/1aFU3MH0aSE_wZU5TFqfNteHM0-WhxfFY/view?usp=drivesdk",
+        data: "2026-10-07",
+        postadoPor: "Amanda Bindilatti",
+        categoria: "Acadêmico"
+      },
+      {
+        ordem: 3,
+        slug: "bolsa-primeira-parcela-matricula-nova",
+        titulo: "Educacional Informa - Bolsa 1ª Parcela: Matrícula Nova",
+        descricao: "Comunicado sobre aplicação de bolsa na primeira parcela para matrícula nova.",
+        imagem: "https://drive.google.com/thumbnail?id=1jrlbTYWx0j87tI5PkRxPLnELwqmgoVfL&sz=w800",
+        arquivo: "https://drive.google.com/file/d/1jrlbTYWx0j87tI5PkRxPLnELwqmgoVfL/view?usp=drivesdk",
+        data: "2026-10-07",
+        postadoPor: "Amanda Bindilatti",
+        categoria: "Matrícula"
+      },
+      {
+        ordem: 4,
         slug: "bolsa-por-servico-matricula-nova",
         titulo: "Bolsa por Serviço - Matrícula Nova",
         descricao: "Orientação sobre aplicação de bolsa por serviço na matrícula nova, com diferença entre bolsa sem condicional e bolsa vinculada ao serviço selecionado.",
@@ -134,7 +167,7 @@
         categoria: "Matrícula"
       },
       {
-        ordem: 2,
+        ordem: 5,
         slug: "acao-nota-em-dia",
         titulo: "Ação Nota em Dia: preparação para o fechamento acadêmico",
         descricao: "Orientação para conferência e regularização de notas pendentes antes da geração da Média Anual, com prazo de regularização até 23/10/2026.",
@@ -145,7 +178,7 @@
         categoria: "Acadêmico"
       },
       {
-        ordem: 3,
+        ordem: 6,
         slug: "reserva-de-vaga-orientacoes",
         titulo: "Reserva de Vaga: regras e orientações do processo",
         descricao: "Comunicado com as regras principais da Reserva de Vaga: quando usar, quando não usar, liberação do link de matrícula, lançamento de adiantamento e pontos de atenção para a equipe.",
