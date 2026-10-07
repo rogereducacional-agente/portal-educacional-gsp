@@ -41,11 +41,14 @@
     .timeline-axis-line { position:absolute; top:50%; left:48px; right:48px; height:16px; border-radius:999px; background:linear-gradient(90deg,#b0bac9 0%,#cbd5e1 50%,#b0bac9 100%); transform:translateY(-50%); z-index:1; box-shadow:inset 0 2px 4px rgba(0,0,0,.16),0 2px 4px rgba(0,0,0,.05); }
     .axis-cap { position:absolute; top:50%; width:28px; height:28px; border:3px solid #fff; border-radius:50%; background:#8b99ab; transform:translateY(-50%); z-index:2; box-shadow:0 2px 6px rgba(0,0,0,.2); } .axis-cap.start { left:32px; } .axis-cap.end { right:32px; }
     .month-col { width:320px; flex:0 0 320px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:5; --theme-color:var(--month-color); }
-    .task-slot { width:100%; min-height:315px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; padding:0 8px; position:relative; } .task-slot.bottom { justify-content:flex-start; }
-    .node-slot { width:100%; height:90px; display:flex; align-items:center; justify-content:center; position:relative; z-index:10; }
+    .task-slot { width:100%; min-height:315px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; padding:0 8px; position:relative; }
+    .task-slot.top { padding-bottom:112px; }
+    .task-slot.bottom { justify-content:flex-start; padding-top:66px; }
+    .node-slot { width:100%; height:72px; display:flex; align-items:center; justify-content:center; position:absolute; top:calc(50% - 72px); left:0; z-index:10; pointer-events:none; }
     .month-badge { min-width:92px; min-height:62px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 22px; border:3px solid #fff; border-radius:999px; background:var(--month-color); color:#fff; font-size:20px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; box-shadow:0 4px 12px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.38); }
     .month-year-sub { margin-top:2px; font-size:11px; font-weight:700; opacity:.92; line-height:1; }
-    .current-pin { position:absolute; top:-64px; display:flex; flex-direction:column; align-items:center; z-index:25; animation:bounce 2s infinite ease-in-out; } @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    .month-badge { pointer-events:auto; }
+    .current-pin { position:absolute; top:-68px; display:flex; flex-direction:column; align-items:center; z-index:25; animation:bounce 2s infinite ease-in-out; pointer-events:auto; } @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
     .pin-tag { display:flex; flex-direction:column; align-items:center; padding:6px 11px; border-radius:6px; background:#dc2626; color:#fff; font-size:12px; font-weight:800; white-space:nowrap; box-shadow:0 4px 10px rgba(220,38,38,.35); } .pin-date { font-size:10px; font-weight:600; opacity:.9; } .pin-arrow { width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #dc2626; }
     .dashed-connector-top,.dashed-connector-bottom { position:absolute; left:50%; width:2px; height:124px; transform:translateX(-50%); border-left:2.5px dashed var(--month-color); pointer-events:none; z-index:3; } .dashed-connector-top { bottom:45px; } .dashed-connector-bottom { top:45px; }
     .tasks-container { width:100%; max-width:310px; display:flex; flex-direction:column; gap:10px; position:relative; z-index:4; }
