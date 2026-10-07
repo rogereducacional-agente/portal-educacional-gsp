@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Cronograma Acadêmico 2026-2027 | Portal Educacional GSP</title>
+  <style>
+    :root { --ink:#13213d; --ink-soft:#526078; --paper:#f3f6fb; --surface:#fff; --line:#dce5ef; --blue:#2563c9; --green:#008a73; --yellow:#f5c542; --orange:#f26f2b; --red:#cf2337; --shadow:0 18px 42px rgba(19,33,61,.12); --max:1180px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:Inter,"Segoe UI",Arial,sans-serif; color:var(--ink); background:var(--paper); line-height:1.5; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    .site-header { position:sticky; top:0; z-index:20; min-height:72px; display:grid; grid-template-columns:190px minmax(0,1fr); align-items:center; gap:24px; padding:0 clamp(18px,4vw,56px); background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); box-shadow:0 8px 24px rgba(20,33,61,.08); backdrop-filter:blur(12px); }
+    .site-logo img { width:150px; height:auto; display:block; }
+    .site-menu { display:flex; align-items:center; justify-content:flex-end; gap:18px; min-width:0; }
+    .site-menu a { display:inline-flex; align-items:center; min-height:40px; color:#16213f; font-size:13px; font-weight:900; white-space:nowrap; }
+    .site-menu a.active { color:var(--green); border-bottom:4px solid var(--green); }
+    main { width:min(100% - 32px,var(--max)); margin:0 auto; padding:28px 0 72px; }
+    .top-image { overflow:hidden; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); }
+    .top-image img { display:block; width:100%; height:auto; }
+    .hero { overflow:hidden; position:relative; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr); min-height:320px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); }
+    .hero-copy { padding:clamp(28px,5vw,52px); align-self:center; }
+    .eyebrow { margin:0 0 10px; color:var(--green); font-size:12px; font-weight:950; letter-spacing:0; text-transform:uppercase; }
+    h1 { margin:0; color:#081b42; font-size:clamp(34px,5vw,60px); line-height:1.02; }
+    .hero-copy p { max-width:640px; margin:16px 0 0; color:var(--ink-soft); font-size:16px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { display:inline-flex; align-items:center; min-height:38px; padding:0 14px; border-radius:999px; border:1px solid #bfd7ee; background:#eef7ff; color:#154b8f; font-size:13px; font-weight:900; }
+    .pill.warning { border-color:#f3d695; background:#fff8df; color:#7a5400; }
+    .hero-panel { display:grid; gap:12px; align-content:center; padding:clamp(24px,4vw,44px); background:linear-gradient(135deg,rgba(37,99,201,.08),rgba(0,138,115,.08)),#f9fbff; border-left:1px solid var(--line); }
+    .kpi { display:grid; grid-template-columns:auto minmax(0,1fr); gap:10px; align-items:center; padding:15px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.06); }
+    .kpi span { display:grid; place-items:center; width:42px; height:42px; border-radius:8px; color:#fff; font-size:18px; font-weight:950; }
+    .kpi:nth-child(1) span { background:var(--blue); }
+    .kpi:nth-child(2) span { background:var(--green); }
+    .kpi:nth-child(3) span { background:var(--orange); }
+    .kpi strong { display:block; color:#081b42; font-size:15px; }
+    .kpi small { display:block; color:var(--ink-soft); font-size:12px; }
+    .timeline { position:relative; display:grid; gap:16px; margin-top:24px; padding-left:34px; }
+    .timeline::before { content:""; position:absolute; left:13px; top:8px; bottom:8px; width:4px; border-radius:999px; background:linear-gradient(180deg,var(--blue),var(--green),var(--yellow),var(--orange),var(--red)); }
+    .period { position:relative; display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:stretch; }
+    .period::before { content:""; position:absolute; left:-30px; top:26px; width:16px; height:16px; border:4px solid #fff; border-radius:50%; background:var(--blue); box-shadow:0 0 0 1px var(--line); }
+    .period[data-track="preparacao"]::before { background:var(--blue); }
+    .period[data-track="matricula"]::before { background:var(--green); }
+    .period[data-track="academico"]::before { background:var(--yellow); }
+    .period[data-track="fechamento"]::before { background:var(--orange); }
+    .period[data-track="avaliacao"]::before { background:var(--red); }
+    .period-date { padding:17px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.05); }
+    .period-date strong { display:block; color:#081b42; font-size:20px; line-height:1.1; }
+    .period-date span { display:none; }
+    .period-card { display:grid; gap:12px; padding:18px; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 24px rgba(19,33,61,.05); }
+    .period-top { display:block; }
+    .period-card h2 { margin:0; color:#081b42; font-size:clamp(20px,2.4vw,28px); line-height:1.12; }
+    .tag { display:none; }
+    .period-card p { margin:0; color:var(--ink-soft); font-size:14px; }
+    .task-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+    .task-list li { display:grid; grid-template-columns:10px minmax(0,1fr); gap:10px; align-items:start; color:#2f405c; font-size:14px; }
+    .task-list li::before { content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--green); }
+    .task-category { display:inline-flex; width:max-content; max-width:100%; min-height:24px; margin:0 0 4px; padding:3px 9px; border-radius:999px; background:#eaf7f4; color:#007b68; font-size:12px; font-weight:900; }
+    .empty-state { padding:18px; border:1px dashed #b9c8dc; border-radius:8px; background:#fff; color:var(--ink-soft); font-weight:850; }
+    .notice { margin-top:24px; padding:18px; border:1px solid #f1d28b; border-radius:8px; background:#fff9e8; color:#6d4b00; font-size:14px; }
+    .footer-line { height:6px; background:linear-gradient(90deg,var(--blue) 0 24%,var(--green) 24% 50%,var(--yellow) 50% 74%,var(--orange) 74% 100%); }
+    @media (max-width:920px) { .site-header { position:static; grid-template-columns:1fr; gap:10px; padding:12px 16px; } .site-menu { justify-content:flex-start; overflow-x:auto; scrollbar-width:none; } .site-menu::-webkit-scrollbar { display:none; } .hero { grid-template-columns:1fr; } .hero-panel { border-left:0; border-top:1px solid var(--line); } .period { grid-template-columns:1fr; } .period-date { display:flex; align-items:baseline; justify-content:space-between; gap:12px; } }
+    @media (max-width:560px) { main { width:min(100% - 24px,var(--max)); padding-top:18px; } .hero-copy, .hero-panel { padding:22px; } .timeline { padding-left:25px; } .timeline::before { left:9px; } .period::before { left:-24px; } .period-date { display:block; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-logo" href="validacao-alteracoes-salas-apoio-modelo.html#inicio" aria-label="Great Schools Platform"><img src="assets/gsp/logo-great-schools-platform.png" alt="Great Schools Platform"></a>
+    <nav class="site-menu" aria-label="Navegação superior">
+      <a href="validacao-alteracoes-salas-apoio-modelo.html#inicio">Início</a>
+      <a href="rematricula-2027.html">Rematrícula 2027</a>
+      <a href="timeline-educacional.html" class="active">Timeline Educacional</a>
+      <a href="comunicados.html">Comunicados</a>
+      <a href="treinamentos-e-guias.html">Processos e Materiais</a>
+      <a href="faq-validacao.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="top-image" aria-label="Imagem da Timeline Educacional">
+      <img src="assets/gsp/timeline-educacional-banner.jpg" alt="Timeline Educacional">
+    </section>
+
+    <section class="hero" aria-label="Cronograma Acadêmico 2026-2027">
+      <div class="hero-copy">
+        <p class="eyebrow">Timeline Educacional</p>
+        <h1>Cronograma Acadêmico 2026-2027</h1>
+        <p>Agenda operacional com ações sazonais, prazos, treinamentos e preparações do ciclo acadêmico, atualizada a partir da planilha compartilhada pela equipe.</p>
+        <div class="hero-actions" aria-label="Status do modelo">
+          <span class="pill">Modelo de homologação</span>
+          <span class="pill warning">Aguardando validação humana</span>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Resumo do cronograma">
+        <div class="kpi"><span>12</span><div><strong>Meses mapeados</strong><small>Outubro/2026 a Setembro/2027</small></div></div>
+        <div class="kpi"><span>62</span><div><strong>Ações listadas</strong><small>Organizadas por mês e categoria</small></div></div>
+        <div class="kpi"><span>N1</span><div><strong>Uso em suporte</strong><small>Base visual para triagem e alinhamento operacional</small></div></div>
+      </aside>
+    </section>
+
+    <section class="timeline" id="timeline" aria-label="Linha do tempo acadêmica"></section>
+
+    <div class="notice">Este cronograma é um modelo de homologação. Datas, regras, responsáveis e ações operacionais devem ser validados por Cleide Dani, Amanda Bindilatti, Jonathan Souza e área responsável antes de uso como procedimento oficial. Ao longo do ano, a área atua com atendimento via Brix, suporte nos grupos de WhatsApp, auditoria de processos, manutenções, cadastros, projetos e treinamentos.</div>
+  </main>
+  <div class="footer-line" aria-hidden="true"></div>
+  <script>
+    const schedule = [
+      {
+            "month": "Out/2026",
+            "title": "Ações sazonais",
+            "track": "academico",
+            "tasks": [
+                  {
+                        "text": "Lançamento de notas - 13/10",
+                        "type": "Nota em Dia",
+                        "group": "Nota em Dia"
+                  },
+                  {
+                        "text": "Entrega das disciplinas em 09/10 Unidade CCPA",
+                        "type": "Grade Curricular",
+                        "group": "Grade Curricular"
+                  },
+                  {
+                        "text": "Entrega das disciplinas em 15/10 Unidades: CJA, Marupiara, Objetivo, Santo Anjo",
+                        "type": "Grade Curricular",
+                        "group": "Grade Curricular"
+                  },
+                  {
+                        "text": "Confirmação do Sistema de Avaliação - 30/10",
+                        "type": "Sistema de Avaliação",
+                        "group": "Sistema de Avaliação"
+                  },
+                  {
+                        "text": "Sistema de avaliação, após confirmação das unidades",
+                        "type": "Análise",
+                        "group": "Análise"
+                  },
+                  {
+                        "text": "Atualização do itinerário formativo",
+                        "type": "Processo TOTVS",
+                        "group": "Processo TOTVS"
+                  },
+                  {
+                        "text": "Criação do material de treinamento/apoio TAA Cancelamento",
+                        "type": "Material de Apoio",
+                        "group": "Material de Apoio"
+                  },
+                  {
+                        "text": "Manutenção readequação do processo de emissão - Objetivo SJC e Praia Grande, CCPA, CJA",
+                        "type": "Histórico Escolar",
+                        "group": "Histórico Escolar"
+                  },
+                  {
+                        "text": "Alteração do processo de emissão de histórico escolar: Marupiara e Santo Anjo",
+                        "type": "Histórico Escolar",
+                        "group": "Histórico Escolar"
+                  }
+            ]
+      },
+      {
+            "month": "Nov/2026",
+            "title": "Ações sazonais",
+            "track": "preparacao",
+            "tasks": [
+                  {
+                        "text": "Fechamento da Sala de Suporte Educacional - Matrícula/Rematrícula",
+                        "type": "Suporte",
+                        "group": "Suporte"
+                  },
+                  {
+                        "text": "Importação de Grade Horária - Urânia com TOTVS",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  },
+                  {
+                        "text": "Construção metadados de bolsas colaboradores, exceto Santo Anjo",
+                        "type": "Rematrícula Colaboradores",
+                        "group": "Rematrícula Colaboradores"
+                  },
+                  {
+                        "text": "Importação metadados de bolsas colaboradores",
+                        "type": "Rematrícula Colaboradores",
+                        "group": "Rematrícula Colaboradores"
+                  },
+                  {
+                        "text": "Capacitação do TAA Cancelamento (Previsão a confirmar)",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  },
+                  {
+                        "text": "Capacitação do Processo de Emissão de Histórico - Objetivo SJC e Praia Grande, CCPA e CJA",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  },
+                  {
+                        "text": "Capacitação do Novo processo emissão de histórico - Marupiara e Santo Anjo",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  },
+                  {
+                        "text": "Configuração sistema/portal para matrícula na colônia de férias",
+                        "type": "Colônia de Férias",
+                        "group": "Colônia de Férias"
+                  },
+                  {
+                        "text": "Fechamento: Bimestral e Trimestral",
+                        "type": "Nota em Dia",
+                        "group": "Nota em Dia"
+                  }
+            ]
+      },
+      {
+            "month": "Dez/2026",
+            "title": "Ações sazonais",
+            "track": "academico",
+            "tasks": [
+                  {
+                        "text": "Geração da grade horária através da integração do Urânia com Educacional, realizado pelas unidades",
+                        "type": "Grade Horária Professor",
+                        "group": "Grade Horária Professor"
+                  },
+                  {
+                        "text": "Abertura rematrícula 2027 - Filhos de colaboradores, exceto Santo Anjo",
+                        "type": "Rematrícula Colaboradores",
+                        "group": "Rematrícula Colaboradores"
+                  },
+                  {
+                        "text": "Fechamento Geral",
+                        "type": "Nota em Dia",
+                        "group": "Nota em Dia"
+                  },
+                  {
+                        "text": "Cadastro de professores novos no TOTVS, realizado pelas unidades",
+                        "type": "Grade Horária Professor",
+                        "group": "Grade Horária Professor"
+                  },
+                  {
+                        "text": "Atualização dos documentos do sistema de avaliação",
+                        "type": "Material de Apoio",
+                        "group": "Material de Apoio"
+                  },
+                  {
+                        "text": "Professores: Lançamento de Notas, Faltas e Conteúdo",
+                        "type": "Material de Apoio",
+                        "group": "Material de Apoio"
+                  },
+                  {
+                        "text": "Geração de histórico escolar dos concluintes pelas unidades (9.º e 3.º Série do EM) / Alunos Transferência",
+                        "type": "Histórico escolar",
+                        "group": "Histórico escolar"
+                  }
+            ]
+      },
+      {
+            "month": "Jan/2027",
+            "title": "Ações sazonais",
+            "track": "academico",
+            "tasks": [
+                  {
+                        "text": "Replicação do Sistema de Avaliação - Etapa de Falta - TOTVS",
+                        "type": "Sistema de Avaliação",
+                        "group": "Sistema de Avaliação"
+                  },
+                  {
+                        "text": "Geração da grade horária através da integração do Urânia com Educacional - CJA",
+                        "type": "Grade Horária Professor",
+                        "group": "Grade Horária Professor"
+                  },
+                  {
+                        "text": "Criação das grades até dia xx/01 e demais unidades até o dia xx (Acadêmico Escolas)",
+                        "type": "Grade Horária Professor",
+                        "group": "Grade Horária Professor"
+                  },
+                  {
+                        "text": "Importar grade horária do Urânia para o TOTVS (Acadêmico Escolas)",
+                        "type": "Grade Horária Professor",
+                        "group": "Grade Horária Professor"
+                  },
+                  {
+                        "text": "Geração da prévia da folha de pagamento, realizada pelo DP, após inclusão das informações da grade horária dos professores.",
+                        "type": "Folha (DP)",
+                        "group": "Folha (DP)"
+                  },
+                  {
+                        "text": "Funcionamento dos Apps de comunicação com as famílias",
+                        "type": "Sistemas Satélites",
+                        "group": "Sistemas Satélites"
+                  },
+                  {
+                        "text": "Ensalamento dos alunos via processo sistemático",
+                        "type": "Ensalamento",
+                        "group": "Ensalamento"
+                  },
+                  {
+                        "text": "Professores - Processo de inclusão de notas (whatsapp), faltas e conteúdo",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  },
+                  {
+                        "text": "Configurar Turmas/disciplinas alunos dependência Objetivo",
+                        "type": "Dependência",
+                        "group": "Dependência"
+                  },
+                  {
+                        "text": "Portal: Ativar matrícula para alunos em dependência Objetivo",
+                        "type": "Dependência",
+                        "group": "Dependência"
+                  },
+                  {
+                        "text": "Geração de histórico escolar dos concluintes (Acadêmico Escolas)",
+                        "type": "Histórico escolar",
+                        "group": "Histórico escolar"
+                  },
+                  {
+                        "text": "Geração de histórico escolar alunos transferidos (Acadêmico Escolas)",
+                        "type": "Histórico escolar",
+                        "group": "Histórico escolar"
+                  },
+                  {
+                        "text": "Fechamento no portal para rematrícula 2027",
+                        "type": "Rematrícula",
+                        "group": "Rematrícula"
+                  }
+            ]
+      },
+      {
+            "month": "Fev/2027",
+            "title": "Ações sazonais",
+            "track": "avaliacao",
+            "tasks": [
+                  {
+                        "text": "Matricular alunos no itinerário (Acadêmico Escolas)",
+                        "type": "Itinerário Formativo",
+                        "group": "Itinerário Formativo"
+                  },
+                  {
+                        "text": "Testes do Sistema de Avaliação - Etapa de Notas - TOTVS",
+                        "type": "Sistema de Avaliação",
+                        "group": "Sistema de Avaliação"
+                  },
+                  {
+                        "text": "Replicação pós Testes do Sistema de Avaliação - Etapa de Notas - TOTVS",
+                        "type": "Sistema de Avaliação",
+                        "group": "Sistema de Avaliação"
+                  },
+                  {
+                        "text": "Publicação do documento atualizado do sistema de avaliação (Acadêmico GSP)",
+                        "type": "Material de Apoio",
+                        "group": "Material de Apoio"
+                  },
+                  {
+                        "text": "Plantão de dúvidas - Sistema de Avaliação (Por Escola)",
+                        "type": "Sistema de Avaliação",
+                        "group": "Sistema de Avaliação"
+                  },
+                  {
+                        "text": "Reciclagem - Processos Acadêmicos",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  }
+            ]
+      },
+      {
+            "month": "Mar/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Abertura da reserva de vaga para 2028",
+                        "type": "Reserva de Vaga",
+                        "group": "Reserva de Vaga"
+                  },
+                  {
+                        "text": "Reciclagem - Processos Acadêmicos",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  }
+            ]
+      },
+      {
+            "month": "Abr/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Planejamento Rematrícula - Alinhamento com Regionais",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  }
+            ]
+      },
+      {
+            "month": "Mai/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Preparação dos arquivos / Coleta de dados (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Reciclagem - Processos Acadêmicos",
+                        "type": "Treinamento",
+                        "group": "Treinamento"
+                  }
+            ]
+      },
+      {
+            "month": "Jun/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Testes técnicos da Matrícula e Rematrícula 2028",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  }
+            ]
+      },
+      {
+            "month": "Jul/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Testes da Matrícula e Rematrícula 2028 com as unidades",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Capacitação do processo de rematrícula portal dos pais",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  }
+            ]
+      },
+      {
+            "month": "Ago/2027",
+            "title": "Ações sazonais",
+            "track": "matricula",
+            "tasks": [
+                  {
+                        "text": "Definição, cadastros, parametrizações e treinamento (Regional e ASE: Educacional, TI e Financeiro)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Abertura Rematrícula 2028 (A confirmar)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Fechamento da reserva de vagas para 2028: Matrícula direto (Comercial)",
+                        "type": "Reserva de Vaga",
+                        "group": "Reserva de Vaga"
+                  },
+                  {
+                        "text": "Envio dos links após aprovação das reservas para 2028 (Comercial)",
+                        "type": "Matrícula/Rematrícula (Novo Ciclo)",
+                        "group": "Matrícula/Rematrícula (Novo Ciclo)"
+                  },
+                  {
+                        "text": "Abertura da Sala de Suporte Educacional - Matrícula/Rematrícula",
+                        "type": "Suporte",
+                        "group": "Suporte"
+                  }
+            ]
+      },
+      {
+            "month": "Set/2027",
+            "title": "Ações sazonais",
+            "track": "preparacao",
+            "tasks": [
+                  {
+                        "text": "Planejamento fechamento / abertura do ano letivo",
+                        "type": "Planejamento",
+                        "group": "Planejamento"
+                  }
+            ]
+      }
+];
+
+    const timeline = document.getElementById("timeline");
+
+    function escapeHtml(value) { return value.replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char])); }
+    function render() {
+      timeline.innerHTML = "";
+      schedule.forEach((month) => {
+        const tasks = month.tasks;
+        const article = document.createElement("article");
+        article.className = "period";
+        article.dataset.track = month.track;
+        const taskItems = tasks.map((task) => '<li><div><span class="task-category">' + escapeHtml(task.type || task.group || "Geral") + '</span><div>' + escapeHtml(task.text) + '</div></div></li>').join("");
+        article.innerHTML = '<div class="period-date"><strong>' + escapeHtml(month.month) + '</strong></div><div class="period-card"><div class="period-top"><h2>' + escapeHtml(month.title) + '</h2></div><ul class="task-list">' + taskItems + '</ul></div>';
+        timeline.appendChild(article);
+      });
+    }
+    render();
+  </script>
+</body>
+</html>
