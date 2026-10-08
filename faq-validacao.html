@@ -200,12 +200,13 @@
     .search-title h2 {
       margin: 0;
       color: #102044;
-      font-size: clamp(28px, 4vw, 46px);
-      line-height: 1;
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: .98;
       letter-spacing: 0;
     }
 
     .search-title h2 em {
+      display: block;
       color: var(--red);
       font-style: italic;
     }
@@ -221,10 +222,10 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 14px;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
       align-items: center;
-      padding: 8px;
+      padding: 8px 8px 8px 18px;
       border: 1px solid #f1ccd5;
       border-radius: 999px;
       background: #fff;
@@ -232,18 +233,20 @@
     }
 
     .search-dot {
-      display: none;
-      width: 48px;
-      height: 48px;
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
       place-items: center;
-      border-radius: 50%;
-      background: var(--red);
-      color: #fff;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      background: transparent;
+      color: var(--red);
     }
 
     .search-dot svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       fill: none;
       stroke: currentColor;
       stroke-width: 3;
@@ -253,7 +256,7 @@
     .search-box input {
       width: 100%;
       min-height: 48px;
-      padding: 0 18px;
+      padding: 0 8px 0 0;
       border: 0;
       outline: 0;
       color: var(--ink);
@@ -547,7 +550,7 @@
         </div>
         <div>
           <small>Busca rápida</small>
-          <h2 id="faqSearchTitle">Encontre a resposta <em>sem perder tempo.</em></h2>
+          <h2 id="faqSearchTitle">Encontre o que você precisa <em>de forma rápida e fácil!</em></h2>
           <p>Digite uma palavra-chave, escolha uma pergunta real ou filtre por grupo de perguntas.</p>
         </div>
       </div>
