@@ -51,9 +51,10 @@
     .search-examples { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
     .search-chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 15px; border: 1px solid #f7d7db; border-radius: 999px; background: rgba(255,236,239,.88); color: #0c2454; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; }
     .timeline { display: grid; gap: 18px; }
-    .post { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 22px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
-    .post-media { min-height: 220px; border-radius: var(--radius); overflow: hidden; background: #f8fbff; display: grid; place-items: center; }
-    .post-media img { width: 100%; height: 100%; object-fit: contain; object-position: top center; }
+    .post { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 26px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+    .post-media { height: 220px; min-height: 220px; border-radius: var(--radius); overflow: hidden; background: #f8fbff; display: grid; place-items: center; position: relative; }
+    .post-media img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+    .post-media::after { content: ""; position: absolute; right: 0; bottom: 0; width: 34px; height: 64px; border-radius: 18px 0 0 0; background: rgba(0,138,115,.78); }
     .tag { display: inline-flex; align-items: center; width: max-content; min-height: 26px; padding: 4px 10px; border-radius: 999px; background: #e9f8f1; color: var(--green); font-size: 12px; font-weight: 950; }
     .post h2 { margin: 12px 0 8px; color: #081b42; font-size: clamp(22px, 3vw, 30px); line-height: 1.12; letter-spacing: 0; }
     .post p { margin: 0; color: #4f6079; font-size: 15px; }
@@ -127,7 +128,7 @@
         slug: "alteracao-de-serie",
         titulo: "Educacional Informa - Alteração de Série",
         descricao: "Comunicado sobre orientações e pontos de atenção para solicitação e acompanhamento de alteração de série.",
-        imagem: "https://drive.google.com/thumbnail?id=1xG7VKLzJ0k8Y7tnyiXyEsPHFFxIAuGF6&sz=w800",
+        imagem: "assets/comunicados/alteracao-serie-card.jpg",
         arquivo: "https://drive.google.com/file/d/1xG7VKLzJ0k8Y7tnyiXyEsPHFFxIAuGF6/view?usp=drivesdk",
         data: "2026-10-07",
         postadoPor: "Amanda Bindilatti",
@@ -138,7 +139,7 @@
         slug: "solicitacao-disciplinas-2027",
         titulo: "Ação - Solicitação das Disciplinas 2027",
         descricao: "Comunicado para orientar a solicitação das disciplinas de 2027 e apoiar o acompanhamento pelas unidades.",
-        imagem: "https://drive.google.com/thumbnail?id=1aFU3MH0aSE_wZU5TFqfNteHM0-WhxfFY&sz=w800",
+        imagem: "assets/gsp/home-hi-card-avaliacao.jpg",
         arquivo: "https://drive.google.com/file/d/1aFU3MH0aSE_wZU5TFqfNteHM0-WhxfFY/view?usp=drivesdk",
         data: "2026-10-07",
         postadoPor: "Amanda Bindilatti",
@@ -149,7 +150,7 @@
         slug: "bolsa-primeira-parcela-matricula-nova",
         titulo: "Educacional Informa - Bolsa 1ª Parcela: Matrícula Nova",
         descricao: "Comunicado sobre aplicação de bolsa na primeira parcela para matrícula nova.",
-        imagem: "https://drive.google.com/thumbnail?id=1jrlbTYWx0j87tI5PkRxPLnELwqmgoVfL&sz=w800",
+        imagem: "assets/gsp/home-hi-card-pais.jpg",
         arquivo: "https://drive.google.com/file/d/1jrlbTYWx0j87tI5PkRxPLnELwqmgoVfL/view?usp=drivesdk",
         data: "2026-10-07",
         postadoPor: "Amanda Bindilatti",
@@ -160,7 +161,7 @@
         slug: "bolsa-por-servico-matricula-nova",
         titulo: "Bolsa por Serviço - Matrícula Nova",
         descricao: "Orientação sobre aplicação de bolsa por serviço na matrícula nova, com diferença entre bolsa sem condicional e bolsa vinculada ao serviço selecionado.",
-        imagem: "assets/comunicados/bolsa-por-servico-matricula-nova-card.jpg",
+        imagem: "assets/gsp/home-hi-card-processos.jpg",
         arquivo: "assets/comunicados/bolsa-por-servico-matricula-nova-informativo.jpg",
         data: "2026-09-28",
         postadoPor: "Amanda Bindilatti",
@@ -171,7 +172,7 @@
         slug: "acao-nota-em-dia",
         titulo: "Ação Nota em Dia: preparação para o fechamento acadêmico",
         descricao: "Orientação para conferência e regularização de notas pendentes antes da geração da Média Anual, com prazo de regularização até 23/10/2026.",
-        imagem: "https://drive.google.com/thumbnail?id=1HeXEnXdlCXsxDpK3Dv5_N3GcowoDF1C5&sz=w800",
+        imagem: "assets/comunicados/acao-nota-em-dia-card.jpg",
         arquivo: "https://drive.google.com/file/d/1HeXEnXdlCXsxDpK3Dv5_N3GcowoDF1C5/view?usp=drivesdk",
         data: "2026-09-21",
         postadoPor: "Amanda Bindilatti",
@@ -182,7 +183,7 @@
         slug: "reserva-de-vaga-orientacoes",
         titulo: "Reserva de Vaga: regras e orientações do processo",
         descricao: "Comunicado com as regras principais da Reserva de Vaga: quando usar, quando não usar, liberação do link de matrícula, lançamento de adiantamento e pontos de atenção para a equipe.",
-        imagem: "assets/comunicados/reserva-de-vaga-card.svg",
+        imagem: "assets/gsp/home-hi-card-professor.jpg",
         arquivo: "assets/comunicados/reserva-de-vaga-informativo.jpg",
         data: "2026-09-22",
         postadoPor: "Cleide Dani",
