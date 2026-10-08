@@ -3704,6 +3704,7 @@
       color: #0b1d46;
       box-shadow: 0 12px 26px rgba(20, 33, 61, .08);
       display: block;
+      height: 100%;
       text-decoration: none;
     }
 
@@ -3722,10 +3723,12 @@
       position: relative;
       z-index: 2;
       width: min(58%, 250px);
+      height: 100%;
       min-height: 176px;
       padding: 20px 18px 16px;
-      display: grid;
-      align-content: start;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
       gap: 7px;
     }
 
@@ -3777,10 +3780,9 @@
     }
 
     .home-shortcut-button {
-      align-self: end;
-      justify-self: stretch;
+      align-self: stretch;
       min-height: 34px;
-      margin-top: 6px;
+      margin-top: auto;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
