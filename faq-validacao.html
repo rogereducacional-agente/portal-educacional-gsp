@@ -221,8 +221,8 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 48px minmax(0, 1fr) auto auto;
-      gap: 10px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
       align-items: center;
       padding: 8px;
       border: 1px solid #f1ccd5;
@@ -232,9 +232,9 @@
     }
 
     .search-dot {
+      display: none;
       width: 48px;
       height: 48px;
-      display: grid;
       place-items: center;
       border-radius: 50%;
       background: var(--red);
@@ -253,6 +253,7 @@
     .search-box input {
       width: 100%;
       min-height: 48px;
+      padding: 0 18px;
       border: 0;
       outline: 0;
       color: var(--ink);
@@ -261,10 +262,7 @@
     }
 
     .result-count {
-      color: #60708d;
-      font-size: 13px;
-      font-weight: 900;
-      white-space: nowrap;
+      display: none;
     }
 
     .btn {
@@ -499,16 +497,20 @@
         height: 58px;
       }
       .search-box {
-        grid-template-columns: 42px minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto;
         border-radius: var(--radius);
       }
       .search-dot {
+        display: none;
         width: 42px;
         height: 42px;
       }
-      .result-count, .btn {
-        grid-column: 1 / -1;
-        width: 100%;
+      .result-count {
+        display: none;
+      }
+      .btn {
+        grid-column: auto;
+        width: auto;
       }
       .faq-meta { display: block; }
     }
