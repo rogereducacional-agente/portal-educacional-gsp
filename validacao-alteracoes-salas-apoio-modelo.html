@@ -2983,7 +2983,8 @@
       grid-template-areas:
         "icon title"
         "icon status"
-        "icon details";
+        "icon details"
+        "icon action";
       align-items: center;
       gap: 5px 12px;
     }
@@ -3052,7 +3053,17 @@
     }
 
     .support-room-block.support-assist-section .room-action {
-      display: none;
+      grid-area: action;
+      justify-self: start;
+      display: inline-flex;
+      min-height: 30px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      color: #fff;
+      background: var(--room-color);
+      box-shadow: 0 10px 18px color-mix(in srgb, var(--room-color) 22%, transparent);
     }
 
     .support-all-rooms {
