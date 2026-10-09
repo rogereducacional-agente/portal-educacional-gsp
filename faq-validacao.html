@@ -131,38 +131,26 @@
 
     .faq-search {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       margin-top: 30px;
-      margin-bottom: 30px;
-      padding: 28px 30px;
-      border: 1px solid rgba(217, 226, 238, .92);
+      margin-bottom: 24px;
+      min-height: 274px;
+      padding: 30px 38px 26px 132px;
+      border: 0;
       border-radius: var(--radius);
-      background:
-        linear-gradient(90deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .88) 52%, rgba(255, 255, 255, .52)),
-        url("assets/gsp/buscador-fundo-interno-20261008.jpg") center/cover no-repeat;
+      background: #fff url("assets/gsp/buscador-fundo-interno-20261008.jpg") center/cover no-repeat;
       box-shadow: var(--shadow);
     }
 
     .faq-search::after {
-      content: "";
-      position: absolute;
-      right: -54px;
-      bottom: -58px;
-      width: 210px;
-      height: 210px;
-      border-radius: 999px;
-      border: 28px solid rgba(0, 138, 115, .14);
-      pointer-events: none;
+      display: none;
     }
 
     .search-title {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 18px;
-      align-items: center;
-      margin-bottom: 22px;
+      margin: 0;
     }
 
     .search-icon {
@@ -198,6 +186,7 @@
     }
 
     .search-title h2 {
+      max-width: 650px;
       margin: 0;
       color: #102044;
       font-size: clamp(28px, 3.4vw, 42px);
@@ -212,8 +201,8 @@
     }
 
     .search-title p {
-      max-width: 720px;
-      margin: 8px 0 0;
+      max-width: 730px;
+      margin: 11px 0 0;
       color: #24405f;
       font-weight: 800;
     }
@@ -225,7 +214,9 @@
       grid-template-columns: auto minmax(0, 1fr) auto;
       gap: 10px;
       align-items: center;
-      padding: 8px 8px 8px 18px;
+      max-width: 910px;
+      margin-top: 20px;
+      padding: 9px 9px 9px 18px;
       border: 1px solid #f1ccd5;
       border-radius: 999px;
       background: #fff;
@@ -255,7 +246,7 @@
 
     .search-box input {
       width: 100%;
-      min-height: 48px;
+      min-height: 42px;
       padding: 0 8px 0 0;
       border: 0;
       outline: 0;
@@ -269,15 +260,16 @@
     }
 
     .btn {
-      min-height: 48px;
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border: 0;
       border-radius: 999px;
-      padding: 0 22px;
+      padding: 0 26px;
       background: var(--red);
       color: #fff;
+      font-size: 13px;
       font-weight: 950;
       box-shadow: 0 12px 24px rgba(215, 15, 47, .20);
     }
@@ -288,7 +280,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 15px;
     }
 
     .chips span {
@@ -299,10 +291,9 @@
     }
 
     .chip {
-      min-height: 34px;
+      min-height: 32px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       border: 1px solid #f1ccd5;
       border-radius: 999px;
       padding: 0 14px;
@@ -489,7 +480,9 @@
       }
       .faq-search {
         margin-top: 24px;
-        padding: 22px 18px;
+        min-height: 350px;
+        padding: 128px 16px 22px;
+        background-position: center;
       }
       .search-title {
         grid-template-columns: 1fr;
@@ -551,7 +544,7 @@
         <div>
           <small>Busca rápida</small>
           <h2 id="faqSearchTitle">Encontre o que você precisa <em>de forma rápida e fácil!</em></h2>
-          <p>Digite uma palavra-chave, escolha uma pergunta real ou filtre por grupo de perguntas.</p>
+          <p>Localize perguntas por tema, processo, prazo ou orientação publicada para acompanhar rapidamente as dúvidas da GSP.</p>
         </div>
       </div>
 
@@ -559,18 +552,18 @@
         <span class="search-dot" aria-hidden="true">
           <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
         </span>
-        <input id="faqSearch" type="search" placeholder="Digite aqui sua dúvida: senha, aluno, desconto, pagamento..." autocomplete="off">
+        <input id="faqSearch" type="search" placeholder="Digite aqui o que você procura..." autocomplete="off">
         <span class="result-count" id="resultCount">0 perguntas</span>
-        <button class="btn" id="clearSearch" type="button">Limpar</button>
+        <button class="btn" id="clearSearch" type="button">Buscar →</button>
       </div>
 
       <div class="chips" aria-label="Exemplos de busca">
-        <span>Exemplos do que você pode buscar:</span>
-        <button class="chip" type="button" data-query="Esqueci minha senha"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Esqueci minha senha</button>
-        <button class="chip" type="button" data-query="Não aparece o nome do aluno"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Não aparece o aluno</button>
-        <button class="chip" type="button" data-query="Alteração do responsável financeiro"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Alteração do responsável</button>
-        <button class="chip" type="button" data-query="Botão Finalizar está cinza"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Botão Finalizar cinza</button>
-        <button class="chip" type="button" data-query="Como fazer assinatura eletrônica?"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Assinatura eletrônica</button>
+        <span>O que você pode buscar</span>
+        <button class="chip" type="button" data-query="Esqueci minha senha">Esqueci minha senha</button>
+        <button class="chip" type="button" data-query="Não aparece o nome do aluno">Não aparece o aluno</button>
+        <button class="chip" type="button" data-query="Alteração do responsável financeiro">Alteração do responsável</button>
+        <button class="chip" type="button" data-query="Botão Finalizar está cinza">Botão Finalizar cinza</button>
+        <button class="chip" type="button" data-query="Como fazer assinatura eletrônica?">Assinatura eletrônica</button>
       </div>
     </section>
 
@@ -725,9 +718,8 @@
 
     faqSearch.addEventListener("input", () => renderFaq(faqSearch.value));
     clearSearch.addEventListener("click", () => {
-      faqSearch.value = "";
       activeCategory = "all";
-      renderFaq("", "all");
+      renderFaq(faqSearch.value, "all");
       faqSearch.focus();
     });
 
