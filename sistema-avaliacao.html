@@ -48,11 +48,6 @@
       <p class="examples-title">O que você pode buscar</p>
       <div class="chips" aria-label="Exemplos de busca"><button class="chip" type="button" data-query="Notas">Notas</button><button class="chip" type="button" data-query="Faltas">Faltas</button><button class="chip" type="button" data-query="Média Anual">Média Anual</button><button class="chip" type="button" data-query="Fechamento">Fechamento</button><button class="chip" type="button" data-query="Avaliação">Avaliação</button></div>
     </section>
-    <section aria-label="Resultados da busca">
-      <div class="section-head"><h2 id="resultTitle">Sugestões iniciais</h2><p>Os resultados aparecem aqui conforme o usuário digita ou escolhe um exemplo.</p></div>
-      <div class="results" id="results"></div>
-      <p class="empty" id="emptyState">Nenhum conteúdo encontrado com esse termo.</p>
-    </section>
     <section aria-label="Materiais por escola">
       <div class="section-head"><h2>Materiais por escola</h2><p>Acesse o arquivo oficial do sistema de avaliação de cada escola.</p></div>
       <div class="cards" id="schoolCards"></div>
@@ -78,12 +73,11 @@
 {title:'FAQ de avaliação',type:'FAQ',desc:'Perguntas frequentes sobre acompanhamento, conferência e fluxo de atendimento.',href:'faq-validacao.html',accent:'#822bc2'}
 ];
     const items=[...contentItems,...schoolMaterials];
-    const searchInput=document.getElementById('searchInput'), clearSearch=document.getElementById('clearSearch'), results=document.getElementById('results'), schoolCards=document.getElementById('schoolCards'), cards=document.getElementById('cards'), counter=document.getElementById('counter'), emptyState=document.getElementById('emptyState'), resultTitle=document.getElementById('resultTitle');
+    const searchInput=document.getElementById('searchInput'), clearSearch=document.getElementById('clearSearch'), schoolCards=document.getElementById('schoolCards'), cards=document.getElementById('cards'), counter=document.getElementById('counter');
     const target=href=>href && href!=='#' ? '' : '';
     function renderCard(item){return `<article class="card" style="--accent:${item.accent}"><div><span class="tag">${item.type}</span><h3>${item.title}</h3><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>${item.action||'Abrir'}</a></article>`}
-    function renderResult(item){return `<article class="result"><div><strong>${item.title}</strong><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>${item.action||'Abrir'}</a></article>`}
     function filtered(){const q=searchInput.value.trim().toLowerCase();return items.filter(item=>(item.title+' '+item.type+' '+item.desc).toLowerCase().includes(q))}
-    function render(){const q=searchInput.value.trim();const list=q?filtered():contentItems.slice(0,4);results.innerHTML=list.map(renderResult).join('');schoolCards.innerHTML=schoolMaterials.map(renderCard).join('');cards.innerHTML=contentItems.slice(0,6).map(renderCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados');resultTitle.textContent=q?'Resultados da busca':'Sugestões iniciais';emptyState.style.display=list.length?'none':'block'}
+    function render(){const list=filtered();schoolCards.innerHTML=schoolMaterials.map(renderCard).join('');cards.innerHTML=contentItems.slice(0,6).map(renderCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados')}
     searchInput.addEventListener('input',render);clearSearch.addEventListener('click',()=>{searchInput.value='';render();searchInput.focus()});document.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{searchInput.value=chip.dataset.query;render();searchInput.focus()}));render();
   </script>
 </body>
