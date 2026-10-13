@@ -53,6 +53,10 @@
       <div class="results" id="results"></div>
       <p class="empty" id="emptyState">Nenhum conteúdo encontrado com esse termo.</p>
     </section>
+    <section aria-label="Materiais por escola">
+      <div class="section-head"><h2>Materiais por escola</h2><p>Cards reservados para vincular os arquivos oficiais de cada escola assim que os links forem enviados.</p></div>
+      <div class="cards" id="schoolCards"></div>
+    </section>
     <section aria-label="Conteúdos disponíveis">
       <div class="section-head"><h2>Conteúdos disponíveis</h2><p>Cards iniciais para organizar os principais pontos de consulta da subpágina.</p></div>
       <div class="cards" id="cards"></div>
@@ -60,18 +64,26 @@
   </main>
   <div class="footer-line" aria-hidden="true"></div>
   <script>
-    const items=[
+    const schoolMaterials=[
+{title:'CCPA',type:'Escola',desc:'Card reservado para o arquivo oficial do sistema de avaliação da escola CCPA.',href:'#',accent:'#008a73',action:'Aguardando link'},
+{title:'CJA',type:'Escola',desc:'Card reservado para o arquivo oficial do sistema de avaliação da escola CJA.',href:'#',accent:'#2a62c9',action:'Aguardando link'},
+{title:'Marupiara',type:'Escola',desc:'Card reservado para o arquivo oficial do sistema de avaliação da escola Marupiara.',href:'#',accent:'#f26f2b',action:'Aguardando link'},
+{title:'Objetivo',type:'Escola',desc:'Card reservado para o arquivo oficial do sistema de avaliação da escola Objetivo.',href:'#',accent:'#822bc2',action:'Aguardando link'},
+{title:'Santo Anjo',type:'Escola',desc:'Card reservado para o arquivo oficial do sistema de avaliação da escola Santo Anjo.',href:'#',accent:'#970747',action:'Aguardando link'}
+];
+    const contentItems=[
 {title:'Lançamento e conferência de notas',type:'Processo',desc:'Orientações para acompanhar registros, conferências e pontos de atenção no fechamento acadêmico.',href:'#',accent:'#2a62c9'},
 {title:'Notas e faltas',type:'Consulta',desc:'Materiais de apoio para dúvidas sobre notas, faltas e regularização de pendências acadêmicas.',href:'#',accent:'#008a73'},
 {title:'Fechamento acadêmico',type:'Comunicado',desc:'Direcionamento para comunicados e ações de preparação para fechamento de período.',href:'comunicados.html',accent:'#f26f2b'},
 {title:'FAQ de avaliação',type:'FAQ',desc:'Perguntas frequentes sobre acompanhamento, conferência e fluxo de atendimento.',href:'faq-validacao.html',accent:'#822bc2'}
 ];
-    const searchInput=document.getElementById('searchInput'), clearSearch=document.getElementById('clearSearch'), results=document.getElementById('results'), cards=document.getElementById('cards'), counter=document.getElementById('counter'), emptyState=document.getElementById('emptyState'), resultTitle=document.getElementById('resultTitle');
+    const items=[...contentItems,...schoolMaterials];
+    const searchInput=document.getElementById('searchInput'), clearSearch=document.getElementById('clearSearch'), results=document.getElementById('results'), schoolCards=document.getElementById('schoolCards'), cards=document.getElementById('cards'), counter=document.getElementById('counter'), emptyState=document.getElementById('emptyState'), resultTitle=document.getElementById('resultTitle');
     const target=href=>href && href!=='#' ? '' : '';
-    function renderCard(item){return `<article class="card" style="--accent:${item.accent}"><div><span class="tag">${item.type}</span><h3>${item.title}</h3><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>Abrir</a></article>`}
-    function renderResult(item){return `<article class="result"><div><strong>${item.title}</strong><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>Abrir</a></article>`}
+    function renderCard(item){return `<article class="card" style="--accent:${item.accent}"><div><span class="tag">${item.type}</span><h3>${item.title}</h3><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>${item.action||'Abrir'}</a></article>`}
+    function renderResult(item){return `<article class="result"><div><strong>${item.title}</strong><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}"${target(item.href)}>${item.action||'Abrir'}</a></article>`}
     function filtered(){const q=searchInput.value.trim().toLowerCase();return items.filter(item=>(item.title+' '+item.type+' '+item.desc).toLowerCase().includes(q))}
-    function render(){const q=searchInput.value.trim();const list=q?filtered():items.slice(0,4);results.innerHTML=list.map(renderResult).join('');cards.innerHTML=items.slice(0,6).map(renderCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados');resultTitle.textContent=q?'Resultados da busca':'Sugestões iniciais';emptyState.style.display=list.length?'none':'block'}
+    function render(){const q=searchInput.value.trim();const list=q?filtered():contentItems.slice(0,4);results.innerHTML=list.map(renderResult).join('');schoolCards.innerHTML=schoolMaterials.map(renderCard).join('');cards.innerHTML=contentItems.slice(0,6).map(renderCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados');resultTitle.textContent=q?'Resultados da busca':'Sugestões iniciais';emptyState.style.display=list.length?'none':'block'}
     searchInput.addEventListener('input',render);clearSearch.addEventListener('click',()=>{searchInput.value='';render();searchInput.focus()});document.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{searchInput.value=chip.dataset.query;render();searchInput.focus()}));render();
   </script>
 </body>
