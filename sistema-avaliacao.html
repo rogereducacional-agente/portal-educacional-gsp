@@ -56,8 +56,8 @@
       <p class="examples-title">O que você pode buscar</p>
       <div class="chips" aria-label="Materiais disponíveis"><button class="chip" type="button" data-query="Sistema de Avaliação CCPA 2025-2026">Sistema de Avaliação CCPA 2025-2026</button><button class="chip" type="button" data-query="CJA - Sistema de Avaliação 2026">CJA - Sistema de Avaliação 2026</button><button class="chip" type="button" data-query="MARU - Sistema de Avaliação 2026">MARU - Sistema de Avaliação 2026</button><button class="chip" type="button" data-query="OBJ SJC - Sistema de Avaliação 2026">OBJ SJC - Sistema de Avaliação 2026</button><button class="chip" type="button" data-query="OBJ - Sistema de Avaliação 2026">OBJ - Sistema de Avaliação 2026</button></div>
     </section>
-    <section aria-label="Resultados da busca">
-      <div class="section-head"><h2 id="resultTitle">Sugestões iniciais</h2><p>Os resultados aparecem aqui conforme você digita ou escolhe um material.</p></div>
+    <section id="searchResultsSection" aria-label="Resultados da busca" hidden>
+      <div class="section-head"><h2 id="resultTitle">Resultados da busca</h2><p>Os resultados aparecem aqui conforme você digita ou escolhe um material.</p></div>
       <div class="results" id="results" aria-live="polite"></div>
       <p class="empty" id="emptyState">Nenhum material encontrado com esse termo.</p>
     </section>
@@ -77,12 +77,12 @@
 {title:'Objetivo',subtitle:'Baixada',type:'Escola',desc:'Arquivo oficial do sistema de avaliação da escola Objetivo Baixada.',search:'OBJ - Sistema de Avaliação 2026',href:'https://drive.google.com/drive/folders/11IFytN0iVhBc2CAusYdCM2VcqSRSd-We',image:'assets/sistema-avaliacao/objetivo-homologacao-sem-seta.png',accent:'#822bc2',action:'Abrir pasta'}
 ];
     const items=schoolMaterials;
-    const searchInput=document.getElementById('searchInput'), searchButton=document.getElementById('searchButton'), clearSearch=document.getElementById('clearSearch'), results=document.getElementById('results'), schoolCards=document.getElementById('schoolCards'), counter=document.getElementById('counter'), emptyState=document.getElementById('emptyState'), resultTitle=document.getElementById('resultTitle');
+    const searchInput=document.getElementById('searchInput'), searchButton=document.getElementById('searchButton'), clearSearch=document.getElementById('clearSearch'), results=document.getElementById('results'), schoolCards=document.getElementById('schoolCards'), counter=document.getElementById('counter'), emptyState=document.getElementById('emptyState'), resultTitle=document.getElementById('resultTitle'), searchResultsSection=document.getElementById('searchResultsSection');
     const target=href=>href && href!=='#' ? '' : '';
     function renderSchoolCard(item){const label=item.subtitle?`<span class="school-card-subtitle">${item.subtitle}</span>`:'';const link=item.href?`<a class="school-card-open" href="${item.href}" target="_blank" rel="noopener" aria-label="Abrir arquivo oficial do sistema de avaliação da escola ${item.title}${item.subtitle?' '+item.subtitle:''}">Abrir</a>`:'';return `<div class="school-card" aria-label="Arquivo oficial do sistema de avaliação da escola ${item.title}${item.subtitle?' '+item.subtitle:''}"><img src="${item.image}" alt="${item.title}${item.subtitle?' '+item.subtitle:''}">${label}${link}</div>`}
     function renderResult(item){const name=item.search||`${item.title}${item.subtitle?' '+item.subtitle:''}`;return `<article class="result"><div><strong>${name}</strong><p>${item.desc}</p></div><a class="open" href="${item.href||'#'}" target="_blank" rel="noopener">Abrir</a></article>`}
     function filtered(){const q=searchInput.value.trim().toLowerCase();return items.filter(item=>(item.title+' '+item.type+' '+item.desc+' '+(item.search||'')).toLowerCase().includes(q))}
-    function render(){const q=searchInput.value.trim();const list=q?filtered():items.slice(0,4);results.innerHTML=list.map(renderResult).join('');schoolCards.innerHTML=schoolMaterials.map(renderSchoolCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados');resultTitle.textContent=q?'Resultados da busca':'Sugestões iniciais';emptyState.style.display=list.length?'none':'block'}
+    function render(){const q=searchInput.value.trim();const list=q?filtered():[];searchResultsSection.hidden=!q;results.innerHTML=list.map(renderResult).join('');schoolCards.innerHTML=schoolMaterials.map(renderSchoolCard).join('');counter.textContent=list.length+(list.length===1?' resultado':' resultados');resultTitle.textContent='Resultados da busca';emptyState.style.display=q&&!list.length?'block':'none'}
     searchInput.addEventListener('input',render);searchInput.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();render()}});searchButton.addEventListener('click',render);clearSearch.addEventListener('click',()=>{searchInput.value='';render();searchInput.focus()});document.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{searchInput.value=chip.dataset.query;render();searchInput.focus()}));render();
   </script>
 </body>
