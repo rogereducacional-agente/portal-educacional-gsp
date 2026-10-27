@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carregando homologação</title></head>
+<body><p>Carregando a homologação da busca da HOME...</p><script>
+  (async () => {
+    const page = await fetch("index.html", {cache:"no-store"}).then(response => response.text());
+    const enhancement = `<script src="assets/portal-search-index.js"><\/script><script>
+      (() => {
+        const materials = window.PORTAL_MATERIALS || [];
+        const input = document.querySelector("#searchInput");
+        const button = document.querySelector("#searchButton");
+        const results = document.querySelector("#searchResults");
+        const normalize = value => value.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+        const escapeHtml = value => value.replace(/[&<>\"]/g, character => ({"&":"&amp;","<":"&lt;",">":"&gt;","\\\"":"&quot;"}[character]));
+        function renderMaterialMatches() {
+          const query = input.value.trim();
+          if (!query) return;
+          const terms = normalize(query).split(/\\s+/).filter(Boolean);
+          const matches = materials.filter(item => {
+            const haystack = normalize([item.title,item.type,item.text,item.terms].join(" "));
+            return terms.every(term => haystack.includes(term));
+          });
+          if (!matches.length) return;
+          results.innerHTML = matches.map(item => '<a class="result-card" href="' + escapeHtml(item.link) + '" target="_blank" rel="noreferrer"><strong>' + escapeHtml(item.title) + '</strong><p><b>' + escapeHtml(item.type) + '</b> · ' + escapeHtml(item.text) + '</p></a>').join("");
+        }
+        input?.addEventListener("input", renderMaterialMatches);
+        button?.addEventListener("click", renderMaterialMatches);
+      })();
+    <\/script>`;
+    document.open();
+    document.write(page.replace("</body>", enhancement + "</body>"));
+    document.close();
+  })();
+</script></body></html>
