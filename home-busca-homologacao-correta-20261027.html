@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carregando homologação</title></head>
+<body><p>Carregando a homologação da busca da HOME...</p><script>
+  (async () => {
+    const page = await fetch("validacao-alteracoes.html", {cache:"no-store"}).then(response => response.text());
+    const enhancement = `<script src="assets/portal-search-index.js"><\/script><script>
+      (() => {
+        if (!Array.isArray(window.PORTAL_MATERIALS) || typeof complementRecords === "undefined") return;
+        const currentLinks = new Set(complementRecords.map(item => item.link));
+        window.PORTAL_MATERIALS.forEach(item => {
+          if (!currentLinks.has(item.link)) complementRecords.push(item);
+        });
+        if (typeof renderComplementDocuments === "function" && typeof complementSearchInput !== "undefined") {
+          renderComplementDocuments(complementSearchInput.value);
+        }
+      })();
+    <\/script>`;
+    document.open();
+    document.write(page.replace("</body>", enhancement + "</body>"));
+    document.close();
+  })();
+</script></body></html>
