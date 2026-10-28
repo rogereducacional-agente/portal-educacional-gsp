@@ -3539,6 +3539,151 @@
       margin-top: auto;
     }
 
+    /* Modelo aprovado para o card do Roger. */
+    .support-room-block.support-assist-section .roger-assist-card {
+      min-height: 0;
+      padding: 20px;
+      border: 1px solid #cfdaeb;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      grid-template-areas:
+        "avatar identity"
+        "question question"
+        "copy copy"
+        "tags tags"
+        "action action";
+      grid-template-rows: auto auto 1fr auto 46px;
+      gap: 12px 12px;
+      align-self: stretch;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card::before {
+      content: none;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card .support-avatar {
+      grid-area: avatar;
+      width: 56px;
+      height: 56px;
+      min-height: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 22%;
+      box-shadow: none;
+    }
+
+    .support-room-block.support-assist-section .roger-card-copy,
+    .support-room-block.support-assist-section .roger-action-row {
+      display: contents;
+    }
+
+    .support-room-block.support-assist-section .roger-identity {
+      grid-area: identity;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card h3 {
+      margin: 0;
+      color: #082c63;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .support-room-block.support-assist-section .roger-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0;
+      padding: 6px 10px;
+      border: 0;
+      border-radius: 999px;
+      background: #eaf8ef;
+      color: #16864f;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .support-room-block.support-assist-section .roger-status-pill::before {
+      width: 10px;
+      height: 10px;
+      box-shadow: 0 0 0 4px rgba(22, 134, 79, .12);
+    }
+
+    .support-room-block.support-assist-section .roger-question {
+      grid-area: question;
+      margin: 0;
+      color: #082c63;
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card p {
+      grid-area: copy;
+      max-width: none;
+      margin: 0;
+      color: #6a7890;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .support-room-block.support-assist-section .roger-support-points {
+      grid-area: tags;
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .support-room-block.support-assist-section .roger-support-points li {
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #62748f;
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.2;
+    }
+
+    .support-room-block.support-assist-section .roger-support-points li::before {
+      display: inline-grid;
+      width: 18px;
+      height: 18px;
+      place-items: center;
+      border-radius: 50%;
+      background: #eaf8ef;
+      color: #16864f;
+      font-size: 12px;
+    }
+
+    .support-room-block.support-assist-section .roger-action-row .btn {
+      grid-area: action;
+      min-width: 0;
+      min-height: 46px;
+      width: 100%;
+      margin: 0;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #ff7a12;
+      box-shadow: none;
+      font-size: 14px;
+      font-weight: 850;
+    }
+
     .support-room-block.support-assist-section .room-access-flow {
       grid-area: flow;
       display: flex;
@@ -5337,8 +5482,8 @@
         <aside class="roger-assist-card" id="roger" aria-label="Fale com o Roger">
           <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
           <div class="roger-card-copy">
-            <h3>Ainda não encontrou o que procura?</h3>
-            <strong class="roger-signature">O Roger pode ajudar.</strong>
+            <div class="roger-identity"><h3>Roger</h3><span class="roger-status-pill">Disponível agora</span></div>
+            <strong class="roger-question">Ainda não encontrou o que procura?</strong>
             <p>Receba apoio para localizar orientações, processos e materiais do Portal Interno Educacional GSP.</p>
             <ul class="roger-support-points" aria-label="Destaques do suporte Roger">
               <li>Suporte 24/7</li>
@@ -5347,7 +5492,6 @@
             </ul>
             <div class="roger-action-row">
               <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com o Roger <span aria-hidden="true">→</span></a>
-              <span class="roger-status-pill">Disponível agora</span>
             </div>
           </div>
         </aside>
