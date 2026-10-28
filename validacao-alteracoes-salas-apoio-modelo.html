@@ -2913,11 +2913,11 @@
       display: grid;
       grid-template-columns: minmax(0, 1.02fr) minmax(430px, .98fr);
       gap: 14px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .support-rooms-panel {
-      height: 100%;
+      height: auto;
       padding: 16px 18px;
       border: 1px solid #d9e8ef;
       border-radius: 8px;
@@ -2925,7 +2925,7 @@
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .support-room-block.support-assist-section .section-head {
@@ -3689,16 +3689,17 @@
     /* Modelo completo do card do Roger, sem alterar as Salas de Apoio. */
     .support-room-block.support-assist-section .roger-model-card {
       min-height: 0;
-      padding: 18px;
+      padding: 28px 24px 22px;
       border: 1px solid #cfdaeb;
       border-radius: 16px;
       background: #fff;
       box-shadow: 0 10px 24px rgba(20, 33, 61, .08);
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(230px, .92fr);
+      display: block;
+      grid-template-columns: 1fr;
       grid-template-areas: none;
-      gap: 18px;
+      gap: 0;
       overflow: hidden;
+      align-self: start;
     }
 
     .support-room-block.support-assist-section .roger-model-card::before {
@@ -3707,6 +3708,7 @@
 
     .support-room-block.support-assist-section .roger-model-left {
       min-width: 0;
+      min-height: 350px;
       display: flex;
       flex-direction: column;
     }
@@ -3715,7 +3717,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 14px;
+      margin: 8px 0 18px;
     }
 
     .support-room-block.support-assist-section .roger-model-card .support-avatar {
@@ -3822,13 +3824,14 @@
     }
 
     .support-room-block.support-assist-section .roger-model-card .roger-action-row {
-      display: block;
+      display: flex;
+      justify-content: center;
       margin-top: auto;
     }
 
     .support-room-block.support-assist-section .roger-model-card .roger-action-row .btn {
       min-height: 46px;
-      width: 100%;
+      width: min(78%, 340px);
       margin: 0;
       padding: 0 18px;
       border-radius: 999px;
@@ -3846,63 +3849,6 @@
       text-align: center;
     }
 
-    .support-room-block.support-assist-section .roger-ask-panel {
-      min-width: 0;
-      padding: 18px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #edf6ff, #dceeff);
-    }
-
-    .support-room-block.support-assist-section .roger-ask-panel h4 {
-      margin: 0 0 14px;
-      color: #082c63;
-      font-size: 18px;
-      font-weight: 900;
-      line-height: 1.15;
-    }
-
-    .support-room-block.support-assist-section .roger-question-examples {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .support-room-block.support-assist-section .roger-question-examples li {
-      position: relative;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #fff;
-      color: #667b9a;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    .support-room-block.support-assist-section .roger-question-examples li::before {
-      content: "";
-      position: absolute;
-      left: -8px;
-      top: 16px;
-      width: 12px;
-      height: 12px;
-      background: #fff;
-      clip-path: polygon(100% 0, 100% 100%, 0 50%);
-    }
-
-    .support-room-block.support-assist-section .roger-examples-note {
-      margin: 12px 0 0;
-      color: #7587a1;
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    @media (max-width: 980px) {
-      .support-room-block.support-assist-section .roger-model-card {
-        grid-template-columns: 1fr;
-      }
-    }
 
     .support-room-block.support-assist-section .room-access-flow {
       grid-area: flow;
@@ -5718,15 +5664,6 @@
             </div>
             <p class="roger-response-note">Resposta imediata • assistente virtual</p>
           </div>
-          <section class="roger-ask-panel" aria-label="Exemplos de perguntas ao Roger">
-            <h4>O que você pode pedir</h4>
-            <ul class="roger-question-examples">
-              <li>“Como faço o processo de reserva de vaga?”</li>
-              <li>“Como altero o responsável financeiro do aluno?”</li>
-              <li>“Como o responsável poderá contratar aulas extras?”</li>
-            </ul>
-            <p class="roger-examples-note">3 exemplos de perguntas reais</p>
-          </section>
         </aside>
       </div>
     </section>
