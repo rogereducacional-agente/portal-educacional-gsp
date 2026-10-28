@@ -3134,6 +3134,80 @@
       font-size: 15px;
     }
 
+    /* Ajuste final: destaque de orientação sem expandir o card Acadêmico. */
+    .support-room-block.support-assist-section .support-room-card.support-room-academic-demand {
+      min-height: 126px;
+      padding: 12px 14px;
+      border: 1px solid #e1edf1;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 6px 14px rgba(20, 33, 61, .045);
+      grid-template-columns: 42px minmax(0, 1fr);
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "note note"
+        "action action";
+      gap: 5px 12px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand h3 {
+      font-size: 14px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-status {
+      min-height: 24px;
+      padding: 5px 8px;
+      font-size: 9px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-details {
+      font-size: 9px;
+      font-weight: 400;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      width: max-content;
+      max-width: 100%;
+      padding: 5px 7px;
+      border: 1px solid #f0d28a;
+      border-radius: 6px;
+      background: #fff6dc;
+      color: #8a5b00;
+      font-size: 9px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note::before {
+      content: "⚠";
+      font-size: 11px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-action {
+      width: auto;
+      min-height: 30px;
+      margin: 2px 0 0;
+      padding: 7px 13px;
+      justify-self: start;
+      font-size: 11px;
+    }
+
     .support-all-rooms {
       display: none;
     }
@@ -4871,7 +4945,7 @@
               </div>
               <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Acionar equipe antes de entrar na sala
+                Entrar na sala
               </a>
             </article>
             <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
