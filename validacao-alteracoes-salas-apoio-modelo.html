@@ -3208,6 +3208,125 @@
       font-size: 11px;
     }
 
+    /* Modelo aprovado para a Sala de Apoio Acadêmico. */
+    .support-room-block.support-assist-section .support-room-actions {
+      align-items: start;
+    }
+
+    .support-room-block.support-assist-section .support-room-card.support-room-academic-demand {
+      min-height: 286px;
+      padding: 20px;
+      border: 1px solid #cfdaeb;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .08);
+      grid-template-columns: 74px minmax(0, 1fr);
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "summary summary"
+        "note note"
+        "action action"
+        "flow flow";
+      gap: 10px 16px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 14px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand h3 {
+      font-size: 21px;
+      line-height: 1.08;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-status {
+      min-height: 32px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-details {
+      gap: 0;
+      font-size: 16px;
+      font-weight: 850;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-hours::before {
+      content: "◷";
+      margin-right: 8px;
+      color: #62748f;
+      font-size: 22px;
+      vertical-align: -2px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-summary {
+      grid-area: summary;
+      margin: 0;
+      color: #6a7890;
+      font-size: 15px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 13px 0 0;
+      border: 0;
+      border-top: 1px solid #e3e9f1;
+      border-radius: 0;
+      background: transparent;
+      color: #6a7890;
+      font-size: 14px;
+      font-weight: 750;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note::before {
+      content: none;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-action {
+      width: 100%;
+      min-height: 52px;
+      margin: 0;
+      padding: 0 18px;
+      justify-self: stretch;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .academic-room-flow {
+      grid-area: flow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 9px 10px;
+      border-radius: 999px;
+      background: #f2f5fa;
+      color: #6a7890;
+      font-size: 9px;
+      font-weight: 750;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .academic-room-flow b {
+      color: #95a3b8;
+      font-size: 14px;
+      line-height: 1;
+    }
+
     .support-all-rooms {
       display: none;
     }
@@ -4937,6 +5056,7 @@
               </div>
               <h3>Sala de Apoio Acadêmico</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
+              <p class="room-demand-summary">Atendimento sob demanda...</p>
               <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
               <div class="room-details">
                 <span class="room-hours">
@@ -4947,6 +5067,7 @@
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
                 Entrar na sala
               </a>
+              <div class="academic-room-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Aguardar liberação</span><b>→</b><span>Entrar na sala</span></div>
             </article>
             <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
               <div class="room-icon" aria-hidden="true">
