@@ -3327,6 +3327,114 @@
       line-height: 1;
     }
 
+    /* Modelo único das duas Salas de Apoio. */
+    .support-room-block.support-assist-section .support-room-card.support-room-modeled {
+      min-height: 258px;
+      padding: 18px;
+      border: 1px solid #cfdaeb;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(20, 33, 61, .08);
+      grid-template-columns: 68px minmax(0, 1fr);
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "note note"
+        "action action"
+        "flow flow";
+      gap: 10px 14px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled h3 {
+      font-size: 19px;
+      line-height: 1.1;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-status {
+      min-height: 30px;
+      padding: 6px 11px;
+      font-size: 11px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-details {
+      gap: 0;
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-hours::before {
+      content: "◷";
+      margin-right: 7px;
+      color: #62748f;
+      font-size: 20px;
+      vertical-align: -2px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-demand-note {
+      grid-area: note;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 12px 0 0;
+      border: 0;
+      border-top: 1px solid #e3e9f1;
+      border-radius: 0;
+      background: transparent;
+      color: #6a7890;
+      font-size: 12px;
+      font-weight: 750;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-demand-note::before {
+      content: none;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-action {
+      width: 100%;
+      min-height: 50px;
+      margin: 0;
+      padding: 0 16px;
+      justify-self: stretch;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .support-room-block.support-assist-section .room-access-flow {
+      grid-area: flow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #f2f5fa;
+      color: #6a7890;
+      font-size: 9px;
+      font-weight: 750;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .support-room-block.support-assist-section .room-access-flow b {
+      color: #95a3b8;
+      font-size: 14px;
+      line-height: 1;
+    }
+
     .support-all-rooms {
       display: none;
     }
@@ -5050,13 +5158,12 @@
             </div>
           </div>
           <div class="support-room-actions" aria-live="polite">
-            <article class="support-room-card support-room-academic-demand" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Sob demanda" data-closed-label="Sob demanda">
+            <article class="support-room-card support-room-academic-demand support-room-modeled" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Sob demanda" data-closed-label="Sob demanda">
               <div class="room-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm4.5 1.5v7.4h1.8V8.3H8.5Zm3.1 0v7.4h1.8V8.3h-1.8Zm3.1 0v7.4h1.8V8.3h-1.8Z" fill="currentColor"/></svg>
               </div>
               <h3>Sala de Apoio Acadêmico</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
-              <p class="room-demand-summary">Atendimento sob demanda...</p>
               <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
               <div class="room-details">
                 <span class="room-hours">
@@ -5067,14 +5174,15 @@
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
                 Entrar na sala
               </a>
-              <div class="academic-room-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Aguardar liberação</span><b>→</b><span>Entrar na sala</span></div>
+              <div class="room-access-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Aguardar liberação</span><b>→</b><span>Entrar na sala</span></div>
             </article>
-            <article class="support-room-card" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
+            <article class="support-room-card support-room-modeled" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
               <div class="room-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v9h14V6H5Zm2 2h7v2H7V8Zm0 4h4v2H7v-2Z" fill="currentColor"/></svg>
               </div>
               <h3>Sala TI</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
+              <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
               <div class="room-details">
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
@@ -5082,8 +5190,9 @@
               </div>
               <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Entrar na sala
+                Acionar equipe
               </a>
+              <div class="room-access-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Aguardar liberação</span><b>→</b><span>Entrar na sala</span></div>
             </article>
           </div>
         </div>
