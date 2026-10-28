@@ -3078,47 +3078,60 @@
     }
 
     .support-room-block.support-assist-section .support-room-card.support-room-academic-demand {
-      min-height: 166px;
-      padding: 18px;
-      grid-template-columns: 62px minmax(0, 1fr);
+      min-height: 248px;
+      padding: 22px;
+      border: 1px solid #cadcf7;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #ffffff 0%, #f6f9ff 100%);
+      box-shadow: 0 14px 30px rgba(43, 98, 201, .14);
+      grid-template-columns: 74px minmax(0, 1fr);
       grid-template-areas:
         "icon title"
         "icon status"
+        "note note"
         "icon details"
         "action action";
-      gap: 9px 16px;
+      gap: 12px 18px;
     }
 
     .support-room-block.support-assist-section .support-room-academic-demand .room-icon {
-      width: 62px;
-      height: 62px;
-      border-radius: 12px;
+      width: 74px;
+      height: 74px;
+      border-radius: 14px;
     }
 
     .support-room-block.support-assist-section .support-room-academic-demand .room-icon svg {
-      width: 29px;
-      height: 29px;
+      width: 34px;
+      height: 34px;
     }
 
     .support-room-block.support-assist-section .support-room-academic-demand h3 {
-      font-size: 18px;
+      font-size: 21px;
     }
 
     .support-room-block.support-assist-section .support-room-academic-demand .room-status {
-      min-height: 30px;
-      padding: 6px 11px;
-      font-size: 12px;
+      min-height: 34px;
+      padding: 7px 13px;
+      font-size: 13px;
     }
 
     .support-room-block.support-assist-section .support-room-academic-demand .room-details {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 850;
     }
 
-    .support-room-block.support-assist-section .support-room-academic-demand .room-action {
-      min-height: 46px;
-      margin-top: 4px;
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note {
+      grid-area: note;
+      margin: 0;
+      color: #53657c;
       font-size: 13px;
+      font-weight: 750;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-action {
+      min-height: 52px;
+      margin-top: 6px;
+      font-size: 15px;
     }
 
     .support-all-rooms {
@@ -4850,6 +4863,7 @@
               </div>
               <h3>Sala de Apoio Acadêmico</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
+              <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
               <div class="room-details">
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
