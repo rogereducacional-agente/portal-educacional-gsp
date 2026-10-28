@@ -5456,7 +5456,7 @@
         const action = card.querySelector(".room-action");
         const isBusinessDay = day >= 1 && day <= 5;
         const isOpen = isBusinessDay && minutes >= openMinutes && minutes < closeMinutes;
-        card.classList.toggle("is-closed", !isOpen);
+        card.classList.remove("is-closed");
         status.classList.toggle("closed", !isOpen);
         status.classList.remove("queue");
         status.textContent = isOpen
@@ -5464,22 +5464,12 @@
           : card.dataset.closedLabel || "Indisponível";
 
         if (action) {
-          action.setAttribute("aria-disabled", String(!isOpen));
-          action.tabIndex = isOpen ? 0 : -1;
+          action.setAttribute("aria-disabled", "false");
+          action.tabIndex = 0;
         }
       });
     }
 
-    roomCards.forEach(card => {
-      const action = card.querySelector(".room-action");
-      if (action) {
-        action.addEventListener("click", event => {
-          if (card.classList.contains("is-closed")) {
-            event.preventDefault();
-          }
-        });
-      }
-    });
     updateRoomAvailability();
     setInterval(updateRoomAvailability, 60000);
 
