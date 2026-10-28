@@ -3456,6 +3456,267 @@
       min-height: 36px;
     }
 
+    /* Especificação obrigatória — grade das Salas de Apoio. */
+    .support-room-block.support-assist-section .support-assist-layout {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .support-room-block.support-assist-section .support-rooms-panel {
+      display: contents;
+    }
+
+    .support-room-block.support-assist-section .section-head {
+      grid-column: 1 / -1;
+      margin-bottom: 18px;
+    }
+
+    .support-room-block.support-assist-section .support-room-actions {
+      grid-column: span 2;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .support-room-block.support-assist-section .academic-room-group {
+      display: block;
+    }
+
+    .support-room-block.support-assist-section .academic-room-group .room-access-flow {
+      display: none;
+    }
+
+    .support-room-block.support-assist-section .support-room-card.support-room-modeled {
+      min-height: 250px;
+      height: 250px;
+      padding: 24px;
+      border: 1px solid #d9e3ef;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .08);
+      grid-template-columns: 52px minmax(0, 1fr);
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "note note"
+        "action action";
+      grid-template-rows: auto auto auto 1fr 44px;
+      gap: 8px 14px;
+      overflow: hidden;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled[data-room="ti"] {
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "note note"
+        "action action";
+      grid-template-rows: auto auto auto 1fr 44px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled h3 {
+      min-height: 38px;
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.12;
+      font-weight: 850;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-status,
+    .support-room-block.support-assist-section .roger-status-pill {
+      min-height: 24px;
+      padding: 5px 9px;
+      border: 0;
+      border-radius: 999px;
+      background: #eaf8ef;
+      color: #16864f;
+      font-size: 10px;
+      font-weight: 850;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-status::before,
+    .support-room-block.support-assist-section .roger-status-pill::before {
+      width: 9px;
+      height: 9px;
+      box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 12%, transparent);
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-status {
+      background: #fff4dc;
+      color: #b77400;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-details {
+      min-height: 22px;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-hours::before {
+      font-size: 17px;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-demand-note {
+      align-self: end;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #6a7890;
+      font-size: 11px;
+      font-weight: 650;
+      text-align: left;
+    }
+
+    .support-room-block.support-assist-section .support-room-modeled .room-action,
+    .support-room-block.support-assist-section .roger-assist-card .btn {
+      min-height: 44px;
+      height: 44px;
+      width: 100%;
+      margin: 0;
+      padding: 0 14px;
+      border-radius: 14px;
+      box-shadow: none;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card {
+      grid-column: 3;
+      min-height: 250px;
+      height: 250px;
+      padding: 24px;
+      border: 1px solid #d9e3ef;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(20, 33, 61, .08);
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      grid-template-areas:
+        "avatar heading"
+        "avatar signature"
+        "copy copy"
+        "tags tags"
+        "action action";
+      grid-template-rows: auto auto 1fr auto 44px;
+      gap: 7px 12px;
+      overflow: hidden;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card::before {
+      content: none;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card .support-avatar {
+      grid-area: avatar;
+      width: 48px;
+      height: 48px;
+      min-height: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 22%;
+      box-shadow: none;
+    }
+
+    .support-room-block.support-assist-section .roger-card-copy,
+    .support-room-block.support-assist-section .roger-action-row {
+      display: contents;
+    }
+
+    .support-room-block.support-assist-section .roger-heading {
+      grid-area: heading;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card h3 {
+      margin: 0;
+      color: #082c63;
+      font-size: 17px;
+      line-height: 1.12;
+      font-weight: 850;
+    }
+
+    .support-room-block.support-assist-section .roger-status-pill {
+      flex: 0 0 auto;
+      margin: 0;
+    }
+
+    .support-room-block.support-assist-section .roger-signature {
+      grid-area: signature;
+      margin: 0;
+      color: #52627a;
+      font-size: 10px;
+      font-style: normal;
+      line-height: 1.1;
+    }
+
+    .support-room-block.support-assist-section .roger-assist-card p {
+      grid-area: copy;
+      max-width: none;
+      margin: 0;
+      color: #52627a;
+      font-size: 11px;
+      line-height: 1.3;
+      font-weight: 650;
+    }
+
+    .support-room-block.support-assist-section .roger-support-points {
+      grid-area: tags;
+      flex-wrap: nowrap;
+      gap: 4px;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .support-room-block.support-assist-section .roger-support-points li {
+      min-height: 19px;
+      padding: 3px 5px;
+      font-size: 8px;
+      white-space: nowrap;
+    }
+
+    .support-room-block.support-assist-section .roger-action-row .btn {
+      grid-area: action;
+      min-width: 0;
+      background: #ff7a12;
+      color: #fff;
+    }
+
+    @media (max-width: 1100px) {
+      .support-room-block.support-assist-section .support-assist-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .support-room-block.support-assist-section .support-rooms-panel {
+        display: contents;
+      }
+
+      .support-room-block.support-assist-section .section-head,
+      .support-room-block.support-assist-section .support-room-actions,
+      .support-room-block.support-assist-section .roger-assist-card {
+        grid-column: auto;
+      }
+    }
+
     .support-all-rooms {
       display: none;
     }
@@ -5194,10 +5455,9 @@
               </div>
               <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Entrar na sala
+                Acionar equipe
               </a>
             </article>
-              <div class="room-access-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Entrar na sala</span><b>→</b><span>Aguardar liberação</span></div>
             </div>
             <article class="support-room-card support-room-modeled" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
               <div class="room-icon" aria-hidden="true">
@@ -5205,6 +5465,7 @@
               </div>
               <h3>Sala TI</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
+              <p class="room-demand-note">Fale agora com a equipe de TI.</p>
               <div class="room-details">
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
@@ -5212,7 +5473,7 @@
               </div>
               <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Acionar equipe
+                Entrar na sala
               </a>
             </article>
           </div>
@@ -5220,8 +5481,8 @@
         <aside class="roger-assist-card" id="roger" aria-label="Fale com o Roger">
           <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
           <div class="roger-card-copy">
-            <h3>Ainda não encontrou o que procura?</h3>
-            <strong class="roger-signature">O Roger pode ajudar.</strong>
+            <div class="roger-heading"><h3>Roger</h3><span class="roger-status-pill">Disponível agora</span></div>
+            <strong class="roger-signature">Especialista em Suporte</strong>
             <p>Receba apoio para localizar orientações, processos e materiais do Portal Interno Educacional GSP.</p>
             <ul class="roger-support-points" aria-label="Destaques do suporte Roger">
               <li>Suporte 24/7</li>
@@ -5230,7 +5491,6 @@
             </ul>
             <div class="roger-action-row">
               <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Falar com o Roger <span aria-hidden="true">→</span></a>
-              <span class="roger-status-pill">Disponível agora</span>
             </div>
           </div>
         </aside>
