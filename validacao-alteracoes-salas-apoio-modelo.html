@@ -3475,6 +3475,27 @@
       font-size: 16px;
     }
 
+    /* Grade vertical compartilhada: os dois cards devem alinhar cada linha. */
+    .support-room-block.support-assist-section .support-room-card.support-room-academic-demand,
+    .support-room-block.support-assist-section .support-room-card.support-room-modeled[data-room="ti"] {
+      height: 286px;
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        "summary summary"
+        "note note"
+        "action action"
+        "flow flow";
+      grid-template-rows: 46px 32px 30px 0 26px 52px 0;
+      gap: 10px 16px;
+    }
+
+    .support-room-block.support-assist-section .support-room-academic-demand .room-demand-note,
+    .support-room-block.support-assist-section .support-room-modeled[data-room="ti"] .room-demand-note {
+      padding: 9px 0 0;
+    }
+
     .support-room-block.support-assist-section .room-access-flow {
       grid-area: flow;
       display: flex;
