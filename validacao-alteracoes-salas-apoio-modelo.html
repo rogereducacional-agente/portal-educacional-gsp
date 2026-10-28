@@ -3413,6 +3413,16 @@
       font-size: 15px;
     }
 
+    .support-room-block.support-assist-section .support-room-modeled[data-room="ti"] {
+      grid-template-areas:
+        "icon title"
+        "icon status"
+        "icon details"
+        ". ."
+        "action action";
+      grid-template-rows: auto auto auto 1fr auto;
+    }
+
     .support-room-block.support-assist-section .room-access-flow {
       grid-area: flow;
       display: flex;
@@ -5195,7 +5205,6 @@
               </div>
               <h3>Sala TI</h3>
               <span class="room-status" data-room-status>Disponível agora</span>
-              <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
               <div class="room-details">
                 <span class="room-hours">
                   Seg-Sex, 8h às 17h30
@@ -5205,7 +5214,6 @@
                 <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
                 Acionar equipe
               </a>
-              <div class="room-access-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Aguardar liberação</span><b>→</b><span>Entrar na sala</span></div>
             </article>
           </div>
         </div>
