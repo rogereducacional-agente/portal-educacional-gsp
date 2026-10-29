@@ -5300,6 +5300,45 @@
         font-size: 13px;
       }
     }
+    /* Prova visual baseada no HTML enviado por Cleide em 29/10/2026. */
+    .gsp-prova { --azul:#00204a; --azul-btn:#2155cd; --verde:#00796b; --verde-txt:#2e7d32; --laranja:#ff6d00; --texto:#546e7a; --borda:#e6eaf0; --fundo:#f5f7fa; --raio:20px; box-sizing:border-box; margin-top:22px; padding:24px; border-radius:24px; background:var(--fundo); font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+    .gsp-prova *, .gsp-prova *::before, .gsp-prova *::after { box-sizing:border-box; }
+    .gsp-prova-grid { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:24px; align-items:stretch; }
+    .gsp-prova-salas, .gsp-prova-roger { min-width:0; border:1px solid var(--borda); border-radius:var(--raio); background:#fff; box-shadow:0 2px 10px rgba(0,32,74,.06); }
+    .gsp-prova-salas { display:flex; flex-direction:column; gap:16px; padding:24px; }
+    .gsp-prova-head { display:flex; align-items:flex-start; gap:10px; }
+    .gsp-prova-head h2 { margin:0; color:var(--azul); font-size:24px; line-height:1.1; }
+    .gsp-prova-head p { margin:6px 0 0; color:var(--texto); font-size:14px; line-height:1.45; }
+    .gsp-prova-head svg { width:22px; height:22px; flex:0 0 auto; color:var(--azul); }
+    .gsp-prova-room-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; flex:1; }
+    .gsp-prova-room { display:flex; flex-direction:column; align-items:flex-start; min-width:0; padding:22px; border:1px solid var(--borda); border-radius:var(--raio); background:#fff; }
+    .gsp-prova-icon { width:48px; height:48px; display:grid; place-items:center; margin-bottom:16px; border-radius:14px; }
+    .gsp-prova-icon svg { width:24px; height:24px; }
+    .gsp-prova-icon.academic { background:#e8eefc; color:var(--azul-btn); } .gsp-prova-icon.ti { background:#e3f5f2; color:var(--verde); }
+    .gsp-prova-room h3 { margin:0 0 10px; color:var(--azul); font-size:17px; line-height:1.3; }
+    .gsp-prova-status { display:inline-flex; align-items:center; gap:8px; margin:0 0 8px; color:var(--verde-txt); font-size:13px; font-weight:700; }
+    .gsp-prova-dot { width:8px; height:8px; border-radius:50%; background:var(--verde-txt); flex:0 0 auto; }
+    .gsp-prova-hours, .gsp-prova-note { margin:0 0 10px; color:var(--texto); font-size:13px; line-height:1.5; }
+    .gsp-prova-note { margin-bottom:20px; }
+    .gsp-prova-btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; min-height:44px; margin-top:auto; padding:10px 16px; border-radius:999px; color:#fff; text-decoration:none; font-size:14px; font-weight:800; }
+    .gsp-prova-btn.academic { background:var(--azul-btn); } .gsp-prova-btn.ti { background:var(--verde); }
+    .gsp-prova-flow { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; padding:14px 18px; border-radius:14px; background:#eef1f6; color:var(--texto); font-size:13px; font-weight:700; }
+    .gsp-prova-flow b { color:#9aa8bb; }
+    .gsp-prova-roger { display:flex; flex-direction:column; padding:24px; }
+    .gsp-prova-roger-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .gsp-prova-id { display:flex; align-items:center; gap:14px; min-width:0; }
+    .gsp-prova-id img { width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:center 22%; box-shadow:0 2px 8px rgba(0,32,74,.18); }
+    .gsp-prova-id h3 { margin:0 0 6px; color:var(--azul); font-size:17px; }
+    .gsp-prova-id .gsp-prova-status { margin:0; font-size:12px; }
+    .gsp-prova-label { max-width:110px; margin:0; color:#f57c00; font-size:11px; font-weight:900; letter-spacing:.1em; line-height:1.5; text-align:right; text-transform:uppercase; }
+    .gsp-prova-divider { width:100%; margin:18px 0 20px; border:0; border-top:1px solid var(--borda); }
+    .gsp-prova-roger h4 { margin:0 0 12px; color:var(--azul); font-size:19px; line-height:1.3; }
+    .gsp-prova-desc { margin:0 0 20px; color:var(--texto); font-size:13px; line-height:1.6; }
+    .gsp-prova-list { display:flex; flex-direction:column; gap:12px; margin:0 0 24px; padding:0; list-style:none; }
+    .gsp-prova-list li { display:flex; gap:9px; color:var(--texto); font-size:13px; line-height:1.5; }.gsp-prova-list li::before { content:"✓"; display:grid; width:16px; height:16px; place-items:center; flex:0 0 16px; margin-top:2px; border-radius:50%; color:var(--verde-txt); background:#e3f5f2; font-size:11px; font-weight:900; }.gsp-prova-list strong { color:var(--azul); }
+    .gsp-prova-roger .gsp-prova-btn { background:var(--laranja); }.gsp-prova-footer { margin:10px 0 0; color:var(--texto); font-size:11px; text-align:center; }
+    @media (max-width:980px) { .gsp-prova-grid { grid-template-columns:1fr; }.gsp-prova-roger .gsp-prova-btn { margin-top:24px; } }
+    @media (max-width:600px) { .gsp-prova { padding:18px; border-radius:18px; }.gsp-prova-room-grid { grid-template-columns:1fr; }.gsp-prova-head h2 { font-size:20px; }.gsp-prova-roger-top { flex-direction:column; }.gsp-prova-label { max-width:none; text-align:left; } }
   </style>
 </head>
 <body>
@@ -5610,79 +5649,21 @@
       </div>
     </section>
 
-    <section class="support-room-block support-assist-section" id="salas-validacao">
-      <div class="support-assist-layout">
-        <div class="support-rooms-panel">
-          <div class="section-head">
-            <span class="support-title-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3a8 8 0 0 0-8 8v4a3 3 0 0 0 3 3h2v-7H6a6 6 0 0 1 12 0h-3v7h2a3 3 0 0 0 3-3v-4a8 8 0 0 0-8-8Zm-1 16h2v2h-2v-2Z" fill="currentColor"/></svg>
-            </span>
-            <div>
-              <h2>Salas de Apoio</h2>
-              <p>Fale com nossa equipe em tempo real. Escolha a sala conforme a necessidade.</p>
-            </div>
+    <section class="gsp-prova" id="salas-validacao" aria-label="Salas de Apoio e suporte Roger — prova visual">
+      <div class="gsp-prova-grid">
+        <div class="gsp-prova-salas">
+          <div class="gsp-prova-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg><div><h2>Salas de Apoio</h2><p>Fale com nossa equipe em tempo real. Escolha a sala conforme a necessidade.</p></div></div>
+          <div class="gsp-prova-room-grid">
+            <article class="gsp-prova-room"><span class="gsp-prova-icon academic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5v14M12 8v8M18 11v2"/></svg></span><h3>Sala de Apoio Acadêmico</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Sob demanda</p><p class="gsp-prova-hours">◷&nbsp; Seg-Sex, 8h às 17h30</p><p class="gsp-prova-note">Acione a equipe antes de entrar na sala.</p><a class="gsp-prova-btn academic" href="https://meet.google.com/doj-fzwe-wqt" target="_blank" rel="noreferrer">▣&nbsp; Entrar na sala</a></article>
+            <article class="gsp-prova-room"><span class="gsp-prova-icon ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Sala TI</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Disponível agora</p><p class="gsp-prova-hours">◷&nbsp; Seg-Sex, 8h às 17h30</p><p class="gsp-prova-note">Fale agora com a equipe de TI.</p><a class="gsp-prova-btn ti" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">▣&nbsp; Entrar na sala</a></article>
           </div>
-          <div class="support-room-actions" aria-live="polite">
-            <div class="academic-room-group">
-            <article class="support-room-card support-room-academic-demand support-room-modeled" data-room-card data-room="academico" data-open="8" data-close="17.5" data-open-label="Sob demanda" data-closed-label="Sob demanda">
-              <div class="room-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V6.8Zm4.5 1.5v7.4h1.8V8.3H8.5Zm3.1 0v7.4h1.8V8.3h-1.8Zm3.1 0v7.4h1.8V8.3h-1.8Z" fill="currentColor"/></svg>
-              </div>
-              <h3>Sala de Apoio Acadêmico</h3>
-              <span class="room-status" data-room-status>Disponível agora</span>
-              <p class="room-demand-note">Acione a equipe antes de entrar na sala.</p>
-              <div class="room-details">
-                <span class="room-hours">
-                  Seg-Sex, 8h às 17h30
-                </span>
-              </div>
-              <a class="btn room-action" href="https://meet.google.com/doj-fzwe-wqt" target="_blank" rel="noreferrer">
-                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Entrar na sala
-              </a>
-            </article>
-              <div class="room-access-flow" aria-label="Fluxo de acesso à sala"><span>Acionar equipe</span><b>→</b><span>Entrar na sala</span><b>→</b><span>Aguardar liberação</span></div>
-            </div>
-            <article class="support-room-card support-room-modeled" data-room-card data-room="ti" data-open="8" data-close="17.5" data-open-label="Disponível agora" data-closed-label="Indisponível">
-              <div class="room-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v9h14V6H5Zm2 2h7v2H7V8Zm0 4h4v2H7v-2Z" fill="currentColor"/></svg>
-              </div>
-              <h3>Sala TI</h3>
-              <span class="room-status" data-room-status>Disponível agora</span>
-              <p class="room-demand-note">Fale agora com a equipe de TI.</p>
-              <div class="room-details">
-                <span class="room-hours">
-                  Seg-Sex, 8h às 17h30
-                </span>
-              </div>
-              <a class="btn room-action" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">
-                <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10.5V6.8A2.8 2.8 0 0 0 13.2 4H5.8A2.8 2.8 0 0 0 3 6.8v10.4A2.8 2.8 0 0 0 5.8 20h7.4a2.8 2.8 0 0 0 2.8-2.8v-3.7l5 3.5V7l-5 3.5Z" fill="currentColor"/></svg>
-                Entrar na sala
-              </a>
-            </article>
-          </div>
+          <div class="gsp-prova-flow"><span>Acionar equipe</span><b>→</b><span>Entrar na sala</span><b>→</b><span>Aguardar liberação</span></div>
         </div>
-        <aside class="roger-assist-card roger-model-card" id="roger" aria-label="Fale com o Roger">
-          <div class="roger-model-left">
-            <div class="roger-model-head">
-              <img class="support-avatar" src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger">
-              <div class="roger-model-intro">
-                <p class="roger-kicker">SUPORTE DO PORTAL GSP</p>
-                <div class="roger-identity"><div class="roger-identity-copy"><h3>Roger</h3><span class="roger-status-pill">Disponível agora</span></div></div>
-                <strong class="roger-question">Dúvida sobre um processo?<br>O Roger acha para você.</strong>
-                <p class="roger-description">Orientações, processos e materiais de apoio do Portal GSP, resolvidos em uma conversa.</p>
-              </div>
-            </div>
-            <ul class="roger-support-points" aria-label="O que o Roger pode fazer">
-              <li><span><strong>Encontra o documento certo</strong> — sem procurar em cinco pastas</span></li>
-              <li><span><strong>Explica o passo a passo</strong> — com o caminho exato no Portal</span></li>
-              <li><span><strong>Responde na hora</strong> — sem fila e sem espera</span></li>
-            </ul>
-            <div class="roger-action-row">
-              <a class="btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Iniciar conversa <span aria-hidden="true">→</span></a>
-            </div>
-            <p class="roger-response-note">Resposta imediata • assistente virtual</p>
-          </div>
+        <aside class="gsp-prova-roger" id="roger" aria-label="Fale com o Roger">
+          <div class="gsp-prova-roger-top"><div class="gsp-prova-id"><img src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger"><div><h3>Roger</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Disponível agora</p></div></div><p class="gsp-prova-label">Suporte do Portal GSP</p></div>
+          <hr class="gsp-prova-divider"><h4>Dúvida sobre um processo?<br>O Roger acha para você.</h4><p class="gsp-prova-desc">Orientações, processos e materiais de apoio do Portal GSP, resolvidos em uma conversa.</p>
+          <ul class="gsp-prova-list"><li><span><strong>Encontra o documento certo</strong> — sem procurar em cinco pastas</span></li><li><span><strong>Explica o passo a passo</strong> — com o caminho exato no Portal</span></li><li><span><strong>Responde na hora</strong> — sem fila e sem espera</span></li></ul>
+          <a class="gsp-prova-btn" href="https://t.me/RogerGSP_bot" target="_blank" rel="noreferrer">Iniciar conversa <span aria-hidden="true">→</span></a><p class="gsp-prova-footer">Resposta imediata • assistente virtual</p>
         </aside>
       </div>
     </section>
