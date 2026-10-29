@@ -5336,7 +5336,7 @@
     .gsp-prova-desc { margin:0 0 20px; color:var(--texto); font-size:13px; line-height:1.6; }
     .gsp-prova-list { display:flex; flex-direction:column; gap:12px; margin:0 0 24px; padding:0; list-style:none; }
     .gsp-prova-list li { display:flex; gap:9px; color:var(--texto); font-size:13px; line-height:1.5; }.gsp-prova-list li::before { content:"✓"; display:grid; width:16px; height:16px; place-items:center; flex:0 0 16px; margin-top:2px; border-radius:50%; color:var(--verde-txt); background:#e3f5f2; font-size:11px; font-weight:900; }.gsp-prova-list strong { color:var(--azul); }
-    .gsp-prova-roger .gsp-prova-btn { background:var(--laranja); }.gsp-prova-footer { margin:10px 0 0; color:var(--texto); font-size:11px; text-align:center; }
+    .gsp-prova-roger .gsp-prova-btn { width:62%; max-width:280px; min-width:220px; align-self:center; background:var(--laranja); }.gsp-prova-footer { margin:10px 0 0; color:var(--texto); font-size:11px; text-align:center; }
     @media (max-width:980px) { .gsp-prova-grid { grid-template-columns:1fr; }.gsp-prova-roger .gsp-prova-btn { margin-top:24px; } }
     @media (max-width:600px) { .gsp-prova { padding:18px; border-radius:18px; }.gsp-prova-room-grid { grid-template-columns:1fr; }.gsp-prova-head h2 { font-size:20px; }.gsp-prova-roger-top { flex-direction:column; }.gsp-prova-label { max-width:none; text-align:left; } }
   </style>
@@ -5657,7 +5657,7 @@
             <article class="gsp-prova-room"><span class="gsp-prova-icon academic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5v14M12 8v8M18 11v2"/></svg></span><h3>Sala de Apoio Acadêmico</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Sob demanda</p><p class="gsp-prova-hours">◷&nbsp; Seg-Sex, 8h às 17h30</p><p class="gsp-prova-note">Acione a equipe antes de entrar na sala.</p><a class="gsp-prova-btn academic" href="https://meet.google.com/doj-fzwe-wqt" target="_blank" rel="noreferrer">▣&nbsp; Entrar na sala</a></article>
             <article class="gsp-prova-room"><span class="gsp-prova-icon ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Sala TI</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Disponível agora</p><p class="gsp-prova-hours">◷&nbsp; Seg-Sex, 8h às 17h30</p><p class="gsp-prova-note">Fale agora com a equipe de TI.</p><a class="gsp-prova-btn ti" href="https://meet.google.com/bwi-ixpi-wge" target="_blank" rel="noreferrer">▣&nbsp; Entrar na sala</a></article>
           </div>
-          <div class="gsp-prova-flow"><span>Acionar equipe</span><b>→</b><span>Entrar na sala</span><b>→</b><span>Aguardar liberação</span></div>
+          <div class="gsp-prova-flow"><strong>Dinâmica do Apoio Acadêmico:</strong><span>Acionar equipe</span><b>→</b><span>Entrar na sala</span><b>→</b><span>Aguardar liberação</span></div>
         </div>
         <aside class="gsp-prova-roger" id="roger" aria-label="Fale com o Roger">
           <div class="gsp-prova-roger-top"><div class="gsp-prova-id"><img src="assets/roger/roger-profile.jpg" alt="Foto de perfil do Roger"><div><h3>Roger</h3><p class="gsp-prova-status"><span class="gsp-prova-dot"></span>Disponível agora</p></div></div><p class="gsp-prova-label">Suporte do Portal GSP</p></div>
