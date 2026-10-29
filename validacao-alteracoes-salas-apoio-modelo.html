@@ -3688,6 +3688,7 @@
 
     /* Modelo completo do card do Roger, sem alterar as Salas de Apoio. */
     .support-room-block.support-assist-section .roger-model-card {
+      position: relative;
       min-height: 0;
       padding: 24px;
       border: 1px solid #cfdaeb;
@@ -3717,8 +3718,12 @@
     .support-room-block.support-assist-section .roger-model-head {
       display: grid;
       grid-template-columns: 112px minmax(0, 1fr);
-      align-items: center;
+      align-items: start;
       gap: 18px;
+    }
+
+    .support-room-block.support-assist-section .roger-model-intro {
+      padding-top: 26px;
     }
 
     .support-room-block.support-assist-section .roger-model-card .roger-identity {
@@ -3768,7 +3773,10 @@
     }
 
     .support-room-block.support-assist-section .roger-model-card .roger-kicker {
-      margin: 0 0 8px;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      margin: 0;
       color: #f57b18;
       font-size: 11px;
       font-weight: 900;
@@ -3794,7 +3802,7 @@
     .support-room-block.support-assist-section .roger-model-card .roger-support-points {
       display: grid;
       gap: 8px;
-      margin: 24px 0 auto;
+      margin: 24px 0 auto 130px;
       padding: 0;
       list-style: none;
     }
