@@ -5367,6 +5367,15 @@
       border-color: var(--border-hover);
       box-shadow: 0 4px 12px rgba(15, 42, 61, .08);
     }
+
+    /* Foco visível apenas por teclado, seguindo o padrão de acessibilidade da HOME. */
+    *:focus { outline: none; }
+    *:focus-visible {
+      outline: 2px solid #1F5FA8;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    [tabindex="-1"]:focus { outline: none; }
   </style>
 </head>
 <body>
