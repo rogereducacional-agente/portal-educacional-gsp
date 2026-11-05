@@ -8,12 +8,16 @@
   <style>
     :root {
       /* Identidade visual provisoria GSP. Trocar estes tokens quando Cleide enviar a paleta final. */
-      --bg-page: #0F2A3D;
+      --bg-page: #EFF4FA;
       --bg-card: #FFFFFF;
-      --bg-card-alt: #F8FAFC;
-      --border-soft: #D5DEE8;
+      --bg-card-alt: #F8FAFD;
+      --border-soft: #DDE5EF;
+      --border-hover: #C5D3E3;
+      --text-main: #1A2733;
+      --text-muted: #5A6B7C;
+      --accent: #1F5FA8;
       --ink: #1A2733;
-      --ink-soft: #40516f;
+      --ink-soft: var(--text-muted);
       --paper: var(--bg-page);
       --surface: var(--bg-card);
       --line: var(--border-soft);
@@ -1150,7 +1154,8 @@
 
     body {
       padding-top: 68px;
-      background: #0F2A3D;
+      background: var(--bg-page);
+      color: var(--text-main);
     }
 
     .site-header {
@@ -5343,6 +5348,25 @@
     .gsp-prova-roger .gsp-prova-btn { width:62%; max-width:280px; min-width:220px; align-self:center; background:var(--laranja); }.gsp-prova-footer { margin:10px 0 0; color:var(--texto); font-size:11px; text-align:center; }
     @media (max-width:980px) { .gsp-prova-grid { grid-template-columns:1fr; }.gsp-prova-roger .gsp-prova-btn { margin-top:24px; } }
     @media (max-width:600px) { .gsp-prova { padding:18px; border-radius:18px; }.gsp-prova-room-grid { grid-template-columns:1fr; }.gsp-prova-head h2 { font-size:20px; }.gsp-prova-roger-top { flex-direction:column; }.gsp-prova-label { max-width:none; text-align:left; } }
+
+    /* Acabamento visual da HOME: aplicado somente aos cards de navegação e comunicados. */
+    .home-shortcut-card,
+    .finder-card,
+    .comunicado-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(15, 42, 61, .04), 0 2px 8px rgba(15, 42, 61, .03);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .home-shortcut-card:hover,
+    .finder-card:hover,
+    .comunicado-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: 0 4px 12px rgba(15, 42, 61, .08);
+    }
   </style>
 </head>
 <body>
