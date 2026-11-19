@@ -15,8 +15,8 @@
     body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:16px;-webkit-font-smoothing:antialiased}
     a{color:inherit}
     a:focus-visible{outline:3px solid var(--coral);outline-offset:4px;border-radius:4px}
-    .site-header{height:76px;background:rgba(255,255,255,.97);display:flex;align-items:center;position:relative;z-index:5;border-bottom:1px solid rgba(16,38,74,.08)}
-    .nav-wrap{width:min(1360px,calc(100% - 64px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .site-header{height:60px;background:rgba(255,255,255,.97);display:flex;align-items:center;position:relative;z-index:5;border-bottom:1px solid rgba(16,38,74,.08)}
+    .nav-wrap{width:min(1360px,calc(100% - 64px));margin:auto;display:flex;align-items:center;justify-content:center}
     .brand{display:inline-flex;align-items:center;gap:9px;text-decoration:none;min-width:max-content}
     .brand-mark{width:48px;height:38px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;transform:skewY(-1deg)}
     .brand-mark span{height:8px;display:block;border-radius:1px 0 0 1px}
@@ -27,10 +27,10 @@
     .brand-name{font-family:var(--display);font-weight:800;letter-spacing:.17em;font-size:15px;line-height:1.02;color:#4a4d55}
     .brand-name small{display:block;font-family:var(--text);font-size:8px;font-weight:700;letter-spacing:.47em;text-align:right;color:#6c7477;margin-top:4px}
     .main-nav{display:flex;align-items:center;gap:clamp(15px,2vw,31px)}
-    .main-nav a{text-decoration:none;font-size:12px;font-weight:750;color:#172443;transition:color .2s var(--ease)}
+    .main-nav a{text-decoration:none;font-size:13px;font-weight:800;color:#172443;transition:color .2s var(--ease)}
     .main-nav a:hover{color:var(--teal)}
     .main-nav .current{color:var(--teal);position:relative}
-    .main-nav .current:after{content:"";position:absolute;left:0;right:0;height:3px;bottom:-14px;background:var(--teal);border-radius:3px}
+    .main-nav .current:after{content:"";position:absolute;left:0;right:0;height:4px;bottom:-20px;background:var(--teal);border-radius:0}
     .tiny-status{font-size:9px;color:#087b68;background:#e6f5ee;padding:3px 7px;border-radius:100px;margin-left:4px;vertical-align:1px;font-weight:800;letter-spacing:.02em}
     .hero{min-height:438px;overflow:hidden;position:relative;background:linear-gradient(112deg,#10264a 0%,#153957 48%,#087f73 100%);color:white;isolation:isolate}
     .hero:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 74% 5%,rgba(183,216,75,.17),transparent 31%),radial-gradient(ellipse at 93% 91%,rgba(25,185,155,.25),transparent 34%)}
@@ -104,14 +104,10 @@
 <body>
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="validacao-alteracoes-salas-apoio-modelo.html#inicio" aria-label="Great Schools Platform — início">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-        <span class="brand-name">GREAT<br>SCHOOLS<small>PLATFORM</small></span>
-      </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="validacao-alteracoes-salas-apoio-modelo.html#inicio">Início</a>
-        <a href="rematricula-2027.html">Novidades 2027</a>
-        <a href="comunicados.html">Comunidades</a>
+        <a href="rematricula-2027.html">Rematrícula 2027</a>
+        <a href="comunicados.html">Comunicados</a>
         <a href="treinamentos-e-guias.html">Processos e Materiais</a>
         <a href="sistema-avaliacao.html">Sistema de Avaliação</a>
         <a class="current" href="portal-professor.html" aria-current="page">Portal do Professor <span class="tiny-status">EM BREVE</span></a>
