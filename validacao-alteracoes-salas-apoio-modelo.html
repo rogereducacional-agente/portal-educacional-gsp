@@ -5368,6 +5368,26 @@
       box-shadow: 0 4px 12px rgba(15, 42, 61, .08);
     }
 
+    /* Mobile: os elementos do buscador deixam de usar coordenadas de desktop. */
+    @media (max-width: 680px) {
+      .home-search-banner { aspect-ratio:auto; min-height:480px; }
+      .home-search-banner::before { background-size:cover; background-position:70% center; }
+      .home-search-banner::after { background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 62%,rgba(255,255,255,.38) 100%); }
+      .home-search-content { position:relative; display:flex; flex-direction:column; min-height:480px; padding:132px 20px 24px; }
+      .home-search-icon { position:absolute; left:28px; top:28px; width:76px; height:76px; }
+      .home-search-kicker,.home-search-title,.home-search-content > p { position:relative; left:auto; top:auto; width:auto; }
+      .home-search-kicker { align-self:flex-start; }
+      .home-search-title { margin:12px 0 0; font-size:34px; }
+      .home-search-content > p { margin:14px 0 0; font-size:15px; }
+      .home-search-panel { position:relative; left:auto; top:auto; width:100%; height:52px; margin-top:22px; }
+      .home-search-panel input { width:66%; padding-left:44px; font-size:13px; }
+      .home-search-panel button { width:34%; padding:0 10px; font-size:14px; }
+      .home-search-chips { position:relative; left:auto; top:auto; width:100%; min-height:0; margin-top:16px; }
+      .comunicados-panel::before { left:-276px; top:auto; bottom:-230px; opacity:.28; }
+      .comunicados-panel::after { opacity:.08; }
+      .comunicados-intro { padding-top:150px; }
+    }
+
     /* Foco visível apenas por teclado, seguindo o padrão de acessibilidade da HOME. */
     *:focus { outline: none; }
     *:focus-visible {
