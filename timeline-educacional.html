@@ -90,7 +90,7 @@
       </div>
       <div class="controls-wrapper">
         <label class="search-box"><span class="search-icon">⌕</span><input id="taskSearch" class="search-input" type="search" placeholder="Buscar ação ou categoria..."></label>
-        <button class="nav-btn primary" id="btnToday" type="button">Mês atual: OUT/26</button>
+        <button class="nav-btn primary" id="btnToday" type="button">Mês atual: NOV/26</button>
         <button class="nav-btn" id="btnScrollLeft" type="button">◀</button>
         <button class="nav-btn" id="btnScrollRight" type="button">▶</button>
         <button class="nav-btn" onclick="window.print()" type="button">Imprimir / PDF</button>
@@ -188,7 +188,6 @@
             </article></div>
         </div>
         <div class="node-slot">
-          <div class="current-pin"><div class="pin-tag"><span>Estamos aqui</span><span class="pin-date">07/10/2026</span></div><div class="pin-arrow"></div></div>
           <div class="month-badge"><span>OUT</span><span class="month-year-sub">2026</span></div>
         </div>
         <div class="task-slot"></div>
@@ -196,6 +195,7 @@
       <section class="month-col month-nov" id="month-nov" style="--month-color:#7e22ce">
         <div class="task-slot"></div>
         <div class="node-slot">
+          <div class="current-pin"><div class="pin-tag"><span>Estamos aqui</span><span class="pin-date">19/11/2026</span></div><div class="pin-arrow"></div></div>
           <div class="month-badge"><span>NOV</span><span class="month-year-sub">2026</span></div>
         </div>
         <div class="task-slot bottom">
@@ -664,7 +664,7 @@
         </div>
       </section></div></main>
   <div class="notice">Além das ações sazonais deste cronograma, a área mantém atuação contínua ao longo do ano: atendimento via Brix, suporte nos grupos de WhatsApp, auditoria de processos, manutenções, cadastros, projetos e treinamentos.</div>
-  <footer class="summary-footer"><div class="kpi-row"><div class="kpi-mini"><span class="kpi-mini-val">62</span><span class="kpi-mini-lbl">Ações listadas</span></div><div class="kpi-mini"><span class="kpi-mini-val">12</span><span class="kpi-mini-lbl">Meses planejados</span></div><div class="kpi-mini"><span class="kpi-mini-val">22</span><span class="kpi-mini-lbl">Categorias</span></div><div class="kpi-mini"><span class="kpi-mini-val">OUT/26</span><span class="kpi-mini-lbl">Marco atual</span></div></div><div><strong>Sistema de Gestão e Planejamento Acadêmico</strong><br><span>Ciclo letivo e matrículas 2026/2027</span></div></footer>
+  <footer class="summary-footer"><div class="kpi-row"><div class="kpi-mini"><span class="kpi-mini-val">62</span><span class="kpi-mini-lbl">Ações listadas</span></div><div class="kpi-mini"><span class="kpi-mini-val">12</span><span class="kpi-mini-lbl">Meses planejados</span></div><div class="kpi-mini"><span class="kpi-mini-val">22</span><span class="kpi-mini-lbl">Categorias</span></div><div class="kpi-mini"><span class="kpi-mini-val">NOV/26</span><span class="kpi-mini-lbl">Marco atual</span></div></div><div><strong>Sistema de Gestão e Planejamento Acadêmico</strong><br><span>Ciclo letivo e matrículas 2026/2027</span></div></footer>
   <div class="footer-line" aria-hidden="true"></div>
   <script>
     const viewport = document.getElementById('timelineViewport');
@@ -692,7 +692,7 @@
     searchInput.addEventListener('input', applyFilters);
     document.getElementById('btnScrollLeft').addEventListener('click', () => viewport.scrollBy({ left:-360, behavior:'smooth' }));
     document.getElementById('btnScrollRight').addEventListener('click', () => viewport.scrollBy({ left:360, behavior:'smooth' }));
-    document.getElementById('btnToday').addEventListener('click', () => document.getElementById('month-out').scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' }));
+    document.getElementById('btnToday').addEventListener('click', () => document.getElementById('month-nov').scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' }));
     let dragging = false, startX = 0, scrollLeft = 0;
     viewport.addEventListener('mousedown', e => { if (e.target.closest('button,input,.task-card')) return; dragging = true; startX = e.pageX - viewport.offsetLeft; scrollLeft = viewport.scrollLeft; });
     viewport.addEventListener('mouseleave', () => dragging = false); viewport.addEventListener('mouseup', () => dragging = false);
